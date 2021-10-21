@@ -17,6 +17,17 @@ One of our main objectives is to make a stressful process easier. Our ASAP app w
 
 The community that will benefit from this mobile application would be anyone who drives a vehicle (users aged 16 or older). We intend to develop this application for Android phones only, as we believe that this will reach a substantial number of our target users.  
 
+### Features
+
+* Android Studio
+* Java programming language
+* SQL database
+* Step-By-Step accident guide
+* Handbook on best driving practices (accident prevention)
+* Ability to call emergency services
+* Access to device camera to take photos
+* Use GPS to acquire current location
+
 ### Wireframes
 
 **Initial Registration, Login, and Home Pages**
@@ -30,17 +41,6 @@ The community that will benefit from this mobile application would be anyone who
 
 **Step 4 of the Step-By-Step accident guide**
 ![wireframe4](https://user-images.githubusercontent.com/79105828/138201802-1f73b553-c9f4-46f0-9626-01821fd278ab.jpg)
-
-### Features
-
-* Android Studio
-* Java programming language
-* SQL database
-* Step-By-Step accident guide
-* Handbook on best driving practices (accident prevention)
-* Ability to call emergency services
-* Access to device camera to take photos
-* Use GPS to acquire current location
 
 ### Four Week Plan
 
