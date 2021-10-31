@@ -7,4 +7,94 @@
     tools:context=".Registration"
     android:background="@drawable/gradient_background">
 
+
+    <TextView
+        android:layout_width="335dp"
+        android:layout_height="wrap_content"
+        tools:layout_editor_absoluteX="38dp"
+        tools:layout_editor_absoluteY="16dp"
+        android:text="Registration"
+        android:textStyle="bold"
+        android:textSize="24dp"
+        android:textColor="#0A4A48"
+        android:textAlignment="center"/>
+
+    <EditText
+        android:id="@+id/firsName"
+        android:layout_width="335dp"
+        android:layout_height="34dp"
+        android:background="@drawable/rounded_corners"
+        android:text="  First Name"
+        tools:layout_editor_absoluteX="38dp"
+        tools:layout_editor_absoluteY="112dp" />
+
+    <EditText
+        android:id="@+id/lastName"
+        android:layout_width="335dp"
+        android:layout_height="34dp"
+        android:background="@drawable/rounded_corners"
+        android:text="  Last Name"
+        tools:layout_editor_absoluteX="38dp"
+        tools:layout_editor_absoluteY="193dp" />
+
+    <EditText
+        android:id="@+id/Email"
+        android:layout_width="335dp"
+        android:layout_height="34dp"
+        android:background="@drawable/rounded_corners"
+        android:text="  Email"
+        tools:layout_editor_absoluteX="38dp"
+        tools:layout_editor_absoluteY="282dp" />
+
+    <EditText
+        android:id="@+id/password_toggle"
+        android:layout_width="335dp"
+        android:layout_height="34dp"
+        android:background="@drawable/rounded_corners"
+        android:text="  Password"
+        tools:layout_editor_absoluteX="38dp"
+        tools:layout_editor_absoluteY="365dp" />
+
+    <EditText
+        android:id="@+id/licNo"
+        android:layout_width="335dp"
+        android:layout_height="34dp"
+        android:background="@drawable/rounded_corners"
+        android:text="  Licence No."
+        tools:layout_editor_absoluteX="38dp"
+        tools:layout_editor_absoluteY="458dp" />
+
+    <EditText
+        android:id="@+id/policyNo"
+        android:layout_width="335dp"
+        android:layout_height="34dp"
+        android:background="@drawable/rounded_corners"
+        android:text="  Policy No."
+        tools:layout_editor_absoluteX="38dp"
+        tools:layout_editor_absoluteY="542dp" />
+
+    <Button
+        android:id="@+id/loginBtn"
+        android:layout_width="150dp"
+        android:layout_height="40dp"
+        tools:layout_editor_absoluteX="26dp"
+        tools:layout_editor_absoluteY="640dp"
+        android:background="@drawable/rounded_button"
+        android:text="Login"
+        android:textAlignment="center"
+        />
+
+    <Button
+        android:id="@+id/skipBtn"
+        android:layout_width="150dp"
+        android:layout_height="40dp"
+        android:background="@drawable/rounded_button"
+        android:text="Skip"
+        android:textAlignment="center"
+        android:textStyle="bold"
+        tools:layout_editor_absoluteX="223dp"
+        tools:layout_editor_absoluteY="640dp"
+        android:color="#0A4A48"/>
+
+
 </androidx.constraintlayout.widget.ConstraintLayout>
