@@ -5,8 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".Registration"
-    android:background="#0F2355">
-
+    android:background="@color/background">
 
     <TextView
         android:layout_width="335dp"
@@ -20,8 +19,8 @@
         tools:layout_editor_absoluteY="587dp" />
 
     <ImageView
-        android:layout_width=""
-        android:layout_height=""
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
     <EditText
         android:id="@+id/firsName"
         android:layout_width="335dp"
