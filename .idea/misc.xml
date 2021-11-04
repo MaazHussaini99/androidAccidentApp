@@ -7,6 +7,12 @@
         <entry key="..\:/Users/maazh/OneDrive/Desktop/androidAccidentApp/app/src/main/res/drawable/rounded_button.xml" value="0.1" />
         <entry key="..\:/Users/maazh/OneDrive/Desktop/androidAccidentApp/app/src/main/res/drawable/rounded_corners.xml" value="0.1015" />
         <entry key="..\:/Users/maazh/OneDrive/Desktop/androidAccidentApp/app/src/main/res/layout/activity_registration.xml" value="0.264" />
+        <entry key="app/src/main/res/drawable/gradient_background.xml" value="0.1359375" />
+        <entry key="app/src/main/res/drawable/ic_arrow_back_24.xml" value="0.1359375" />
+        <entry key="app/src/main/res/drawable/ic_arrow_forward_24.xml" value="0.1359375" />
+        <entry key="app/src/main/res/layout/activity_main.xml" value="0.11979166666666667" />
+        <entry key="app/src/main/res/layout/activity_registration.xml" value="0.6025408348457351" />
+        <entry key="app/src/main/res/layout/activity_step2.xml" value="0.11979166666666667" />
       </map>
     </option>
   </component>

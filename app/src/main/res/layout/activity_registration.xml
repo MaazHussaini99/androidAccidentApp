@@ -1,11 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#0F2355"
     tools:context=".Registration"
-    android:background="#0F2355">
+    >
 
 
     <TextView
@@ -20,8 +21,8 @@
         tools:layout_editor_absoluteY="587dp" />
 
     <ImageView
-        android:layout_width=""
-        android:layout_height=""
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
     <EditText
         android:id="@+id/firsName"
         android:layout_width="335dp"
@@ -98,9 +99,7 @@
         tools:layout_editor_absoluteX="223dp"
         tools:layout_editor_absoluteY="640dp"
 
-        >
-
-    </Button>
+        />
 
     <ImageView
         android:id="@+id/imageView"
@@ -119,4 +118,4 @@
         tools:layout_editor_absoluteY="0dp" />
 
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+</LinearLayout>
