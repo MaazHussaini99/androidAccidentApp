@@ -10,6 +10,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.AndroidAccidentApp">
         <activity
+            android:name=".Home"
+            android:exported="false" />
+        <activity
             android:name=".Registration"
             android:exported="true" />
         <activity android:name=".MainActivity">
