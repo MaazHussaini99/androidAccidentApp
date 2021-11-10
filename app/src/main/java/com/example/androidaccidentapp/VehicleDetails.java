@@ -7,19 +7,17 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 
-public class infoExchange extends AppCompatActivity {
+public class VehicleDetails extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_infoexchange);
+        setContentView(R.layout.activity_vehicle_details);
 
 
-        Button btn1;
-        btn1 = (Button) findViewById(R.id.saveInsuranceInfo);
 
-
-        btn1.setOnClickListener(new View.OnClickListener() {
+        Button saveVehicle = (Button)findViewById(R.id.saveVehicle);
+        saveVehicle.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 changeToNextActivity(view);
@@ -27,9 +25,8 @@ public class infoExchange extends AppCompatActivity {
         });
     }
 
-
     public void changeToNextActivity(View v){
-        Intent intent = new Intent(this, VehicleDetails.class);
+        Intent intent = new Intent(this, SavedVehicles.class);
         this.startActivity(intent);
     }
 }
