@@ -3,6 +3,9 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/elgre/AndroidStudioProjects/androidAccidentApp/app/src/main/res/layout/activity_login.xml" value="0.264" />
+        <entry key="..\:/Users/elgre/AndroidStudioProjects/androidAccidentApp/app/src/main/res/layout/activity_registration.xml" value="0.264" />
+        <entry key="..\:/Users/elgre/AndroidStudioProjects/androidAccidentApp/app/src/main/res/layout/activity_step5.xml" value="0.264" />
         <entry key="..\:/Users/maazh/OneDrive/Desktop/androidAccidentApp/app/src/main/res/drawable/gradient_background.xml" value="0.15" />
         <entry key="..\:/Users/maazh/OneDrive/Desktop/androidAccidentApp/app/src/main/res/drawable/rounded_button.xml" value="0.1" />
         <entry key="..\:/Users/maazh/OneDrive/Desktop/androidAccidentApp/app/src/main/res/drawable/rounded_corners.xml" value="0.1015" />
@@ -15,5 +18,12 @@
   </component>
   <component name="ProjectType">
     <option name="id" value="Android" />
+  </component>
+  <component name="VisualizationToolProject">
+    <option name="state">
+      <ProjectState>
+        <option name="scale" value="0.264" />
+      </ProjectState>
+    </option>
   </component>
 </project>
