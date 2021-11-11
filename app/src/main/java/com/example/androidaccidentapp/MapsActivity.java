@@ -5,9 +5,12 @@ import androidx.core.app.ActivityCompat;
 import androidx.fragment.app.FragmentActivity;
 
 import android.Manifest;
+import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.location.Location;
 import android.os.Bundle;
+import android.widget.Button;
+import android.widget.Toast;
 
 import com.google.android.gms.location.FusedLocationProviderClient;
 import com.google.android.gms.location.LocationServices;
@@ -32,6 +35,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
     FusedLocationProviderClient client;
     SupportMapFragment mapFragment;
     Hashtable<String, String> coordinates = new Hashtable<String, String>();
+    Button btn;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -47,6 +51,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
 
         //initialize fused location
         client = LocationServices.getFusedLocationProviderClient(this);
+
 
         //check permissions
         if (ActivityCompat.checkSelfPermission(MapsActivity.this, Manifest.permission.ACCESS_FINE_LOCATION) == PackageManager.PERMISSION_GRANTED) {
@@ -143,7 +148,16 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                     coordinates.put("Latitude", ""+arg0.getLatitude());
                     coordinates.put("Longitude", ""+arg0.getLongitude());
                     mMap.addMarker(new MarkerOptions().position(new LatLng(arg0.getLatitude(), arg0.getLongitude())).title("You are here"));
-                    System.out.println("Your location: " + coordinates.get("Latitude") + ", " + coordinates.get("Longitude"));
+                    mMap.setOnMarkerClickListener(new GoogleMap.OnMarkerClickListener() {
+                        @Override
+                        public boolean onMarkerClick(@NonNull Marker marker) {
+                            //when location marker is clicked
+                            //Toast.makeText(MapsActivity.this, "Your location: " + coordinates.get("Latitude") + ", " + coordinates.get("Longitude"), Toast.LENGTH_LONG).show();
+                            leaveMaps();
+                            return true;
+                        }
+                    });
+                    //System.out.println("Your location: " + coordinates.get("Latitude") + ", " + coordinates.get("Longitude"));
                 }
             });
         }
@@ -152,7 +166,10 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
             //request permission
             ActivityCompat.requestPermissions(MapsActivity.this, new String[]{Manifest.permission.ACCESS_FINE_LOCATION}, 44);
         }
+    }
 
+    public void leaveMaps(){
+        startActivity(new Intent(this.getApplicationContext(), MainActivity.class));
 
     }
 }
