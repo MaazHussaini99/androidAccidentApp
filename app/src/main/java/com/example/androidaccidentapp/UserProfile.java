@@ -26,6 +26,8 @@ public class UserProfile extends AppCompatActivity {
     }
 
     public void save(View view) {
+        Intent intent = new Intent(UserProfile.this, Home.class);
+        startActivity(intent);
     }
 
 }
