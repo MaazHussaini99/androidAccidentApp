@@ -11,16 +11,19 @@
         android:theme="@style/Theme.AndroidAccidentApp">
         <activity
             android:name=".SplashActivity"
-            android:theme="@style/SplashStyle"
+            android:exported="true"
             android:noHistory="true"
             android:screenOrientation="portrait"
-            android:exported="true">
+            android:theme="@style/SplashStyle">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity
+            android:name=".Step1"
+            android:exported="false" />
         <activity
             android:name=".InsuranceProfile"
             android:exported="false" />
@@ -35,7 +38,7 @@
             android:exported="false" />
         <activity
             android:name=".Registration"
-            android:exported="false"/>
+            android:exported="false" />
         <activity android:name=".MainActivity" />
     </application>
 

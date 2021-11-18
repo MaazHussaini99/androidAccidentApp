@@ -67,8 +67,8 @@ public class Home extends AppCompatActivity {
         switch (view.getId()){
             case R.id.step_by_step:{
                 Toast.makeText(Home.this, "Step-By-Step", Toast.LENGTH_SHORT).show();
-//                Intent myIntent = new Intent(Home.this, StepByStep.class);
-//                Home.this.startActivity(myIntent);
+                Intent myIntent = new Intent(Home.this, Step1.class);
+                Home.this.startActivity(myIntent);
                 break;
             }
             case R.id.handbook:{
