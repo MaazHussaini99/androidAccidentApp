@@ -32,10 +32,11 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="65dp"
-        android:text="Assess your surroundings."
+        android:text="Make sure everyone in your\nvehicle is okay"
         android:textColor="@color/white"
         android:textStyle="bold"
         android:textSize="26dp"
+        android:textAlignment="center"
         app:layout_constraintTop_toBottomOf="@id/logo"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"/>
@@ -51,6 +52,28 @@
         android:textSize="26dp"
         android:textAlignment="center"
         app:layout_constraintTop_toBottomOf="@id/instr1"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"/>
+
+    <Button
+        android:id="@+id/dial911_btn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="55dp"
+        android:text="Call 911"
+        android:backgroundTint="@color/logo"
+        app:layout_constraintTop_toBottomOf="@id/instr2"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"/>
+
+    <Button
+        android:id="@+id/emergencyContact_btn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="55dp"
+        android:text="Emergency\nContact"
+        android:backgroundTint="@color/logo"
+        app:layout_constraintTop_toBottomOf="@id/dial911_btn"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"/>
 

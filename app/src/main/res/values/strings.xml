@@ -1,4 +1,4 @@
 <resources>
-    <string name="app_name">androidAccidentApp</string>
-    <string name="step1Instruction">If you are uninjured, \nand it is safe to do so,\ntake this time to move\nyour vehicle to a safe place\nto wait for police to arrive.</string>
+    <string name="app_name">ASAP</string>
+    <string name="step1Instruction">Select one of the below\ncontact options, or skip to \nthe next step.</string>
 </resources>
