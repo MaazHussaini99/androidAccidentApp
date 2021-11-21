@@ -57,8 +57,8 @@
 
     <Button
         android:id="@+id/dial911_btn"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="140dp"
+        android:layout_height="60dp"
         android:layout_marginTop="55dp"
         android:text="Call 911"
         android:backgroundTint="@color/logo"
@@ -68,8 +68,8 @@
 
     <Button
         android:id="@+id/emergencyContact_btn"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="140dp"
+        android:layout_height="60dp"
         android:layout_marginTop="55dp"
         android:text="Emergency\nContact"
         android:backgroundTint="@color/logo"
