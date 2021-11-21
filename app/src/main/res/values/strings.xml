@@ -1,3 +1,4 @@
 <resources>
-    <string name="app_name">androidAccidentApp</string>
+    <string name="app_name">ASAP</string>
+    <string name="step1Instruction">Select one of the below\ncontact options, or skip to \nthe next step.</string>
 </resources>
