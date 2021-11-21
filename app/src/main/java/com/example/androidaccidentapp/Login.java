@@ -12,6 +12,8 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.google.android.gms.auth.api.signin.GoogleSignInOptions;
+
 public class Login extends AppCompatActivity {
 
     Button Register, Login; //set up to use later
@@ -32,6 +34,15 @@ public class Login extends AppCompatActivity {
         password = (TextView) findViewById(R.id.password);
         Register = (Button) findViewById(R.id.Skip);
         Login = (Button) findViewById(R.id.Login);
+
+        // Configure sign-in to request the user's ID, email address, and basic
+// profile. ID and basic profile are included in DEFAULT_SIGN_IN.
+        GoogleSignInOptions gso = new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
+                .requestEmail()
+                .build();
+
+        // Build a GoogleSignInClient with the options specified by gso.
+        mGoogleSignInClient = GoogleSignInActivity.getClient(this, gso);
 
     }
 

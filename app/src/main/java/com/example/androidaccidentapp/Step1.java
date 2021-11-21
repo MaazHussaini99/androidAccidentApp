@@ -28,6 +28,12 @@ public class Step1 extends AppCompatActivity {
         call.setOnClickListener(new View.OnClickListener() { //call button is 911, dials it for you
             @Override
             public void onClick(View view) {
+
+                PhoneCallListener phoneListener = new PhoneCallListener(); //PhoneCallListener looks if a call is ongoing
+                TelephonyManager telephonyManager = (TelephonyManager) //tells you about telephony services and phone state
+                        getSystemService(Context.TELEPHONY_SERVICE);
+                telephonyManager.listen(phoneListener,
+                        PhoneStateListener.LISTEN_CALL_STATE);
                 Uri callService = Uri.parse("tel://911"); //dials 911
                 Intent callIntent = new Intent(Intent.ACTION_DIAL,callService); //notably has to be a dial, cannot do call with emergency service like 911 since call privileged is exclusive to system apps
                 startActivity(callIntent);
@@ -71,7 +77,7 @@ public class Step1 extends AppCompatActivity {
         });
     }
 
-  private class PhoneCallListener extends PhoneStateListener { //this looks for what state the phone is in
+  public class PhoneCallListener extends PhoneStateListener { //this looks for what state the phone is in
 
         private boolean phoneCall = false; //start as false, depending on state, does certain actions
 
@@ -90,8 +96,7 @@ public class Step1 extends AppCompatActivity {
 
                 if (phoneCall) {
                     // this restarts the application back
-                    Intent i = getBaseContext().getPackageManager().getLaunchIntentForPackage(
-                            getBaseContext().getPackageName());
+                    Intent i = new Intent(Step1.this, Step1.class);
                     i.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                     startActivity(i);
                     phoneCall = false;
