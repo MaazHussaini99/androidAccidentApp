@@ -11,7 +11,10 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import com.google.firebase.auth.FirebaseAuth;
+
 public class Registration extends AppCompatActivity {
+
 
     Button Complete;
     EditText entry1, entry2, entry3, entry4, entry5, entry6;
@@ -20,6 +23,8 @@ public class Registration extends AppCompatActivity {
     // is followed by any alphanumerical character(s), dot, underscore or dash, which is followed by a period or dot and that is followed
     // by alphanumerical characters. This sequence wants a format of xxxxx@xxxx.xxx and it gets checked by
     // the if statement later and if it doesn't follow this sequence, it will tell you to fill in a valid address
+    private FirebaseAuth auth;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,6 +39,8 @@ public class Registration extends AppCompatActivity {
         entry4 = (EditText) findViewById(R.id.licNo);
         entry5 = (EditText) findViewById(R.id.policyNo);
         entry6 = (EditText) findViewById(R.id.Email);
+
+        auth = FirebaseAuth.getInstance();
     }
 
     public void LoginToApp(View v) { //before moving back to login, makes sure all fields are valid in some way

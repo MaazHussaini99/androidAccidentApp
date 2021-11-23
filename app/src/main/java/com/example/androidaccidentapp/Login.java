@@ -42,7 +42,7 @@ public class Login extends AppCompatActivity {
                 .build();
 
         // Build a GoogleSignInClient with the options specified by gso.
-        mGoogleSignInClient = GoogleSignInActivity.getClient(this, gso);
+      //  mGoogleSignInClient = GoogleSignInActivity.getClient(this, gso);
 
     }
 
@@ -65,7 +65,7 @@ public class Login extends AppCompatActivity {
     }
 
     public void Register(View v) { //switch to registration activity
-        Intent n = new Intent(this, Registration.class);
+        Intent n = new Intent(this, Registering.class);
         startActivity(n);
     }
 }
