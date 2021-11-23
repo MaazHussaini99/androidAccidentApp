@@ -12,10 +12,13 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.AndroidAccidentApp">
         <activity
+            android:name=".SignedInActivity"
+            android:exported="true" />
+        <activity
             android:name=".GoogleSignIn"
             android:exported="true" />
         <activity
-            android:name=".Registering"
+            android:name=".Login"
             android:exported="true" />
         <activity
             android:name=".FirebaseUI"
@@ -29,7 +32,7 @@
         <activity
             android:name=".Registration"
             android:exported="true" />
-        <activity android:name=".Login">
+        <activity android:name=".Registering">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
