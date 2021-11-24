@@ -68,9 +68,9 @@ public class Registering extends AppCompatActivity {
                 String txt_password2 = password2.getText().toString();
 
                 if (isEmpty(txt_email2) || TextUtils.isEmpty(txt_password2)) {
-                    Toast.makeText(Registering.this, "Empty credentials", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(Registering.this, "Please fill in all fields", Toast.LENGTH_SHORT).show();
                 } else if (txt_password2.length() < 6) {
-                    Toast.makeText(Registering.this, "Password must be at least 6 characters", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(Registering.this, "Password should be at least 6 characters", Toast.LENGTH_SHORT).show();
                 } else {
                     signIn(txt_email2, txt_password2);
                 }
@@ -123,5 +123,10 @@ public class Registering extends AppCompatActivity {
     }
 
     private void updateUI(FirebaseUser user) {
+    }
+
+    public void Complete(View view) {
+        Intent n = new Intent(this, Login.class);
+        startActivity(n);
     }
 }
