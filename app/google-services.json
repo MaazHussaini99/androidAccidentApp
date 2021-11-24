@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "588905239031",
+    "firebase_url": "https://asap-7de0d-default-rtdb.firebaseio.com",
+    "project_id": "asap-7de0d",
+    "storage_bucket": "asap-7de0d.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:588905239031:android:d2eeafcb07db890c899ef2",
+        "android_client_info": {
+          "package_name": "com.example.androidaccidentapp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "588905239031-0lms1q3vn93g052h10l3np9doessfc08.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDnwoTfFXa673pMjRoqlZwEp_k35RkQtqs"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "588905239031-0lms1q3vn93g052h10l3np9doessfc08.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

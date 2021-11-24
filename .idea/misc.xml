@@ -3,6 +3,18 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/elgre/AndroidStudioProjects/androidAccidentApp/app/src/main/res/drawable/gradient_background.xml" value="0.2703125" />
+        <entry key="..\:/Users/elgre/AndroidStudioProjects/androidAccidentApp/app/src/main/res/layout/Step1.xml" value="0.264" />
+        <entry key="..\:/Users/elgre/AndroidStudioProjects/androidAccidentApp/app/src/main/res/layout/activity_firebase_ui.xml" value="0.13020833333333334" />
+        <entry key="..\:/Users/elgre/AndroidStudioProjects/androidAccidentApp/app/src/main/res/layout/activity_google_sign_in.xml" value="0.12360688956433637" />
+        <entry key="..\:/Users/elgre/AndroidStudioProjects/androidAccidentApp/app/src/main/res/layout/activity_google_sign_in2.xml" value="0.13722826086956522" />
+        <entry key="..\:/Users/elgre/AndroidStudioProjects/androidAccidentApp/app/src/main/res/layout/activity_login.xml" value="0.264" />
+        <entry key="..\:/Users/elgre/AndroidStudioProjects/androidAccidentApp/app/src/main/res/layout/activity_main.xml" value="0.14402173913043478" />
+        <entry key="..\:/Users/elgre/AndroidStudioProjects/androidAccidentApp/app/src/main/res/layout/activity_registering.xml" value="0.264" />
+        <entry key="..\:/Users/elgre/AndroidStudioProjects/androidAccidentApp/app/src/main/res/layout/activity_registration.xml" value="0.264" />
+        <entry key="..\:/Users/elgre/AndroidStudioProjects/androidAccidentApp/app/src/main/res/layout/activity_signed_in.xml" value="0.13722826086956522" />
+        <entry key="..\:/Users/elgre/AndroidStudioProjects/androidAccidentApp/app/src/main/res/layout/activity_step1.xml" value="0.15081521739130435" />
+        <entry key="..\:/Users/elgre/AndroidStudioProjects/androidAccidentApp/app/src/main/res/layout/activity_step5.xml" value="0.264" />
         <entry key="..\:/Users/maazh/OneDrive/Desktop/androidAccidentApp/app/src/main/res/drawable/gradient_background.xml" value="0.15" />
         <entry key="..\:/Users/maazh/OneDrive/Desktop/androidAccidentApp/app/src/main/res/drawable/rounded_button.xml" value="0.1" />
         <entry key="..\:/Users/maazh/OneDrive/Desktop/androidAccidentApp/app/src/main/res/drawable/rounded_corners.xml" value="0.1015" />
@@ -15,5 +27,12 @@
   </component>
   <component name="ProjectType">
     <option name="id" value="Android" />
+  </component>
+  <component name="VisualizationToolProject">
+    <option name="state">
+      <ProjectState>
+        <option name="scale" value="0.264" />
+      </ProjectState>
+    </option>
   </component>
 </project>
