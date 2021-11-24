@@ -24,7 +24,7 @@ public class Home extends AppCompatActivity {
         setContentView(R.layout.activity_home);
 
         userAcct = findViewById(R.id.account_ic);
-        String[] options = {"User Profile", "Vehicle Profile", "Insurance Policy"};
+        String[] options = {"View User Profile", "View Vehicle Profile", "View Insurance Policy"};
         ArrayAdapter<String> adapter = new ArrayAdapter<>(this, android.R.layout.select_dialog_item, options);
 
         userAcct.setOnClickListener(v -> {
