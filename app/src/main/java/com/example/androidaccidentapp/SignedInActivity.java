@@ -86,4 +86,8 @@ public class SignedInActivity extends AppCompatActivity {
         Toast.makeText(SignedInActivity.this, message,
                 Toast.LENGTH_SHORT).show();
     }
+
+    public void goToMaps(View view) {
+        startActivity(new Intent(this.getApplicationContext(), MapsActivity.class));
+    }
 }
