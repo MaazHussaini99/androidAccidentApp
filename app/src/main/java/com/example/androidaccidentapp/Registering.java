@@ -108,7 +108,7 @@ public class Registering extends AppCompatActivity {
                             Toast.makeText(Registering.this, "Authentication success.",
                                     Toast.LENGTH_SHORT).show();
                             updateUI(user);
-                            Intent n = new Intent(Registering.this, SignedInActivity.class);
+                            Intent n = new Intent(Registering.this, infoExchange.class);
                             startActivity(n);
 
                         } else {
