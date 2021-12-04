@@ -1,8 +1,11 @@
 package com.example.androidaccidentapp;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.view.GravityCompat;
+import androidx.drawerlayout.widget.DrawerLayout;
 
 import android.Manifest;
+import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.content.pm.PackageManager;
@@ -17,10 +20,13 @@ import android.widget.Button;
 
 public class Step1 extends AppCompatActivity {
 
+    DrawerLayout drawerLayout;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.step1);
+        drawerLayout = findViewById(R.id.drawer_layout);
 
         final Button call = findViewById(R.id.dial911_btn); //button for 911 which is call
         final Button emergency = findViewById(R.id.emergencyContact_btn); //button for contact which is emergency
@@ -77,7 +83,12 @@ public class Step1 extends AppCompatActivity {
         });
     }
 
-  public class PhoneCallListener extends PhoneStateListener { //this looks for what state the phone is in
+    public void next(View view) {
+        startActivity(new Intent(this.getApplicationContext(), Step2.class));
+
+    }
+
+    public class PhoneCallListener extends PhoneStateListener { //this looks for what state the phone is in
 
         private boolean phoneCall = false; //start as false, depending on state, does certain actions
 
@@ -103,6 +114,50 @@ public class Step1 extends AppCompatActivity {
                 }
             }
         }
+    }
+
+    public void clickMenu(View view){
+        openDrawer(drawerLayout);
+    }
+
+    public static void openDrawer(DrawerLayout drawerLayout) {
+        drawerLayout.openDrawer(GravityCompat.START);
+    }
+
+    static void closeDrawer(DrawerLayout drawerLayout) {
+        if(drawerLayout.isDrawerOpen(GravityCompat.START)){
+            drawerLayout.closeDrawer(GravityCompat.START);
+        }
+    }
+
+    public void clickGuide(View view){
+        recreate();
+    }
+
+    public void clickLogin(View view){
+        redirectActivity(this, Login.class);
+    }
+
+    public void clickMaps(View view){
+        redirectActivity(this, MapsActivity.class);
+    }
+
+    public void clickRegister(View view){
+        redirectActivity(this, Registering.class);
+    }
+
+    static void redirectActivity(Activity activity, Class aClass) {
+        Intent intent = new Intent(activity, aClass);
+
+        intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+
+        activity.startActivity(intent);
+    }
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+        closeDrawer(drawerLayout);
     }
 }
 

@@ -2,9 +2,12 @@ package com.example.androidaccidentapp;
 
 import androidx.annotation.NonNull;
 import androidx.core.app.ActivityCompat;
+import androidx.core.view.GravityCompat;
+import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.fragment.app.FragmentActivity;
 
 import android.Manifest;
+import android.app.Activity;
 import android.app.Dialog;
 import android.content.Intent;
 import android.content.pm.PackageManager;
@@ -60,6 +63,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
     Hashtable<String, String> coordinates = new Hashtable<String, String>();
     Button btn;
     String name = "Bryan";
+    DrawerLayout drawerLayout;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -67,6 +71,8 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
 
         binding = ActivityMapsBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
+
+        drawerLayout = findViewById(R.id.drawer_layout);
 
         // Obtain the SupportMapFragment and get notified when the map is ready to be used.
         mapFragment = (SupportMapFragment) getSupportFragmentManager()
@@ -122,7 +128,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                             MarkerOptions options = new MarkerOptions().position(latlng).title("You are here");
 
                             //zoom map
-                            googleMap.animateCamera(CameraUpdateFactory.newLatLngZoom(latlng, 10));
+                            googleMap.animateCamera(CameraUpdateFactory.newLatLngZoom(latlng, 15));
 
                             //add marker to map
                             googleMap.addMarker(options);
@@ -240,8 +246,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
             public void onDataChange(DataSnapshot snapshot) {
                 if (snapshot.exists()) {
                     //testing to make sure it recognizes
-                    //Toast.makeText(MapsActivity.this, "Report 1 already exists", Toast.LENGTH_SHORT).show();
-                    reportsCounter++;
+                    Toast.makeText(MapsActivity.this, "Report 1 already exists", Toast.LENGTH_SHORT).show();
 
                 } else {
                     // Don't exist! Do something.
@@ -261,5 +266,82 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
     public String getNextReport(){
         String result = "Report + " + reports.size() + 1;
         return result;
+    }
+
+    public void deleteData(View view) {
+
+        DatabaseReference rootRef = FirebaseDatabase.getInstance().getReference().child("Accident Reports").child("Report 1");
+        DatabaseReference reportReference = FirebaseDatabase.getInstance().getReference().child("Report 1");
+        rootRef.addListenerForSingleValueEvent(new ValueEventListener() {
+
+            @Override
+            public void onDataChange(DataSnapshot snapshot) {
+                if (snapshot.exists()) {
+                    //delete if exists
+                    FirebaseDatabase.getInstance().getReference().child("Accident Reports").child("Report 1").removeValue();
+                    Toast.makeText(MapsActivity.this, "Report deleted", Toast.LENGTH_SHORT).show();
+
+                } else {
+                    // Don't exist! Do something.
+
+                }
+            }
+
+            @Override
+            public void onCancelled(DatabaseError error) {
+                // Failed, how to handle?
+
+            }
+
+        });
+
+    }
+
+    public void clickMenu(View view){
+        openDrawer(drawerLayout);
+    }
+
+    public static void openDrawer(DrawerLayout drawerLayout) {
+        drawerLayout.openDrawer(GravityCompat.START);
+    }
+
+    public void ClickLogo(View view){
+        closeDrawer(drawerLayout);
+    }
+
+    static void closeDrawer(DrawerLayout drawerLayout) {
+        if(drawerLayout.isDrawerOpen(GravityCompat.START)){
+            drawerLayout.closeDrawer(GravityCompat.START);
+        }
+    }
+
+    public void clickLogin(View view){
+        redirectActivity(this, Login.class);
+    }
+
+    public void clickRegister(View view){
+        redirectActivity(this, Registering.class);
+    }
+
+    public void clickMaps(View view){
+        recreate();
+    }
+
+    public void clickGuide(View view){
+        redirectActivity(this, Step1.class);
+    }
+
+    static void redirectActivity(Activity activity, Class aClass) {
+        Intent intent = new Intent(activity, aClass);
+
+        intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+
+        activity.startActivity(intent);
+    }
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+        closeDrawer(drawerLayout);
     }
 }

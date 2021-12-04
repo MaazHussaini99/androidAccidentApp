@@ -5,7 +5,10 @@ import static android.text.TextUtils.isEmpty;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.view.GravityCompat;
+import androidx.drawerlayout.widget.DrawerLayout;
 
+import android.app.Activity;
 import android.os.Bundle;
 import android.content.Context;
 import android.content.Intent;
@@ -15,6 +18,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -35,10 +39,16 @@ public class Login extends AppCompatActivity {
 
     private FirebaseAuth auth;
 
+    DrawerLayout drawerLayout;
+    ImageView menuButton;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
+        drawerLayout = findViewById(R.id.drawer_layout);
+        menuButton = (ImageView) findViewById(R.id.menuButton);
+
 
         email = findViewById(R.id.email);
         password = findViewById(R.id.password);
@@ -52,14 +62,67 @@ public class Login extends AppCompatActivity {
         Login = (Button) findViewById(R.id.Login);
 
 
+
+
+
     }
 
     public void Register(View v) { //switch to registration activity
         Intent n = new Intent(this, Registering.class);
         startActivity(n);
+
     }
 
     private void updateUI(FirebaseUser user) {
 
+    }
+
+
+    public void clickMenu(View view){
+        openDrawer(drawerLayout);
+    }
+
+    public static void openDrawer(DrawerLayout drawerLayout) {
+        drawerLayout.openDrawer(GravityCompat.START);
+    }
+
+    public void ClickLogo(View view){
+        closeDrawer(drawerLayout);
+    }
+
+    static void closeDrawer(DrawerLayout drawerLayout) {
+        if(drawerLayout.isDrawerOpen(GravityCompat.START)){
+            drawerLayout.closeDrawer(GravityCompat.START);
+        }
+    }
+
+    public void clickLogin(View view){
+        recreate();
+    }
+
+    public void clickRegister(View view){
+        redirectActivity(this, Registering.class);
+    }
+
+    public void clickMaps(View view){
+        redirectActivity(this, MapsActivity.class);
+    }
+
+    public void clickGuide(View view){
+        redirectActivity(this, Step1.class);
+    }
+
+    static void redirectActivity(Activity activity, Class aClass) {
+        Intent intent = new Intent(activity, aClass);
+
+        intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+
+        activity.startActivity(intent);
+    }
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+        closeDrawer(drawerLayout);
     }
 }

@@ -3,9 +3,19 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/Gamer/AndroidStudioProjects/androidAccidentApp2/app/src/main/res/drawable-v24/ic_home.xml" value="0.2101851851851852" />
+        <entry key="..\:/Users/Gamer/AndroidStudioProjects/androidAccidentApp2/app/src/main/res/drawable-v24/ic_menu.xml" value="0.2101851851851852" />
+        <entry key="..\:/Users/Gamer/AndroidStudioProjects/androidAccidentApp2/app/src/main/res/drawable-v24/ic_more.xml" value="0.2101851851851852" />
+        <entry key="..\:/Users/Gamer/AndroidStudioProjects/androidAccidentApp2/app/src/main/res/layout/activity_login.xml" value="0.36666666666666664" />
+        <entry key="..\:/Users/Gamer/AndroidStudioProjects/androidAccidentApp2/app/src/main/res/layout/activity_maps.xml" value="0.2015625" />
+        <entry key="..\:/Users/Gamer/AndroidStudioProjects/androidAccidentApp2/app/src/main/res/layout/activity_registering.xml" value="0.36666666666666664" />
         <entry key="..\:/Users/Gamer/AndroidStudioProjects/androidAccidentApp2/app/src/main/res/layout/activity_signed_in.xml" value="0.20520833333333333" />
+        <entry key="..\:/Users/Gamer/AndroidStudioProjects/androidAccidentApp2/app/src/main/res/layout/activity_step2.xml" value="0.20520833333333333" />
         <entry key="..\:/Users/Gamer/AndroidStudioProjects/androidAccidentApp2/app/src/main/res/layout/custom_dialog.xml" value="0.20520833333333333" />
         <entry key="..\:/Users/Gamer/AndroidStudioProjects/androidAccidentApp2/app/src/main/res/layout/fragment_maps_activity.xml" value="0.2957427536231884" />
+        <entry key="..\:/Users/Gamer/AndroidStudioProjects/androidAccidentApp2/app/src/main/res/layout/main_nav_drawer.xml" value="0.36666666666666664" />
+        <entry key="..\:/Users/Gamer/AndroidStudioProjects/androidAccidentApp2/app/src/main/res/layout/main_toolbar.xml" value="0.36666666666666664" />
+        <entry key="..\:/Users/Gamer/AndroidStudioProjects/androidAccidentApp2/app/src/main/res/layout/step1.xml" value="0.20520833333333333" />
         <entry key="..\:/Users/elgre/AndroidStudioProjects/androidAccidentApp/app/src/main/res/drawable/gradient_background.xml" value="0.2703125" />
         <entry key="..\:/Users/elgre/AndroidStudioProjects/androidAccidentApp/app/src/main/res/layout/Step1.xml" value="0.264" />
         <entry key="..\:/Users/elgre/AndroidStudioProjects/androidAccidentApp/app/src/main/res/layout/activity_firebase_ui.xml" value="0.13020833333333334" />
