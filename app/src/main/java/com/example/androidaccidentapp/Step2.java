@@ -1,7 +1,10 @@
 package com.example.androidaccidentapp;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.view.GravityCompat;
+import androidx.drawerlayout.widget.DrawerLayout;
 
+import android.app.Activity;
 import android.content.Intent;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
@@ -19,10 +22,14 @@ public class Step2 extends AppCompatActivity {
     TextView thirdTextView;
     TextView fourthTextView;
 
+    DrawerLayout drawerLayout;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_step2);
+
+        drawerLayout = findViewById(R.id.drawer_layout);
 
         //initialize text views to allow to set visibilities
         firstTextView = (TextView)findViewById(R.id.step2firstTv);
@@ -143,6 +150,50 @@ public class Step2 extends AppCompatActivity {
     public void changeToNextActivity(View view){
         Intent intent = new Intent(this, MapsActivity.class);
         this.startActivity(intent);
+    }
+
+    public void clickMenu(View view){
+        openDrawer(drawerLayout);
+    }
+
+    public static void openDrawer(DrawerLayout drawerLayout) {
+        drawerLayout.openDrawer(GravityCompat.START);
+    }
+
+    static void closeDrawer(DrawerLayout drawerLayout) {
+        if(drawerLayout.isDrawerOpen(GravityCompat.START)){
+            drawerLayout.closeDrawer(GravityCompat.START);
+        }
+    }
+
+    public void clickGuide(View view){
+        redirectActivity(this, Step1.class);
+    }
+
+    public void clickLogin(View view){
+        redirectActivity(this, Login.class);
+    }
+
+    public void clickMaps(View view){
+        redirectActivity(this, MapsActivity.class);
+    }
+
+    public void clickRegister(View view){
+        redirectActivity(this, Registering.class);
+    }
+
+    static void redirectActivity(Activity activity, Class aClass) {
+        Intent intent = new Intent(activity, aClass);
+
+        intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+
+        activity.startActivity(intent);
+    }
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+        closeDrawer(drawerLayout);
     }
 
 
