@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.example.androidaccidentapp" >
+    package="com.example.androidaccidentapp">
 
     <application
         android:allowBackup="true"
@@ -8,7 +8,10 @@
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/Theme.AndroidAccidentApp" >
+        android:theme="@style/Theme.AndroidAccidentApp">
+        <activity
+            android:name=".finalExchangeActivity"
+            android:exported="false" />
         <activity
             android:name=".driverInfo"
             android:exported="false" />
@@ -20,7 +23,7 @@
             android:exported="false" />
         <activity
             android:name=".Registering"
-            android:exported="true" >
+            android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -32,8 +35,10 @@
             android:exported="false" />
         <activity
             android:name=".insuranceExchange"
-            android:exported="true" >
-        </activity>
+            android:exported="true"></activity>
+        <activity
+            android:name=".MapsActivity"
+            android:exported="true" />
     </application>
 
 </manifest>
