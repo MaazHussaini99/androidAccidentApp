@@ -1,0 +1,170 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".driverInfo"
+    android:background="@color/backgroundColor">
+
+    <RelativeLayout
+        android:id="@+id/mainLayout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+
+        <RelativeLayout
+            android:id="@+id/relative1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+
+            <ImageView
+                android:id="@+id/logo"
+                android:layout_width="249dp"
+                android:layout_height="92dp"
+                android:layout_centerHorizontal="true"
+                android:src="@drawable/app_icon_04" />
+
+            <TextView
+                android:id="@+id/title"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/logo"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="50dp"
+                android:text=" Enter Other Driver's Information"
+                android:textAlignment="center"
+                android:textSize="40sp"
+                android:textColor="@color/white"/>
+
+        </RelativeLayout>
+
+
+        <RelativeLayout
+            android:id="@+id/relative2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/relative1">
+
+            <TextView
+                android:id="@+id/fNameTv"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="50dp"
+                android:text="  First Name"
+                android:textSize="25sp"
+                android:textColor="@color/white"/>
+
+            <EditText
+                android:id="@+id/fName"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/fNameTv"
+                android:paddingTop="10dp"
+                android:hint="  Type Something"
+                android:textColorHint="@color/white"
+                android:textColor="@color/white"/>
+
+            <TextView
+                android:id="@+id/lNameTv"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/fName"
+                android:layout_marginTop="50dp"
+                android:text="  Last Name"
+                android:textSize="25sp"
+                android:textColor="@color/white"/>
+
+            <EditText
+                android:id="@+id/lName"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/lNameTv"
+                android:paddingTop="10dp"
+                android:hint="  Type Something"
+                android:textColorHint="@color/white"
+                android:textColor="@color/white"/>
+
+
+            <TextView
+                android:id="@+id/dobTv"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/lName"
+                android:layout_marginTop="50dp"
+                android:text="  DOB"
+                android:textColor="@color/white"
+                android:textSize="25sp" />
+
+            <EditText
+                android:id="@+id/dob"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/dobTv"
+                android:hint="  Type Something"
+                android:paddingTop="10dp"
+                android:textColor="@color/white"
+                android:textColorHint="@color/white" />
+
+            <TextView
+                android:id="@+id/addressTv"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/dob"
+                android:layout_marginTop="50dp"
+                android:text="  Address"
+                android:textColor="@color/white"
+                android:textSize="25sp" />
+
+            <EditText
+                android:id="@+id/address"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/addressTv"
+                android:hint="  Type Something"
+                android:paddingTop="10dp"
+                android:textColor="@color/white"
+                android:textColorHint="@color/white" />
+
+            <TextView
+                android:id="@+id/driverLicenceTv"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/address"
+                android:layout_marginTop="50dp"
+                android:text="  Driver Licence No."
+                android:textSize="25sp"
+                android:textColor="@color/white"/>
+
+            <EditText
+                android:id="@+id/driveLicence"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/driverLicenceTv"
+                android:paddingTop="10dp"
+                android:hint="  Type Something"
+                android:textColorHint="@color/white"
+                android:textColor="@color/white"/>
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/relative2">
+
+            <Button
+                android:id="@+id/next"
+                android:layout_width="150dp"
+                android:layout_height="150dp"
+                android:layout_marginLeft="50dp"
+                android:layout_marginTop="50dp"
+                android:text=" NEXT"
+                android:layout_centerHorizontal="true"/>
+
+        </RelativeLayout>
+
+    </RelativeLayout>
+</ScrollView>

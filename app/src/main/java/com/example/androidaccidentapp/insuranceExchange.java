@@ -7,25 +7,20 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.Toast;
+import android.widget.TextView;
 
-import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
-import com.google.firebase.database.DataSnapshot;
-import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
-import com.google.firebase.database.ValueEventListener;
 
-import java.util.HashMap;
-
-public class infoExchange extends AppCompatActivity {
+public class insuranceExchange extends AppCompatActivity {
 
     private static FirebaseUser currentUser;
     private static final String TAG = "RealtimeDB";
     private FirebaseDatabase database;
     private DatabaseReference dbRef;
     int reportsCounter;
+
     EditText prov;
     EditText policyNo;
     EditText holder;
@@ -34,6 +29,44 @@ public class infoExchange extends AppCompatActivity {
     String policyNum;
     String policyHolder;
 
+    String firstName;
+    String lastName;
+    String dateOfBirth;
+    String addressDriver;
+    String licenceNum;
+
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_insurance_exchange);
+
+        prov = findViewById(R.id.provider);
+        policyNo = findViewById(R.id.policyNo);
+        holder = findViewById(R.id.policyHolder);
+        btn1 = findViewById(R.id.saveInsuranceInfo);
+
+        firstName = getIntent().getStringExtra("FirstName");
+        lastName = getIntent().getStringExtra("LastName");
+        dateOfBirth = getIntent().getStringExtra("DOB");
+        addressDriver = getIntent().getStringExtra("Address");
+        licenceNum = getIntent().getStringExtra("DriverLicence");
+
+
+        btn1.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+                provider = prov.getText().toString();
+                policyNum = policyNo.getText().toString();
+                policyHolder = holder.getText().toString();
+
+                changeToNextActivity(view);
+            }
+        });
+    }
+
+    /*
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -70,7 +103,7 @@ public class infoExchange extends AppCompatActivity {
 
     public void saveData(View view) {
 
-        reportsCounter = 1;
+        reportsCounter = 2;
         String reportName = "Report " + reportsCounter;
         HashMap<String, Object> map = new HashMap<>();
         map.put("Provider", provider);
@@ -94,13 +127,24 @@ public class infoExchange extends AppCompatActivity {
                 }
             };
     private void notifyUser(String message) {
-        Toast.makeText(infoExchange.this, message,
+        Toast.makeText(insuranceExchange.this, message,
                 Toast.LENGTH_SHORT).show();
-    }
+    }*/
 
 
     public void changeToNextActivity(View v){
         Intent intent = new Intent(this, VehicleDetails.class);
+
+        intent.putExtra("FirstName", firstName);
+        intent.putExtra("LastName", lastName);
+        intent.putExtra("DOB", dateOfBirth);
+        intent.putExtra("Address", addressDriver);
+        intent.putExtra("DriverLicence", licenceNum);
+
+        intent.putExtra("Provider", provider);
+        intent.putExtra("Policy Number", policyNum);
+        intent.putExtra("Holder", policyHolder);
+
         this.startActivity(intent);
     }
 }

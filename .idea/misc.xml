@@ -23,6 +23,10 @@
         <entry key="..\:/Users/maazh/OneDrive/Desktop/androidAccidentApp/app/src/main/res/drawable/rounded_corners.xml" value="0.1015" />
         <entry key="..\:/Users/maazh/OneDrive/Desktop/androidAccidentApp/app/src/main/res/layout/activity_registration.xml" value="0.264" />
         <entry key="..\:/Users/maazh/StudioProjects/androidAccidentApp/app/src/main/res/drawable/gradient_background.xml" value="0.33425925925925926" />
+        <entry key="..\:/Users/maazh/StudioProjects/androidAccidentApp/app/src/main/res/layout/activity_driver_info.xml" value="0.264" />
+        <entry key="..\:/Users/maazh/StudioProjects/androidAccidentApp/app/src/main/res/layout/activity_infoexchange.xml" value="0.17708333333333334" />
+        <entry key="..\:/Users/maazh/StudioProjects/androidAccidentApp/app/src/main/res/layout/activity_saved_vehicles.xml" value="0.17708333333333334" />
+        <entry key="..\:/Users/maazh/StudioProjects/androidAccidentApp/app/src/main/res/layout/activity_vehicle_details.xml" value="0.17708333333333334" />
       </map>
     </option>
   </component>

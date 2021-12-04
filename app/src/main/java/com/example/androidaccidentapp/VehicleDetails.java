@@ -20,6 +20,7 @@ public class VehicleDetails extends AppCompatActivity {
         saveVehicle.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+
                 changeToNextActivity(view);
             }
         });
