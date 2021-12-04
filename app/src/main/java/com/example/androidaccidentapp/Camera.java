@@ -38,6 +38,7 @@ public class Camera extends AppCompatActivity {
     ImageView selectedImage;
     Button cameraBtn, galleryBtn;
     String currentPhotoPath;
+//    StorageReference storageReference;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -48,10 +49,12 @@ public class Camera extends AppCompatActivity {
         cameraBtn = findViewById(R.id.cameraBtn);
         galleryBtn = findViewById(R.id.galleryBtn);
 
+//        storageReference = FirebaseStorage.getInstance().getReference();
+
         cameraBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                //Permission for Camera Use
+                //Request User Permission for App Camera Use
                 requestCameraPermission();
             }
         });
@@ -95,14 +98,20 @@ public class Camera extends AppCompatActivity {
             if(resultCode == Activity.RESULT_OK){
                 File file = new File(currentPhotoPath);
                 selectedImage.setImageURI(Uri.fromFile(file));
-                Log.d("IMAGE_URL", "Absolute URL of image: " + Uri.fromFile(file));
+                Log.d("IMAGE_URL", "Absolute URL of Image: " + Uri.fromFile(file));
 
                 Intent mediaScanIntent = new Intent(Intent.ACTION_MEDIA_SCANNER_SCAN_FILE);
                 Uri contentUri = Uri.fromFile(file);
                 mediaScanIntent.setData(contentUri);
                 this.sendBroadcast(mediaScanIntent);
+
+                /*
+                //Upload to Firebase Storage
+                uploadImageToFirebase(file.getName(), contentUri);
+                */
             }
         }
+        //Takes an image already saved in the camera gallery, formats the filename, and adds it to the ASAP camera display
         if (requestCode == GALLERY_REQUEST_CODE) {
             if(resultCode == Activity.RESULT_OK){
                 Uri contentUri = data.getData();
@@ -110,12 +119,41 @@ public class Camera extends AppCompatActivity {
                 String imageFilename = "IMG_" + timeStamp + "." + getFileExt(contentUri);
                 Log.d("GALLERY_URL", "Gallery Image Uri: " + imageFilename);
                 selectedImage.setImageURI(contentUri);
+
+                /*
+                //Upload to Firebase Storage
+                uploadImageToFirebase(imageFilename, contentUri);
+                */
             }
         }
     }
-
+/*
+    private void uploadImageToFirebase(String imageFilename, Uri contentUri) {
+    //Creates a new directory in Firebase Storage
+        StorageReference image = storageReference.child("images/" + imageFilename);
+        image.putFile(contentUri).addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>(){
+           @Override
+           public void onSuccess (UploadTask.TaskSnapshot taskSnapshot){
+                image.getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>(){
+                    @Override
+                    public void onSuccess(Uri uri){
+                    //If directory successfully created and image file successfully uploaded to directory in Firebase Storage
+                        Log.d("", "onSuccess: Uploaded Image URL to Firebase: " + uri.toString());
+                    }
+                    Toast.makeText(Camera.this, "Image Upload Successful", Toast.LENGTH_SHORT).show();
+                });
+           }
+        }).addOnFailureListener(new OnFailureListener(){
+            @Override
+            public void onFailure(@NonNull Exception e){
+            //Image file failed to upload to directory in Firebase Storage
+                Toast.makeText(Camera.this, "Upload Failed", Toast.LENGTH_SHORT).show();
+            }
+        });
+    }
+*/
     private String getFileExt(Uri contentUri) {
-        //gets access to all supported extensions - used to get the uri of the image selected from gallery
+        //Gets the supported file extension of the image uri selected from gallery
         ContentResolver c = getContentResolver();
         MimeTypeMap mime = MimeTypeMap.getSingleton();
         return mime.getExtensionFromMimeType(c.getType(contentUri));
@@ -128,14 +166,13 @@ public class Camera extends AppCompatActivity {
         //Creates an image file name
         String timeStamp = new SimpleDateFormat("yyyyMMdd_HHmmss").format(new Date());
         String imageFilename = "IMG_" + timeStamp + "_";
-//        File storageDir = getExternalFilesDir(Environment.DIRECTORY_PICTURES);
-        File storageDir = Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_PICTURES);
+        File storageDir = getExternalFilesDir(Environment.DIRECTORY_PICTURES);
+//        File storageDir = Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_PICTURES);
         File image = File.createTempFile(imageFilename, ".jpg", storageDir);
 
         currentPhotoPath = image.getAbsolutePath();
         return image;
     }
-
 
     private void dispatchTakePictureIntent() {
         Intent takePictureIntent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
