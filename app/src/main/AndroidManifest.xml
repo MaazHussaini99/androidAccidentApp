@@ -19,6 +19,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.AppCompat.Light.NoActionBar">
         <activity
+            android:name=".Home"
+            android:exported="true" />
+        <activity
             android:name=".Step2"
             android:exported="true" />
         <!--

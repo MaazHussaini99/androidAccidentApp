@@ -1,6 +1,7 @@
 package com.example.androidaccidentapp;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.AlertDialog;
 import androidx.core.app.ActivityCompat;
 import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
@@ -9,6 +10,7 @@ import androidx.fragment.app.FragmentActivity;
 import android.Manifest;
 import android.app.Activity;
 import android.app.Dialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.location.Address;
@@ -18,6 +20,7 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.view.Window;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -64,6 +67,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
     Button btn;
     String name = "Bryan";
     DrawerLayout drawerLayout;
+    ArrayAdapter<String> adapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -71,6 +75,8 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
 
         binding = ActivityMapsBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
+        String[] options = {"View User Profile", "View Vehicle Profile", "View Insurance Policy", "View Reports"};
+        adapter = new ArrayAdapter<>(this, android.R.layout.select_dialog_item, options);
 
         drawerLayout = findViewById(R.id.drawer_layout);
 
@@ -305,18 +311,56 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         drawerLayout.openDrawer(GravityCompat.START);
     }
 
-    public void ClickLogo(View view){
-        closeDrawer(drawerLayout);
-    }
-
     static void closeDrawer(DrawerLayout drawerLayout) {
         if(drawerLayout.isDrawerOpen(GravityCompat.START)){
             drawerLayout.closeDrawer(GravityCompat.START);
         }
     }
 
-    public void clickLogin(View view){
-        redirectActivity(this, Login.class);
+    public void openProfileDialog(View view){
+        AlertDialog.Builder profileDialog = new AlertDialog.Builder(MapsActivity.this);
+        //Set User Profile Dialog Title
+        profileDialog.setTitle("User Account Options:");
+        //List Options, when item selected, switch to that activity
+
+        profileDialog.setAdapter(adapter, new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                switch (which){
+                    case 0:{
+                        Intent intent = new Intent(MapsActivity.this, Home.class);
+                        startActivity(intent);
+                        break;
+                    }
+                    case 1:{
+                        Intent intent = new Intent(MapsActivity.this, Home.class);
+                        startActivity(intent);
+                        break;
+                    }
+                    case 2:{
+                        Intent intent = new Intent(MapsActivity.this, Home.class);
+                        startActivity(intent);
+                        break;
+                    }
+                    case 3:{
+                        Toast.makeText(MapsActivity.this, "Access User Reports", Toast.LENGTH_LONG).show();
+//                            Intent intent = new Intent(Home.this, InsuranceProfile.class);
+//                            startActivity(intent);
+                        break;
+                    }
+                }
+            }
+        });
+
+        profileDialog.setNegativeButton("Sign Out", (v, a) -> {
+            Toast.makeText(this, "Clicked Sign Out", Toast.LENGTH_LONG).show();
+        });
+
+        profileDialog.create().show();
+    }
+
+    public void clickHome(View view){
+        redirectActivity(this, Home.class);
     }
 
     public void clickRegister(View view){

@@ -5,6 +5,7 @@
     android:layout_height="wrap_content"
     android:orientation="horizontal"
     android:padding="12dp"
+    android:id="@+id/main_toolbar"
     android:gravity="center_vertical">
 
 
@@ -22,11 +23,13 @@
         android:layout_width="wrap_content"
         android:layout_height="60dp"
         android:layout_weight="1"
-        app:srcCompat="@drawable/logo2" />
+        app:srcCompat="@drawable/logo3" />
 
     <ImageView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:src="@drawable/ic_more" />
+        android:id="@+id/user_icon"
+        android:onClick="openProfileDialog"
+        android:src="@drawable/ic_baseline_account_circle_24" />
 
 </LinearLayout>

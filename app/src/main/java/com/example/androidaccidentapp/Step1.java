@@ -1,5 +1,6 @@
 package com.example.androidaccidentapp;
 
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
@@ -7,6 +8,7 @@ import androidx.drawerlayout.widget.DrawerLayout;
 import android.Manifest;
 import android.app.Activity;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.net.Uri;
@@ -16,17 +18,22 @@ import android.telephony.PhoneStateListener;
 import android.telephony.TelephonyManager;
 import android.util.Log;
 import android.view.View;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.Toast;
 
 public class Step1 extends AppCompatActivity {
 
     DrawerLayout drawerLayout;
+    ArrayAdapter<String> adapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.step1);
         drawerLayout = findViewById(R.id.drawer_layout);
+        String[] options = {"View User Profile", "View Vehicle Profile", "View Insurance Policy", "View Reports"};
+        adapter = new ArrayAdapter<>(this, android.R.layout.select_dialog_item, options);
 
         final Button call = findViewById(R.id.dial911_btn); //button for 911 which is call
         final Button emergency = findViewById(R.id.emergencyContact_btn); //button for contact which is emergency
@@ -130,12 +137,55 @@ public class Step1 extends AppCompatActivity {
         }
     }
 
+    public void openProfileDialog(View view){
+        AlertDialog.Builder profileDialog = new AlertDialog.Builder(Step1.this);
+        //Set User Profile Dialog Title
+        profileDialog.setTitle("User Account Options:");
+        //List Options, when item selected, switch to that activity
+
+        profileDialog.setAdapter(adapter, new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                switch (which){
+                    case 0:{
+                        Intent intent = new Intent(Step1.this, Home.class);
+                        startActivity(intent);
+                        break;
+                    }
+                    case 1:{
+                        Intent intent = new Intent(Step1.this, Home.class);
+                        startActivity(intent);
+                        break;
+                    }
+                    case 2:{
+                        Intent intent = new Intent(Step1.this, Home.class);
+                        startActivity(intent);
+                        break;
+                    }
+                    case 3:{
+                        Toast.makeText(Step1.this, "Access User Reports", Toast.LENGTH_LONG).show();
+//                            Intent intent = new Intent(Home.this, InsuranceProfile.class);
+//                            startActivity(intent);
+                        break;
+                    }
+                }
+            }
+        });
+
+        profileDialog.setNegativeButton("Sign Out", (v, a) -> {
+            Toast.makeText(Step1.this, "Clicked Sign Out", Toast.LENGTH_LONG).show();
+        });
+
+        profileDialog.create().show();
+
+    }
+
     public void clickGuide(View view){
         recreate();
     }
 
-    public void clickLogin(View view){
-        redirectActivity(this, Login.class);
+    public void clickHome(View view){
+        redirectActivity(this, Home.class);
     }
 
     public void clickMaps(View view){

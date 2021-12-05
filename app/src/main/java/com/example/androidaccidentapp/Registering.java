@@ -4,16 +4,19 @@ import static android.content.ContentValues.TAG;
 import static android.text.TextUtils.isEmpty;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 
 import android.app.Activity;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.util.Log;
 import android.view.View;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
@@ -34,6 +37,7 @@ public class Registering extends AppCompatActivity {
     private FirebaseAuth auth;
 
     DrawerLayout drawerLayout;
+    ArrayAdapter<String> adapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -41,6 +45,8 @@ public class Registering extends AppCompatActivity {
         setContentView(R.layout.activity_registering);
 
         drawerLayout = findViewById(R.id.drawer_layout);
+        String[] options = {"View User Profile", "View Vehicle Profile", "View Insurance Policy", "View Reports"};
+        adapter = new ArrayAdapter<>(this, android.R.layout.select_dialog_item, options);
 
 
         email = findViewById(R.id.email);
@@ -115,7 +121,7 @@ public class Registering extends AppCompatActivity {
                             Toast.makeText(Registering.this, "Authentication success.",
                                     Toast.LENGTH_SHORT).show();
                             updateUI(user);
-                            Intent n = new Intent(Registering.this, SignedInActivity.class);
+                            Intent n = new Intent(Registering.this, Home.class);
                             startActivity(n);
 
                         } else {
@@ -137,6 +143,49 @@ public class Registering extends AppCompatActivity {
         startActivity(n);
     }
 
+    public void openProfileDialog(View view){
+        AlertDialog.Builder profileDialog = new AlertDialog.Builder(Registering.this);
+        //Set User Profile Dialog Title
+        profileDialog.setTitle("User Account Options:");
+        //List Options, when item selected, switch to that activity
+
+        profileDialog.setAdapter(adapter, new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                switch (which){
+                    case 0:{
+                        Intent intent = new Intent(Registering.this, Home.class);
+                        startActivity(intent);
+                        break;
+                    }
+                    case 1:{
+                        Intent intent = new Intent(Registering.this, Home.class);
+                        startActivity(intent);
+                        break;
+                    }
+                    case 2:{
+                        Intent intent = new Intent(Registering.this, Home.class);
+                        startActivity(intent);
+                        break;
+                    }
+                    case 3:{
+                        Toast.makeText(Registering.this, "Access User Reports", Toast.LENGTH_LONG).show();
+//                            Intent intent = new Intent(Home.this, InsuranceProfile.class);
+//                            startActivity(intent);
+                        break;
+                    }
+                }
+            }
+        });
+
+        profileDialog.setNegativeButton("Sign Out", (v, a) -> {
+            Toast.makeText(Registering.this, "Clicked Sign Out", Toast.LENGTH_LONG).show();
+        });
+
+        profileDialog.create().show();
+
+    }
+
     public void clickMenu(View view){
         openDrawer(drawerLayout);
     }
@@ -145,18 +194,14 @@ public class Registering extends AppCompatActivity {
         drawerLayout.openDrawer(GravityCompat.START);
     }
 
-    public void ClickLogo(View view){
-        closeDrawer(drawerLayout);
-    }
-
     static void closeDrawer(DrawerLayout drawerLayout) {
         if(drawerLayout.isDrawerOpen(GravityCompat.START)){
             drawerLayout.closeDrawer(GravityCompat.START);
         }
     }
 
-    public void clickLogin(View view){
-        redirectActivity(this, Login.class);
+    public void clickHome(View view){
+        redirectActivity(this, Home.class);
     }
 
     public void clickRegister(View view){

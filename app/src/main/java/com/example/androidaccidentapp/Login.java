@@ -86,18 +86,14 @@ public class Login extends AppCompatActivity {
         drawerLayout.openDrawer(GravityCompat.START);
     }
 
-    public void ClickLogo(View view){
-        closeDrawer(drawerLayout);
-    }
-
     static void closeDrawer(DrawerLayout drawerLayout) {
         if(drawerLayout.isDrawerOpen(GravityCompat.START)){
             drawerLayout.closeDrawer(GravityCompat.START);
         }
     }
 
-    public void clickLogin(View view){
-        recreate();
+    public void clickHome(View view){
+        redirectActivity(this, Home.class);
     }
 
     public void clickRegister(View view){
