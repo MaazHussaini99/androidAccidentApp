@@ -25,6 +25,12 @@ import android.widget.GridView;
 import android.widget.ImageView;
 import android.widget.Toast;
 
+import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.firebase.storage.FirebaseStorage;
+import com.google.firebase.storage.StorageReference;
+import com.google.firebase.storage.UploadTask;
+
 import java.io.File;
 import java.io.IOException;
 import java.text.SimpleDateFormat;
@@ -36,9 +42,9 @@ public class Camera extends AppCompatActivity {
     public static final int CAMERA_REQUEST_CODE = 102;
     public static final int GALLERY_REQUEST_CODE = 105;
     ImageView selectedImage;
-    Button cameraBtn, galleryBtn;
+    Button cameraBtn, galleryBtn, uploadBtn;
     String currentPhotoPath;
-//    StorageReference storageReference;
+    StorageReference dbStorage;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -48,8 +54,9 @@ public class Camera extends AppCompatActivity {
         selectedImage = findViewById(R.id.imageView);
         cameraBtn = findViewById(R.id.cameraBtn);
         galleryBtn = findViewById(R.id.galleryBtn);
+        uploadBtn = findViewById(R.id.uploadBtn);
 
-//        storageReference = FirebaseStorage.getInstance().getReference();
+        dbStorage = FirebaseStorage.getInstance().getReference();
 
         cameraBtn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -105,42 +112,49 @@ public class Camera extends AppCompatActivity {
                 mediaScanIntent.setData(contentUri);
                 this.sendBroadcast(mediaScanIntent);
 
-                /*
-                //Upload to Firebase Storage
-                uploadImageToFirebase(file.getName(), contentUri);
-                */
+                //When Upload clicked, try to send image to Firebase Storage
+                uploadBtn.setOnClickListener(uc->{
+                    uploadImageToFirebase(file.getName(), contentUri);
+                });
             }
         }
         //Takes an image already saved in the camera gallery, formats the filename, and adds it to the ASAP camera display
         if (requestCode == GALLERY_REQUEST_CODE) {
-            if(resultCode == Activity.RESULT_OK){
+            if(resultCode == Activity.RESULT_OK) {
                 Uri contentUri = data.getData();
                 String timeStamp = new SimpleDateFormat("yyyyMMdd_HHmmss").format(new Date());
                 String imageFilename = "IMG_" + timeStamp + "." + getFileExt(contentUri);
                 Log.d("GALLERY_URL", "Gallery Image Uri: " + imageFilename);
                 selectedImage.setImageURI(contentUri);
 
-                /*
-                //Upload to Firebase Storage
-                uploadImageToFirebase(imageFilename, contentUri);
-                */
+                //When Upload clicked, try to send image to Firebase Storage
+                uploadBtn.setOnClickListener(ug -> {
+                    uploadImageToFirebase(imageFilename, contentUri);
+                });
             }
         }
     }
-/*
+
+    private String getFileExt(Uri contentUri) {
+        //Gets the supported file extension of the image uri selected from gallery
+        ContentResolver c = getContentResolver();
+        MimeTypeMap mime = MimeTypeMap.getSingleton();
+        return mime.getExtensionFromMimeType(c.getType(contentUri));
+    }
+
     private void uploadImageToFirebase(String imageFilename, Uri contentUri) {
     //Creates a new directory in Firebase Storage
-        StorageReference image = storageReference.child("images/" + imageFilename);
-        image.putFile(contentUri).addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>(){
+        StorageReference imageRef = dbStorage.child("images/" + imageFilename);
+        imageRef.putFile(contentUri).addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>(){
            @Override
            public void onSuccess (UploadTask.TaskSnapshot taskSnapshot){
-                image.getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>(){
+                imageRef.getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>(){
                     @Override
                     public void onSuccess(Uri uri){
                     //If directory successfully created and image file successfully uploaded to directory in Firebase Storage
                         Log.d("", "onSuccess: Uploaded Image URL to Firebase: " + uri.toString());
+                        Toast.makeText(Camera.this, "Image Upload Successful", Toast.LENGTH_SHORT).show();
                     }
-                    Toast.makeText(Camera.this, "Image Upload Successful", Toast.LENGTH_SHORT).show();
                 });
            }
         }).addOnFailureListener(new OnFailureListener(){
@@ -150,13 +164,6 @@ public class Camera extends AppCompatActivity {
                 Toast.makeText(Camera.this, "Upload Failed", Toast.LENGTH_SHORT).show();
             }
         });
-    }
-*/
-    private String getFileExt(Uri contentUri) {
-        //Gets the supported file extension of the image uri selected from gallery
-        ContentResolver c = getContentResolver();
-        MimeTypeMap mime = MimeTypeMap.getSingleton();
-        return mime.getExtensionFromMimeType(c.getType(contentUri));
     }
 
     /*
