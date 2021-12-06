@@ -24,7 +24,7 @@ public class Home extends AppCompatActivity {
         setContentView(R.layout.activity_home);
 
         userAcct = findViewById(R.id.account_ic);
-        String[] options = {"View User Profile", "View Vehicle Profile", "View Insurance Policy", "View Reports"};
+        String[] options = {"View User Profile", "View Vehicle Profile", "View Insurance Policy", "View Reports", "Access Camera"};
         ArrayAdapter<String> adapter = new ArrayAdapter<>(this, android.R.layout.select_dialog_item, options);
 
         userAcct.setOnClickListener(v -> {
@@ -57,6 +57,11 @@ public class Home extends AppCompatActivity {
 //                            startActivity(intent);
                             break;
                         }
+                        case 4:{
+                            Intent intent = new Intent(Home.this, Camera.class);
+                            startActivity(intent);
+                            break;
+                        }
                     }
                 }
             });
@@ -81,12 +86,6 @@ public class Home extends AppCompatActivity {
                 Toast.makeText(Home.this, "Handbook", Toast.LENGTH_SHORT).show();
 //                Intent myIntent = new Intent(Home.this, Handbook.class);
 //                Home.this.startActivity(myIntent);
-                break;
-            }
-            case R.id.camera:{
-                Toast.makeText(Home.this, "Camera", Toast.LENGTH_SHORT).show();
-                Intent myIntent = new Intent(Home.this, Camera.class);
-                Home.this.startActivity(myIntent);
                 break;
             }
             case R.id.info_exchange:{

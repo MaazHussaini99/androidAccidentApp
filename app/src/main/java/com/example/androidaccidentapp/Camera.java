@@ -152,7 +152,7 @@ public class Camera extends AppCompatActivity {
                     @Override
                     public void onSuccess(Uri uri){
                     //If directory successfully created and image file successfully uploaded to directory in Firebase Storage
-                        Log.d("", "onSuccess: Uploaded Image URL to Firebase: " + uri.toString());
+                        Log.d("FireBase Storage", "onSuccess: Uploaded Image URL to Firebase: " + uri.toString());
                         Toast.makeText(Camera.this, "Image Upload Successful", Toast.LENGTH_SHORT).show();
                     }
                 });
