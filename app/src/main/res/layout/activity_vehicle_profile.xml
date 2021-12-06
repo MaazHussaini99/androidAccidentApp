@@ -11,165 +11,212 @@
         android:id="@+id/logo"
         android:layout_width="wrap_content"
         android:layout_height="55dp"
-        android:src="@drawable/logo_01"
         android:layout_marginTop="25dp"
+        android:src="@drawable/logo_01"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
+    <ImageView
+        android:id="@+id/account_ic"
+        android:layout_width="52dp"
+        android:layout_height="49dp"
+        android:layout_margin="25dp"
+        android:src="@drawable/ic_baseline_account_circle_24"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Switch
+        android:id="@+id/editable"
+        android:layout_width="76dp"
+        android:layout_height="47dp"
+        android:layout_marginEnd="8dp"
+        android:onClick="updateText"
+        android:text="@string/editLink"
+        android:textColor="@color/logo"
+        android:textSize="14sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/account_ic" />
+
     <TextView
         android:id="@+id/header"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
-        android:layout_marginLeft="40dp"
+        android:layout_marginLeft="32dp"
+        android:layout_marginTop="8dp"
         android:text="ENTER VEHICLE DETAILS"
         android:textColor="@color/white"
         android:textSize="22dp"
         android:textStyle="bold"
-        app:layout_constraintTop_toBottomOf="@id/logo"
-        app:layout_constraintLeft_toLeftOf="parent" />
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/logo" />
 
     <TextView
         android:id="@+id/makeText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="15dp"
-        android:layout_marginLeft="40dp"
+        android:layout_marginLeft="32dp"
+        android:layout_marginTop="16dp"
         android:text="Vehicle Make"
         android:textColor="@color/white"
         android:textSize="18dp"
-        app:layout_constraintTop_toBottomOf="@id/header"
-        app:layout_constraintLeft_toLeftOf="parent" />
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/header" />
 
     <EditText
         android:id="@+id/makeEdit"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="40dp"
-        android:layout_marginEnd="10dp"
-        android:textColor="@color/white"
-        android:textSize="18dp"
-        android:hint="Honda Accord"
-        android:textColorHint="@color/gray"
+        android:layout_marginLeft="32dp"
+        android:layout_marginTop="4dp"
         android:backgroundTint="@color/purple_500"
-        app:layout_constraintTop_toBottomOf="@id/makeText"
-        app:layout_constraintLeft_toLeftOf="parent" />
+        android:hint="Honda Accord"
+        android:textColor="@color/white"
+        android:textColorHint="@color/gray"
+        android:textSize="18dp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/makeText" />
 
     <TextView
         android:id="@+id/yearText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="15dp"
-        android:layout_marginLeft="40dp"
+        android:layout_marginLeft="32dp"
+        android:layout_marginTop="12dp"
         android:text="Vehicle Year"
         android:textColor="@color/white"
         android:textSize="18dp"
-        app:layout_constraintTop_toBottomOf="@id/makeEdit"
-        app:layout_constraintLeft_toLeftOf="parent" />
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/makeEdit" />
 
     <EditText
         android:id="@+id/yearEdit"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="40dp"
-        android:layout_marginEnd="10dp"
-        android:textColor="@color/white"
-        android:textSize="18dp"
-        android:hint="YYYY"
-        android:textColorHint="@color/gray"
+        android:layout_marginLeft="32dp"
+        android:layout_marginTop="4dp"
         android:backgroundTint="@color/purple_500"
-        app:layout_constraintTop_toBottomOf="@id/yearText"
-        app:layout_constraintLeft_toLeftOf="parent" />
+        android:hint="YYYY"
+        android:textColor="@color/white"
+        android:textColorHint="@color/gray"
+        android:textSize="18dp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/yearText" />
 
     <TextView
         android:id="@+id/plateNumText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="15dp"
-        android:layout_marginLeft="40dp"
+        android:layout_marginLeft="32dp"
+        android:layout_marginTop="8dp"
         android:text="Vehicle License Plate Number"
         android:textColor="@color/white"
         android:textSize="18dp"
-        app:layout_constraintTop_toBottomOf="@id/yearEdit"
-        app:layout_constraintLeft_toLeftOf="parent" />
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/yearEdit" />
 
     <EditText
         android:id="@+id/plateNumEdit"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="40dp"
-        android:layout_marginEnd="10dp"
-        android:textColor="@color/white"
-        android:textSize="18dp"
-        android:hint="LLL ####"
-        android:textColorHint="@color/gray"
+        android:layout_marginLeft="32dp"
         android:backgroundTint="@color/purple_500"
-        app:layout_constraintTop_toBottomOf="@id/plateNumText"
-        app:layout_constraintLeft_toLeftOf="parent" />
+        android:hint="LLL ####"
+        android:textColor="@color/white"
+        android:textColorHint="@color/gray"
+        android:textSize="18dp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/plateNumText" />
 
     <TextView
         android:id="@+id/stateText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="15dp"
-        android:layout_marginLeft="40dp"
+        android:layout_marginLeft="32dp"
+        android:layout_marginTop="16dp"
         android:text="State Vehicle is Registered"
         android:textColor="@color/white"
         android:textSize="18dp"
-        app:layout_constraintTop_toBottomOf="@id/plateNumEdit"
-        app:layout_constraintLeft_toLeftOf="parent" />
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/plateNumEdit" />
 
     <EditText
         android:id="@+id/stateEdit"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="40dp"
-        android:layout_marginEnd="10dp"
-        android:textColor="@color/white"
-        android:textSize="18dp"
-        android:hint="New York"
-        android:textColorHint="@color/gray"
+        android:layout_marginLeft="32dp"
+        android:layout_marginTop="8dp"
         android:backgroundTint="@color/purple_500"
-        app:layout_constraintTop_toBottomOf="@id/stateText"
-        app:layout_constraintLeft_toLeftOf="parent" />
+        android:hint="New York"
+        android:textColor="@color/white"
+        android:textColorHint="@color/gray"
+        android:textSize="18dp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/stateText" />
 
     <TextView
         android:id="@+id/typeText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="15dp"
-        android:layout_marginLeft="40dp"
+        android:layout_marginLeft="32dp"
+        android:layout_marginTop="8dp"
         android:text="Type of Vehicle"
         android:textColor="@color/white"
         android:textSize="18dp"
-        app:layout_constraintTop_toBottomOf="@id/stateEdit"
-        app:layout_constraintLeft_toLeftOf="parent" />
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/stateEdit" />
 
     <EditText
         android:id="@+id/typeEdit"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="40dp"
-        android:layout_marginEnd="10dp"
-        android:textColor="@color/white"
-        android:textSize="18dp"
-        android:hint="Sedan, SUV, Coupe, etc."
-        android:textColorHint="@color/gray"
+        android:layout_marginLeft="32dp"
         android:backgroundTint="@color/purple_500"
-        app:layout_constraintTop_toBottomOf="@id/typeText"
-        app:layout_constraintLeft_toLeftOf="parent" />
+        android:hint="Sedan, SUV, Coupe, etc."
+        android:textColor="@color/white"
+        android:textColorHint="@color/gray"
+        android:textSize="18dp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/typeText" />
+
+    <Button
+        android:id="@+id/accessProfile"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="50dp"
+        android:layout_marginTop="44dp"
+        android:backgroundTint="@color/logo"
+        android:onClick="edit_profile"
+        android:text="Edit Profile"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/typeEdit" />
+
+    <Button
+        android:id="@+id/accessInsurance"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="44dp"
+        android:layout_marginEnd="50dp"
+        android:backgroundTint="@color/logo"
+        android:onClick="edit_Insurance"
+        android:text="Edit Insurance"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.188"
+        app:layout_constraintStart_toEndOf="@id/accessProfile"
+        app:layout_constraintTop_toBottomOf="@id/typeEdit" />
 
     <Button
         android:id="@+id/save"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Save \nVehicle"
         android:onClick="save"
-        app:layout_constraintTop_toBottomOf="@id/typeEdit"
+        android:text="Save"
         app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"/>
+        app:layout_constraintTop_toBottomOf="@+id/accessProfile" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

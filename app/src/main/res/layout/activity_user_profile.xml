@@ -22,236 +22,247 @@
 
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="match_parent"
-                android:layout_height="850dp">
+                android:layout_height="900dp"
+                tools:layout_editor_absoluteX="-8dp"
+                tools:layout_editor_absoluteY="0dp">
 
-            <ImageView
-                android:id="@+id/logo"
-                android:layout_width="wrap_content"
-                android:layout_height="55dp"
-                android:src="@drawable/logo_01"
-                android:layout_marginTop="25dp"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.0"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
+                <ImageView
+                    android:id="@+id/logo"
+                    android:layout_width="wrap_content"
+                    android:layout_height="55dp"
+                    android:layout_marginTop="25dp"
+                    android:src="@drawable/logo_01"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.0"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
 
-            <TextView
-                android:id="@+id/editLink"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
-                android:layout_marginEnd="20dp"
-                android:text="@string/editLink"
-                android:textColor="@color/logo"
-                android:textSize="18dp"
-                android:onClick="updateText"
-                app:layout_constraintBaseline_toBaselineOf="@id/header"
-                app:layout_constraintRight_toRightOf="parent" />
+                <ImageView
+                    android:id="@+id/account_ic"
+                    android:layout_width="52dp"
+                    android:layout_height="49dp"
+                    android:layout_margin="25dp"
+                    android:src="@drawable/ic_baseline_account_circle_24"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
 
-            <TextView
-                android:id="@+id/header"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
-                android:layout_marginLeft="40dp"
-                android:text="ENTER YOUR INFORMATION"
-                android:textColor="@color/white"
-                android:textSize="22dp"
-                android:textStyle="bold"
-                app:layout_constraintTop_toBottomOf="@id/logo"
-                app:layout_constraintLeft_toLeftOf="parent" />
+                <Switch
+                    android:id="@+id/editable"
+                    android:layout_width="76dp"
+                    android:layout_height="47dp"
+                    android:layout_marginEnd="8dp"
+                    android:onClick="updateText"
+                    android:text="@string/editLink"
+                    android:textColor="@color/logo"
+                    android:textSize="14sp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/account_ic" />
 
-            <TextView
-                android:id="@+id/firstNameText"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="15dp"
-                android:layout_marginLeft="40dp"
-                android:text="FIRST NAME"
-                android:textColor="@color/white"
-                android:textSize="18dp"
-                app:layout_constraintTop_toBottomOf="@id/header"
-                app:layout_constraintLeft_toLeftOf="parent" />
+                <TextView
+                    android:id="@+id/header"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="32dp"
+                    android:layout_marginTop="40dp"
+                    android:text="ENTER YOUR INFORMATION"
+                    android:textColor="@color/white"
+                    android:textSize="22sp"
+                    android:textStyle="bold"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/logo" />
 
-            <EditText
-                android:id="@+id/firstNameEdit"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="40dp"
-                android:layout_marginEnd="10dp"
-                android:textColor="@color/gray"
-                android:text="Jane"
-                android:textSize="18dp"
-                android:enabled="false"
-                android:backgroundTint="@color/purple_500"
-                app:layout_constraintTop_toBottomOf="@id/firstNameText"
-                app:layout_constraintLeft_toLeftOf="parent" />
+                <TextView
+                    android:id="@+id/firstNameText"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="32dp"
+                    android:layout_marginTop="24dp"
+                    android:text="FIRST NAME"
+                    android:textColor="@color/white"
+                    android:textSize="18sp"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/header" />
 
-            <TextView
-                android:id="@+id/lastNameText"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="15dp"
-                android:layout_marginLeft="40dp"
-                android:text="LAST NAME"
-                android:textColor="@color/white"
-                android:textSize="18dp"
-                app:layout_constraintTop_toBottomOf="@id/firstNameEdit"
-                app:layout_constraintLeft_toLeftOf="parent" />
+                <EditText
+                    android:id="@+id/firstNameEdit"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="32dp"
+                    android:backgroundTint="@color/purple_500"
+                    android:enabled="false"
+                    android:text="Jane"
+                    android:textColor="@color/gray"
+                    android:textSize="18sp"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/firstNameText" />
 
-            <EditText
-                android:id="@+id/lastNameEdit"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="40dp"
-                android:layout_marginEnd="10dp"
-                android:textColor="@color/gray"
-                android:text="Doe"
-                android:textSize="18dp"
-                android:enabled="false"
-                android:backgroundTint="@color/purple_500"
-                app:layout_constraintTop_toBottomOf="@id/lastNameText"
-                app:layout_constraintLeft_toLeftOf="parent" />
+                <TextView
+                    android:id="@+id/lastNameText"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="32dp"
+                    android:layout_marginTop="16dp"
+                    android:text="LAST NAME"
+                    android:textColor="@color/white"
+                    android:textSize="18sp"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/firstNameEdit" />
 
-            <TextView
-                android:id="@+id/dobText"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="15dp"
-                android:layout_marginLeft="40dp"
-                android:text="DATE OF BIRTH"
-                android:textColor="@color/white"
-                android:textSize="18dp"
-                app:layout_constraintTop_toBottomOf="@id/lastNameEdit"
-                app:layout_constraintLeft_toLeftOf="parent" />
+                <EditText
+                    android:id="@+id/lastNameEdit"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="32dp"
+                    android:layout_marginTop="4dp"
+                    android:backgroundTint="@color/purple_500"
+                    android:enabled="false"
+                    android:text="Doe"
+                    android:textColor="@color/gray"
+                    android:textSize="18sp"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/lastNameText" />
 
-            <EditText
-                android:id="@+id/dobEdit"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="40dp"
-                android:layout_marginEnd="10dp"
-                android:textColor="@color/gray"
-                android:textSize="18dp"
-                android:text="12/01/1985"
-                android:enabled="false"
-                android:backgroundTint="@color/purple_500"
-                app:layout_constraintTop_toBottomOf="@id/dobText"
-                app:layout_constraintLeft_toLeftOf="parent" />
+                <TextView
+                    android:id="@+id/dobText"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="32dp"
+                    android:layout_marginTop="8dp"
+                    android:text="DATE OF BIRTH"
+                    android:textColor="@color/white"
+                    android:textSize="18sp"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/lastNameEdit" />
 
-            <TextView
-                android:id="@+id/addressText"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="15dp"
-                android:layout_marginLeft="40dp"
-                android:text="ADDRESS"
-                android:textColor="@color/white"
-                android:textSize="18dp"
-                app:layout_constraintTop_toBottomOf="@id/dobEdit"
-                app:layout_constraintLeft_toLeftOf="parent" />
+                <EditText
+                    android:id="@+id/dobEdit"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="32dp"
+                    android:layout_marginTop="4dp"
+                    android:backgroundTint="@color/purple_500"
+                    android:enabled="false"
+                    android:text="12/01/1985"
+                    android:textColor="@color/gray"
+                    android:textSize="18sp"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/dobText" />
 
-            <EditText
-                android:id="@+id/addressEdit"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="40dp"
-                android:layout_marginEnd="10dp"
-                android:textColor="@color/gray"
-                android:textSize="18dp"
-                android:text="123 Main Street, Farmingdale, NY 11735"
-                android:enabled="false"
-                android:backgroundTint="@color/purple_500"
-                app:layout_constraintTop_toBottomOf="@id/addressText"
-                app:layout_constraintLeft_toLeftOf="parent" />
+                <TextView
+                    android:id="@+id/addressText"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="32dp"
+                    android:layout_marginTop="12dp"
+                    android:text="ADDRESS"
+                    android:textColor="@color/white"
+                    android:textSize="18sp"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/dobEdit" />
 
-            <TextView
-                android:id="@+id/licenseText"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="15dp"
-                android:layout_marginLeft="40dp"
-                android:text="DRIVER'S LICENSE NUMBER"
-                android:textColor="@color/white"
-                android:textSize="18dp"
-                app:layout_constraintTop_toBottomOf="@id/addressEdit"
-                app:layout_constraintLeft_toLeftOf="parent" />
+                <EditText
+                    android:id="@+id/addressEdit"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="32dp"
+                    android:layout_marginTop="8dp"
+                    android:backgroundTint="@color/purple_500"
+                    android:enabled="false"
+                    android:text="123 Main Street, Farmingdale, NY 11735"
+                    android:textColor="@color/gray"
+                    android:textSize="18sp"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/addressText" />
 
-            <EditText
-                android:id="@+id/licenseEdit"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="40dp"
-                android:layout_marginEnd="10dp"
-                android:textColor="@color/gray"
-                android:textSize="18dp"
-                android:text="123 456 789"
-                android:enabled="false"
-                android:backgroundTint="@color/purple_500"
-                app:layout_constraintTop_toBottomOf="@id/licenseText"
-                app:layout_constraintLeft_toLeftOf="parent" />
+                <TextView
+                    android:id="@+id/licenseText"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="32dp"
+                    android:layout_marginTop="8dp"
+                    android:text="DRIVER'S LICENSE NUMBER"
+                    android:textColor="@color/white"
+                    android:textSize="18sp"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/addressEdit" />
 
-            <TextView
-                android:id="@+id/iceContactText"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="15dp"
-                android:layout_marginLeft="40dp"
-                android:text="EMERGENCY CONTACT NUMBER"
-                android:textColor="@color/white"
-                android:textSize="18dp"
-                app:layout_constraintTop_toBottomOf="@id/licenseEdit"
-                app:layout_constraintLeft_toLeftOf="parent" />
+                <EditText
+                    android:id="@+id/licenseEdit"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="32dp"
+                    android:layout_marginTop="12dp"
+                    android:backgroundTint="@color/purple_500"
+                    android:enabled="false"
+                    android:text="123 456 789"
+                    android:textColor="@color/gray"
+                    android:textSize="18sp"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/licenseText" />
 
-            <EditText
-                android:id="@+id/iceContactEdit"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="40dp"
-                android:layout_marginEnd="10dp"
-                android:textColor="@color/gray"
-                android:textSize="18dp"
-                android:text="(555) 123 9876"
-                android:enabled="false"
-                android:backgroundTint="@color/purple_500"
-                app:layout_constraintTop_toBottomOf="@id/iceContactText"
-                app:layout_constraintLeft_toLeftOf="parent" />
+                <TextView
+                    android:id="@+id/iceContactText"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="32dp"
+                    android:layout_marginTop="24dp"
+                    android:text="EMERGENCY CONTACT NUMBER"
+                    android:textColor="@color/white"
+                    android:textSize="18sp"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/licenseEdit" />
 
-            <Button
-                android:id="@+id/accessVehicles"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="25dp"
-                android:layout_marginStart="50dp"
-                android:text="Edit Vehicles"
-                android:onClick="edit_vehicle"
-                android:backgroundTint="@color/logo"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/iceContactEdit" />
+                <EditText
+                    android:id="@+id/iceContactEdit"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="32dp"
+                    android:layout_marginTop="12dp"
+                    android:backgroundTint="@color/purple_500"
+                    android:enabled="false"
+                    android:text="(555) 123 9876"
+                    android:textColor="@color/gray"
+                    android:textSize="18sp"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/iceContactText" />
 
-            <Button
-                android:id="@+id/accessInsurance"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="25dp"
-                android:layout_marginStart="10dp"
-                android:text="Edit Insurance"
-                android:onClick="edit_insurance"
-                android:backgroundTint="@color/logo"
-                app:layout_constraintStart_toEndOf="@id/accessVehicles"
-                app:layout_constraintTop_toBottomOf="@id/iceContactEdit" />
+                <Button
+                    android:id="@+id/accessVehicles"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="45dp"
+                    android:layout_marginTop="25dp"
+                    android:backgroundTint="@color/logo"
+                    android:onClick="edit_vehicle"
+                    android:text="Edit Vehicles"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/iceContactEdit" />
 
-            <Button
-                android:id="@+id/save"
-                android:layout_width="130dp"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="20dp"
-                android:text="Save"
-                android:textSize="18dp"
-                android:onClick="save"
-                app:layout_constraintTop_toBottomOf="@id/accessInsurance"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"/>
+                <Button
+                    android:id="@+id/accessInsurance"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="10dp"
+                    android:layout_marginTop="25dp"
+                    android:layout_marginEnd="45dp"
+                    android:backgroundTint="@color/logo"
+                    android:onClick="edit_insurance"
+                    android:text="Edit Insurance"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toEndOf="@id/accessVehicles"
+                    app:layout_constraintTop_toBottomOf="@id/iceContactEdit" />
+
+                <Button
+                    android:id="@+id/save"
+                    android:layout_width="130dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="20dp"
+                    android:onClick="save"
+                    android:text="Save"
+                    android:textSize="18dp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/accessInsurance" />
 
             </androidx.constraintlayout.widget.ConstraintLayout>
         </LinearLayout>

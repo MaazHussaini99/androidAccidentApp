@@ -6,13 +6,15 @@ import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.CompoundButton;
 import android.widget.EditText;
+import android.widget.Switch;
 import android.widget.TextView;
 
 public class UserProfile extends AppCompatActivity {
 
     EditText firstName, lastName, dob, address, license, iceContact;
-    TextView editLink;
+    Switch editable;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -25,7 +27,8 @@ public class UserProfile extends AppCompatActivity {
         address = findViewById(R.id.addressEdit);
         license = findViewById(R.id.licenseEdit);
         iceContact = findViewById(R.id.iceContactEdit);
-        editLink = findViewById(R.id.editLink);
+
+        editable = findViewById(R.id.editable);
     }
 
     public void edit_vehicle(View view) {
@@ -39,24 +42,55 @@ public class UserProfile extends AppCompatActivity {
 
     }
 
-    public void save(View view) {
-        Intent intent = new Intent(UserProfile.this, UserProfile.class);
-        startActivity(intent);
+    public void updateText(View view) {
+        editable.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+                if (editable.isChecked()) {
+                    firstName.setEnabled(true);
+                    firstName.setTextColor(Color.WHITE);
+                    lastName.setEnabled(true);
+                    lastName.setTextColor(Color.WHITE);
+                    dob.setEnabled(true);
+                    dob.setTextColor(Color.WHITE);
+                    address.setEnabled(true);
+                    address.setTextColor(Color.WHITE);
+                    license.setEnabled(true);
+                    license.setTextColor(Color.WHITE);
+                    iceContact.setEnabled(true);
+                    iceContact.setTextColor(Color.WHITE);
+                } else {
+                    firstName.setEnabled(false);
+                    firstName.setTextColor(Color.GRAY);
+                    lastName.setEnabled(false);
+                    lastName.setTextColor(Color.GRAY);
+                    dob.setEnabled(false);
+                    dob.setTextColor(Color.GRAY);
+                    address.setEnabled(false);
+                    address.setTextColor(Color.GRAY);
+                    license.setEnabled(false);
+                    license.setTextColor(Color.GRAY);
+                    iceContact.setEnabled(false);
+                    iceContact.setTextColor(Color.GRAY);
+                }
+            }
+        });
     }
 
-    public void updateText(View view) {
-        editLink.setTextColor(Color.CYAN);
-        firstName.setEnabled(true);
-        firstName.setTextColor(Color.WHITE);
-        lastName.setEnabled(true);
-        lastName.setTextColor(Color.WHITE);
-        dob.setEnabled(true);
-        dob.setTextColor(Color.WHITE);
-        address.setEnabled(true);
-        address.setTextColor(Color.WHITE);
-        license.setEnabled(true);
-        license.setTextColor(Color.WHITE);
-        iceContact.setEnabled(true);
-        iceContact.setTextColor(Color.WHITE);
+    public void save(View view) {
+        //push updated data over to firebase
+        firstName.setEnabled(false);
+        firstName.setTextColor(Color.GRAY);
+        lastName.setEnabled(false);
+        lastName.setTextColor(Color.GRAY);
+        dob.setEnabled(false);
+        dob.setTextColor(Color.GRAY);
+        address.setEnabled(false);
+        address.setTextColor(Color.GRAY);
+        license.setEnabled(false);
+        license.setTextColor(Color.GRAY);
+        iceContact.setEnabled(false);
+        iceContact.setTextColor(Color.GRAY);
+        editable.setChecked(false);
     }
 }

@@ -52,8 +52,8 @@ public class Home extends AppCompatActivity {
                             break;
                         }
                         case 3:{
-                            Toast.makeText(Home.this, "Access User's Accident Reports", Toast.LENGTH_SHORT).show();
-//                            Intent intent = new Intent(Home.this, UserReports.class);
+                            Toast.makeText(Home.this, "Access User Reports", Toast.LENGTH_LONG).show();
+//                            Intent intent = new Intent(Home.this, InsuranceProfile.class);
 //                            startActivity(intent);
                             break;
                         }
