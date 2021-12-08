@@ -1,16 +1,21 @@
 package com.example.androidaccidentapp;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
@@ -28,6 +33,8 @@ public class finalExchangeActivity extends AppCompatActivity {
 
     Button submit;
     EditText ReportName;
+
+    HashMap<String,String> maps= new HashMap();
 
     private static FirebaseUser currentUser;
     private static final String TAG = "RealtimeDB";
@@ -94,9 +101,11 @@ public class finalExchangeActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 saveData(view);
+
             }
         });
     }
+
     public void saveData(View view) {
 
         String reportName = ReportName.getText().toString();
@@ -115,9 +124,26 @@ public class finalExchangeActivity extends AppCompatActivity {
         map.put("Last Name", lastName);
         map.put("First Name", firstName);
 
-        dbRef.child(currentUser.getUid()).child("Accident Reports").child(reportName).updateChildren(map, completionListener);
+        dbRef.child(currentUser.getUid()).child("User Info").child(reportName).updateChildren(map, completionListener);
 
+//        dbRef.child(currentUser.getUid()).child("Accident Reports").child("Maaz 1").get().addOnCompleteListener(new OnCompleteListener<DataSnapshot>() {
+//            @Override
+//            public void onComplete(@NonNull Task<DataSnapshot> task) {
+//                if (!task.isSuccessful()) {
+//                    Log.e("firebase", "Error getting data", task.getException());
+//                }
+//                else {
+//                    Log.d("firebase", "Maaz logging data " + String.valueOf(task.getResult().getValue()));
+//
+//                    for (DataSnapshot childSnapshot: task.getResult().getChildren()) {
+//                        maps.put((String)childSnapshot.getKey(), (String)childSnapshot.getValue());
+//                    }
+//                    Address.setText(maps.get("Address"));
+//                }
+//            }
+//        });
     }
+
 
     DatabaseReference.CompletionListener completionListener =
             new DatabaseReference.CompletionListener() {

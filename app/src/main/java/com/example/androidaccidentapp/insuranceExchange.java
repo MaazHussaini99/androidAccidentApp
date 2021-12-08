@@ -1,5 +1,7 @@
 package com.example.androidaccidentapp;
 
+import static android.text.TextUtils.isEmpty;
+
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
@@ -8,13 +10,13 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
 public class insuranceExchange extends AppCompatActivity {
-
 
 
     EditText prov;
@@ -30,7 +32,6 @@ public class insuranceExchange extends AppCompatActivity {
     String dateOfBirth;
     String addressDriver;
     String licenceNum;
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -57,7 +58,11 @@ public class insuranceExchange extends AppCompatActivity {
                 policyNum = policyNo.getText().toString();
                 policyHolder = holder.getText().toString();
 
-                changeToNextActivity(view);
+                if (isEmpty(provider) || isEmpty(policyNum) || isEmpty(policyHolder)) {
+                    Toast.makeText(insuranceExchange.this, "Please fill in all fields", Toast.LENGTH_SHORT).show();
+                } else {
+                    changeToNextActivity(view);
+                }
             }
         });
     }

@@ -26,9 +26,11 @@
         <entry key="..\:/Users/maazh/StudioProjects/androidAccidentApp/app/src/main/res/layout/activity_driver_info.xml" value="0.264" />
         <entry key="..\:/Users/maazh/StudioProjects/androidAccidentApp/app/src/main/res/layout/activity_final_exchange.xml" value="0.17603850050658562" />
         <entry key="..\:/Users/maazh/StudioProjects/androidAccidentApp/app/src/main/res/layout/activity_infoexchange.xml" value="0.17708333333333334" />
+        <entry key="..\:/Users/maazh/StudioProjects/androidAccidentApp/app/src/main/res/layout/activity_insurance_exchange.xml" value="0.17603850050658562" />
         <entry key="..\:/Users/maazh/StudioProjects/androidAccidentApp/app/src/main/res/layout/activity_maps.xml" value="0.17708333333333334" />
-        <entry key="..\:/Users/maazh/StudioProjects/androidAccidentApp/app/src/main/res/layout/activity_saved_vehicles.xml" value="0.17708333333333334" />
-        <entry key="..\:/Users/maazh/StudioProjects/androidAccidentApp/app/src/main/res/layout/activity_vehicle_details.xml" value="0.17708333333333334" />
+        <entry key="..\:/Users/maazh/StudioProjects/androidAccidentApp/app/src/main/res/layout/activity_pdf.xml" value="0.160081053698075" />
+        <entry key="..\:/Users/maazh/StudioProjects/androidAccidentApp/app/src/main/res/layout/activity_saved_vehicles.xml" value="0.264" />
+        <entry key="..\:/Users/maazh/StudioProjects/androidAccidentApp/app/src/main/res/layout/activity_vehicle_details.xml" value="0.264" />
       </map>
     </option>
   </component>

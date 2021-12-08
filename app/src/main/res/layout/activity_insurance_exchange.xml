@@ -34,9 +34,10 @@
                 android:layout_below="@+id/logo"
                 android:layout_centerHorizontal="true"
                 android:layout_marginTop="50dp"
-                android:text=" Complete Insurance Information"
+                android:text=" Complete Other Driver's Insurance Information"
                 android:textSize="40sp"
-                android:textColor="@color/white"/>
+                android:textColor="@color/white"
+                android:textAlignment="center"/>
 
         </RelativeLayout>
 
@@ -116,24 +117,13 @@
             android:layout_below="@+id/relative2">
 
             <Button
-                android:id="@+id/importProfile"
-                android:layout_width="150dp"
-                android:layout_height="150dp"
-                android:layout_marginLeft="50dp"
-                android:layout_marginTop="50dp"
-                android:text=" Import from Profile" />
-
-
-            <Button
                 android:id="@+id/saveInsuranceInfo"
                 android:layout_width="150dp"
                 android:layout_height="150dp"
-                android:layout_alignParentRight="true"
                 android:layout_marginTop="50dp"
-                android:layout_marginRight="50dp"
-                android:text=" Save Insurance Information" />
+                android:text=" Save Insurance Information"
+                android:layout_centerHorizontal="true"/>
 
         </RelativeLayout>
-
     </RelativeLayout>
 </ScrollView>

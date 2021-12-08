@@ -18,7 +18,6 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
 
-
             <ImageView
                 android:id="@+id/logo"
                 android:layout_width="249dp"
@@ -33,12 +32,12 @@
                 android:layout_below="@+id/logo"
                 android:layout_centerHorizontal="true"
                 android:layout_marginTop="50dp"
-                android:text=" Enter Vehicle Details"
+                android:text=" Enter other Vehicle Details"
                 android:textSize="40sp"
-                android:textColor="@color/white"/>
+                android:textColor="@color/white"
+                android:textAlignment="center"/>
 
         </RelativeLayout>
-
 
         <RelativeLayout
             android:id="@+id/relative2"
@@ -148,6 +147,25 @@
                 android:textColorHint="@color/white"
                 android:textColor="@color/white"/>
 
+            <TextView
+                android:id="@+id/spinnerText"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/vehicleType"
+                android:layout_marginTop="50dp"
+                android:text="  Select Your Vehicle"
+                android:textSize="25sp"
+                android:textColor="@color/white"/>
+
+            <Spinner
+                android:id="@+id/spinner"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_below="@id/spinnerText"
+                android:background="@color/white"
+                android:layout_marginTop="20dp"
+                />
+
         </RelativeLayout>
 
         <RelativeLayout
@@ -159,12 +177,10 @@
                 android:id="@+id/toMaps"
                 android:layout_width="150dp"
                 android:layout_height="150dp"
+                android:layout_centerHorizontal="true"
                 android:layout_marginLeft="50dp"
                 android:layout_marginTop="50dp"
-                android:text=" NEXT"
-                android:layout_centerHorizontal="true"/>
-
-
+                android:text=" NEXT" />
 
 
         </RelativeLayout>
