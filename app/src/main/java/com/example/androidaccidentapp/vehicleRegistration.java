@@ -78,7 +78,7 @@ public class vehicleRegistration extends AppCompatActivity {
     }
 
     public void changeToNextActivity(View v){
-        /*Intent intent = new Intent(this, finalCheck.class);
+        Intent intent = new Intent(this, finalCheck.class);
 
         intent.putExtra("FirstName", firstName);
         intent.putExtra("LastName", lastName);
@@ -95,8 +95,7 @@ public class vehicleRegistration extends AppCompatActivity {
         intent.putExtra("VehiclePlate", vehiclePlate);
         intent.putExtra("VehicleState", vehicleState);
         intent.putExtra("VehicleType", vehicleType);
-
-        this.startActivity(intent);*/
+        this.startActivity(intent);
     }
 
     public void openProfileDialog(View view){

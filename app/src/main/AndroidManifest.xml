@@ -21,6 +21,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.AppCompat.Light.NoActionBar">
         <activity
+            android:name=".finalCheck"
+            android:exported="true" />
+        <activity
             android:name=".vehicleRegistration"
             android:exported="true" />
         <activity

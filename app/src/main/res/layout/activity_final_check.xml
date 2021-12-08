@@ -1,0 +1,408 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.drawerlayout.widget.DrawerLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:id="@+id/drawer_layout"
+    android:background="@color/background"
+    tools:context=".finalCheck">
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <include
+            layout="@layout/main_toolbar"/>
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            >
+
+            <RelativeLayout
+                android:id="@+id/mainLayout"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+
+                <RelativeLayout
+                    android:id="@+id/relative1"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+
+                    <ImageView
+                        android:id="@+id/logo"
+                        android:layout_width="249dp"
+                        android:layout_height="92dp"
+                        android:layout_centerHorizontal="true"
+                        android:src="@drawable/app_icon_04" />
+
+                    <TextView
+                        android:id="@+id/title"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/logo"
+                        android:layout_centerHorizontal="true"
+                        android:layout_marginTop="50dp"
+                        android:text=" Final Check"
+                        android:textSize="40sp"
+                        android:textAlignment="center"
+                        android:textColor="@color/white"/>
+
+                </RelativeLayout>
+
+
+                <RelativeLayout
+                    android:id="@+id/relative2"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/relative1">
+
+                    <TextView
+                        android:id="@+id/firstName"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="50dp"
+                        android:text="  1"
+                        android:textColor="@color/white"
+                        android:textSize="25sp" />
+
+                    <TextView
+                        android:id="@+id/lastName"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/firstName"
+                        android:layout_marginTop="50dp"
+                        android:text="  2"
+                        android:textColor="@color/white"
+                        android:textSize="25sp" />
+
+                    <TextView
+                        android:id="@+id/DOB"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/lastName"
+                        android:layout_marginTop="50dp"
+                        android:text="  3"
+                        android:textColor="@color/white"
+                        android:textSize="25sp" />
+
+                    <TextView
+                        android:id="@+id/Address"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/DOB"
+                        android:layout_marginTop="50dp"
+                        android:text="  4"
+                        android:textColor="@color/white"
+                        android:textSize="25sp" />
+
+                    <TextView
+                        android:id="@+id/license"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/Address"
+                        android:layout_marginTop="50dp"
+                        android:text="  5"
+                        android:textColor="@color/white"
+                        android:textSize="25sp" />
+
+                    <TextView
+                        android:id="@+id/insProvider"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/license"
+                        android:layout_marginTop="50dp"
+                        android:text="  6"
+                        android:textColor="@color/white"
+                        android:textSize="25sp" />
+
+
+                    <TextView
+                        android:id="@+id/insPolicyNum"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/insProvider"
+                        android:layout_marginTop="50dp"
+                        android:text="  7"
+                        android:textColor="@color/white"
+                        android:textSize="25sp" />
+
+                    <TextView
+                        android:id="@+id/insPolicyHolder"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/insPolicyNum"
+                        android:layout_marginTop="50dp"
+                        android:text="  8"
+                        android:textColor="@color/white"
+                        android:textSize="25sp" />
+
+                    <TextView
+                        android:id="@+id/Make"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/insPolicyHolder"
+                        android:layout_marginTop="50dp"
+                        android:text="  9"
+                        android:textColor="@color/white"
+                        android:textSize="25sp" />
+
+                    <TextView
+                        android:id="@+id/Year"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/Make"
+                        android:layout_marginTop="50dp"
+                        android:text="  10"
+                        android:textColor="@color/white"
+                        android:textSize="25sp" />
+
+                    <TextView
+                        android:id="@+id/Plate"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/Year"
+                        android:layout_marginTop="50dp"
+                        android:text="  11"
+                        android:textColor="@color/white"
+                        android:textSize="25sp" />
+
+                    <TextView
+                        android:id="@+id/vehicleState"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/Plate"
+                        android:layout_marginTop="50dp"
+                        android:text="  12"
+                        android:textColor="@color/white"
+                        android:textSize="25sp" />
+
+                    <TextView
+                        android:id="@+id/Type"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/vehicleState"
+                        android:layout_marginTop="50dp"
+                        android:text="  13"
+                        android:textColor="@color/white"
+                        android:textSize="25sp" />
+
+                    <TextView
+                        android:id="@+id/reportNameTv"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/Type"
+                        android:layout_marginTop="50dp"
+                        android:text="  Enter Report Name"
+                        android:textColor="#FFD700"
+                        android:textSize="25sp" />
+
+                    <TextView
+                        android:id="@+id/reportNameTv2"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/Type"
+                        android:layout_alignParentEnd="true"
+                        android:layout_marginTop="-1076dp"
+                        android:layout_marginEnd="4dp"
+                        android:text="First Name"
+                        android:textColor="#FFD700"
+                        android:textSize="25sp" />
+
+                    <TextView
+                        android:id="@+id/reportNameTv3"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/Type"
+                        android:layout_alignParentEnd="true"
+                        android:layout_marginTop="-994dp"
+                        android:layout_marginEnd="2dp"
+                        android:text="Last Name"
+                        android:textColor="#FFD700"
+                        android:textSize="25sp" />
+
+                    <TextView
+                        android:id="@+id/reportNameTv4"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/Type"
+                        android:layout_alignParentEnd="true"
+                        android:layout_marginTop="-908dp"
+                        android:layout_marginEnd="1dp"
+                        android:text="Date of Birth"
+                        android:textColor="#FFD700"
+                        android:textSize="25sp" />
+
+                    <TextView
+                        android:id="@+id/reportNameTv5"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/Type"
+                        android:layout_alignParentEnd="true"
+                        android:layout_marginTop="-826dp"
+                        android:layout_marginEnd="1dp"
+                        android:text="Address"
+                        android:textColor="#FFD700"
+                        android:textSize="25sp" />
+
+                    <TextView
+                        android:id="@+id/reportNameTv6"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/Type"
+                        android:layout_alignParentEnd="true"
+                        android:layout_marginTop="-744dp"
+                        android:layout_marginEnd="5dp"
+                        android:text="License"
+                        android:textColor="#FFD700"
+                        android:textSize="25sp" />
+
+                    <TextView
+                        android:id="@+id/reportNameTv9"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/Type"
+                        android:layout_alignParentEnd="true"
+                        android:layout_marginTop="-497dp"
+                        android:layout_marginEnd="5dp"
+                        android:text="Insurance Policy Holder"
+                        android:textColor="#FFD700"
+                        android:textSize="25sp" />
+
+                    <TextView
+                        android:id="@+id/reportNameTv10"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/Type"
+                        android:layout_alignParentEnd="true"
+                        android:layout_marginTop="-407dp"
+                        android:layout_marginEnd="5dp"
+                        android:text="Vehicle Make"
+                        android:textColor="#FFD700"
+                        android:textSize="25sp" />
+
+                    <TextView
+                        android:id="@+id/reportNameTv11"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/Type"
+                        android:layout_alignParentEnd="true"
+                        android:layout_marginTop="-323dp"
+                        android:layout_marginEnd="1dp"
+                        android:text="Vehicle Year"
+                        android:textColor="#FFD700"
+                        android:textSize="25sp" />
+
+                    <TextView
+                        android:id="@+id/reportNameTv12"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/Type"
+                        android:layout_alignParentEnd="true"
+                        android:layout_marginTop="-244dp"
+                        android:layout_marginEnd="-3dp"
+                        android:text="Vehicle Plate Number"
+                        android:textColor="#FFD700"
+                        android:textSize="25sp" />
+
+                    <TextView
+                        android:id="@+id/reportNameTv13"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/Type"
+                        android:layout_alignParentEnd="true"
+                        android:layout_marginTop="-159dp"
+                        android:layout_marginEnd="-2dp"
+                        android:text="State Registered"
+                        android:textColor="#FFD700"
+                        android:textSize="25sp" />
+
+                    <TextView
+                        android:id="@+id/reportNameTv14"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/Type"
+                        android:layout_alignParentEnd="true"
+                        android:layout_marginTop="-75dp"
+                        android:layout_marginEnd="-2dp"
+                        android:text="Vehicle Type"
+                        android:textColor="#FFD700"
+                        android:textSize="25sp" />
+
+                    <TextView
+                        android:id="@+id/reportNameTv7"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/Type"
+                        android:layout_alignParentEnd="true"
+                        android:layout_marginTop="-658dp"
+                        android:layout_marginEnd="5dp"
+                        android:text="Insurance Provider"
+                        android:textColor="#FFD700"
+                        android:textSize="25sp" />
+
+                    <TextView
+                        android:id="@+id/reportNameTv8"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/Type"
+                        android:layout_alignParentEnd="true"
+                        android:layout_marginTop="-578dp"
+                        android:layout_marginEnd="5dp"
+                        android:text="Insurance Policy Number"
+                        android:textColor="#FFD700"
+                        android:textSize="25sp" />
+
+                    <EditText
+                        android:id="@+id/ReportName"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/reportNameTv"
+                        android:hint="  Type Name"
+                        android:paddingTop="10dp"
+                        android:textColor="@color/white"
+                        android:textColorHint="@color/white" />
+
+
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/relative2">
+
+                    <Button
+                        android:id="@+id/submitInfoToFirebase"
+                        android:layout_width="205dp"
+                        android:layout_height="wrap_content"
+                        android:layout_centerHorizontal="true"
+                        android:layout_marginLeft="50dp"
+                        android:layout_marginTop="50dp"
+                        android:text="Finish" />
+
+
+                </RelativeLayout>
+
+            </RelativeLayout>
+        </ScrollView>
+
+    </LinearLayout>
+
+    <RelativeLayout
+        android:layout_width="300dp"
+        android:layout_height="match_parent"
+        android:layout_gravity="start"
+        android:background="@android:color/white">
+
+        <include
+            layout="@layout/main_nav_drawer"/>
+
+
+    </RelativeLayout>
+
+</androidx.drawerlayout.widget.DrawerLayout>
