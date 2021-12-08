@@ -24,9 +24,6 @@
             android:name=".driveRegistration"
             android:exported="true" />
         <activity
-            android:name=".SignedInActivity"
-            android:exported="true" />
-        <activity
             android:name=".Registering"
             android:exported="true" />
         <activity
