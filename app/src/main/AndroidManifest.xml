@@ -12,10 +12,22 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.AndroidAccidentApp">
         <activity
+            android:name=".finalCheck"
+            android:exported="true" />
+        <activity
+            android:name=".vehicleRegistration"
+            android:exported="true" />
+        <activity
+            android:name=".insuranceRegistration"
+            android:exported="true" />
+        <activity
+            android:name=".driveRegistration"
+            android:exported="true" />
+        <activity
             android:name=".SignedInActivity"
             android:exported="true" />
         <activity
-            android:name=".Login"
+            android:name=".Registering"
             android:exported="true" />
         <activity
             android:name=".Step1"
@@ -23,7 +35,7 @@
         <activity
             android:name=".Step5"
             android:exported="true" />
-        <activity android:name=".Registering">
+        <activity android:name=".Login">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
