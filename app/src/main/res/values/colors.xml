@@ -9,6 +9,7 @@
     <color name="white">#FFFFFFFF</color>
 
     <color name="background">#0F2355</color>
+    <color name="backgroundColor">#04132c</color>
     <color name="logo">#3B6BfB</color>
     <color name="gradient_start">#04132C</color>
     <color name="gradient_end">#3B6BfB</color>
