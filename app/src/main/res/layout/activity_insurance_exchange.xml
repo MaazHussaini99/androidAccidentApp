@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".insuranceExchange"
+    android:background="@color/backgroundColor">
+
+    <RelativeLayout
+        android:id="@+id/mainLayout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+
+        <RelativeLayout
+            android:id="@+id/relative1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+
+            <ImageView
+                android:id="@+id/logo"
+                android:layout_width="249dp"
+                android:layout_height="92dp"
+                android:layout_centerHorizontal="true"
+                android:src="@drawable/app_icon_04" />
+
+            <TextView
+                android:id="@+id/title"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/logo"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="50dp"
+                android:text=" Complete Other Driver's Insurance Information"
+                android:textSize="40sp"
+                android:textColor="@color/white"
+                android:textAlignment="center"/>
+
+        </RelativeLayout>
+
+
+        <RelativeLayout
+            android:id="@+id/relative2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/relative1">
+
+            <TextView
+                android:id="@+id/providerTv"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="50dp"
+                android:text="  Insurance Provider"
+                android:textSize="25sp"
+                android:textColor="@color/white"/>
+
+            <EditText
+                android:id="@+id/provider"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/providerTv"
+                android:paddingTop="10dp"
+                android:hint="  Type Something"
+                android:textColorHint="@color/white"
+                android:textColor="@color/white"/>
+
+            <TextView
+                android:id="@+id/policyNoTv"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/provider"
+                android:layout_marginTop="50dp"
+                android:text="  Policy Number"
+                android:textSize="25sp"
+                android:textColor="@color/white"/>
+
+            <EditText
+                android:id="@+id/policyNo"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/policyNoTv"
+                android:paddingTop="10dp"
+                android:hint="  Type Something"
+                android:textColorHint="@color/white"
+                android:textColor="@color/white"/>
+
+
+            <TextView
+                android:id="@+id/policyHolderTv"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/policyNo"
+                android:layout_marginTop="50dp"
+                android:text="  Policy Holder"
+                android:textSize="25sp"
+                android:textColor="@color/white"/>
+
+            <EditText
+                android:id="@+id/policyHolder"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/policyHolderTv"
+                android:paddingTop="10dp"
+                android:hint="  Type Something"
+                android:textColorHint="@color/white"
+                android:textColor="@color/white"/>
+
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/relative2">
+
+            <Button
+                android:id="@+id/saveInsuranceInfo"
+                android:layout_width="150dp"
+                android:layout_height="150dp"
+                android:layout_marginTop="50dp"
+                android:text=" Save Insurance Information"
+                android:layout_centerHorizontal="true"/>
+
+        </RelativeLayout>
+    </RelativeLayout>
+</ScrollView>

@@ -19,7 +19,6 @@ import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnCompleteListener;
@@ -121,7 +120,11 @@ public class Registering extends AppCompatActivity {
                             Toast.makeText(Registering.this, "Authentication success.",
                                     Toast.LENGTH_SHORT).show();
                             updateUI(user);
-                            Intent n = new Intent(Registering.this, Home.class);
+
+                            
+
+                            Intent n = new Intent(Registering.this, driverInfo.class);
+
                             startActivity(n);
 
                         } else {
