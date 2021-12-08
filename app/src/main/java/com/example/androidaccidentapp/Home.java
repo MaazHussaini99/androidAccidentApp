@@ -29,9 +29,9 @@ public class Home extends AppCompatActivity {
         setContentView(R.layout.activity_home);
         drawerLayout = findViewById(R.id.drawer_layout);
 
-        //userAcct = findViewById(R.id.account_ic);
-        String[] options = {"View User Profile", "View Vehicle Profile", "View Insurance Policy", "View Reports"};
-        adapter = new ArrayAdapter<>(this, android.R.layout.select_dialog_item, options);
+        userAcct = findViewById(R.id.account_ic);
+        String[] options = {"View User Profile", "View Vehicle Profile", "View Insurance Policy", "View Reports", "Access Camera"};
+        ArrayAdapter<String> adapter = new ArrayAdapter<>(this, android.R.layout.select_dialog_item, options);
 
         /*userAcct.setOnClickListener(v -> {
             AlertDialog.Builder profileDialog = new AlertDialog.Builder(Home.this);
@@ -43,24 +43,29 @@ public class Home extends AppCompatActivity {
                 public void onClick(DialogInterface dialog, int which) {
                     switch (which){
                         case 0:{
-                            Intent intent = new Intent(Home.this, UserProfile.class);
+                            Intent intent = new Intent(Home.this, ProfileUser.class);
                             startActivity(intent);
                             break;
                         }
                         case 1:{
-                            Intent intent = new Intent(Home.this, VehicleProfile.class);
+                            Intent intent = new Intent(Home.this, ProfileVehicle.class);
                             startActivity(intent);
                             break;
                         }
                         case 2:{
-                            Intent intent = new Intent(Home.this, InsuranceProfile.class);
+                            Intent intent = new Intent(Home.this, ProfileInsurance.class);
                             startActivity(intent);
                             break;
                         }
                         case 3:{
                             Toast.makeText(Home.this, "Access User Reports", Toast.LENGTH_LONG).show();
-//                            Intent intent = new Intent(Home.this, InsuranceProfile.class);
+//                            Intent intent = new Intent(Home.this, reports.class);
 //                            startActivity(intent);
+                            break;
+                        }
+                        case 4:{
+                            Intent intent = new Intent(Home.this, Camera.class);
+                            startActivity(intent);
                             break;
                         }
                     }
@@ -102,97 +107,5 @@ public class Home extends AppCompatActivity {
                 break;
             }
         }
-    }
-
-    public void clickMenu(View view){
-        openDrawer(drawerLayout);
-    }
-
-    public static void openDrawer(DrawerLayout drawerLayout) {
-        drawerLayout.openDrawer(GravityCompat.START);
-    }
-
-    static void closeDrawer(DrawerLayout drawerLayout) {
-        if(drawerLayout.isDrawerOpen(GravityCompat.START)){
-            drawerLayout.closeDrawer(GravityCompat.START);
-        }
-    }
-
-    //put this method in every activity to allow profile click menu dialog
-    public void openProfileDialog(View view){
-        AlertDialog.Builder profileDialog = new AlertDialog.Builder(Home.this);
-        //Set User Profile Dialog Title
-        profileDialog.setTitle("User Account Options:");
-        //List Options, when item selected, switch to that activity
-
-        profileDialog.setAdapter(adapter, new DialogInterface.OnClickListener() {
-            @Override
-            public void onClick(DialogInterface dialog, int which) {
-                switch (which){
-                    case 0:{
-                        Intent intent = new Intent(Home.this, Home.class);
-                        startActivity(intent);
-                        break;
-                    }
-                    case 1:{
-                        Intent intent = new Intent(Home.this, Home.class);
-                        startActivity(intent);
-                        break;
-                    }
-                    case 2:{
-                        Intent intent = new Intent(Home.this, Home.class);
-                        startActivity(intent);
-                        break;
-                    }
-                    case 3:{
-                        Toast.makeText(Home.this, "Access User Reports", Toast.LENGTH_LONG).show();
-//                            Intent intent = new Intent(Home.this, InsuranceProfile.class);
-//                            startActivity(intent);
-                        break;
-                    }
-                }
-            }
-        });
-
-        profileDialog.setNegativeButton("Sign Out", (v, a) -> {
-            Toast.makeText(Home.this, "Clicked Sign Out", Toast.LENGTH_LONG).show();
-        });
-
-        profileDialog.create().show();
-
-    }
-
-    public void clickHome(View view){
-        recreate();
-    }
-
-    public void clickRegister(View view){
-        redirectActivity(this, Registering.class);
-    }
-
-    public void clickMaps(View view){
-        redirectActivity(this, MapsActivity.class);
-    }
-
-    public void clickGuide(View view){
-        redirectActivity(this, Step1.class);
-    }
-
-    public void clickLogin(View view){
-        redirectActivity(this, Login.class);
-    }
-
-    static void redirectActivity(Activity activity, Class aClass) {
-        Intent intent = new Intent(activity, aClass);
-
-        intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-
-        activity.startActivity(intent);
-    }
-
-    @Override
-    protected void onPause() {
-        super.onPause();
-        closeDrawer(drawerLayout);
     }
 }
