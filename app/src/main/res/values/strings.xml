@@ -9,4 +9,8 @@
     <string name="title_activity_maps">Choose Location</string>
     <string name="addressDialogTitle">Add address to accident report?</string>
     <string name="saveAddressButtonText">Save</string>
+    <string name="step2firstString">Assess your surroundings.</string>
+    <string name="step2secondString">Take this time to move your vehicle to a safe place to wait for police to arrive.</string>
+    <string name="step2thirdString">Once you are safe and out of the way of traffic you should exchange information with the other driver(s).</string>
+    <string name="step2fourthString">If you both have accounts you can import both your information and the other driver\'s information directly into the information exchange form.</string>
 </resources>
