@@ -212,8 +212,8 @@ public class Registering extends AppCompatActivity {
         redirectActivity(this, MapsActivity.class);
     }
 
-    public void clickGuide(View view){
-        redirectActivity(this, Step1.class);
+    public void clickLogin(View view){
+        redirectActivity(this, Login.class);
     }
 
     static void redirectActivity(Activity activity, Class aClass) {

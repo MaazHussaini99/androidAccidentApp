@@ -375,6 +375,10 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         redirectActivity(this, Step1.class);
     }
 
+    public void clickLogin(View view){
+        redirectActivity(this, Login.class);
+    }
+
     static void redirectActivity(Activity activity, Class aClass) {
         Intent intent = new Intent(activity, aClass);
 

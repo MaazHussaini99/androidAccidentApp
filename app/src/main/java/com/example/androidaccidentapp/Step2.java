@@ -232,6 +232,10 @@ public class Step2 extends AppCompatActivity {
         redirectActivity(this, Registering.class);
     }
 
+    public void clickLogin(View view){
+        redirectActivity(this, Login.class);
+    }
+
     static void redirectActivity(Activity activity, Class aClass) {
         Intent intent = new Intent(activity, aClass);
 

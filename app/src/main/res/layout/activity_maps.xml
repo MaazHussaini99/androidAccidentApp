@@ -44,8 +44,9 @@
 
 
 
-</RelativeLayout>
+        </RelativeLayout>
 </fragment>
+
     </LinearLayout>
     <RelativeLayout
         android:layout_width="300dp"
