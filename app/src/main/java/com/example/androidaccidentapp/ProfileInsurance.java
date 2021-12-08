@@ -10,7 +10,7 @@ import android.widget.CompoundButton;
 import android.widget.EditText;
 import android.widget.Switch;
 
-public class InsuranceProfile extends AppCompatActivity {
+public class ProfileInsurance extends AppCompatActivity {
 
     EditText providerEdit, policyNoEdit, accHolderEdit;
     Switch editable;
@@ -18,7 +18,7 @@ public class InsuranceProfile extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_insurance_profile);
+        setContentView(R.layout.activity_profile_insurance);
 
         providerEdit = findViewById(R.id.providerEdit);
         policyNoEdit = findViewById(R.id.policyNoEdit);
@@ -53,12 +53,12 @@ public class InsuranceProfile extends AppCompatActivity {
     }
 
     public void edit_vehicle(View view) {
-        Intent intent = new Intent(InsuranceProfile.this, VehicleProfile.class);
+        Intent intent = new Intent(ProfileInsurance.this, ProfileVehicle.class);
         startActivity(intent);
     }
 
     public void edit_profile(View view) {
-        Intent intent = new Intent(InsuranceProfile.this, UserProfile.class);
+        Intent intent = new Intent(ProfileInsurance.this, ProfileUser.class);
         startActivity(intent);
     }
 

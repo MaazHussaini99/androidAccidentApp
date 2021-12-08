@@ -39,16 +39,13 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".Step1"
+            android:name=".ProfileInsurance"
             android:exported="false" />
         <activity
-            android:name=".InsuranceProfile"
+            android:name=".ProfileVehicle"
             android:exported="false" />
         <activity
-            android:name=".VehicleProfile"
-            android:exported="false" />
-        <activity
-            android:name=".UserProfile"
+            android:name=".ProfileUser"
             android:exported="false" />
         <activity
             android:name=".Home"

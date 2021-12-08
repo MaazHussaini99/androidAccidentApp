@@ -10,7 +10,7 @@ import android.widget.CompoundButton;
 import android.widget.EditText;
 import android.widget.Switch;
 
-public class VehicleProfile extends AppCompatActivity {
+public class ProfileVehicle extends AppCompatActivity {
 
     EditText carMake, yearEdit, plateNumEdit, stateEdit, carTypeEdit;
     Switch editable;
@@ -18,7 +18,7 @@ public class VehicleProfile extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_vehicle_profile);
+        setContentView(R.layout.activity_profile_vehicle);
 
         carMake = findViewById(R.id.makeEdit);
         yearEdit = findViewById(R.id.yearEdit);
@@ -63,12 +63,12 @@ public class VehicleProfile extends AppCompatActivity {
     }
 
     public void edit_profile(View view) {
-        Intent intent = new Intent(VehicleProfile.this, UserProfile.class);
+        Intent intent = new Intent(ProfileVehicle.this, ProfileUser.class);
         startActivity(intent);
     }
 
     public void edit_Insurance(View view) {
-        Intent intent = new Intent(VehicleProfile.this, InsuranceProfile.class);
+        Intent intent = new Intent(ProfileVehicle.this, ProfileInsurance.class);
         startActivity(intent);
     }
 

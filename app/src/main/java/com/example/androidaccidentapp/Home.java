@@ -3,14 +3,11 @@ package com.example.androidaccidentapp;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.app.Dialog;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
-import android.os.Handler;
 import android.view.View;
 import android.widget.ArrayAdapter;
-import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.Toast;
 
@@ -37,23 +34,23 @@ public class Home extends AppCompatActivity {
                 public void onClick(DialogInterface dialog, int which) {
                     switch (which){
                         case 0:{
-                            Intent intent = new Intent(Home.this, UserProfile.class);
+                            Intent intent = new Intent(Home.this, ProfileUser.class);
                             startActivity(intent);
                             break;
                         }
                         case 1:{
-                            Intent intent = new Intent(Home.this, VehicleProfile.class);
+                            Intent intent = new Intent(Home.this, ProfileVehicle.class);
                             startActivity(intent);
                             break;
                         }
                         case 2:{
-                            Intent intent = new Intent(Home.this, InsuranceProfile.class);
+                            Intent intent = new Intent(Home.this, ProfileInsurance.class);
                             startActivity(intent);
                             break;
                         }
                         case 3:{
                             Toast.makeText(Home.this, "Access User Reports", Toast.LENGTH_LONG).show();
-//                            Intent intent = new Intent(Home.this, InsuranceProfile.class);
+//                            Intent intent = new Intent(Home.this, ProfileInsurance.class);
 //                            startActivity(intent);
                             break;
                         }
@@ -78,8 +75,8 @@ public class Home extends AppCompatActivity {
         switch (view.getId()){
             case R.id.step_by_step:{
                 Toast.makeText(Home.this, "Step-By-Step", Toast.LENGTH_SHORT).show();
-                Intent myIntent = new Intent(Home.this, Step1.class);
-                Home.this.startActivity(myIntent);
+//                Intent myIntent = new Intent(Home.this, Step1.class);
+//                Home.this.startActivity(myIntent);
                 break;
             }
             case R.id.handbook:{

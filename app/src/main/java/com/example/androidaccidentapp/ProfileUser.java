@@ -9,9 +9,8 @@ import android.view.View;
 import android.widget.CompoundButton;
 import android.widget.EditText;
 import android.widget.Switch;
-import android.widget.TextView;
 
-public class UserProfile extends AppCompatActivity {
+public class ProfileUser extends AppCompatActivity {
 
     EditText firstName, lastName, dob, address, license, iceContact;
     Switch editable;
@@ -19,7 +18,7 @@ public class UserProfile extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_user_profile);
+        setContentView(R.layout.activity_profile_user);
 
         firstName = findViewById(R.id.firstNameEdit);
         lastName = findViewById(R.id.lastNameEdit);
@@ -32,12 +31,12 @@ public class UserProfile extends AppCompatActivity {
     }
 
     public void edit_vehicle(View view) {
-        Intent intent = new Intent(UserProfile.this, VehicleProfile.class);
+        Intent intent = new Intent(ProfileUser.this, ProfileVehicle.class);
         startActivity(intent);
     }
 
     public void edit_insurance(View view) {
-        Intent intent = new Intent(UserProfile.this, InsuranceProfile.class);
+        Intent intent = new Intent(ProfileUser.this, ProfileInsurance.class);
         startActivity(intent);
 
     }
