@@ -6,32 +6,11 @@
         <entry key="..\:/Users/Gamer/AndroidStudioProjects/androidAccidentApp2/app/src/main/res/layout/activity_signed_in.xml" value="0.20520833333333333" />
         <entry key="..\:/Users/Gamer/AndroidStudioProjects/androidAccidentApp2/app/src/main/res/layout/custom_dialog.xml" value="0.20520833333333333" />
         <entry key="..\:/Users/Gamer/AndroidStudioProjects/androidAccidentApp2/app/src/main/res/layout/fragment_maps_activity.xml" value="0.2957427536231884" />
-        <entry key="..\:/Users/elgre/AndroidStudioProjects/androidAccidentApp(maaz)/app/src/main/res/drawable/splash_background.xml" value="0.14635416666666667" />
-        <entry key="..\:/Users/elgre/AndroidStudioProjects/androidAccidentApp(maaz)/app/src/main/res/layout/activity_drive_registration.xml" value="0.264" />
-        <entry key="..\:/Users/elgre/AndroidStudioProjects/androidAccidentApp(maaz)/app/src/main/res/layout/activity_driver_info.xml" value="0.264" />
-        <entry key="..\:/Users/elgre/AndroidStudioProjects/androidAccidentApp(maaz)/app/src/main/res/layout/activity_final_check.xml" value="0.2" />
-        <entry key="..\:/Users/elgre/AndroidStudioProjects/androidAccidentApp(maaz)/app/src/main/res/layout/activity_final_exchange.xml" value="0.16394927536231885" />
-        <entry key="..\:/Users/elgre/AndroidStudioProjects/androidAccidentApp(maaz)/app/src/main/res/layout/activity_generate_pdf.xml" value="0.13020833333333334" />
-        <entry key="..\:/Users/elgre/AndroidStudioProjects/androidAccidentApp(maaz)/app/src/main/res/layout/activity_handbook.xml" value="0.136" />
-        <entry key="..\:/Users/elgre/AndroidStudioProjects/androidAccidentApp(maaz)/app/src/main/res/layout/activity_insurance_exchange.xml" value="0.264" />
-        <entry key="..\:/Users/elgre/AndroidStudioProjects/androidAccidentApp(maaz)/app/src/main/res/layout/activity_insurance_registration.xml" value="0.264" />
-        <entry key="..\:/Users/elgre/AndroidStudioProjects/androidAccidentApp(maaz)/app/src/main/res/layout/activity_login.xml" value="0.264" />
-        <entry key="..\:/Users/elgre/AndroidStudioProjects/androidAccidentApp(maaz)/app/src/main/res/layout/activity_registering.xml" value="0.264" />
-        <entry key="..\:/Users/elgre/AndroidStudioProjects/androidAccidentApp(maaz)/app/src/main/res/layout/activity_registration.xml" value="0.16394927536231885" />
-        <entry key="..\:/Users/elgre/AndroidStudioProjects/androidAccidentApp(maaz)/app/src/main/res/layout/activity_signed_in.xml" value="0.13020833333333334" />
-        <entry key="..\:/Users/elgre/AndroidStudioProjects/androidAccidentApp(maaz)/app/src/main/res/layout/activity_splash.xml" value="0.152" />
-        <entry key="..\:/Users/elgre/AndroidStudioProjects/androidAccidentApp(maaz)/app/src/main/res/layout/activity_splash_screen.xml" value="0.136" />
-        <entry key="..\:/Users/elgre/AndroidStudioProjects/androidAccidentApp(maaz)/app/src/main/res/layout/activity_step3.xml" value="0.2" />
-        <entry key="..\:/Users/elgre/AndroidStudioProjects/androidAccidentApp(maaz)/app/src/main/res/layout/activity_step4.xml" value="0.13020833333333334" />
-        <entry key="..\:/Users/elgre/AndroidStudioProjects/androidAccidentApp(maaz)/app/src/main/res/layout/activity_step5.xml" value="0.2" />
-        <entry key="..\:/Users/elgre/AndroidStudioProjects/androidAccidentApp(maaz)/app/src/main/res/layout/activity_vehicle_details.xml" value="0.2" />
-        <entry key="..\:/Users/elgre/AndroidStudioProjects/androidAccidentApp(maaz)/app/src/main/res/layout/activity_vehicle_registration.xml" value="0.12406947890818859" />
-        <entry key="..\:/Users/elgre/AndroidStudioProjects/androidAccidentApp(maaz)/app/src/main/res/layout/step1.xml" value="0.2" />
         <entry key="..\:/Users/Gamer/AndroidStudioProjects/androidAccidentApp2/app/src/main/res/layout/main_nav_drawer.xml" value="0.36666666666666664" />
         <entry key="..\:/Users/Gamer/AndroidStudioProjects/androidAccidentApp2/app/src/main/res/layout/main_toolbar.xml" value="0.36666666666666664" />
         <entry key="..\:/Users/Gamer/AndroidStudioProjects/androidAccidentApp2/app/src/main/res/layout/step1.xml" value="0.20520833333333333" />
         <entry key="..\:/Users/clofa/AndroidStudioProjects/R02006606/androidAccidentApp/app/src/main/res/drawable/splash_background.xml" value="0.22962962962962963" />
-        <entry key="..\:/Users/clofa/AndroidStudioProjects/R02006606/androidAccidentApp/app/src/main/res/layout/activity_camera.xml" value="0.264" />
+        <entry key="..\:/Users/clofa/AndroidStudioProjects/R02006606/androidAccidentApp/app/src/main/res/layout/activity_camera.xml" value="0.3" />
         <entry key="..\:/Users/clofa/AndroidStudioProjects/R02006606/androidAccidentApp/app/src/main/res/layout/activity_drive_registration.xml" value="0.3" />
         <entry key="..\:/Users/clofa/AndroidStudioProjects/R02006606/androidAccidentApp/app/src/main/res/layout/activity_driver_info.xml" value="0.16145833333333334" />
         <entry key="..\:/Users/clofa/AndroidStudioProjects/R02006606/androidAccidentApp/app/src/main/res/layout/activity_final_check.xml" value="0.3" />
@@ -81,23 +60,13 @@
         <entry key="..\:/Users/elgre/AndroidStudioProjects/androidAccidentApp(maaz)/app/src/main/res/layout/activity_vehicle_details.xml" value="0.2" />
         <entry key="..\:/Users/elgre/AndroidStudioProjects/androidAccidentApp(maaz)/app/src/main/res/layout/activity_vehicle_registration.xml" value="0.12406947890818859" />
         <entry key="..\:/Users/elgre/AndroidStudioProjects/androidAccidentApp(maaz)/app/src/main/res/layout/step1.xml" value="0.2" />
-        <entry key="..\:/Users/clofa/AndroidStudioProjects/R02006606/androidAccidentApp/app/src/main/res/layout/activity_camera.xml" value="0.3" />
-        <entry key="..\:/Users/clofa/AndroidStudioProjects/R02006606/androidAccidentApp/app/src/main/res/layout/activity_home.xml" value="0.264" />
-        <entry key="..\:/Users/clofa/AndroidStudioProjects/R02006606/androidAccidentApp/app/src/main/res/layout/activity_insurance_profile.xml" value="0.264" />
-        <entry key="..\:/Users/clofa/AndroidStudioProjects/R02006606/androidAccidentApp/app/src/main/res/layout/activity_login.xml" value="0.3" />
-        <entry key="..\:/Users/clofa/AndroidStudioProjects/R02006606/androidAccidentApp/app/src/main/res/layout/activity_main.xml" value="0.3" />
-        <entry key="..\:/Users/clofa/AndroidStudioProjects/R02006606/androidAccidentApp/app/src/main/res/layout/activity_registration.xml" value="0.3" />
-        <entry key="..\:/Users/clofa/AndroidStudioProjects/R02006606/androidAccidentApp/app/src/main/res/layout/activity_signed_in.xml" value="0.3" />
-        <entry key="..\:/Users/clofa/AndroidStudioProjects/R02006606/androidAccidentApp/app/src/main/res/layout/activity_step1.xml" value="0.264" />
-        <entry key="..\:/Users/clofa/AndroidStudioProjects/R02006606/androidAccidentApp/app/src/main/res/layout/activity_user_profile.xml" value="0.264" />
-        <entry key="..\:/Users/clofa/AndroidStudioProjects/R02006606/androidAccidentApp/app/src/main/res/layout/activity_vehicle_profile.xml" value="0.2859375" />
-        <entry key="..\:/Users/clofa/AndroidStudioProjects/R02006606/androidAccidentApp/app/src/main/res/xml/file_paths.xml" value="0.3" />
-        <entry key="..\:/Users/clofa/AndroidStudioProjects/androidAccidentApp/app/src/main/res/drawable/gradient_background.xml" value="0.24074074074074073" />
-        <entry key="..\:/Users/clofa/AndroidStudioProjects/androidAccidentApp/app/src/main/res/drawable/rounded_button.xml" value="0.24074074074074073" />
-        <entry key="..\:/Users/clofa/AndroidStudioProjects/androidAccidentApp/app/src/main/res/layout/activity_home.xml" value="0.264" />
-        <entry key="..\:/Users/clofa/AndroidStudioProjects/androidAccidentApp/app/src/main/res/layout/activity_main.xml" value="0.3" />
-        <entry key="..\:/Users/clofa/AndroidStudioProjects/androidAccidentApp/app/src/main/res/layout/activity_registration.xml" value="0.264" />
-        <entry key="..\:/Users/clofa/AndroidStudioProjects/androidAccidentApp/app/src/main/res/layout/activity_user_profile.xml" value="0.3" />
+        <entry key="..\:/Users/elgre/AndroidStudioProjects/androidAccidentApp(new)/app/src/main/res/layout/activity_camera.xml" value="0.17346014492753623" />
+        <entry key="..\:/Users/elgre/AndroidStudioProjects/androidAccidentApp(new)/app/src/main/res/layout/activity_drive_registration.xml" value="0.17346014492753623" />
+        <entry key="..\:/Users/elgre/AndroidStudioProjects/androidAccidentApp(new)/app/src/main/res/layout/activity_handbook.xml" value="0.17346014492753623" />
+        <entry key="..\:/Users/elgre/AndroidStudioProjects/androidAccidentApp(new)/app/src/main/res/layout/activity_handbook_prevention.xml" value="0.17346014492753623" />
+        <entry key="..\:/Users/elgre/AndroidStudioProjects/androidAccidentApp(new)/app/src/main/res/layout/activity_step2.xml" value="0.17346014492753623" />
+        <entry key="..\:/Users/elgre/AndroidStudioProjects/androidAccidentApp(new)/app/src/main/res/layout/activity_step22.xml" value="0.2" />
+        <entry key="..\:/Users/elgre/AndroidStudioProjects/androidAccidentApp(new)/app/src/main/res/layout/activity_step3.xml" value="0.17346014492753623" />
         <entry key="..\:/Users/elgre/AndroidStudioProjects/androidAccidentApp/app/src/main/res/drawable/gradient_background.xml" value="0.2703125" />
         <entry key="..\:/Users/elgre/AndroidStudioProjects/androidAccidentApp/app/src/main/res/layout/Step1.xml" value="0.264" />
         <entry key="..\:/Users/elgre/AndroidStudioProjects/androidAccidentApp/app/src/main/res/layout/activity_firebase_ui.xml" value="0.13020833333333334" />

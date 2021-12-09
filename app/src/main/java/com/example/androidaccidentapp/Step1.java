@@ -91,8 +91,12 @@ public class Step1 extends AppCompatActivity {
     }
 
     public void next(View view) {
-        startActivity(new Intent(this.getApplicationContext(), Step2.class));
+        startActivity(new Intent(this.getApplicationContext(), Step22.class));
 
+    }
+
+    public void previous(View view) {
+        startActivity(new Intent(this.getApplicationContext(), Home.class));
     }
 
     public class PhoneCallListener extends PhoneStateListener { //this looks for what state the phone is in
