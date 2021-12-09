@@ -192,7 +192,7 @@ public class finalExchangeActivity extends AppCompatActivity {
     }
 
     public void changeToNextActivity(View v){
-        Intent intent = new Intent(this, insuranceExchange.class);
+        Intent intent = new Intent(this, GeneratePDF.class);
         intent.putExtra("Report Name", reportName);
         this.startActivity(intent);
     }

@@ -85,8 +85,8 @@ public class Home extends AppCompatActivity {
                 break;
             }
             case R.id.handbook:{
-//                Intent myIntent = new Intent(Home.this, Handbook.class);
-//                Home.this.startActivity(myIntent);
+                Intent myIntent = new Intent(Home.this, Handbook.class);
+                Home.this.startActivity(myIntent);
                 break;
             }
             case R.id.info_exchange:{

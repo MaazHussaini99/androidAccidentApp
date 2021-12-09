@@ -84,6 +84,8 @@ public class Registering extends AppCompatActivity {
                 if (task.isSuccessful()) {
                     FirebaseUser user = auth.getCurrentUser();
                     Toast.makeText(Registering.this, "Success", Toast.LENGTH_SHORT).show();
+                    Intent intent = new Intent(Registering.this, Login.class);
+                    startActivity(intent);
                 } else {
                     Toast.makeText(Registering.this, "Failed", Toast.LENGTH_SHORT).show();
                 }
