@@ -22,7 +22,7 @@
 
 
         <androidx.cardview.widget.CardView
-            android:id="@+id/card_view5"
+            android:id="@+id/card_view7"
             android:layout_width="172dp"
             android:layout_height="201dp"
             android:layout_gravity="center"
@@ -55,7 +55,7 @@
             android:background="@drawable/car">
 
             <TextView
-                android:id="@+id/textView19"
+                android:id="@+id/textView2"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:paddingStart="50sp"
@@ -66,7 +66,7 @@
     </androidx.cardview.widget.CardView>
 
     <androidx.cardview.widget.CardView
-        android:id="@+id/card_view5"
+        android:id="@+id/card_view3"
         android:layout_width="172dp"
         android:layout_height="201dp"
         android:layout_gravity="center"
@@ -98,7 +98,7 @@
     </androidx.cardview.widget.CardView>
 
     <androidx.cardview.widget.CardView
-        android:id="@+id/card_view5"
+        android:id="@+id/card_view4"
         android:layout_width="172dp"
         android:layout_height="201dp"
         android:layout_gravity="center"
@@ -109,7 +109,7 @@
         app:layout_constraintTop_toTopOf="parent">
 
         <androidx.cardview.widget.CardView
-            android:id="@+id/card_view5"
+            android:id="@+id/card_view0"
             android:layout_width="172dp"
             android:layout_height="201dp"
             android:layout_gravity="center"
@@ -140,7 +140,7 @@
             android:background="@drawable/carprevention">
 
             <TextView
-                android:id="@+id/textView21"
+                android:id="@+id/textView1"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:paddingStart="50sp"
@@ -150,7 +150,7 @@
     </androidx.cardview.widget.CardView>
 
     <androidx.cardview.widget.CardView
-        android:id="@+id/card_view5"
+        android:id="@+id/card_view2"
         android:layout_width="172dp"
         android:layout_height="201dp"
         android:layout_gravity="center"
@@ -163,7 +163,7 @@
     </androidx.cardview.widget.CardView>
 
     <androidx.cardview.widget.CardView
-        android:id="@+id/card_view5"
+        android:id="@+id/card_view9"
         android:layout_width="172dp"
         android:layout_height="201dp"
         android:layout_gravity="center"
@@ -178,7 +178,7 @@
             android:background="@drawable/insurance">
 
             <TextView
-                android:id="@+id/textView20"
+                android:id="@+id/textView0"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:paddingStart="50sp"
@@ -191,7 +191,6 @@
         android:id="@+id/title2"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/logo"
         android:layout_centerHorizontal="true"
         android:text="Handbook"
         android:textAlignment="center"
