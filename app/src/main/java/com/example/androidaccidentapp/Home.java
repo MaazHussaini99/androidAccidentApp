@@ -30,7 +30,7 @@ public class Home extends AppCompatActivity {
         drawerLayout = findViewById(R.id.drawer_layout);
 
 
-        String[] options = {"View User Profile", "View Vehicle Profile", "View Insurance Policy", "View Reports", "Access Camera"};
+        String[] options = {"View User Profile", "View Vehicle Profile", "View Insurance Policy"};
         adapter = new ArrayAdapter<>(this, android.R.layout.select_dialog_item, options);
 
 
@@ -61,23 +61,15 @@ public class Home extends AppCompatActivity {
                         startActivity(intent);
                         break;
                     }
-                    case 3: {
-                        Toast.makeText(Home.this, "Access User Reports", Toast.LENGTH_LONG).show();
-//                            Intent intent = new Intent(Home.this, reports.class);
-//                            startActivity(intent);
-                        break;
-                    }
-                    case 4: {
-                        Intent intent = new Intent(Home.this, Camera.class);
-                        startActivity(intent);
-                        break;
-                    }
                 }
             }
         });
         //Sign out button
         profileDialog.setNegativeButton("Sign Out", (v, a) -> {
-            Toast.makeText(Home.this, "Clicked Sign Out", Toast.LENGTH_LONG).show();
+            Intent intent = new Intent(Home.this, Login.class);
+            startActivity(intent);
+            Toast.makeText(Home.this, "Logout Successful", Toast.LENGTH_LONG).show();
+            finish();
         });
 
 
@@ -93,15 +85,14 @@ public class Home extends AppCompatActivity {
                 break;
             }
             case R.id.handbook:{
-                Toast.makeText(Home.this, "Handbook", Toast.LENGTH_SHORT).show();
 //                Intent myIntent = new Intent(Home.this, Handbook.class);
 //                Home.this.startActivity(myIntent);
                 break;
             }
             case R.id.info_exchange:{
                 Toast.makeText(Home.this, "Info Exchange", Toast.LENGTH_SHORT).show();
-//                Intent myIntent = new Intent(Home.this, InfoExchange.class);
-//                Home.this.startActivity(myIntent);
+                Intent myIntent = new Intent(Home.this, driverInfo.class);
+                Home.this.startActivity(myIntent);
                 break;
             }
             case R.id.reports:{

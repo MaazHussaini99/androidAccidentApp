@@ -36,6 +36,7 @@
         android:text="@string/editLink"
         android:textColor="@color/logo"
         android:textSize="14sp"
+        android:checked="false"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/account_ic" />
 
@@ -45,7 +46,7 @@
         android:layout_height="wrap_content"
         android:layout_marginLeft="32dp"
         android:layout_marginTop="48dp"
-        android:text="ENTER INSURANCE INFORMATION"
+        android:text="INSURANCE INFORMATION"
         android:textColor="@color/white"
         android:textSize="22dp"
         android:textStyle="bold"
@@ -57,7 +58,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginLeft="32dp"
-        android:layout_marginTop="24dp"
+        android:layout_marginTop="40dp"
         android:text="Insurance Provider"
         android:textColor="@color/white"
         android:textSize="18dp"
@@ -68,12 +69,12 @@
         android:id="@+id/providerEdit"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="32dp"
-        android:backgroundTint="@color/purple_500"
-        android:hint="Geico, State Farm, Liberty Mutual, etc."
-        android:textColor="@color/white"
-        android:textColorHint="@color/gray"
         android:textSize="18dp"
+        android:enabled="false"
+        android:layout_marginLeft="32dp"
+        android:layout_marginEnd="32dp"
+        android:textColor="@color/gray"
+        android:background="@drawable/rounded_corners"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintTop_toBottomOf="@id/providerText" />
 
@@ -82,7 +83,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginLeft="32dp"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="40dp"
         android:text="Policy/Account Number"
         android:textColor="@color/white"
         android:textSize="18dp"
@@ -94,12 +95,12 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginLeft="32dp"
+        android:layout_marginEnd="32dp"
         android:layout_marginTop="4dp"
-        android:backgroundTint="@color/purple_500"
-        android:hint=""
-        android:textColor="@color/white"
-        android:textColorHint="@color/gray"
+        android:enabled="false"
         android:textSize="18dp"
+        android:textColor="@color/gray"
+        android:background="@drawable/rounded_corners"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintTop_toBottomOf="@id/policyNoText" />
 
@@ -108,7 +109,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginLeft="32dp"
-        android:layout_marginTop="8dp"
+        android:layout_marginTop="40dp"
         android:text="Policy/Account Holder"
         android:textColor="@color/white"
         android:textSize="18dp"
@@ -120,20 +121,20 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginLeft="32dp"
+        android:layout_marginEnd="32dp"
         android:layout_marginTop="4dp"
-        android:backgroundTint="@color/purple_500"
-        android:hint="John Smith"
-        android:textColor="@color/white"
-        android:textColorHint="@color/gray"
+        android:enabled="false"
         android:textSize="18dp"
+        android:textColor="@color/gray"
+        android:background="@drawable/rounded_corners"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintTop_toBottomOf="@id/accHolderText" />
 
     <Button
         android:id="@+id/accessProfile"
-        android:layout_width="wrap_content"
+        android:layout_width="150dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="60dp"
+        android:layout_marginStart="45dp"
         android:layout_marginTop="44dp"
         android:backgroundTint="@color/logo"
         android:onClick="edit_profile"
@@ -143,11 +144,11 @@
 
     <Button
         android:id="@+id/accessVehicles"
-        android:layout_width="wrap_content"
+        android:layout_width="150dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="10dp"
         android:layout_marginTop="44dp"
-        android:layout_marginEnd="60dp"
+        android:layout_marginEnd="45dp"
         android:backgroundTint="@color/logo"
         android:onClick="edit_vehicle"
         android:text="Edit Vehicles"
@@ -158,13 +159,15 @@
 
     <Button
         android:id="@+id/save"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="150dp"
+        android:layout_height="150dp"
         android:onClick="save"
         android:text="Save"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/accHolderEdit" />
+        app:layout_constraintTop_toBottomOf="@id/accessProfile"
+        app:layout_constraintVertical_bias="0.474" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

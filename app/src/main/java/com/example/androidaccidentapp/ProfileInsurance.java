@@ -64,9 +64,9 @@ public class ProfileInsurance extends AppCompatActivity {
                     for (DataSnapshot childSnapshot: task.getResult().getChildren()) {
                         map.put((String)childSnapshot.getKey(), (String)childSnapshot.getValue());
                     }
-                    providerEdit.setText(map.get("Provider").toString());
-                    policyNumEdit.setText(map.get("Policy Number").toString());
-                    accHolderEdit.setText(map.get("Holder").toString());
+                    providerEdit.setText(String.valueOf(map.get("Insurance Provider")));
+                    policyNumEdit.setText(String.valueOf(map.get("Policy Number")));
+                    accHolderEdit.setText(String.valueOf(map.get("Insurance Holder")));
                 }
             }
         });
@@ -74,7 +74,7 @@ public class ProfileInsurance extends AppCompatActivity {
 
     public void activate (EditText et){
         et.setEnabled(true);
-        et.setTextColor(Color.WHITE);
+        et.setTextColor(Color.BLACK);
     }
 
     public void deactivate(EditText et){
@@ -82,9 +82,7 @@ public class ProfileInsurance extends AppCompatActivity {
         et.setTextColor(Color.GRAY);
     }
 
-
     public void updateText(View view) {
-        //Response is slow -- verify correct implementation being used
         editable.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
@@ -116,13 +114,13 @@ public class ProfileInsurance extends AppCompatActivity {
         //Push updated data over to Firebase
 
         provider = providerEdit.getText().toString();
-        policyNum= policyNumEdit.getText().toString();
-        policyHolder= accHolderEdit.getText().toString();
+        policyNum = policyNumEdit.getText().toString();
+        policyHolder = accHolderEdit.getText().toString();
 
         HashMap<String, Object> data = new HashMap<>();
-        data.put("Provider", providerEdit);
-        data.put("Policy Number", policyNumEdit);
-        data.put("Holder", accHolderEdit);
+        data.put("Insurance Provider", provider);
+        data.put("Policy Number", policyNum);
+        data.put("Insurance Holder", policyHolder);
 
         dbRef.child(currentUser.getUid()).child("User Info").updateChildren(data, completionListener);
 

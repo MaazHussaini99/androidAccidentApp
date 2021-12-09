@@ -7,216 +7,253 @@
     tools:context=".ProfileVehicle"
     android:background="@color/background">
 
-    <ImageView
-        android:id="@+id/logo"
-        android:layout_width="wrap_content"
-        android:layout_height="55dp"
-        android:layout_marginTop="25dp"
-        android:src="@drawable/logo3"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <ImageView
-        android:id="@+id/account_ic"
-        android:layout_width="52dp"
-        android:layout_height="49dp"
-        android:layout_margin="25dp"
-        android:src="@drawable/ic_baseline_account_circle_24"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <Switch
-        android:id="@+id/editable"
-        android:layout_width="76dp"
-        android:layout_height="47dp"
-        android:layout_marginEnd="8dp"
-        android:onClick="updateText"
-        android:text="@string/editLink"
-        android:textColor="@color/logo"
-        android:textSize="14sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/account_ic" />
-
-    <TextView
-        android:id="@+id/header"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="32dp"
-        android:layout_marginTop="8dp"
-        android:text="ENTER VEHICLE DETAILS"
-        android:textColor="@color/white"
-        android:textSize="22dp"
-        android:textStyle="bold"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/logo" />
-
-    <TextView
-        android:id="@+id/makeText"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="32dp"
-        android:layout_marginTop="16dp"
-        android:hint="Vehicle Make"
-        android:textColor="@color/white"
-        android:textSize="18dp"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/header" />
-
-    <EditText
-        android:id="@+id/makeEdit"
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="32dp"
-        android:layout_marginTop="4dp"
-        android:backgroundTint="@color/purple_500"
-        android:hint="Honda Accord"
-        android:textColor="@color/white"
-        android:textColorHint="@color/gray"
-        android:textSize="18dp"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/makeText" />
-
-    <TextView
-        android:id="@+id/yearText"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="32dp"
-        android:layout_marginTop="12dp"
-        android:text="Vehicle Year"
-        android:textColor="@color/white"
-        android:textSize="18dp"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/makeEdit" />
-
-    <EditText
-        android:id="@+id/yearEdit"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="32dp"
-        android:layout_marginTop="4dp"
-        android:backgroundTint="@color/purple_500"
-        android:hint="YYYY"
-        android:textColor="@color/white"
-        android:textColorHint="@color/gray"
-        android:textSize="18dp"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/yearText" />
-
-    <TextView
-        android:id="@+id/plateNumText"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="32dp"
-        android:layout_marginTop="8dp"
-        android:text="Vehicle License Plate Number"
-        android:textColor="@color/white"
-        android:textSize="18dp"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/yearEdit" />
-
-    <EditText
-        android:id="@+id/plateNumEdit"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="32dp"
-        android:backgroundTint="@color/purple_500"
-        android:hint="LLL ####"
-        android:textColor="@color/white"
-        android:textColorHint="@color/gray"
-        android:textSize="18dp"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/plateNumText" />
-
-    <TextView
-        android:id="@+id/stateText"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="32dp"
-        android:layout_marginTop="16dp"
-        android:text="State Vehicle is Registered"
-        android:textColor="@color/white"
-        android:textSize="18dp"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/plateNumEdit" />
-
-    <EditText
-        android:id="@+id/stateEdit"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="32dp"
-        android:layout_marginTop="8dp"
-        android:backgroundTint="@color/purple_500"
-        android:hint="New York"
-        android:textColor="@color/white"
-        android:textColorHint="@color/gray"
-        android:textSize="18dp"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/stateText" />
-
-    <TextView
-        android:id="@+id/typeText"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="32dp"
-        android:layout_marginTop="8dp"
-        android:text="Type of Vehicle"
-        android:textColor="@color/white"
-        android:textSize="18dp"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/stateEdit" />
-
-    <EditText
-        android:id="@+id/typeEdit"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="32dp"
-        android:backgroundTint="@color/purple_500"
-        android:hint="Sedan, SUV, Coupe, etc."
-        android:textColor="@color/white"
-        android:textColorHint="@color/gray"
-        android:textSize="18dp"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/typeText" />
-
-    <Button
-        android:id="@+id/accessProfile"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="50dp"
-        android:layout_marginTop="44dp"
-        android:backgroundTint="@color/logo"
-        android:onClick="edit_profile"
-        android:text="Edit Profile"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/typeEdit" />
-
-    <Button
-        android:id="@+id/accessInsurance"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="10dp"
-        android:layout_marginTop="44dp"
-        android:layout_marginEnd="50dp"
-        android:backgroundTint="@color/logo"
-        android:onClick="edit_Insurance"
-        android:text="Edit Insurance"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.188"
-        app:layout_constraintStart_toEndOf="@id/accessProfile"
-        app:layout_constraintTop_toBottomOf="@id/typeEdit" />
-
-    <Button
-        android:id="@+id/save"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:onClick="save"
-        android:text="Save"
+        android:layout_height="match_parent"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/accessProfile" />
+        app:layout_constraintTop_toTopOf="parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical" >
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="1050dp"
+                tools:layout_editor_absoluteX="-8dp"
+                tools:layout_editor_absoluteY="0dp">
+
+                <ImageView
+                    android:id="@+id/logo"
+                    android:layout_width="wrap_content"
+                    android:layout_height="55dp"
+                    android:layout_marginTop="25dp"
+                    android:src="@drawable/logo3"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.0"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <ImageView
+                    android:id="@+id/account_ic"
+                    android:layout_width="52dp"
+                    android:layout_height="49dp"
+                    android:layout_margin="25dp"
+                    android:src="@drawable/ic_baseline_account_circle_24"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <Switch
+                    android:id="@+id/editable"
+                    android:layout_width="76dp"
+                    android:layout_height="47dp"
+                    android:layout_marginEnd="8dp"
+                    android:onClick="updateText"
+                    android:text="@string/editLink"
+                    android:textColor="@color/logo"
+                    android:textSize="14sp"
+                    android:checked="false"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/account_ic" />
+
+                <TextView
+                    android:id="@+id/header"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="32dp"
+                    android:layout_marginTop="40dp"
+                    android:text="VEHICLE INFORMATION"
+                    android:textColor="@color/white"
+                    android:textSize="22dp"
+                    android:textStyle="bold"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/logo" />
+
+                <Spinner
+                    android:id="@+id/spinner"
+                    android:layout_width="match_parent"
+                    android:layout_height="30dp"
+                    android:layout_marginLeft="32dp"
+                    android:layout_marginRight="32dp"
+                    android:layout_marginTop="40dp"
+                    android:background="@drawable/rounded_corners"
+                    android:textColor="@color/black"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/header" />
+
+                <TextView
+                    android:id="@+id/makeText"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="32dp"
+                    android:layout_marginTop="40dp"
+                    android:text="Vehicle Make"
+                    android:textColor="@color/white"
+                    android:textSize="18dp"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/spinner" />
+
+                <EditText
+                    android:id="@+id/makeEdit"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="32dp"
+                    android:layout_marginEnd="32dp"
+                    android:layout_marginTop="8dp"
+                    android:textSize="18dp"
+                    android:enabled="false"
+                    android:textColor="@color/gray"
+                    android:background="@drawable/rounded_corners"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/makeText" />
+
+                <TextView
+                    android:id="@+id/yearText"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="32dp"
+                    android:layout_marginTop="40dp"
+                    android:text="Vehicle Year"
+                    android:textColor="@color/white"
+                    android:textSize="18dp"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/makeEdit" />
+
+                <EditText
+                    android:id="@+id/yearEdit"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="32dp"
+                    android:layout_marginEnd="32dp"
+                    android:layout_marginTop="8dp"
+                    android:textSize="18dp"
+                    android:enabled="false"
+                    android:textColor="@color/gray"
+                    android:background="@drawable/rounded_corners"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/yearText" />
+
+                <TextView
+                    android:id="@+id/plateNumText"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="32dp"
+                    android:layout_marginTop="40dp"
+                    android:text="Vehicle License Plate Number"
+                    android:textColor="@color/white"
+                    android:textSize="18dp"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/yearEdit" />
+
+                <EditText
+                    android:id="@+id/plateNumEdit"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="32dp"
+                    android:layout_marginEnd="32dp"
+                    android:layout_marginTop="8dp"
+                    android:textSize="18dp"
+                    android:enabled="false"
+                    android:textColor="@color/gray"
+                    android:background="@drawable/rounded_corners"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/plateNumText" />
+
+                <TextView
+                    android:id="@+id/stateText"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="32dp"
+                    android:layout_marginTop="40dp"
+                    android:text="State Vehicle is Registered"
+                    android:textColor="@color/white"
+                    android:textSize="18dp"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/plateNumEdit" />
+
+                <EditText
+                    android:id="@+id/stateEdit"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="32dp"
+                    android:layout_marginEnd="32dp"
+                    android:layout_marginTop="8dp"
+                    android:textSize="18dp"
+                    android:enabled="false"
+                    android:textColor="@color/gray"
+                    android:background="@drawable/rounded_corners"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/stateText" />
+
+                <TextView
+                    android:id="@+id/typeText"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="32dp"
+                    android:layout_marginTop="40dp"
+                    android:text="Type of Vehicle"
+                    android:textColor="@color/white"
+                    android:textSize="18dp"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/stateEdit" />
+
+                <EditText
+                    android:id="@+id/typeEdit"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="32dp"
+                    android:layout_marginEnd="32dp"
+                    android:layout_marginTop="8dp"
+                    android:textSize="18dp"
+                    android:enabled="false"
+                    android:textColor="@color/gray"
+                    android:background="@drawable/rounded_corners"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/typeText" />
+
+                <Button
+                    android:id="@+id/accessProfile"
+                    android:layout_width="150dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="45dp"
+                    android:layout_marginTop="50dp"
+                    android:backgroundTint="@color/logo"
+                    android:onClick="edit_profile"
+                    android:text="Edit Profile"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/typeEdit" />
+
+                <Button
+                    android:id="@+id/accessInsurance"
+                    android:layout_width="150dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="50dp"
+                    android:layout_marginEnd="45dp"
+                    android:backgroundTint="@color/logo"
+                    android:onClick="edit_Insurance"
+                    android:text="Edit Insurance"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="1.0"
+                    app:layout_constraintStart_toEndOf="@id/accessProfile"
+                    app:layout_constraintTop_toBottomOf="@id/typeEdit" />
+
+                <Button
+                    android:id="@+id/save"
+                    android:layout_width="150dp"
+                    android:layout_height="150dp"
+                    android:onClick="save"
+                    android:text="Save"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.498"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/accessProfile" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </LinearLayout>
+    </ScrollView>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
