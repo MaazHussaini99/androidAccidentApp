@@ -35,7 +35,6 @@ public class finalCheck extends AppCompatActivity {
             Year, Plate, State, Type;
 
     Button submit;
-    EditText ReportName;
 
     private static FirebaseUser currentUser;
     private static final String TAG = "RealtimeDB";
@@ -98,8 +97,6 @@ public class finalCheck extends AppCompatActivity {
         Plate.setText(vehiclePlate);
         State.setText(vehicleState);
         Type.setText(vehicleType);
-
-        ReportName = findViewById(R.id.ReportName);
 
         currentUser = FirebaseAuth.getInstance().getCurrentUser();
         database = FirebaseDatabase.getInstance();
@@ -167,24 +164,23 @@ public class finalCheck extends AppCompatActivity {
             public void onClick(DialogInterface dialog, int which) {
                 switch (which){
                     case 0:{
-                        Intent intent = new Intent(finalCheck.this, Home.class);
+                        Intent intent = new Intent(finalCheck.this, ProfileUser.class);
                         startActivity(intent);
                         break;
                     }
                     case 1:{
-                        Intent intent = new Intent(finalCheck.this, Home.class);
+                        Intent intent = new Intent(finalCheck.this, ProfileVehicle.class);
                         startActivity(intent);
                         break;
                     }
                     case 2:{
-                        Intent intent = new Intent(finalCheck.this, Home.class);
+                        Intent intent = new Intent(finalCheck.this, ProfileInsurance.class);
                         startActivity(intent);
                         break;
                     }
                     case 3:{
-                        Toast.makeText(finalCheck.this, "Access User Reports", Toast.LENGTH_LONG).show();
-//                            Intent intent = new Intent(Home.this, InsuranceProfile.class);
-//                            startActivity(intent);
+                        Intent intent = new Intent(finalCheck.this, Report.class);
+                        startActivity(intent);
                         break;
                     }
                 }
@@ -192,7 +188,10 @@ public class finalCheck extends AppCompatActivity {
         });
 
         profileDialog.setNegativeButton("Sign Out", (v, a) -> {
-            Toast.makeText(this, "Clicked Sign Out", Toast.LENGTH_LONG).show();
+            Intent intent = new Intent(this, Login.class);
+            startActivity(intent);
+            Toast.makeText(finalCheck.this, "Logout Successful", Toast.LENGTH_LONG).show();
+            finish();
         });
 
         profileDialog.create().show();
