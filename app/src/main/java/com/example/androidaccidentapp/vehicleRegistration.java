@@ -183,6 +183,6 @@ public class vehicleRegistration extends AppCompatActivity {
     @Override
     protected void onPause() {
         super.onPause();
-        closeDrawer(drawerLayout);
+        //closeDrawer(drawerLayout);
     }
 }

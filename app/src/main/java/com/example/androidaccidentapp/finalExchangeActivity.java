@@ -3,6 +3,8 @@ package com.example.androidaccidentapp;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -20,6 +22,7 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 
 public class finalExchangeActivity extends AppCompatActivity {
@@ -28,9 +31,13 @@ public class finalExchangeActivity extends AppCompatActivity {
     String provider, policyNum, policyHolder;
     String firstName, lastName, dateOfBirth, addressDriver, licenceNum;
     String UsersVehicle;
+    String accidentLocation;
+
+    ArrayList<String> imageFileNames = new ArrayList<>();
+    HashMap<String, Object> imageList = new HashMap<>();
 
     TextView fName, lName, DOB, Address, license, insProvider, insPolicyNum, insPolicyHolder, Make,
-            Year, Plate, State, Type;
+            Year, Plate, State, Type, Location;
 
     Button submit;
     EditText ReportName;
@@ -46,6 +53,11 @@ public class finalExchangeActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_final_exchange);
+
+//        intent.putExtra("accidentLocation", accidentLocation);
+//
+//        intent.putExtra("Image Names", imageFileNames);
+//        intent.putExtra("Images", imageList);
 
         firstName = getIntent().getStringExtra("FirstName");
         lastName = getIntent().getStringExtra("LastName");
@@ -64,6 +76,13 @@ public class finalExchangeActivity extends AppCompatActivity {
         vehicleType = getIntent().getStringExtra("VehicleType");
         UsersVehicle = getIntent().getStringExtra("usersVehicle");
 
+        accidentLocation = getIntent().getStringExtra("accidentLocation");
+
+        imageFileNames = getIntent().getStringArrayListExtra("Image Names");
+        Intent intent = getIntent();
+        imageList = (HashMap<String, Object>)intent.getSerializableExtra("Images");
+        Log.d("firebase", "Maaz logging data " + String.valueOf(imageList));
+
 
         fName = findViewById(R.id.firstName);
         lName = findViewById(R.id.lastName);
@@ -78,6 +97,7 @@ public class finalExchangeActivity extends AppCompatActivity {
         Plate = findViewById(R.id.Plate);
         State = findViewById(R.id.vehicleState);
         Type = findViewById(R.id.Type);
+        Location = findViewById(R.id.locationTv);
 
         fName.setText(firstName);
         lName.setText(lastName);
@@ -92,6 +112,7 @@ public class finalExchangeActivity extends AppCompatActivity {
         Plate.setText(vehiclePlate);
         State.setText(vehicleState);
         Type.setText(vehicleType);
+        Location.setText(accidentLocation);
 
         ReportName = findViewById(R.id.ReportName);
 
@@ -127,8 +148,12 @@ public class finalExchangeActivity extends AppCompatActivity {
         map.put("Last Name", lastName);
         map.put("First Name", firstName);
         map.put("Users Vehicle", UsersVehicle);
+        map.put("Accident Location", accidentLocation);
 
-        dbRef.child(currentUser.getUid()).child("User Info").child(reportName).updateChildren(map, completionListener);
+        dbRef.child(currentUser.getUid()).child("Accident Reports").child(reportName).updateChildren(map, completionListener);
+
+        dbRef.child(currentUser.getUid()).child("Accident Reports").child(reportName).child("images").updateChildren(imageList, completionListener);
+
 
 //        dbRef.child(currentUser.getUid()).child("Accident Reports").child("Maaz 1").get().addOnCompleteListener(new OnCompleteListener<DataSnapshot>() {
 //            @Override

@@ -53,9 +53,9 @@ public class Camera extends AppCompatActivity {
     String firstName, lastName, dateOfBirth, addressDriver, licenceNum;
     String usersVehicle;
     String accidentLocation;
-
+    File file;
     ArrayList<String> imageFileNames = new ArrayList<>();
-    HashMap<String, Uri> imageList = new HashMap<>();
+    HashMap<String, Object> imageList = new HashMap<>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -132,7 +132,7 @@ public class Camera extends AppCompatActivity {
         //Takes a image from the intent of the camera and sets it as the image on the ASAP camera activity screen
         if (requestCode == CAMERA_REQUEST_CODE) {
             if(resultCode == Activity.RESULT_OK){
-                File file = new File(currentPhotoPath);
+                file = new File(currentPhotoPath);
                 selectedImage.setImageURI(Uri.fromFile(file));
                 Log.d("IMAGE_URL", "Absolute URL of Image: " + Uri.fromFile(file));
 
@@ -182,7 +182,7 @@ public class Camera extends AppCompatActivity {
                     @Override
                     public void onSuccess(Uri uri){
                         //If directory successfully created and image file successfully uploaded to directory in Firebase Storage
-                        imageList.put(imageFilename, uri);
+                        imageList.put(imageFilename, file);
                         imageFileNames.add(imageFilename);
                         Log.d("Image List:", "MAP" + imageList);
                         Log.d("FireBase Storage", "onSuccess: Uploaded Image URL to Firebase: " + uri.toString());
