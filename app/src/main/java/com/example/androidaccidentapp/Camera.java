@@ -34,7 +34,9 @@ import com.google.firebase.storage.UploadTask;
 import java.io.File;
 import java.io.IOException;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.HashMap;
 
 public class Camera extends AppCompatActivity {
 
@@ -45,6 +47,15 @@ public class Camera extends AppCompatActivity {
     Button cameraBtn, galleryBtn, uploadBtn;
     String currentPhotoPath;
     StorageReference dbStorage;
+
+    String vehicleMake, vehicleYear, vehiclePlate, vehicleState, vehicleType;
+    String provider, policyNum, policyHolder;
+    String firstName, lastName, dateOfBirth, addressDriver, licenceNum;
+    String usersVehicle;
+    String accidentLocation;
+
+    ArrayList<String> imageFileNames = new ArrayList<>();
+    HashMap<String, Uri> imageList = new HashMap<>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -57,6 +68,24 @@ public class Camera extends AppCompatActivity {
         uploadBtn = findViewById(R.id.uploadBtn);
 
         dbStorage = FirebaseStorage.getInstance().getReference();
+
+        firstName = getIntent().getStringExtra("FirstName");
+        lastName = getIntent().getStringExtra("LastName");
+        dateOfBirth = getIntent().getStringExtra("DOB");
+        addressDriver = getIntent().getStringExtra("Address");
+        licenceNum = getIntent().getStringExtra("DriverLicence");
+
+        provider = getIntent().getStringExtra("Provider");
+        policyNum = getIntent().getStringExtra("Policy Number");
+        policyHolder = getIntent().getStringExtra("Holder");
+
+        vehicleMake = getIntent().getStringExtra("Make");
+        vehicleYear = getIntent().getStringExtra("VehicleYear");
+        vehiclePlate = getIntent().getStringExtra("VehiclePlate");
+        vehicleState = getIntent().getStringExtra("VehicleState");
+        vehicleType = getIntent().getStringExtra("VehicleType");
+        usersVehicle = getIntent().getStringExtra("usersVehicle");
+        accidentLocation = getIntent().getStringExtra("accidentLocation");
 
         cameraBtn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -127,6 +156,7 @@ public class Camera extends AppCompatActivity {
                 Log.d("GALLERY_URL", "Gallery Image Uri: " + imageFilename);
                 selectedImage.setImageURI(contentUri);
 
+
                 //When Upload clicked, try to send image to Firebase Storage
                 uploadBtn.setOnClickListener(ug -> {
                     uploadImageToFirebase(imageFilename, contentUri);
@@ -143,24 +173,27 @@ public class Camera extends AppCompatActivity {
     }
 
     private void uploadImageToFirebase(String imageFilename, Uri contentUri) {
-    //Creates a new directory in Firebase Storage
+        //Creates a new directory in Firebase Storage
         StorageReference imageRef = dbStorage.child("images/" + imageFilename);
         imageRef.putFile(contentUri).addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>(){
-           @Override
-           public void onSuccess (UploadTask.TaskSnapshot taskSnapshot){
+            @Override
+            public void onSuccess (UploadTask.TaskSnapshot taskSnapshot){
                 imageRef.getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>(){
                     @Override
                     public void onSuccess(Uri uri){
-                    //If directory successfully created and image file successfully uploaded to directory in Firebase Storage
+                        //If directory successfully created and image file successfully uploaded to directory in Firebase Storage
+                        imageList.put(imageFilename, uri);
+                        imageFileNames.add(imageFilename);
+                        Log.d("Image List:", "MAP" + imageList);
                         Log.d("FireBase Storage", "onSuccess: Uploaded Image URL to Firebase: " + uri.toString());
                         Toast.makeText(Camera.this, "Image Upload Successful", Toast.LENGTH_SHORT).show();
                     }
                 });
-           }
+            }
         }).addOnFailureListener(new OnFailureListener(){
             @Override
             public void onFailure(@NonNull Exception e){
-            //Image file failed to upload to directory in Firebase Storage
+                //Image file failed to upload to directory in Firebase Storage
                 Toast.makeText(Camera.this, "Upload Failed", Toast.LENGTH_SHORT).show();
             }
         });
@@ -201,5 +234,31 @@ public class Camera extends AppCompatActivity {
                 startActivityForResult(takePictureIntent, CAMERA_REQUEST_CODE);
             }
         }
+    }
+
+    public void finish(View view) {
+        Intent intent = new Intent(Camera.this, finalExchangeActivity.class);
+        intent.putExtra("FirstName", firstName);
+        intent.putExtra("LastName", lastName);
+        intent.putExtra("DOB", dateOfBirth);
+        intent.putExtra("Address", addressDriver);
+        intent.putExtra("DriverLicence", licenceNum);
+
+        intent.putExtra("Provider", provider);
+        intent.putExtra("Policy Number", policyNum);
+        intent.putExtra("Holder", policyHolder);
+
+        intent.putExtra("VehicleMake", vehicleMake);
+        intent.putExtra("VehicleYear", vehicleYear);
+        intent.putExtra("VehiclePlate", vehiclePlate);
+        intent.putExtra("VehicleState", vehicleState);
+        intent.putExtra("VehicleType", vehicleType);
+        intent.putExtra("usersVehicle", usersVehicle);
+
+        intent.putExtra("accidentLocation", accidentLocation);
+
+        intent.putExtra("Image Names", imageFileNames);
+        intent.putExtra("Images", imageList);
+        startActivity(intent);
     }
 }
