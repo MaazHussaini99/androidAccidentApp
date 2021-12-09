@@ -38,7 +38,13 @@
             android:exported="true" />
         <activity
             android:name=".GeneratePDF"
-            android:exported="true" />
+            android:exported="true" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
         <activity
             android:name=".Home"
             android:exported="true" />
@@ -91,11 +97,7 @@
             android:noHistory="true"
             android:screenOrientation="portrait"
             android:theme="@style/SplashStyle" >
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
 
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
         </activity>
         <activity
             android:name=".ProfileInsurance"
@@ -106,6 +108,10 @@
         <activity
             android:name=".ProfileUser"
             android:exported="false" />
+        <activity
+            android:name=".Login"
+            android:exported="false" />
+
 
     </application>
 
