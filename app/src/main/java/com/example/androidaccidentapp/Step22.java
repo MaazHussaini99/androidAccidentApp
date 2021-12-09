@@ -15,7 +15,7 @@ public class Step22 extends AppCompatActivity {
     }
 
     public void next(View view) {
-        Intent intent = new Intent(this, Step5.class);
+        Intent intent = new Intent(this, Step3.class);
         this.startActivity(intent);
     }
 

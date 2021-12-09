@@ -1,5 +1,6 @@
 package com.example.androidaccidentapp;
 
+import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
@@ -241,7 +242,8 @@ public class GeneratePDF extends AppCompatActivity {
                         });
                     }
                 });
-
+                Intent i = new Intent(GeneratePDF.this, Home.class);
+                startActivity(i);
             }
         });
     }

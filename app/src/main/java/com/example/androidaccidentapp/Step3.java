@@ -15,12 +15,12 @@ public class Step3 extends AppCompatActivity {
     }
 
     public void next(View view) {
-        Intent intent = new Intent(this, Step3.class);
+        Intent intent = new Intent(this, driverInfo.class);
         this.startActivity(intent);
     }
 
     public void previous(View view) {
-        Intent intent = new Intent(this, Step2.class);
+        Intent intent = new Intent(this, Step22.class);
         this.startActivity(intent);
     }
 
