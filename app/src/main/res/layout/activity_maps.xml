@@ -35,13 +35,6 @@
                 android:layout_centerHorizontal="true"
                 android:text="Address"/>
 
-            <Button
-                android:id="@+id/testDeleteDataButton"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Delete Report"
-                android:onClick="deleteData"/>
-
 
 
         </RelativeLayout>

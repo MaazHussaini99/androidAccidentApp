@@ -22,6 +22,7 @@ import android.view.View;
 import android.view.Window;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -57,7 +58,9 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
     private Geocoder geocoder;
     private ActivityMapsBinding binding;
     TextView viewAddress;
+    EditText enterAddress;
     Dialog dialog;
+    Dialog dialog2;
     Address address;
     FusedLocationProviderClient client;
     SupportMapFragment mapFragment;
@@ -247,6 +250,8 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         dialog.setContentView(R.layout.custom_dialog);
 
         viewAddress = dialog.findViewById(R.id.addressTextView);
+        enterAddress = dialog.findViewById(R.id.enterAddressEditText);
+
         viewAddress.setText("" + address.getAddressLine(0));
         dialog.show();
 
@@ -375,5 +380,22 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
     protected void onPause() {
         super.onPause();
         closeDrawer(drawerLayout);
+    }
+
+    public void enterManually(View view) {
+        dialog.dismiss();
+        dialog2 = new Dialog(MapsActivity.this);
+        dialog2.requestWindowFeature(Window.FEATURE_NO_TITLE);
+        dialog2.setCancelable(true);
+        dialog2.setContentView(R.layout.custom_dialog);
+
+
+        enterAddress = dialog2.findViewById(R.id.enterAddressEditText);
+        viewAddress.setVisibility(View.GONE);
+        enterAddress.setVisibility(View.VISIBLE);
+
+
+        //viewAddress.setText("" + address.getAddressLine(0));
+        dialog2.show();
     }
 }
