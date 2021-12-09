@@ -82,7 +82,7 @@
                 android:layout_marginTop="428dp"
                 android:text="If you do not have an account, register below"
                 android:textColor="@color/white"
-                android:textSize="20sp"
+                android:textSize="18sp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.495"
                 app:layout_constraintStart_toStartOf="parent"
