@@ -49,6 +49,8 @@
             android:name=".GeneratePDF"
             android:exported="true" >
 
+
+
         </activity>
         <activity
             android:name=".Home"
@@ -78,11 +80,7 @@
         <activity
             android:name=".driverInfo"
             android:exported="false">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
 
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
 
         </activity>
         <activity
@@ -107,7 +105,9 @@
             android:exported="true" />
         <activity
             android:name=".MapsActivity"
-            android:exported="true" />
+            android:exported="true">
+
+        </activity>
 
         <activity
             android:name=".SplashActivity"
@@ -129,6 +129,11 @@
         <activity
             android:name=".Login"
             android:exported="true" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
 
 
 
