@@ -1,5 +1,8 @@
 package com.example.androidaccidentapp;
 
+import android.app.Activity;
+import android.content.DialogInterface;
+import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
@@ -11,14 +14,18 @@ import android.os.Bundle;
 import android.os.Environment;
 import android.util.Log;
 import android.view.View;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.Toast;
 
 import androidx.annotation.ColorRes;
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
+import androidx.core.view.GravityCompat;
+import androidx.drawerlayout.widget.DrawerLayout;
 
 import java.io.File;
 import java.io.FileOutputStream;
@@ -41,6 +48,9 @@ public class GeneratePDF extends AppCompatActivity {
 
     // variables for our buttons.
     Button generatePDFbtn;
+
+    DrawerLayout drawerLayout;
+    ArrayAdapter<String> adapter;
 
     // declaring width and height
     // for our PDF file.
@@ -70,6 +80,10 @@ public class GeneratePDF extends AppCompatActivity {
         generatePDFbtn = findViewById(R.id.idBtnGeneratePDF);
         bmp = BitmapFactory.decodeResource(getResources(), R.drawable.app_icon_04);
         scaledbmp = Bitmap.createScaledBitmap(bmp, 140, 140, false);
+
+        String[] options = {"View User Profile", "View Vehicle Profile", "View Insurance Policy", "View Reports"};
+        adapter = new ArrayAdapter<>(this, android.R.layout.select_dialog_item, options);
+        drawerLayout = findViewById(R.id.drawer_layout);
 
         // below code is used for
         // checking our permissions.
@@ -317,5 +331,95 @@ public class GeneratePDF extends AppCompatActivity {
                 }
             }
         }
+    }
+
+    public void clickMenu(View view){
+        openDrawer(drawerLayout);
+    }
+
+    public static void openDrawer(DrawerLayout drawerLayout) {
+        drawerLayout.openDrawer(GravityCompat.START);
+    }
+
+    static void closeDrawer(DrawerLayout drawerLayout) {
+        if(drawerLayout.isDrawerOpen(GravityCompat.START)){
+            drawerLayout.closeDrawer(GravityCompat.START);
+        }
+    }
+
+    public void openProfileDialog(View view){
+        AlertDialog.Builder profileDialog = new AlertDialog.Builder(GeneratePDF.this);
+        //Set User Profile Dialog Title
+        profileDialog.setTitle("User Account Options:");
+        //List Options, when item selected, switch to that activity
+
+        profileDialog.setAdapter(adapter, new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                switch (which){
+                    case 0:{
+                        Intent intent = new Intent(GeneratePDF.this, Home.class);
+                        startActivity(intent);
+                        break;
+                    }
+                    case 1:{
+                        Intent intent = new Intent(GeneratePDF.this, Home.class);
+                        startActivity(intent);
+                        break;
+                    }
+                    case 2:{
+                        Intent intent = new Intent(GeneratePDF.this, Home.class);
+                        startActivity(intent);
+                        break;
+                    }
+                    case 3:{
+                        Toast.makeText(GeneratePDF.this, "Access User Reports", Toast.LENGTH_LONG).show();
+//                            Intent intent = new Intent(Home.this, InsuranceProfile.class);
+//                            startActivity(intent);
+                        break;
+                    }
+                }
+            }
+        });
+
+        profileDialog.setNegativeButton("Sign Out", (v, a) -> {
+            Toast.makeText(this, "Clicked Sign Out", Toast.LENGTH_LONG).show();
+        });
+
+        profileDialog.create().show();
+    }
+
+    public void clickHome(View view){
+        redirectActivity(this, Home.class);
+    }
+
+    public void clickHandBook(View view){
+        redirectActivity(this, Handbook.class);
+    }
+
+    public void clickMaps(View view){
+        recreate();
+    }
+
+    public void clickGuide(View view){
+        redirectActivity(this, Step1.class);
+    }
+
+    public void clickLogin(View view){
+        redirectActivity(this, Login.class);
+    }
+
+    static void redirectActivity(Activity activity, Class aClass) {
+        Intent intent = new Intent(activity, aClass);
+
+        intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+
+        activity.startActivity(intent);
+    }
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+        closeDrawer(drawerLayout);
     }
 }

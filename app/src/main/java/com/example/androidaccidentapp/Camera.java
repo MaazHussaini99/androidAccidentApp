@@ -2,14 +2,18 @@ package com.example.androidaccidentapp;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
 import androidx.core.content.FileProvider;
+import androidx.core.view.GravityCompat;
+import androidx.drawerlayout.widget.DrawerLayout;
 
 import android.Manifest;
 import android.app.Activity;
 import android.content.ContentResolver;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.graphics.Bitmap;
@@ -20,6 +24,7 @@ import android.provider.MediaStore;
 import android.util.Log;
 import android.view.View;
 import android.webkit.MimeTypeMap;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.GridView;
 import android.widget.ImageView;
@@ -48,6 +53,9 @@ public class Camera extends AppCompatActivity {
     String currentPhotoPath;
     StorageReference dbStorage;
 
+    DrawerLayout drawerLayout;
+    ArrayAdapter<String> adapter;
+
     String vehicleMake, vehicleYear, vehiclePlate, vehicleState, vehicleType;
     String provider, policyNum, policyHolder;
     String firstName, lastName, dateOfBirth, addressDriver, licenceNum;
@@ -61,6 +69,10 @@ public class Camera extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_camera);
+
+        String[] options = {"View User Profile", "View Vehicle Profile", "View Insurance Policy", "View Reports"};
+        adapter = new ArrayAdapter<>(this, android.R.layout.select_dialog_item, options);
+        drawerLayout = findViewById(R.id.drawer_layout);
 
         selectedImage = findViewById(R.id.imageView);
         cameraBtn = findViewById(R.id.cameraBtn);
@@ -260,5 +272,95 @@ public class Camera extends AppCompatActivity {
         intent.putExtra("Image Names", imageFileNames);
         intent.putExtra("Images", imageList);
         startActivity(intent);
+    }
+
+    public void clickMenu(View view){
+        openDrawer(drawerLayout);
+    }
+
+    public static void openDrawer(DrawerLayout drawerLayout) {
+        drawerLayout.openDrawer(GravityCompat.START);
+    }
+
+    static void closeDrawer(DrawerLayout drawerLayout) {
+        if(drawerLayout.isDrawerOpen(GravityCompat.START)){
+            drawerLayout.closeDrawer(GravityCompat.START);
+        }
+    }
+
+    public void openProfileDialog(View view){
+        AlertDialog.Builder profileDialog = new AlertDialog.Builder(Camera.this);
+        //Set User Profile Dialog Title
+        profileDialog.setTitle("User Account Options:");
+        //List Options, when item selected, switch to that activity
+
+        profileDialog.setAdapter(adapter, new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                switch (which){
+                    case 0:{
+                        Intent intent = new Intent(Camera.this, Home.class);
+                        startActivity(intent);
+                        break;
+                    }
+                    case 1:{
+                        Intent intent = new Intent(Camera.this, Home.class);
+                        startActivity(intent);
+                        break;
+                    }
+                    case 2:{
+                        Intent intent = new Intent(Camera.this, Home.class);
+                        startActivity(intent);
+                        break;
+                    }
+                    case 3:{
+                        Toast.makeText(Camera.this, "Access User Reports", Toast.LENGTH_LONG).show();
+//                            Intent intent = new Intent(Home.this, InsuranceProfile.class);
+//                            startActivity(intent);
+                        break;
+                    }
+                }
+            }
+        });
+
+        profileDialog.setNegativeButton("Sign Out", (v, a) -> {
+            Toast.makeText(this, "Clicked Sign Out", Toast.LENGTH_LONG).show();
+        });
+
+        profileDialog.create().show();
+    }
+
+    public void clickHome(View view){
+        redirectActivity(this, Home.class);
+    }
+
+    public void clickHandBook(View view){
+        redirectActivity(this, Handbook.class);
+    }
+
+    public void clickMaps(View view){
+        recreate();
+    }
+
+    public void clickGuide(View view){
+        redirectActivity(this, Step1.class);
+    }
+
+    public void clickLogin(View view){
+        redirectActivity(this, Login.class);
+    }
+
+    static void redirectActivity(Activity activity, Class aClass) {
+        Intent intent = new Intent(activity, aClass);
+
+        intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+
+        activity.startActivity(intent);
+    }
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+        closeDrawer(drawerLayout);
     }
 }

@@ -82,6 +82,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         setContentView(binding.getRoot());
         String[] options = {"View User Profile", "View Vehicle Profile", "View Insurance Policy", "View Reports"};
         adapter = new ArrayAdapter<>(this, android.R.layout.select_dialog_item, options);
+        drawerLayout = findViewById(R.id.drawer_layout);
 
         firstName = getIntent().getStringExtra("FirstName");
         lastName = getIntent().getStringExtra("LastName");
@@ -101,7 +102,6 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         usersVehicle = getIntent().getStringExtra("usersVehicle");
 
 
-        drawerLayout = findViewById(R.id.drawer_layout);
 
         // Obtain the SupportMapFragment and get notified when the map is ready to be used.
         mapFragment = (SupportMapFragment) getSupportFragmentManager()
