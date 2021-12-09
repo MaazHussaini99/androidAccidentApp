@@ -52,7 +52,7 @@ public class driverInfo extends AppCompatActivity {
                 if (isEmpty(firstName) || isEmpty(lastName) || isEmpty(dateOfBirth) || isEmpty(addressDriver) || isEmpty(licenceNum)) {
                     Toast.makeText(driverInfo.this, "Please fill in all fields", Toast.LENGTH_SHORT).show();
                 } else if (licenceNum.length() < 9) {
-                    Toast.makeText(driverInfo.this, "Password should be at least 9 characters", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(driverInfo.this, "License Number should be at least 9 characters", Toast.LENGTH_SHORT).show();
                 } else {
                     changeToNextActivity(view);
                 }

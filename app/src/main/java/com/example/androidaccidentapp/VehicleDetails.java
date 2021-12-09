@@ -42,6 +42,7 @@ public class VehicleDetails extends AppCompatActivity implements AdapterView.OnI
     String firstName, lastName, dateOfBirth, addressDriver, licenceNum;
     String usersVehicle;
 
+
     private static FirebaseUser currentUser;
     private static final String TAG = "RealtimeDB";
     private FirebaseDatabase database;
@@ -172,7 +173,7 @@ public class VehicleDetails extends AppCompatActivity implements AdapterView.OnI
                     Log.d("firebase", "Maaz logging data " + String.valueOf(task.getResult().getValue()));
 
                     for (DataSnapshot childSnapshot : task.getResult().getChildren()) {
-                        maps.put((String) childSnapshot.getKey(), (String) childSnapshot.getValue());
+                        maps.put((String) childSnapshot.getKey(), String.valueOf(childSnapshot.getValue()));
                     }
                 }
                 mapSize = maps.size();
@@ -180,7 +181,7 @@ public class VehicleDetails extends AppCompatActivity implements AdapterView.OnI
                 if (maps != null) {
                         Set<String> keys = maps.keySet();
                         for(String key:keys) {
-                            paths[i] = maps.get(key);
+                            paths[i] = key;
                             i++;
                         }
                 }
