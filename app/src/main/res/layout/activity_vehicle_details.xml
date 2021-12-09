@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".VehicleDetails"
-    android:background="@color/backgroundColor">
+    android:background="@color/background">
 
     <RelativeLayout
         android:id="@+id/mainLayout"
@@ -51,18 +51,21 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="50dp"
                 android:text="  Vehicle Make"
-                android:textSize="25sp"
-                android:textColor="@color/white"/>
+                android:textColor="@color/white"
+                android:textSize="25sp" />
 
             <EditText
                 android:id="@+id/vehicleMake"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/vehicleMakeTv"
-                android:paddingTop="10dp"
+
                 android:hint="  Type Something"
-                android:textColorHint="@color/white"
-                android:textColor="@color/white"/>
+                android:paddingTop="10dp"
+                android:layout_marginLeft="10dp"
+                android:textColor="@color/black"
+                android:textColorHint="@color/gray"
+                android:background="@drawable/rounded_corners"/>
 
             <TextView
                 android:id="@+id/VehicleYearTv"
@@ -71,18 +74,20 @@
                 android:layout_below="@+id/vehicleMake"
                 android:layout_marginTop="50dp"
                 android:text="  Vehicle Year"
-                android:textSize="25sp"
-                android:textColor="@color/white"/>
+                android:textColor="@color/white"
+                android:textSize="25sp" />
 
             <EditText
                 android:id="@+id/VehicleYear"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/VehicleYearTv"
-                android:paddingTop="10dp"
                 android:hint="  Type Something"
-                android:textColorHint="@color/white"
-                android:textColor="@color/white"/>
+                android:paddingTop="10dp"
+                android:layout_marginLeft="10dp"
+                android:textColor="@color/black"
+                android:textColorHint="@color/gray"
+                android:background="@drawable/rounded_corners"/>
 
 
             <TextView
@@ -92,18 +97,20 @@
                 android:layout_below="@+id/VehicleYear"
                 android:layout_marginTop="50dp"
                 android:text="  Plate Number"
-                android:textSize="25sp"
-                android:textColor="@color/white"/>
+                android:textColor="@color/white"
+                android:textSize="25sp" />
 
             <EditText
                 android:id="@+id/plateNo"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/plateNoTv"
-                android:paddingTop="10dp"
                 android:hint="  Type Something"
-                android:textColorHint="@color/white"
-                android:textColor="@color/white"/>
+                android:paddingTop="10dp"
+                android:layout_marginLeft="10dp"
+                android:textColor="@color/black"
+                android:textColorHint="@color/gray"
+                android:background="@drawable/rounded_corners"/>
 
 
             <TextView
@@ -113,18 +120,20 @@
                 android:layout_below="@+id/plateNo"
                 android:layout_marginTop="50dp"
                 android:text="  State"
-                android:textSize="25sp"
-                android:textColor="@color/white"/>
+                android:textColor="@color/white"
+                android:textSize="25sp" />
 
             <EditText
                 android:id="@+id/state"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/stateTv"
-                android:paddingTop="10dp"
                 android:hint="  Type Something"
-                android:textColorHint="@color/white"
-                android:textColor="@color/white"/>
+                android:paddingTop="10dp"
+                android:layout_marginLeft="10dp"
+                android:textColor="@color/black"
+                android:textColorHint="@color/gray"
+                android:background="@drawable/rounded_corners"/>
 
 
             <TextView
@@ -134,18 +143,20 @@
                 android:layout_below="@+id/state"
                 android:layout_marginTop="50dp"
                 android:text="  Vehicle Type"
-                android:textSize="25sp"
-                android:textColor="@color/white"/>
+                android:textColor="@color/white"
+                android:textSize="25sp" />
 
             <EditText
                 android:id="@+id/vehicleType"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/vehicleTypeTv"
-                android:paddingTop="10dp"
                 android:hint="  Type Something"
-                android:textColorHint="@color/white"
-                android:textColor="@color/white"/>
+                android:paddingTop="10dp"
+                android:layout_marginLeft="10dp"
+                android:textColor="@color/black"
+                android:textColorHint="@color/gray"
+                android:background="@drawable/rounded_corners"/>
 
             <TextView
                 android:id="@+id/spinnerText"
@@ -154,16 +165,19 @@
                 android:layout_below="@+id/vehicleType"
                 android:layout_marginTop="50dp"
                 android:text="  Select Your Vehicle"
-                android:textSize="25sp"
-                android:textColor="@color/white"/>
+                android:textColor="@color/white"
+                android:textSize="25sp" />
 
             <Spinner
                 android:id="@+id/spinner"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_below="@id/spinnerText"
-                android:background="@color/white"
                 android:layout_marginTop="20dp"
+                android:layout_marginLeft="10dp"
+                android:textColor="@color/black"
+                android:textColorHint="@color/gray"
+                android:background="@drawable/rounded_corners"
                 />
 
         </RelativeLayout>
