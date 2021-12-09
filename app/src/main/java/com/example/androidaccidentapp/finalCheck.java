@@ -118,13 +118,14 @@ public class finalCheck extends AppCompatActivity {
     }
     public void saveData(View view) {
 
-        String reportName = ReportName.getText().toString();
+
         HashMap<String, Object> map = new HashMap<>();
-        map.put("Vehicle Type", vehicleType);
-        map.put("Vehicle State", vehicleState);
-        map.put("Vehicle Plate", vehiclePlate);
-        map.put("Vehicle Year", vehicleYear);
-        map.put("Vehicle Make", vehicleMake);
+        HashMap<String, Object> map2 = new HashMap<>();
+        map2.put("Vehicle Type", vehicleType);
+        map2.put("Vehicle State", vehicleState);
+        map2.put("Vehicle Plate", vehiclePlate);
+        map2.put("Vehicle Year", vehicleYear);
+        map2.put("Vehicle Make", vehicleMake);
         map.put("Insurance Holder", policyHolder);
         map.put("Policy Number", policyNum);
         map.put("Insurance Provider", provider);
@@ -134,7 +135,8 @@ public class finalCheck extends AppCompatActivity {
         map.put("Last Name", lastName);
         map.put("First Name", firstName);
 
-        dbRef.child(currentUser.getUid()).child("Accident Reports").child(reportName).updateChildren(map, completionListener);
+        dbRef.child(currentUser.getUid()).child("User Info").updateChildren(map, completionListener);
+        dbRef.child(currentUser.getUid()).child("Vehicles").child(vehicleMake).updateChildren(map2, completionListener);
 
     }
 
