@@ -6,27 +6,21 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 
-public class Step3 extends AppCompatActivity {
+public class Step22 extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_step3);
+        setContentView(R.layout.activity_step22);
     }
 
     public void next(View view) {
-        Intent intent = new Intent(this, Step3.class);
+        Intent intent = new Intent(this, Step5.class);
         this.startActivity(intent);
     }
 
     public void previous(View view) {
-        Intent intent = new Intent(this, Step2.class);
+        Intent intent = new Intent(this, Step1.class);
         this.startActivity(intent);
     }
-
-    public void infoexchangegoto(View view) {
-        Intent intent = new Intent(this, driverInfo.class);
-        this.startActivity(intent);
-    }
-
 }

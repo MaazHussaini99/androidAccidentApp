@@ -15,7 +15,7 @@ public class Handbook extends AppCompatActivity {
     }
 
     public void Go(View view) {
-        Intent n = new Intent(this, SplashScreen.class);
+        Intent n = new Intent(this, HandbookPrevention.class);
         startActivity(n);
     }
 }
