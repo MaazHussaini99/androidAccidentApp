@@ -27,6 +27,7 @@ public class finalExchangeActivity extends AppCompatActivity {
     String vehicleMake, vehicleYear, vehiclePlate, vehicleState, vehicleType;
     String provider, policyNum, policyHolder;
     String firstName, lastName, dateOfBirth, addressDriver, licenceNum;
+    String UsersVehicle;
 
     TextView fName, lName, DOB, Address, license, insProvider, insPolicyNum, insPolicyHolder, Make,
             Year, Plate, State, Type;
@@ -61,6 +62,8 @@ public class finalExchangeActivity extends AppCompatActivity {
         vehiclePlate = getIntent().getStringExtra("VehiclePlate");
         vehicleState = getIntent().getStringExtra("VehicleState");
         vehicleType = getIntent().getStringExtra("VehicleType");
+        UsersVehicle = getIntent().getStringExtra("usersVehicle");
+
 
         fName = findViewById(R.id.firstName);
         lName = findViewById(R.id.lastName);
@@ -123,6 +126,7 @@ public class finalExchangeActivity extends AppCompatActivity {
         map.put("DOB", dateOfBirth);
         map.put("Last Name", lastName);
         map.put("First Name", firstName);
+        map.put("Users Vehicle", UsersVehicle);
 
         dbRef.child(currentUser.getUid()).child("User Info").child(reportName).updateChildren(map, completionListener);
 

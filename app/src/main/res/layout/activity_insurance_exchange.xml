@@ -64,8 +64,10 @@
                 android:layout_below="@+id/providerTv"
                 android:paddingTop="10dp"
                 android:hint="  Type Something"
-                android:textColorHint="@color/white"
-                android:textColor="@color/white"/>
+                android:layout_marginLeft="10dp"
+                android:textColor="@color/black"
+                android:textColorHint="@color/gray"
+                android:background="@drawable/rounded_corners"/>
 
             <TextView
                 android:id="@+id/policyNoTv"
@@ -84,8 +86,10 @@
                 android:layout_below="@+id/policyNoTv"
                 android:paddingTop="10dp"
                 android:hint="  Type Something"
-                android:textColorHint="@color/white"
-                android:textColor="@color/white"/>
+                android:layout_marginLeft="10dp"
+                android:textColor="@color/black"
+                android:textColorHint="@color/gray"
+                android:background="@drawable/rounded_corners"/>
 
 
             <TextView
@@ -105,8 +109,10 @@
                 android:layout_below="@+id/policyHolderTv"
                 android:paddingTop="10dp"
                 android:hint="  Type Something"
-                android:textColorHint="@color/white"
-                android:textColor="@color/white"/>
+                android:layout_marginLeft="10dp"
+                android:textColor="@color/black"
+                android:textColorHint="@color/gray"
+                android:background="@drawable/rounded_corners"/>
 
 
         </RelativeLayout>

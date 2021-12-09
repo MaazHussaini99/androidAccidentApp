@@ -193,16 +193,6 @@
                         android:textSize="25sp" />
 
                     <TextView
-                        android:id="@+id/reportNameTv"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_below="@+id/Type"
-                        android:layout_marginTop="50dp"
-                        android:text="  Enter Report Name"
-                        android:textColor="#FFD700"
-                        android:textSize="25sp" />
-
-                    <TextView
                         android:id="@+id/reportNameTv2"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
@@ -357,16 +347,6 @@
                         android:text="Insurance Policy Number"
                         android:textColor="#FFD700"
                         android:textSize="25sp" />
-
-                    <EditText
-                        android:id="@+id/ReportName"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_below="@+id/reportNameTv"
-                        android:hint="  Type Name"
-                        android:paddingTop="10dp"
-                        android:textColor="@color/white"
-                        android:textColorHint="@color/white" />
 
 
                 </RelativeLayout>
