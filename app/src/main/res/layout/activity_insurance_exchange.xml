@@ -42,9 +42,9 @@
                 android:layout_centerHorizontal="true"
                 android:layout_marginTop="50dp"
                 android:text=" Complete Other Driver's Insurance Information"
-                android:textSize="40sp"
+                android:textAlignment="center"
                 android:textColor="@color/white"
-                android:textAlignment="center"/>
+                android:textSize="40sp" />
 
         </RelativeLayout>
 

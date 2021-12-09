@@ -4,28 +4,17 @@ import static android.content.ContentValues.TAG;
 import static android.text.TextUtils.isEmpty;
 
 import androidx.annotation.NonNull;
-import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.view.GravityCompat;
-import androidx.drawerlayout.widget.DrawerLayout;
 
-import android.app.Activity;
-import android.content.DialogInterface;
-import android.os.Bundle;
-import android.content.Context;
 import android.content.Intent;
-import android.content.SharedPreferences;
+import android.os.Bundle;
 import android.text.TextUtils;
 import android.util.Log;
 import android.view.View;
-import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.ImageView;
-import android.widget.TextView;
 import android.widget.Toast;
 
-import com.google.android.gms.auth.api.signin.GoogleSignInOptions;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
@@ -34,18 +23,11 @@ import com.google.firebase.auth.FirebaseUser;
 
 public class Login extends AppCompatActivity {
 
-    Button signIn; //set up to use later
-    TextView username;
-
-    private EditText password, password2;
     private EditText email, email2;
-
-
-
+    private EditText password, password2;
+    private Button register, signIn;
 
     private FirebaseAuth auth;
-
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -53,14 +35,30 @@ public class Login extends AppCompatActivity {
         setContentView(R.layout.activity_login);
 
 
+       /* email = findViewById(R.id.email);
+        password = findViewById(R.id.password); */
         email2 = findViewById(R.id.email2);
         password2 = findViewById(R.id.password2);
-
-
-        auth = FirebaseAuth.getInstance();
+        //   register = findViewById(R.id.register);
         signIn = findViewById(R.id.signIn);
 
+        auth = FirebaseAuth.getInstance();
 
+     /*   register.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                String txt_email = email.getText().toString();
+                String txt_password = password.getText().toString();
+
+                if (isEmpty(txt_email) || TextUtils.isEmpty(txt_password)) {
+                    Toast.makeText(Login.this, "Empty credentials", Toast.LENGTH_SHORT).show();
+                } else if (txt_password.length() < 6) {
+                    Toast.makeText(Login.this, "Password must be at least 6 characters", Toast.LENGTH_SHORT).show();
+                } else {
+                    registerUser(txt_email, txt_password);
+                }
+            }
+        }); */
 
         signIn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -78,22 +76,23 @@ public class Login extends AppCompatActivity {
             }
         });
 
-
-
-
-
     }
 
-    public void Register(View v) { //switch to registration activity
-        Intent n = new Intent(this, Registering.class);
-        startActivity(n);
 
-    }
+   /* private void registerUser(String email, String password) {
+        auth.createUserWithEmailAndPassword(email, password).addOnCompleteListener(Login.this, new OnCompleteListener<AuthResult>() {
+            @Override
+            public void onComplete(@NonNull Task<AuthResult> task) {
+                if (task.isSuccessful()) {
+                    FirebaseUser user = auth.getCurrentUser();
+                    Toast.makeText(Login.this, "Success", Toast.LENGTH_SHORT).show();
+                } else {
+                    Toast.makeText(Login.this, "Failed", Toast.LENGTH_SHORT).show();
+                }
 
-    private void updateUI(FirebaseUser user) {
-
-    }
-
+            }
+        });
+    } */
 
 
     public void signIn(String email2, String password2) {
@@ -108,7 +107,7 @@ public class Login extends AppCompatActivity {
                             Toast.makeText(Login.this, "Authentication success.",
                                     Toast.LENGTH_SHORT).show();
                             updateUI(user);
-                            Intent n = new Intent(Login.this, driveRegistration.class);
+                            Intent n = new Intent(Login.this, driverInfo.class);
                             startActivity(n);
 
                         } else {
@@ -122,5 +121,16 @@ public class Login extends AppCompatActivity {
                 });
     }
 
+    private void updateUI(FirebaseUser user) {
+    }
 
+    public void Complete(View view) {
+        Intent n = new Intent(this, Registering.class);
+        startActivity(n);
+    }
+
+    public void splash(View view) {
+        Intent n = new Intent(this, SplashScreen.class);
+        startActivity(n);
+    }
 }
