@@ -32,6 +32,7 @@ public class finalExchangeActivity extends AppCompatActivity {
     String firstName, lastName, dateOfBirth, addressDriver, licenceNum;
     String UsersVehicle;
     String accidentLocation;
+    String reportName;
 
     ArrayList<String> imageFileNames = new ArrayList<>();
     HashMap<String, Object> imageList = new HashMap<>();
@@ -125,14 +126,14 @@ public class finalExchangeActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 saveData(view);
-
+                changeToNextActivity(view);
             }
         });
     }
 
     public void saveData(View view) {
 
-        String reportName = ReportName.getText().toString();
+        reportName = ReportName.getText().toString();
         HashMap<String, Object> map = new HashMap<>();
         map.put("Vehicle Type", vehicleType);
         map.put("Vehicle State", vehicleState);
@@ -152,7 +153,7 @@ public class finalExchangeActivity extends AppCompatActivity {
 
         dbRef.child(currentUser.getUid()).child("Accident Reports").child(reportName).updateChildren(map, completionListener);
 
-        dbRef.child(currentUser.getUid()).child("Accident Reports").child(reportName).child("images").updateChildren(imageList, completionListener);
+        //dbRef.child(currentUser.getUid()).child("Accident Reports").child(reportName).child("images").updateChildren(imageList, completionListener);
 
 
 //        dbRef.child(currentUser.getUid()).child("Accident Reports").child("Maaz 1").get().addOnCompleteListener(new OnCompleteListener<DataSnapshot>() {
@@ -188,6 +189,12 @@ public class finalExchangeActivity extends AppCompatActivity {
     private void notifyUser(String message) {
         Toast.makeText(finalExchangeActivity.this, message,
                 Toast.LENGTH_SHORT).show();
+    }
+
+    public void changeToNextActivity(View v){
+        Intent intent = new Intent(this, insuranceExchange.class);
+        intent.putExtra("Report Name", reportName);
+        this.startActivity(intent);
     }
 
 }

@@ -57,7 +57,7 @@ public class GeneratePDF extends AppCompatActivity {
     private FirebaseDatabase database;
     private DatabaseReference dbRef;
     HashMap<String, Object> newMap = new HashMap<>();
-
+    String reportName;
     // constant code for runtime permissions
     private static final int PERMISSION_REQUEST_CODE = 200;
 
@@ -81,6 +81,8 @@ public class GeneratePDF extends AppCompatActivity {
         currentUser = FirebaseAuth.getInstance().getCurrentUser();
         database = FirebaseDatabase.getInstance();
         dbRef = database.getReference("/data");
+
+        reportName = getIntent().getStringExtra("Report Name");
 
         generatePDFbtn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -262,7 +264,7 @@ public class GeneratePDF extends AppCompatActivity {
     }
 
     private void readData (myCallBack myCallBack){
-        dbRef.child(currentUser.getUid()).child("Accident Reports").child("Maaz 1").get().addOnCompleteListener(new OnCompleteListener<DataSnapshot>() {
+        dbRef.child(currentUser.getUid()).child("Accident Reports").child(reportName).get().addOnCompleteListener(new OnCompleteListener<DataSnapshot>() {
             @Override
             public void onComplete(@NonNull Task<DataSnapshot> task) {
                 HashMap<String, String> maps = new HashMap<>();
