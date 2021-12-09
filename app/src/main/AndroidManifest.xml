@@ -25,12 +25,32 @@
         android:requestLegacyExternalStorage="true"
         android:theme="@style/Theme.AppCompat.Light.NoActionBar">
         <activity
+            android:name=".Handbook"
+            android:exported="true" />
+        <activity
+            android:name=".SplashScreen"
             android:name=".finalCheck"
             android:exported="true" />
         <activity
             android:name=".Step1"
             android:exported="true" />
         <activity
+            android:name=".finalCheck"
+            android:exported="true" />
+        <activity
+            android:name=".vehicleRegistration"
+            android:exported="true" />
+        <activity
+            android:name=".insuranceRegistration"
+            android:exported="true" />
+        <activity
+            android:name=".driveRegistration"
+            android:exported="true" />
+        <activity
+            android:name=".Registering"
+            android:exported="true" />
+        <activity
+            android:name=".Step1"
             android:name=".vehicleRegistration"
             android:exported="true">
 
@@ -100,6 +120,9 @@
         <activity
             android:name=".insuranceExchange"
             android:exported="true" />
+        <activity
+            android:name=".Step3"
+            android:exported="true">
         <activity
             android:name=".MapsActivity"
             android:exported="true">
