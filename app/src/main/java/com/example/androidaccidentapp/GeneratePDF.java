@@ -196,8 +196,6 @@ public class GeneratePDF extends AppCompatActivity {
                 if (!task.isSuccessful()) {
                     Log.e("firebase", "Error getting data", task.getException());
                 } else {
-
-
                     for (DataSnapshot childSnapshot : task.getResult().getChildren()) {
                         maps.put(childSnapshot.getKey(), String.valueOf(childSnapshot.getValue()));
                     }

@@ -178,14 +178,25 @@
                 android:textColor="@color/white"/>
 
             <TextView
-                android:id="@+id/reportNameTv"
+                android:id="@+id/locationTv"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/Type"
                 android:layout_marginTop="50dp"
+                android:text="  14"
+                android:textSize="25sp"
+                android:textColor="@color/white"/>
+
+            <TextView
+                android:id="@+id/reportNameTv"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/locationTv"
+                android:layout_marginTop="50dp"
                 android:text="  Enter Report Name"
                 android:textSize="25sp"
                 android:textColor="@color/white"/>
+
 
             <EditText
                 android:id="@+id/ReportName"
