@@ -128,4 +128,9 @@ public class Login extends AppCompatActivity {
         Intent n = new Intent(this, Registering.class);
         startActivity(n);
     }
+
+    public void splash(View view) {
+        Intent n = new Intent(this, SplashScreen.class);
+        startActivity(n);
+    }
 }
