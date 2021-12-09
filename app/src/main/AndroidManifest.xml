@@ -28,14 +28,23 @@
             android:name=".finalCheck"
             android:exported="true" />
         <activity
-            android:name=".vehicleRegistration"
+            android:name=".Step1"
             android:exported="true" />
+        <activity
+            android:name=".vehicleRegistration"
+            android:exported="true">
+
+        </activity>
         <activity
             android:name=".insuranceRegistration"
-            android:exported="true" />
+            android:exported="true">
+
+        </activity>
         <activity
             android:name=".driveRegistration"
-            android:exported="true" />
+            android:exported="true">
+
+        </activity>
         <activity
             android:name=".GeneratePDF"
             android:exported="true" >
@@ -43,7 +52,13 @@
         </activity>
         <activity
             android:name=".Home"
-            android:exported="true" />
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
         <activity
             android:name=".Step2"
             android:exported="true" />
@@ -76,7 +91,10 @@
         </activity>
         <activity
             android:name=".Registering"
-            android:exported="true"></activity>
+            android:exported="true">
+
+
+        </activity>
         <activity
             android:name=".SignedInActivity"
             android:exported="false" />
@@ -108,11 +126,7 @@
             android:name=".Login"
             android:exported="true" >
 
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
 
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
 
         </activity>
 

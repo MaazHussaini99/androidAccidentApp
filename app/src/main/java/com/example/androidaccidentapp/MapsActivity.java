@@ -363,7 +363,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         redirectActivity(this, Home.class);
     }
 
-    public void clickRegister(View view){
+    public void clickHandBook(View view){
         redirectActivity(this, Registering.class);
     }
 

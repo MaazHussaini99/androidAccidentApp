@@ -73,21 +73,6 @@ public class Registering extends AppCompatActivity {
             }
         });
 
-        signIn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                String txt_email2 = email2.getText().toString();
-                String txt_password2 = password2.getText().toString();
-
-                if (isEmpty(txt_email2) || TextUtils.isEmpty(txt_password2)) {
-                    Toast.makeText(Registering.this, "Please fill in all fields", Toast.LENGTH_SHORT).show();
-                } else if (txt_password2.length() < 6) {
-                    Toast.makeText(Registering.this, "Password should be at least 6 characters", Toast.LENGTH_SHORT).show();
-                } else {
-                    signIn(txt_email2, txt_password2);
-                }
-            }
-        });
 
     }
 
@@ -108,43 +93,12 @@ public class Registering extends AppCompatActivity {
     }
 
 
-    public void signIn(String email2, String password2) {
-        auth.signInWithEmailAndPassword(email2, password2)
-                .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
-                    @Override
-                    public void onComplete(@NonNull Task<AuthResult> task) {
-                        if (task.isSuccessful()) {
-                            Log.d(TAG, "signInWithEmail:success");
-                            // Sign in success, update UI with the signed-in user's information
-                            FirebaseUser user = auth.getCurrentUser();
-                            Toast.makeText(Registering.this, "Authentication success.",
-                                    Toast.LENGTH_SHORT).show();
-                            updateUI(user);
 
-                            
-
-                            Intent n = new Intent(Registering.this, driverInfo.class);
-
-                            startActivity(n);
-
-                        } else {
-                            // If sign in fails, display a message to the user.
-                            Log.w(TAG, "signInWithEmail:failure", task.getException());
-                            Toast.makeText(Registering.this, "Authentication failed.",
-                                    Toast.LENGTH_SHORT).show();
-                            updateUI(null);
-                        }
-                    }
-                });
-    }
 
     private void updateUI(FirebaseUser user) {
     }
 
-    public void Complete(View view) {
-        Intent n = new Intent(this, Login.class);
-        startActivity(n);
-    }
+
 
     public void openProfileDialog(View view){
         AlertDialog.Builder profileDialog = new AlertDialog.Builder(Registering.this);
@@ -205,6 +159,10 @@ public class Registering extends AppCompatActivity {
 
     public void clickHome(View view){
         redirectActivity(this, Home.class);
+    }
+
+    public void clickGuide(View view){
+        redirectActivity(this, Step1.class);
     }
 
     public void clickRegister(View view){
