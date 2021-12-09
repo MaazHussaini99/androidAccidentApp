@@ -1,18 +1,38 @@
 package com.example.androidaccidentapp;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.CompoundButton;
 import android.widget.EditText;
 import android.widget.Switch;
+import android.widget.Toast;
+
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+
+import java.util.HashMap;
 
 public class ProfileInsurance extends AppCompatActivity {
 
-    EditText providerEdit, policyNoEdit, accHolderEdit;
+    private static FirebaseUser currentUser;
+    private static final String TAG = "RealtimeDB";
+    private FirebaseDatabase database;
+    private DatabaseReference dbRef;
+
+    EditText providerEdit, policyNumEdit, accHolderEdit;
+    String provider, policyNum, policyHolder;
     Switch editable;
 
     @Override
@@ -21,11 +41,47 @@ public class ProfileInsurance extends AppCompatActivity {
         setContentView(R.layout.activity_profile_insurance);
 
         providerEdit = findViewById(R.id.providerEdit);
-        policyNoEdit = findViewById(R.id.policyNoEdit);
+        policyNumEdit = findViewById(R.id.policyNoEdit);
         accHolderEdit = findViewById(R.id.accHolderEdit);
 
         editable = findViewById(R.id.editable);
+
+        currentUser = FirebaseAuth.getInstance().getCurrentUser();
+        database = FirebaseDatabase.getInstance();
+        dbRef = database.getReference("/data");
+
+        HashMap<String, Object> map = new HashMap<>();
+
+        dbRef.child(currentUser.getUid()).child("User Info").get().addOnCompleteListener(new OnCompleteListener<DataSnapshot>() {
+            @Override
+            public void onComplete(@NonNull Task<DataSnapshot> task) {
+                if (!task.isSuccessful()) {
+                    Log.e("firebase", "Error getting data", task.getException());
+                }
+                else {
+                    Log.d("firebase", "Logging data " + String.valueOf(task.getResult().getValue()));
+
+                    for (DataSnapshot childSnapshot: task.getResult().getChildren()) {
+                        map.put((String)childSnapshot.getKey(), (String)childSnapshot.getValue());
+                    }
+                    providerEdit.setText(map.get("Provider").toString());
+                    policyNumEdit.setText(map.get("Policy Number").toString());
+                    accHolderEdit.setText(map.get("Holder").toString());
+                }
+            }
+        });
     }
+
+    public void activate (EditText et){
+        et.setEnabled(true);
+        et.setTextColor(Color.WHITE);
+    }
+
+    public void deactivate(EditText et){
+        et.setEnabled(false);
+        et.setTextColor(Color.GRAY);
+    }
+
 
     public void updateText(View view) {
         //Response is slow -- verify correct implementation being used
@@ -33,19 +89,13 @@ public class ProfileInsurance extends AppCompatActivity {
             @Override
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
                 if(editable.isChecked()){
-                    providerEdit.setEnabled(true);
-                    providerEdit.setTextColor(Color.WHITE);
-                    policyNoEdit.setEnabled(true);
-                    policyNoEdit.setTextColor(Color.WHITE);
-                    accHolderEdit.setEnabled(true);
-                    accHolderEdit.setTextColor(Color.WHITE);
-                }else{
-                    providerEdit.setEnabled(false);
-                    providerEdit.setTextColor(Color.GRAY);
-                    policyNoEdit.setEnabled(false);
-                    policyNoEdit.setTextColor(Color.GRAY);
-                    accHolderEdit.setEnabled(false);
-                    accHolderEdit.setTextColor(Color.GRAY);
+                    activate(providerEdit);
+                    activate(policyNumEdit);
+                    activate(accHolderEdit);
+                } else {
+                    deactivate(providerEdit);
+                    deactivate(policyNumEdit);
+                    deactivate(accHolderEdit);
                 }
             }
         });
@@ -63,13 +113,39 @@ public class ProfileInsurance extends AppCompatActivity {
     }
 
     public void save(View view) {
-        //push updated data over to firebase
-        providerEdit.setEnabled(false);
-        providerEdit.setTextColor(Color.GRAY);
-        policyNoEdit.setEnabled(false);
-        policyNoEdit.setTextColor(Color.GRAY);
-        accHolderEdit.setEnabled(false);
-        accHolderEdit.setTextColor(Color.GRAY);
+        //Push updated data over to Firebase
+
+        provider = providerEdit.getText().toString();
+        policyNum= policyNumEdit.getText().toString();
+        policyHolder= accHolderEdit.getText().toString();
+
+        HashMap<String, Object> data = new HashMap<>();
+        data.put("Provider", providerEdit);
+        data.put("Policy Number", policyNumEdit);
+        data.put("Holder", accHolderEdit);
+
+        dbRef.child(currentUser.getUid()).child("User Info").updateChildren(data, completionListener);
+
+        deactivate(providerEdit);
+        deactivate(policyNumEdit);
+        deactivate(accHolderEdit);
         editable.setChecked(false);
+
+        Toast.makeText(ProfileInsurance.this, "Insurance Data Updated", Toast.LENGTH_SHORT).show();
+    }
+
+    DatabaseReference.CompletionListener completionListener =
+            new DatabaseReference.CompletionListener() {
+                @Override
+                public void onComplete(DatabaseError databaseError,
+                                       DatabaseReference databaseReference) {
+
+                    if (databaseError != null) {
+                        notifyUser(databaseError.getMessage());
+                    }
+                }
+            };
+    private void notifyUser(String message) {
+        Toast.makeText(ProfileInsurance.this, message, Toast.LENGTH_SHORT).show();
     }
 }

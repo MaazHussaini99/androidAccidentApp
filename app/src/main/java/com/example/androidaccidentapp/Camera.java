@@ -55,7 +55,7 @@ public class Camera extends AppCompatActivity {
     String accidentLocation;
 
     ArrayList<String> imageFileNames = new ArrayList<>();
-    HashMap<String, Uri> imageList = new HashMap<>();
+    HashMap<String, Object> imageList = new HashMap<>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
