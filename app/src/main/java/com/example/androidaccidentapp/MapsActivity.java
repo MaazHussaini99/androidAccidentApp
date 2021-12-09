@@ -56,18 +56,20 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
     private GoogleMap mMap;
     private Geocoder geocoder;
     private ActivityMapsBinding binding;
-    private List<String> reports;
-    private int reportsCounter;
     TextView viewAddress;
     Dialog dialog;
     Address address;
     FusedLocationProviderClient client;
     SupportMapFragment mapFragment;
     Hashtable<String, String> coordinates = new Hashtable<String, String>();
-    Button btn;
-    String name = "Bryan";
+
     DrawerLayout drawerLayout;
     ArrayAdapter<String> adapter;
+    String vehicleMake, vehicleYear, vehiclePlate, vehicleState, vehicleType;
+    String provider, policyNum, policyHolder;
+    String firstName, lastName, dateOfBirth, addressDriver, licenceNum;
+    String usersVehicle;
+    String accidentLocation;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -77,6 +79,24 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         setContentView(binding.getRoot());
         String[] options = {"View User Profile", "View Vehicle Profile", "View Insurance Policy", "View Reports"};
         adapter = new ArrayAdapter<>(this, android.R.layout.select_dialog_item, options);
+
+        firstName = getIntent().getStringExtra("FirstName");
+        lastName = getIntent().getStringExtra("LastName");
+        dateOfBirth = getIntent().getStringExtra("DOB");
+        addressDriver = getIntent().getStringExtra("Address");
+        licenceNum = getIntent().getStringExtra("DriverLicence");
+
+        provider = getIntent().getStringExtra("Provider");
+        policyNum = getIntent().getStringExtra("Policy Number");
+        policyHolder = getIntent().getStringExtra("Holder");
+
+        vehicleMake = getIntent().getStringExtra("Make");
+        vehicleYear = getIntent().getStringExtra("VehicleYear");
+        vehiclePlate = getIntent().getStringExtra("VehiclePlate");
+        vehicleState = getIntent().getStringExtra("VehicleState");
+        vehicleType = getIntent().getStringExtra("VehicleType");
+        usersVehicle = getIntent().getStringExtra("usersVehicle");
+
 
         drawerLayout = findViewById(R.id.drawer_layout);
 
@@ -228,78 +248,42 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
 
         viewAddress = dialog.findViewById(R.id.addressTextView);
         viewAddress.setText("" + address.getAddressLine(0));
-
         dialog.show();
 
     }
 
 
-    //method to save address to firebase for accident report
+    //method to save address and then proceed to camera
     public void saveAddress(View view) {
-        reportsCounter = 1;
-        String reportName = "Report " + reportsCounter;
-        HashMap<String, Object> map = new HashMap<>();
-        map.put("Name", name);
-        map.put("Accident Location", address.getAddressLine(0));
 
-        //if list of reports is empty start at report 1
-        //if(reports.isEmpty());
-        //check whether child already exists before adding
-        DatabaseReference rootRef = FirebaseDatabase.getInstance().getReference().child("Accident Reports").child(reportName);
-        rootRef.addListenerForSingleValueEvent(new ValueEventListener() {
+        accidentLocation = "" + address.getAddressLine(0);
 
-            @Override
-            public void onDataChange(DataSnapshot snapshot) {
-                if (snapshot.exists()) {
-                    //testing to make sure it recognizes
-                    Toast.makeText(MapsActivity.this, "Report 1 already exists", Toast.LENGTH_SHORT).show();
+        Intent intent = new Intent(this, Camera.class);
 
-                } else {
-                    // Don't exist! Do something.
-                    FirebaseDatabase.getInstance().getReference().child("Accident Reports").child(reportName).updateChildren(map);
+        intent.putExtra("FirstName", firstName);
+        intent.putExtra("LastName", lastName);
+        intent.putExtra("DOB", dateOfBirth);
+        intent.putExtra("Address", addressDriver);
+        intent.putExtra("DriverLicence", licenceNum);
 
-                }
-            }
+        intent.putExtra("Provider", provider);
+        intent.putExtra("Policy Number", policyNum);
+        intent.putExtra("Holder", policyHolder);
 
-            @Override
-            public void onCancelled(DatabaseError error) {
-                // Failed, how to handle?
+        intent.putExtra("VehicleMake", vehicleMake);
+        intent.putExtra("VehicleYear", vehicleYear);
+        intent.putExtra("VehiclePlate", vehiclePlate);
+        intent.putExtra("VehicleState", vehicleState);
+        intent.putExtra("VehicleType", vehicleType);
+        intent.putExtra("usersVehicle", usersVehicle);
 
-            }
+        intent.putExtra("accidentLocation", accidentLocation);
 
-        });
-    }
-    public String getNextReport(){
-        String result = "Report + " + reports.size() + 1;
-        return result;
-    }
+        this.startActivity(intent);
 
-    public void deleteData(View view) {
 
-        DatabaseReference rootRef = FirebaseDatabase.getInstance().getReference().child("Accident Reports").child("Report 1");
-        DatabaseReference reportReference = FirebaseDatabase.getInstance().getReference().child("Report 1");
-        rootRef.addListenerForSingleValueEvent(new ValueEventListener() {
 
-            @Override
-            public void onDataChange(DataSnapshot snapshot) {
-                if (snapshot.exists()) {
-                    //delete if exists
-                    FirebaseDatabase.getInstance().getReference().child("Accident Reports").child("Report 1").removeValue();
-                    Toast.makeText(MapsActivity.this, "Report deleted", Toast.LENGTH_SHORT).show();
 
-                } else {
-                    // Don't exist! Do something.
-
-                }
-            }
-
-            @Override
-            public void onCancelled(DatabaseError error) {
-                // Failed, how to handle?
-
-            }
-
-        });
 
     }
 

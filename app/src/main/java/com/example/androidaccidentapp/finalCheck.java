@@ -81,7 +81,7 @@ public class finalCheck extends AppCompatActivity {
 
         drawerLayout = findViewById(R.id.drawer_layout);
         menuButton = (ImageView) findViewById(R.id.menuButton);
-        String[] options = {"View User Profile", "View Vehicle Profile", "View Insurance Policy", "View Reports"};
+        String[] options = {"View User Profile", "View Vehicle Profile", "View Insurance Policy", "View Reports", "Access Camera"};
         adapter = new ArrayAdapter<>(this, android.R.layout.select_dialog_item, options);
 
         fName.setText(firstName);

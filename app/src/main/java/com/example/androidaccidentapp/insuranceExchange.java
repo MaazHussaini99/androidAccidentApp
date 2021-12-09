@@ -2,13 +2,20 @@ package com.example.androidaccidentapp;
 
 import static android.text.TextUtils.isEmpty;
 
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.view.GravityCompat;
+import androidx.drawerlayout.widget.DrawerLayout;
 
+import android.app.Activity;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -33,6 +40,10 @@ public class insuranceExchange extends AppCompatActivity {
     String addressDriver;
     String licenceNum;
 
+    ArrayAdapter<String> adapter;
+    DrawerLayout drawerLayout;
+    ImageView menuButton;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -42,6 +53,11 @@ public class insuranceExchange extends AppCompatActivity {
         policyNo = findViewById(R.id.policyNo);
         holder = findViewById(R.id.policyHolder);
         btn1 = findViewById(R.id.saveInsuranceInfo);
+
+        drawerLayout = findViewById(R.id.drawer_layout);
+        menuButton = (ImageView) findViewById(R.id.menuButton);
+        String[] options = {"View User Profile", "View Vehicle Profile", "View Insurance Policy", "View Reports", "Access Camera"};
+        adapter = new ArrayAdapter<>(this, android.R.layout.select_dialog_item, options);
 
         firstName = getIntent().getStringExtra("FirstName");
         lastName = getIntent().getStringExtra("LastName");
@@ -65,6 +81,99 @@ public class insuranceExchange extends AppCompatActivity {
                 }
             }
         });
+    }
+
+    public void openProfileDialog(View view) {
+        AlertDialog.Builder profileDialog = new AlertDialog.Builder(insuranceExchange.this);
+        //Set User Profile Dialog Title
+        profileDialog.setTitle("User Account Options:");
+        //List Options, when item selected, switch to that activity
+        profileDialog.setAdapter(adapter, new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                switch (which) {
+                    case 0: {
+                        Intent intent = new Intent(insuranceExchange.this, ProfileUser.class);
+                        startActivity(intent);
+                        break;
+                    }
+                    case 1: {
+                        Intent intent = new Intent(insuranceExchange.this, ProfileVehicle.class);
+                        startActivity(intent);
+                        break;
+                    }
+                    case 2: {
+                        Intent intent = new Intent(insuranceExchange.this, ProfileInsurance.class);
+                        startActivity(intent);
+                        break;
+                    }
+                    case 3: {
+                        Toast.makeText(insuranceExchange.this, "Access User Reports", Toast.LENGTH_LONG).show();
+//                            Intent intent = new Intent(Home.this, reports.class);
+//                            startActivity(intent);
+                        break;
+                    }
+                    case 4: {
+                        Intent intent = new Intent(insuranceExchange.this, Camera.class);
+                        startActivity(intent);
+                        break;
+                    }
+                }
+            }
+        });
+        //Sign out button
+        profileDialog.setNegativeButton("Sign Out", (v, a) -> {
+            Toast.makeText(insuranceExchange.this, "Clicked Sign Out", Toast.LENGTH_LONG).show();
+        });
+
+
+        profileDialog.create().show();
+    }
+
+    public void clickMenu(View view){
+        openDrawer(drawerLayout);
+    }
+    public void clickLogin(View view){
+        redirectActivity(this, Login.class);
+    }
+
+    public static void openDrawer(DrawerLayout drawerLayout) {
+        drawerLayout.openDrawer(GravityCompat.START);
+    }
+
+    static void closeDrawer(DrawerLayout drawerLayout) {
+        if(drawerLayout.isDrawerOpen(GravityCompat.START)){
+            drawerLayout.closeDrawer(GravityCompat.START);
+        }
+    }
+    public void clickHome(View view){
+        redirectActivity(this, Home.class);
+    }
+
+    public void clickHandBook(View view){
+        redirectActivity(this, Registering.class);
+    }
+
+    public void clickMaps(View view){
+        redirectActivity(this, MapsActivity.class);
+    }
+
+    public void clickGuide(View view){
+        redirectActivity(this, Step1.class);
+    }
+
+    static void redirectActivity(Activity activity, Class aClass) {
+        Intent intent = new Intent(activity, aClass);
+
+        intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+
+        activity.startActivity(intent);
+    }
+
+    @Override
+    protected void onPause() {
+        super.onPause();
+        closeDrawer(drawerLayout);
     }
 
 
