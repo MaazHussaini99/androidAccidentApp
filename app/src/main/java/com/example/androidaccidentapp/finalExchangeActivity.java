@@ -234,17 +234,17 @@ public class finalExchangeActivity extends AppCompatActivity {
             public void onClick(DialogInterface dialog, int which) {
                 switch (which){
                     case 0:{
-                        Intent intent = new Intent(finalExchangeActivity.this, Home.class);
+                        Intent intent = new Intent(finalExchangeActivity.this, ProfileUser.class);
                         startActivity(intent);
                         break;
                     }
                     case 1:{
-                        Intent intent = new Intent(finalExchangeActivity.this, Home.class);
+                        Intent intent = new Intent(finalExchangeActivity.this, ProfileVehicle.class);
                         startActivity(intent);
                         break;
                     }
                     case 2:{
-                        Intent intent = new Intent(finalExchangeActivity.this, Home.class);
+                        Intent intent = new Intent(finalExchangeActivity.this, ProfileInsurance.class);
                         startActivity(intent);
                         break;
                     }
@@ -259,7 +259,10 @@ public class finalExchangeActivity extends AppCompatActivity {
         });
 
         profileDialog.setNegativeButton("Sign Out", (v, a) -> {
-            Toast.makeText(this, "Clicked Sign Out", Toast.LENGTH_LONG).show();
+            Intent intent = new Intent (finalExchangeActivity.this, Login.class);
+            startActivity(intent);
+            Toast.makeText(this, "Logout Successful", Toast.LENGTH_LONG).show();
+            finish();
         });
 
         profileDialog.create().show();

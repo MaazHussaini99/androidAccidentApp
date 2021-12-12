@@ -75,7 +75,7 @@ public class VehicleDetails extends AppCompatActivity implements AdapterView.OnI
 
         drawerLayout = findViewById(R.id.drawer_layout);
         menuButton = (ImageView) findViewById(R.id.menuButton);
-        String[] options = {"View User Profile", "View Vehicle Profile", "View Insurance Policy", "View Reports", "Access Camera"};
+        String[] options = {"View User Profile", "View Vehicle Profile", "View Insurance Policy", "View Reports"};
         adapter = new ArrayAdapter<>(this, android.R.layout.select_dialog_item, options);
 
         firstName = getIntent().getStringExtra("FirstName");
@@ -234,17 +234,15 @@ public class VehicleDetails extends AppCompatActivity implements AdapterView.OnI
 //                            startActivity(intent);
                         break;
                     }
-                    case 4: {
-                        Intent intent = new Intent(VehicleDetails.this, Camera.class);
-                        startActivity(intent);
-                        break;
-                    }
                 }
             }
         });
         //Sign out button
         profileDialog.setNegativeButton("Sign Out", (v, a) -> {
-            Toast.makeText(VehicleDetails.this, "Clicked Sign Out", Toast.LENGTH_LONG).show();
+            Intent intent = new Intent (VehicleDetails.this, Login.class);
+            startActivity(intent);
+            Toast.makeText(this, "Logout Successful", Toast.LENGTH_LONG).show();
+            finish();
         });
 
 

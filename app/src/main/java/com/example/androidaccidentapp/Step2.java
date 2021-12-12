@@ -8,7 +8,6 @@ import androidx.drawerlayout.widget.DrawerLayout;
 import android.app.Activity;
 import android.content.DialogInterface;
 import android.content.Intent;
-import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ArrayAdapter;
@@ -35,7 +34,7 @@ public class Step2 extends AppCompatActivity {
         setContentView(R.layout.activity_step2);
 
         drawerLayout = findViewById(R.id.drawer_layout);
-        String[] options = {"View User Profile", "View Vehicle Profile", "View Insurance Policy", "View Reports", "Access Camera"};
+        String[] options = {"View User Profile", "View Vehicle Profile", "View Insurance Policy", "View Reports"};
         adapter = new ArrayAdapter<>(this, android.R.layout.select_dialog_item, options);
 
         //initialize text views to allow to set visibilities
@@ -213,7 +212,10 @@ public class Step2 extends AppCompatActivity {
         });
         //Sign out button
         profileDialog.setNegativeButton("Sign Out", (v, a) -> {
-            Toast.makeText(Step2.this, "Clicked Sign Out", Toast.LENGTH_LONG).show();
+            Intent intent = new Intent (Step2.this, Login.class);
+            startActivity(intent);
+            Toast.makeText(this, "Logout Successful", Toast.LENGTH_LONG).show();
+            finish();
         });
 
 

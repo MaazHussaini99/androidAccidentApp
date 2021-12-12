@@ -16,15 +16,9 @@ import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
-import android.widget.TextView;
 import android.widget.Toast;
 
-import com.google.firebase.auth.FirebaseUser;
-import com.google.firebase.database.DatabaseReference;
-import com.google.firebase.database.FirebaseDatabase;
-
 public class insuranceExchange extends AppCompatActivity {
-
 
     EditText prov;
     EditText policyNo;
@@ -56,7 +50,7 @@ public class insuranceExchange extends AppCompatActivity {
 
         drawerLayout = findViewById(R.id.drawer_layout);
         menuButton = (ImageView) findViewById(R.id.menuButton);
-        String[] options = {"View User Profile", "View Vehicle Profile", "View Insurance Policy", "View Reports", "Access Camera"};
+        String[] options = {"View User Profile", "View Vehicle Profile", "View Insurance Policy", "View Reports"};
         adapter = new ArrayAdapter<>(this, android.R.layout.select_dialog_item, options);
 
         firstName = getIntent().getStringExtra("FirstName");
@@ -113,17 +107,15 @@ public class insuranceExchange extends AppCompatActivity {
 //                            startActivity(intent);
                         break;
                     }
-                    case 4: {
-                        Intent intent = new Intent(insuranceExchange.this, Camera.class);
-                        startActivity(intent);
-                        break;
-                    }
                 }
             }
         });
         //Sign out button
         profileDialog.setNegativeButton("Sign Out", (v, a) -> {
-            Toast.makeText(insuranceExchange.this, "Clicked Sign Out", Toast.LENGTH_LONG).show();
+            Intent intent = new Intent (insuranceExchange.this, Login.class);
+            startActivity(intent);
+            Toast.makeText(this, "Logout Successful", Toast.LENGTH_LONG).show();
+            finish();
         });
 
 

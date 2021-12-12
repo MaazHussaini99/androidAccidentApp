@@ -23,7 +23,7 @@ public class Step3 extends AppCompatActivity {
         setContentView(R.layout.activity_step3);
 
         drawerLayout = findViewById(R.id.drawer_layout);
-        String[] options = {"View User Profile", "View Vehicle Profile", "View Insurance Policy", "View Reports", "Access Camera"};
+        String[] options = {"View User Profile", "View Vehicle Profile", "View Insurance Policy", "View Reports"};
         adapter = new ArrayAdapter<>(this, android.R.layout.select_dialog_item, options);
     }
 
@@ -86,17 +86,15 @@ public class Step3 extends AppCompatActivity {
 //                            startActivity(intent);
                         break;
                     }
-                    case 4: {
-                        Intent intent = new Intent(Step3.this, Camera.class);
-                        startActivity(intent);
-                        break;
-                    }
                 }
             }
         });
         //Sign out button
         profileDialog.setNegativeButton("Sign Out", (v, a) -> {
-            Toast.makeText(Step3.this, "Clicked Sign Out", Toast.LENGTH_LONG).show();
+            Intent intent = new Intent (Step3.this, Login.class);
+            startActivity(intent);
+            Toast.makeText(this, "Logout Successful", Toast.LENGTH_LONG).show();
+            finish();
         });
 
 

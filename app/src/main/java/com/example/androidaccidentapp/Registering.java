@@ -14,7 +14,6 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
-import android.util.Log;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
@@ -113,17 +112,17 @@ public class Registering extends AppCompatActivity {
             public void onClick(DialogInterface dialog, int which) {
                 switch (which){
                     case 0:{
-                        Intent intent = new Intent(Registering.this, Home.class);
+                        Intent intent = new Intent(Registering.this, ProfileUser.class);
                         startActivity(intent);
                         break;
                     }
                     case 1:{
-                        Intent intent = new Intent(Registering.this, Home.class);
+                        Intent intent = new Intent(Registering.this, ProfileVehicle.class);
                         startActivity(intent);
                         break;
                     }
                     case 2:{
-                        Intent intent = new Intent(Registering.this, Home.class);
+                        Intent intent = new Intent(Registering.this, ProfileInsurance.class);
                         startActivity(intent);
                         break;
                     }
@@ -138,7 +137,10 @@ public class Registering extends AppCompatActivity {
         });
 
         profileDialog.setNegativeButton("Sign Out", (v, a) -> {
-            Toast.makeText(Registering.this, "Clicked Sign Out", Toast.LENGTH_LONG).show();
+            Intent intent = new Intent (Registering.this, Login.class);
+            startActivity(intent);
+            Toast.makeText(this, "Logout Successful", Toast.LENGTH_LONG).show();
+            finish();
         });
 
         profileDialog.create().show();

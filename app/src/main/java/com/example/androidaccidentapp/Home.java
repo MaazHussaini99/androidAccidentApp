@@ -6,20 +6,15 @@ import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 
 import android.app.Activity;
-import android.app.Dialog;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
-import android.os.Handler;
 import android.view.View;
 import android.widget.ArrayAdapter;
-import android.widget.Button;
-import android.widget.ImageView;
 import android.widget.Toast;
 
 public class Home extends AppCompatActivity {
 
-    ImageView userAcct;
     DrawerLayout drawerLayout;
     ArrayAdapter<String> adapter;
 
@@ -30,9 +25,6 @@ public class Home extends AppCompatActivity {
         String[] options = {"View User Profile", "View Vehicle Profile", "View Insurance Policy", "View Reports"};
         adapter = new ArrayAdapter<>(this, android.R.layout.select_dialog_item, options);
         drawerLayout = findViewById(R.id.drawer_layout);
-
-
-
 
     }
     public void openProfileDialog(View view){
@@ -46,17 +38,17 @@ public class Home extends AppCompatActivity {
             public void onClick(DialogInterface dialog, int which) {
                 switch (which){
                     case 0:{
-                        Intent intent = new Intent(Home.this, Home.class);
+                        Intent intent = new Intent(Home.this, ProfileUser.class);
                         startActivity(intent);
                         break;
                     }
                     case 1:{
-                        Intent intent = new Intent(Home.this, Home.class);
+                        Intent intent = new Intent(Home.this, ProfileVehicle.class);
                         startActivity(intent);
                         break;
                     }
                     case 2:{
-                        Intent intent = new Intent(Home.this, Home.class);
+                        Intent intent = new Intent(Home.this, ProfileInsurance.class);
                         startActivity(intent);
                         break;
                     }
@@ -71,7 +63,10 @@ public class Home extends AppCompatActivity {
         });
 
         profileDialog.setNegativeButton("Sign Out", (v, a) -> {
-            Toast.makeText(this, "Clicked Sign Out", Toast.LENGTH_LONG).show();
+            Intent intent = new Intent (Home.this, Login.class);
+            startActivity(intent);
+            Toast.makeText(this, "Logout Successful", Toast.LENGTH_LONG).show();
+            finish();
         });
 
         profileDialog.create().show();
@@ -80,7 +75,6 @@ public class Home extends AppCompatActivity {
     public void onClick(View view) {
         switch (view.getId()){
             case R.id.step_by_step:{
-                Toast.makeText(Home.this, "Step-By-Step", Toast.LENGTH_SHORT).show();
                 Intent myIntent = new Intent(Home.this, Step1.class);
                 Home.this.startActivity(myIntent);
                 break;
@@ -91,7 +85,6 @@ public class Home extends AppCompatActivity {
                 break;
             }
             case R.id.info_exchange:{
-                Toast.makeText(Home.this, "Info Exchange", Toast.LENGTH_SHORT).show();
                 Intent myIntent = new Intent(Home.this, driverInfo.class);
                 Home.this.startActivity(myIntent);
                 break;

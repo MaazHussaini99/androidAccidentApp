@@ -185,17 +185,17 @@ public class ProfileInsurance extends AppCompatActivity {
             public void onClick(DialogInterface dialog, int which) {
                 switch (which){
                     case 0:{
-                        Intent intent = new Intent(ProfileInsurance.this, Home.class);
+                        Intent intent = new Intent(ProfileInsurance.this, ProfileUser.class);
                         startActivity(intent);
                         break;
                     }
                     case 1:{
-                        Intent intent = new Intent(ProfileInsurance.this, Home.class);
+                        Intent intent = new Intent(ProfileInsurance.this, ProfileVehicle.class);
                         startActivity(intent);
                         break;
                     }
                     case 2:{
-                        Intent intent = new Intent(ProfileInsurance.this, Home.class);
+                        Intent intent = new Intent(ProfileInsurance.this, ProfileInsurance.class);
                         startActivity(intent);
                         break;
                     }
@@ -210,7 +210,10 @@ public class ProfileInsurance extends AppCompatActivity {
         });
 
         profileDialog.setNegativeButton("Sign Out", (v, a) -> {
-            Toast.makeText(this, "Clicked Sign Out", Toast.LENGTH_LONG).show();
+            Intent intent = new Intent (ProfileInsurance.this, Login.class);
+            startActivity(intent);
+            Toast.makeText(this, "Logout Successful", Toast.LENGTH_LONG).show();
+            finish();
         });
 
         profileDialog.create().show();

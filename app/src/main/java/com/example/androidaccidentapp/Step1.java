@@ -16,7 +16,6 @@ import android.os.Build;
 import android.os.Bundle;
 import android.telephony.PhoneStateListener;
 import android.telephony.TelephonyManager;
-import android.util.Log;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
@@ -32,7 +31,7 @@ public class Step1 extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.step1);
         drawerLayout = findViewById(R.id.drawer_layout);
-        String[] options = {"View User Profile", "View Vehicle Profile", "View Insurance Policy", "View Reports", "Access Camera"};
+        String[] options = {"View User Profile", "View Vehicle Profile", "View Insurance Policy", "View Reports"};
         adapter = new ArrayAdapter<>(this, android.R.layout.select_dialog_item, options);
 
         final Button call = findViewById(R.id.dial911_btn); //button for 911 which is call
@@ -181,7 +180,10 @@ public class Step1 extends AppCompatActivity {
         });
         //Sign out button
         profileDialog.setNegativeButton("Sign Out", (v, a) -> {
-            Toast.makeText(Step1.this, "Clicked Sign Out", Toast.LENGTH_LONG).show();
+            Intent intent = new Intent (Step1.this, Login.class);
+            startActivity(intent);
+            Toast.makeText(this, "Logout Successful", Toast.LENGTH_LONG).show();
+            finish();
         });
 
 
