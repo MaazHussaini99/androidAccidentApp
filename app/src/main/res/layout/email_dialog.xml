@@ -6,44 +6,59 @@
     android:orientation="vertical"
     android:padding="4dp"
     tools:context=".GeneratePDF">
+
     <EditText
         android:id="@+id/etTo"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_margin="5dp"
-        android:hint="Receiver's Email Address!"
+        android:fontFamily="@font/open_sans"
+        android:hint="Receiver's Email Address"
         android:inputType="textEmailAddress"
         android:singleLine="true" />
+
     <EditText
         android:id="@+id/etSubject"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="5dp"
+        android:fontFamily="@font/open_sans"
         android:hint="Enter Subject"
         android:singleLine="true" />
+
     <EditText
         android:id="@+id/etMessage"
         android:layout_width="match_parent"
         android:layout_height="200dp"
         android:layout_margin="5dp"
+        android:fontFamily="@font/open_sans"
         android:gravity="top|start"
         android:hint="Compose Email"
         android:inputType="textMultiLine" />
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
+
         <Button
             android:id="@+id/btSend"
             android:layout_width="80dp"
             android:layout_height="50dp"
-            android:layout_margin="5dp"
+            android:layout_marginStart="5dp"
+            android:layout_marginTop="5dp"
+            android:layout_marginEnd="5dp"
+            android:layout_marginBottom="5dp"
+            android:fontFamily="@font/open_sans"
             android:text="Send" />
+
         <Button
             android:id="@+id/btAttachment"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentEnd="true"
-            android:text="attachment" />
+            android:layout_marginEnd="3dp"
+            android:fontFamily="@font/open_sans"
+            android:text="Attach a file"
+            android:translationY="5sp" />
     </RelativeLayout>
     <TextView
         android:id="@+id/tvAttachment"
