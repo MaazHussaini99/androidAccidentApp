@@ -1,21 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.drawerlayout.widget.DrawerLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:id="@+id/drawer_layout"
+    android:orientation="vertical"
     android:background="@color/background"
     tools:context=".finalCheck">
 
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical">
-
-        <include
-            layout="@layout/main_toolbar"/>
+    <include
+        layout="@layout/logintoolbar"/>
 
         <ScrollView
             android:layout_width="match_parent"
@@ -34,24 +28,17 @@
                     android:layout_height="wrap_content">
 
 
-                    <ImageView
-                        android:id="@+id/logo"
-                        android:layout_width="249dp"
-                        android:layout_height="92dp"
-                        android:layout_centerHorizontal="true"
-                        android:src="@drawable/app_icon_04" />
-
                     <TextView
                         android:id="@+id/title"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_below="@+id/logo"
                         android:layout_centerHorizontal="true"
                         android:layout_marginTop="50dp"
+                        android:fontFamily="@font/open_sans_light"
                         android:text=" Final Check"
-                        android:textSize="40sp"
                         android:textAlignment="center"
-                        android:textColor="@color/white"/>
+                        android:textColor="@color/white"
+                        android:textSize="40sp" />
 
                 </RelativeLayout>
 
@@ -200,6 +187,7 @@
                         android:layout_alignParentEnd="true"
                         android:layout_marginTop="-1076dp"
                         android:layout_marginEnd="4dp"
+                        android:fontFamily="@font/open_sans_light"
                         android:text="First Name"
                         android:textColor="#FFD700"
                         android:textSize="25sp" />
@@ -212,6 +200,7 @@
                         android:layout_alignParentEnd="true"
                         android:layout_marginTop="-994dp"
                         android:layout_marginEnd="2dp"
+                        android:fontFamily="@font/open_sans_light"
                         android:text="Last Name"
                         android:textColor="#FFD700"
                         android:textSize="25sp" />
@@ -224,6 +213,7 @@
                         android:layout_alignParentEnd="true"
                         android:layout_marginTop="-908dp"
                         android:layout_marginEnd="1dp"
+                        android:fontFamily="@font/open_sans_light"
                         android:text="Date of Birth"
                         android:textColor="#FFD700"
                         android:textSize="25sp" />
@@ -236,6 +226,7 @@
                         android:layout_alignParentEnd="true"
                         android:layout_marginTop="-826dp"
                         android:layout_marginEnd="1dp"
+                        android:fontFamily="@font/open_sans_light"
                         android:text="Address"
                         android:textColor="#FFD700"
                         android:textSize="25sp" />
@@ -248,6 +239,7 @@
                         android:layout_alignParentEnd="true"
                         android:layout_marginTop="-744dp"
                         android:layout_marginEnd="5dp"
+                        android:fontFamily="@font/open_sans_light"
                         android:text="License"
                         android:textColor="#FFD700"
                         android:textSize="25sp" />
@@ -260,6 +252,7 @@
                         android:layout_alignParentEnd="true"
                         android:layout_marginTop="-497dp"
                         android:layout_marginEnd="5dp"
+                        android:fontFamily="@font/open_sans_light"
                         android:text="Insurance Policy Holder"
                         android:textColor="#FFD700"
                         android:textSize="25sp" />
@@ -272,6 +265,7 @@
                         android:layout_alignParentEnd="true"
                         android:layout_marginTop="-407dp"
                         android:layout_marginEnd="5dp"
+                        android:fontFamily="@font/open_sans_light"
                         android:text="Vehicle Make"
                         android:textColor="#FFD700"
                         android:textSize="25sp" />
@@ -284,6 +278,7 @@
                         android:layout_alignParentEnd="true"
                         android:layout_marginTop="-323dp"
                         android:layout_marginEnd="1dp"
+                        android:fontFamily="@font/open_sans_light"
                         android:text="Vehicle Year"
                         android:textColor="#FFD700"
                         android:textSize="25sp" />
@@ -296,6 +291,7 @@
                         android:layout_alignParentEnd="true"
                         android:layout_marginTop="-244dp"
                         android:layout_marginEnd="-3dp"
+                        android:fontFamily="@font/open_sans_light"
                         android:text="Vehicle Plate Number"
                         android:textColor="#FFD700"
                         android:textSize="25sp" />
@@ -308,6 +304,7 @@
                         android:layout_alignParentEnd="true"
                         android:layout_marginTop="-159dp"
                         android:layout_marginEnd="-2dp"
+                        android:fontFamily="@font/open_sans_light"
                         android:text="State Registered"
                         android:textColor="#FFD700"
                         android:textSize="25sp" />
@@ -320,6 +317,7 @@
                         android:layout_alignParentEnd="true"
                         android:layout_marginTop="-75dp"
                         android:layout_marginEnd="-2dp"
+                        android:fontFamily="@font/open_sans_light"
                         android:text="Vehicle Type"
                         android:textColor="#FFD700"
                         android:textSize="25sp" />
@@ -332,6 +330,7 @@
                         android:layout_alignParentEnd="true"
                         android:layout_marginTop="-658dp"
                         android:layout_marginEnd="5dp"
+                        android:fontFamily="@font/open_sans_light"
                         android:text="Insurance Provider"
                         android:textColor="#FFD700"
                         android:textSize="25sp" />
@@ -344,6 +343,7 @@
                         android:layout_alignParentEnd="true"
                         android:layout_marginTop="-578dp"
                         android:layout_marginEnd="5dp"
+                        android:fontFamily="@font/open_sans_light"
                         android:text="Insurance Policy Number"
                         android:textColor="#FFD700"
                         android:textSize="25sp" />
@@ -363,6 +363,7 @@
                         android:layout_centerHorizontal="true"
                         android:layout_marginLeft="50dp"
                         android:layout_marginTop="50dp"
+                        android:fontFamily="@font/open_sans"
                         android:text="Finish" />
 
 
@@ -373,16 +374,4 @@
 
     </LinearLayout>
 
-    <RelativeLayout
-        android:layout_width="300dp"
-        android:layout_height="match_parent"
-        android:layout_gravity="start"
-        android:background="@android:color/white">
 
-        <include
-            layout="@layout/main_nav_drawer"/>
-
-
-    </RelativeLayout>
-
-</androidx.drawerlayout.widget.DrawerLayout>

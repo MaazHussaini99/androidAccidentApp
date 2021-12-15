@@ -188,6 +188,10 @@ public class ProfileUser extends AppCompatActivity {
         redirectActivity(this, Step1.class);
     }
 
+    public void clickProfile(View view){
+        recreate();
+    }
+
     static void redirectActivity(Activity activity, Class aClass) {
         Intent intent = new Intent(activity, aClass);
 

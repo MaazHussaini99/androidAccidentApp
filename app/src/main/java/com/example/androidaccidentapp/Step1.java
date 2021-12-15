@@ -90,7 +90,7 @@ public class Step1 extends AppCompatActivity {
     }
 
     public void next(View view) {
-        startActivity(new Intent(this.getApplicationContext(), Step22.class));
+        startActivity(new Intent(this.getApplicationContext(), Step2.class));
 
     }
 
@@ -208,6 +208,10 @@ public class Step1 extends AppCompatActivity {
 
     public void clickLogin(View view){
         redirectActivity(this, Login.class);
+    }
+
+    public void clickProfile(View view){
+        redirectActivity(this, ProfileUser.class);
     }
 
     static void redirectActivity(Activity activity, Class aClass) {

@@ -1,6 +1,7 @@
 package com.example.androidaccidentapp;
 
 import android.app.Activity;
+import android.app.Dialog;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.pm.PackageManager;
@@ -10,12 +11,16 @@ import android.graphics.Canvas;
 import android.graphics.Paint;
 import android.graphics.Typeface;
 import android.graphics.pdf.PdfDocument;
+import android.net.Uri;
 import android.os.Bundle;
 import android.os.Environment;
 import android.util.Log;
 import android.view.View;
+import android.view.Window;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.ColorRes;
@@ -58,6 +63,9 @@ public class GeneratePDF extends AppCompatActivity {
     int pagewidth = 792;
     int mapSize;
     String paths[];
+    EditText etEmail;
+    EditText etSubject;
+    EditText etMessage;
     String name;
     // creating a bitmap variable
     // for storing our images
@@ -68,6 +76,15 @@ public class GeneratePDF extends AppCompatActivity {
     private DatabaseReference dbRef;
     HashMap<String, Object> newMap = new HashMap<>();
     String reportName;
+    Dialog emailDialog;
+    Button Send;
+    Button attachment;
+    TextView tvAttachment;
+    String email;
+    String subject;
+    String message;
+    Uri URI = null;
+    private static final int PICK_FROM_GALLERY = 101;
     // constant code for runtime permissions
     private static final int PERMISSION_REQUEST_CODE = 200;
 
@@ -294,6 +311,73 @@ public class GeneratePDF extends AppCompatActivity {
             }
         });
     }
+    //open email dialog to share PDF in email
+    public void sendEmail(View view) {
+        emailDialog = new Dialog(GeneratePDF.this);
+        emailDialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
+        emailDialog.setCancelable(true);
+        emailDialog.setContentView(R.layout.email_dialog);
+
+        etEmail = emailDialog.findViewById(R.id.etTo);
+        etSubject = emailDialog.findViewById(R.id.etSubject);
+        etMessage = emailDialog.findViewById(R.id.etMessage);
+        attachment = emailDialog.findViewById(R.id.btAttachment);
+        tvAttachment = emailDialog.findViewById(R.id.tvAttachment);
+
+
+        Send = emailDialog.findViewById(R.id.btSend);
+        Send.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                sendEmail();
+            }
+        });
+        //attachment button listener
+        attachment.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                openFolder();
+            }
+        });
+
+        emailDialog.show();
+    }
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if (requestCode == PICK_FROM_GALLERY && resultCode == RESULT_OK) {
+            URI = data.getData();
+            tvAttachment.setText(URI.getLastPathSegment());
+            tvAttachment.setVisibility(View.VISIBLE);
+        }
+    }
+    public void sendEmail() {
+        try {
+            email = etEmail.getText().toString();
+            subject = etSubject.getText().toString();
+            message = etMessage.getText().toString();
+            final Intent emailIntent = new Intent(android.content.Intent.ACTION_SEND);
+            emailIntent.setType("plain/text");
+            emailIntent.putExtra(android.content.Intent.EXTRA_EMAIL, new String[]{email});
+            emailIntent.putExtra(android.content.Intent.EXTRA_SUBJECT, subject);
+            if (URI != null) {
+                emailIntent.putExtra(Intent.EXTRA_STREAM, URI);
+            }
+            emailIntent.putExtra(android.content.Intent.EXTRA_TEXT, message);
+            this.startActivity(Intent.createChooser(emailIntent, "Sending email..."));
+        } catch (Throwable t) {
+            Toast.makeText(this, "Request failed try again: "+ t.toString(), Toast.LENGTH_LONG).show();
+        }
+    }
+    public void openFolder() {
+        Intent intent = new Intent();
+        intent.setType("application/pdf");
+        intent.addFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION);
+        intent.addFlags(Intent.FLAG_GRANT_WRITE_URI_PERMISSION);
+        intent.setAction(Intent.ACTION_GET_CONTENT);
+        intent.putExtra("return-data", true);
+        startActivityForResult(Intent.createChooser(intent, "Complete action using"), PICK_FROM_GALLERY);
+    }
+
 
     private interface myCallBack{
         void onCallBack(HashMap<String, String> maps);
@@ -410,6 +494,10 @@ public class GeneratePDF extends AppCompatActivity {
 
     public void clickLogin(View view){
         redirectActivity(this, Login.class);
+    }
+
+    public void clickProfile(View view){
+        redirectActivity(this, ProfileUser.class);
     }
 
     static void redirectActivity(Activity activity, Class aClass) {

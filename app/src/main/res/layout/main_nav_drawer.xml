@@ -14,11 +14,12 @@
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:fontFamily="@font/open_sans"
         android:text="Menu"
-        android:textSize="20sp"
-        android:textStyle="bold"
         android:textAlignment="center"
-        android:textColor="@color/black"/>
+        android:textColor="@color/black"
+        android:textSize="20sp"
+        android:textStyle="bold" />
 
     <View
         android:layout_width="match_parent"
@@ -37,10 +38,11 @@
         <TextView
             android:layout_width="0dp"
             android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
             android:layout_weight="1"
-            android:text="Home"
+            android:fontFamily="@font/open_sans"
             android:padding="12dp"
-            android:layout_marginStart="16dp"/>
+            android:text="Home" />
 
         <ImageView
             android:layout_width="wrap_content"
@@ -59,10 +61,11 @@
         <TextView
             android:layout_width="0dp"
             android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
             android:layout_weight="1"
-            android:text="Login"
+            android:fontFamily="@font/open_sans"
             android:padding="12dp"
-            android:layout_marginStart="16dp"/>
+            android:text="Login" />
 
         <ImageView
             android:layout_width="wrap_content"
@@ -82,10 +85,11 @@
         <TextView
             android:layout_width="0dp"
             android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
             android:layout_weight="1"
-            android:text="Handbook"
+            android:fontFamily="@font/open_sans"
             android:padding="12dp"
-            android:layout_marginStart="16dp"/>
+            android:text="Handbook" />
 
         <ImageView
             android:layout_width="wrap_content"
@@ -105,10 +109,11 @@
         <TextView
             android:layout_width="0dp"
             android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
             android:layout_weight="1"
-            android:text="Maps"
+            android:fontFamily="@font/open_sans"
             android:padding="12dp"
-            android:layout_marginStart="16dp"/>
+            android:text="Maps" />
 
         <ImageView
             android:layout_width="wrap_content"
@@ -127,10 +132,11 @@
         <TextView
             android:layout_width="0dp"
             android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
             android:layout_weight="1"
-            android:text="Step-by-step Guide"
+            android:fontFamily="@font/open_sans"
             android:padding="12dp"
-            android:layout_marginStart="16dp"/>
+            android:text="Step-by-step Guide" />
 
         <ImageView
             android:layout_width="wrap_content"
@@ -149,10 +155,11 @@
         <TextView
             android:layout_width="0dp"
             android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
             android:layout_weight="1"
-            android:text="View Reports"
+            android:fontFamily="@font/open_sans"
             android:padding="12dp"
-            android:layout_marginStart="16dp"/>
+            android:text="View Reports" />
 
         <ImageView
             android:layout_width="wrap_content"
@@ -171,10 +178,11 @@
         <TextView
             android:layout_width="0dp"
             android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
             android:layout_weight="1"
-            android:text="View Profile"
+            android:fontFamily="@font/open_sans"
             android:padding="12dp"
-            android:layout_marginStart="16dp"/>
+            android:text="View Profile" />
 
         <ImageView
             android:layout_width="wrap_content"

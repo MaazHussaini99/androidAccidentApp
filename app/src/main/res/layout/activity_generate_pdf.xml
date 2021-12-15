@@ -29,6 +29,16 @@
         android:onClick="generatePDF"
         android:text="Generate PDF" />
 
+    <Button
+        android:id="@+id/sharePDFButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_centerInParent="true"
+        android:text="share PDF"
+        android:onClick="sendEmail"
+        android:layout_below="@+id/idBtnGeneratePDF"/>
+
 </RelativeLayout>
     </LinearLayout>
 

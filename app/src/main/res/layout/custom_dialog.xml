@@ -6,17 +6,17 @@
     android:layout_margin="50sp">
 
 
-
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/addressDialogTitle"
         android:layout_centerVertical="true"
         android:layout_gravity="center_horizontal"
-        android:gravity="center"
-        android:textSize="24sp"
         android:layout_marginBottom="20sp"
-        android:visibility="visible"/>
+        android:fontFamily="@font/open_sans_light"
+        android:gravity="center"
+        android:text="@string/addressDialogTitle"
+        android:textSize="24sp"
+        android:visibility="visible" />
 
 
     <TextView
@@ -26,6 +26,7 @@
         android:layout_centerVertical="true"
         android:layout_gravity="center_horizontal"
         android:layout_marginBottom="30sp"
+        android:fontFamily="@font/open_sans"
         android:gravity="center"
         android:textSize="20sp"
         android:visibility="visible" />
@@ -40,25 +41,26 @@
             android:layout_height="wrap_content"
             android:hint="Enter Address"
             android:layout_above="@+id/submit_login_button"
-            android:visibility="invisible"/>
+            android:visibility="visible"/>
+
         <Button
             android:id="@+id/submit_login_button"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerHorizontal="true"
-            android:backgroundTint="@color/teal_700"
+            android:fontFamily="@font/open_sans"
             android:onClick="saveAddress"
-            android:text="@string/saveAddressButtonText"/>
+            android:text="@string/saveAddressButtonText" />
 
         <Button
             android:id="@+id/enter_manually_button"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_centerHorizontal="true"
             android:layout_below="@+id/submit_login_button"
-            android:backgroundTint="@color/teal_700"
+            android:layout_centerHorizontal="true"
+            android:fontFamily="@font/open_sans"
             android:onClick="enterManually"
-            android:text="@string/enterManuallyButtonText"/>
+            android:text="@string/enterManuallyButtonText" />
     </RelativeLayout>
 
 

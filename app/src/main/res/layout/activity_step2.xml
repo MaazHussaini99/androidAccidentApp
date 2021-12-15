@@ -44,67 +44,68 @@
                 android:src="@drawable/ic_baseline_arrow_forward_24" />
 
 
+            <TextView
+                android:id="@+id/step2firstTv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:layout_gravity="center_horizontal"
+                android:gravity="center"
+                android:text="@string/step2firstString"
+                android:textColor="@color/white"
+                android:textSize="26sp"
+                android:textStyle="bold"
+                android:translationY="-50sp" />
 
-        <TextView
-            android:id="@+id/step2firstTv"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/step2firstString"
-            android:textSize="26sp"
-            android:textStyle="bold"
-            android:textColor="@color/white"
-            android:layout_gravity="center_horizontal"
-            android:layout_centerVertical="true"
-            android:layout_centerHorizontal="true"
-            android:layout_centerInParent="true"
-            android:gravity="center"/>
+            <TextView
+                android:id="@+id/step2secondTv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/step2firstTv"
+                android:layout_centerInParent="true"
+                android:layout_centerVertical="true"
+                android:layout_gravity="center_horizontal"
+                android:gravity="center"
+                android:text="@string/step2secondString"
+                android:textColor="@color/white"
+                android:textSize="26sp"
+                android:textStyle="bold"
+                android:translationY="-50sp"
+                android:visibility="gone" />
 
-        <TextView
-            android:id="@+id/step2secondTv"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/step2secondString"
-            android:textSize="26sp"
-            android:textStyle="bold"
-            android:textColor="@color/white"
-            android:layout_below="@+id/step2firstTv"
-            android:layout_gravity="center_horizontal"
-            android:layout_centerVertical="true"
-            android:layout_centerInParent="true"
-            android:visibility="gone"
-            android:gravity="center"/>
+            <TextView
+                android:id="@+id/step2thirdTv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/step2secondTv"
+                android:layout_centerInParent="true"
+                android:layout_centerVertical="true"
+                android:layout_gravity="center_horizontal"
+                android:gravity="center"
+                android:text="@string/step2thirdString"
+                android:textColor="@color/white"
+                android:textSize="26sp"
+                android:textStyle="bold"
+                android:translationY="-50sp"
+                android:visibility="gone" />
 
-        <TextView
-            android:id="@+id/step2thirdTv"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/step2thirdString"
-            android:textSize="26sp"
-            android:textStyle="bold"
-            android:textColor="@color/white"
-            android:layout_below="@+id/step2secondTv"
-            android:layout_gravity="center_horizontal"
-            android:layout_centerVertical="true"
-            android:layout_centerInParent="true"
-            android:visibility="gone"
-            android:gravity="center"/>
+            <TextView
+                android:id="@+id/step2fourthTv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/step2thirdTv"
+                android:layout_centerInParent="true"
+                android:layout_centerVertical="true"
+                android:layout_gravity="center_horizontal"
+                android:gravity="center"
+                android:text="@string/step2fourthString"
+                android:textColor="@color/white"
+                android:textSize="26sp"
+                android:textStyle="bold"
+                android:translationY="-50sp"
+                android:visibility="gone" />
 
-        <TextView
-            android:id="@+id/step2fourthTv"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/step2fourthString"
-            android:textSize="26sp"
-            android:textStyle="bold"
-            android:textColor="@color/white"
-            android:layout_below="@+id/step2thirdTv"
-            android:layout_gravity="center_horizontal"
-            android:layout_centerVertical="true"
-            android:layout_centerInParent="true"
-            android:visibility="gone"
-            android:gravity="center"/>
-
-    </RelativeLayout>
+        </RelativeLayout>
     </LinearLayout>
         <RelativeLayout
             android:layout_width="300dp"
