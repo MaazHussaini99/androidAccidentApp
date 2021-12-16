@@ -1,5 +1,6 @@
 package com.example.androidaccidentapp;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.view.GravityCompat;
@@ -10,6 +11,7 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.CompoundButton;
@@ -18,9 +20,26 @@ import android.widget.ImageView;
 import android.widget.Switch;
 import android.widget.Toast;
 
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+
+import java.util.HashMap;
+
 public class ProfileUser extends AppCompatActivity {
 
-    EditText firstName, lastName, dob, address, license, iceContact;
+    private static FirebaseUser currentUser;
+    private static final String TAG = "RealtimeDB";
+    private FirebaseDatabase database;
+    private DatabaseReference dbRef;
+
+    EditText firstNameEdit, lastNameEdit, dobEdit, addressEdit, licenseEdit, iceEdit;
+    String firstName, lastName, dob, address, licenceNum, iceNum;
     Switch editable;
     ArrayAdapter<String> adapter;
     DrawerLayout drawerLayout;
@@ -31,12 +50,13 @@ public class ProfileUser extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_profile_user);
 
-        firstName = findViewById(R.id.firstNameEdit);
-        lastName = findViewById(R.id.lastNameEdit);
-        dob = findViewById(R.id.dobEdit);
-        address = findViewById(R.id.addressEdit);
-        license = findViewById(R.id.licenseEdit);
-        iceContact = findViewById(R.id.iceContactEdit);
+        firstNameEdit = findViewById(R.id.firstNameEdit);
+        lastNameEdit = findViewById(R.id.lastNameEdit);
+        dobEdit = findViewById(R.id.dobEdit);
+        addressEdit = findViewById(R.id.addressEdit);
+        licenseEdit = findViewById(R.id.licenseEdit);
+        iceEdit = findViewById(R.id.iceContactEdit);
+        editable = findViewById(R.id.editable);
 
         drawerLayout = findViewById(R.id.drawer_layout);
         menuButton = (ImageView) findViewById(R.id.menuButton);
@@ -44,8 +64,32 @@ public class ProfileUser extends AppCompatActivity {
         adapter = new ArrayAdapter<>(this, android.R.layout.select_dialog_item, options);
 
 
+        currentUser = FirebaseAuth.getInstance().getCurrentUser();
+        database = FirebaseDatabase.getInstance();
+        dbRef = database.getReference("/data");
+        HashMap<String, Object> map = new HashMap<>();
+        dbRef.child(currentUser.getUid()).child("User Info").get().addOnCompleteListener(new OnCompleteListener<DataSnapshot>() {
+            @Override
+            public void onComplete(@NonNull Task<DataSnapshot> task) {
+                if (!task.isSuccessful()) {
+                    Log.e("firebase", "Error getting data", task.getException());
+                }
+                else {
+                    Log.d("firebase", "Logging data " + String.valueOf(task.getResult().getValue()));
 
-        editable = findViewById(R.id.editable);
+                    for (DataSnapshot childSnapshot: task.getResult().getChildren()) {
+                        map.put((String)childSnapshot.getKey(), (String)childSnapshot.getValue());
+                        map.put((String) childSnapshot.getKey(), (String) childSnapshot.getValue());
+                    }
+                    firstNameEdit.setText(String.valueOf(map.get("First Name")));
+                    lastNameEdit.setText(String.valueOf(map.get("Last Name")));
+                    dobEdit.setText(String.valueOf(map.get("DOB")));
+                    addressEdit.setText(String.valueOf(map.get("Address")));
+                    licenseEdit.setText(String.valueOf(map.get("License Number")));
+                    iceEdit.setText(String.valueOf(map.get("ICE Contact Number")));
+                }
+            }
+        });
     }
 
     public void edit_vehicle(View view) {
@@ -59,36 +103,34 @@ public class ProfileUser extends AppCompatActivity {
 
     }
 
+    public void activate (EditText et){
+        et.setEnabled(true);
+        et.setTextColor(Color.BLACK);
+    }
+
+    public void deactivate(EditText et){
+        et.setEnabled(false);
+        et.setTextColor(Color.GRAY);
+    }
+
     public void updateText(View view) {
         editable.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
                 if (editable.isChecked()) {
-                    firstName.setEnabled(true);
-                    firstName.setTextColor(Color.WHITE);
-                    lastName.setEnabled(true);
-                    lastName.setTextColor(Color.WHITE);
-                    dob.setEnabled(true);
-                    dob.setTextColor(Color.WHITE);
-                    address.setEnabled(true);
-                    address.setTextColor(Color.WHITE);
-                    license.setEnabled(true);
-                    license.setTextColor(Color.WHITE);
-                    iceContact.setEnabled(true);
-                    iceContact.setTextColor(Color.WHITE);
+                    activate(firstNameEdit);
+                    activate(lastNameEdit);
+                    activate(dobEdit);
+                    activate(addressEdit);
+                    activate(licenseEdit);
+                    activate(iceEdit);
                 } else {
-                    firstName.setEnabled(false);
-                    firstName.setTextColor(Color.GRAY);
-                    lastName.setEnabled(false);
-                    lastName.setTextColor(Color.GRAY);
-                    dob.setEnabled(false);
-                    dob.setTextColor(Color.GRAY);
-                    address.setEnabled(false);
-                    address.setTextColor(Color.GRAY);
-                    license.setEnabled(false);
-                    license.setTextColor(Color.GRAY);
-                    iceContact.setEnabled(false);
-                    iceContact.setTextColor(Color.GRAY);
+                    deactivate(firstNameEdit);
+                    deactivate(lastNameEdit);
+                    deactivate(dobEdit);
+                    deactivate(addressEdit);
+                    deactivate(licenseEdit);
+                    deactivate(iceEdit);
                 }
             }
         });
@@ -96,19 +138,47 @@ public class ProfileUser extends AppCompatActivity {
 
     public void save(View view) {
         //push updated data over to firebase
-        firstName.setEnabled(false);
-        firstName.setTextColor(Color.GRAY);
-        lastName.setEnabled(false);
-        lastName.setTextColor(Color.GRAY);
-        dob.setEnabled(false);
-        dob.setTextColor(Color.GRAY);
-        address.setEnabled(false);
-        address.setTextColor(Color.GRAY);
-        license.setEnabled(false);
-        license.setTextColor(Color.GRAY);
-        iceContact.setEnabled(false);
-        iceContact.setTextColor(Color.GRAY);
+        firstName = firstNameEdit.getText().toString();
+        lastName = lastNameEdit.getText().toString();
+        dob = dobEdit.getText().toString();
+        address = addressEdit.getText().toString();
+        licenceNum = licenseEdit.getText().toString();
+        iceNum = iceEdit.getText().toString();
+
+        HashMap<String, Object> data = new HashMap<>();
+        data.put("ICE Contact Number", iceNum);
+        data.put("License Number", licenceNum);
+        data.put("Address", address);
+        data.put("DOB", dob);
+        data.put("Last Name", lastName);
+        data.put("First Name", firstName);
+
+        dbRef.child(currentUser.getUid()).child("User Info").updateChildren(data, completionListener);
+
+        deactivate(firstNameEdit);
+        deactivate(lastNameEdit);
+        deactivate(dobEdit);
+        deactivate(addressEdit);
+        deactivate(licenseEdit);
+        deactivate(iceEdit);
+
         editable.setChecked(false);
+        Toast.makeText(ProfileUser.this, "User Profile Updated", Toast.LENGTH_SHORT).show();
+    }
+
+    DatabaseReference.CompletionListener completionListener =
+            new DatabaseReference.CompletionListener() {
+                @Override
+                public void onComplete(DatabaseError databaseError,
+                                       DatabaseReference databaseReference) {
+
+                    if (databaseError != null) {
+                        notifyUser(databaseError.getMessage());
+                    }
+                }
+            };
+    private void notifyUser(String message) {
+        Toast.makeText(ProfileUser.this, message, Toast.LENGTH_SHORT).show();
     }
 
     public void openProfileDialog(View view){
