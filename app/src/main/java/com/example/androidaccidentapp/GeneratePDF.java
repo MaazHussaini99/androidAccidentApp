@@ -188,6 +188,7 @@ public class GeneratePDF extends AppCompatActivity {
                                 String lName = String.valueOf(maps.get("Last Name"));
 
 
+                                canvas.drawText("Accident Location: " + location.toUpperCase(), 50, 250, title);
                                 canvas.drawText("Other Driver's Info: ", 50, 300, title);
                                 canvas.drawText("First Name: " +  fName.toUpperCase(), 100, 320 + 15, title);
                                 canvas.drawText("Last Name: " +  lName.toUpperCase(), 100, 340 + 20, title);

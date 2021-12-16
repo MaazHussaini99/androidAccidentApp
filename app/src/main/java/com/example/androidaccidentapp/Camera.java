@@ -91,7 +91,7 @@ public class Camera extends AppCompatActivity {
         policyNum = getIntent().getStringExtra("Policy Number");
         policyHolder = getIntent().getStringExtra("Holder");
 
-        vehicleMake = getIntent().getStringExtra("Make");
+        vehicleMake = getIntent().getStringExtra("VehicleMake");
         vehicleYear = getIntent().getStringExtra("VehicleYear");
         vehiclePlate = getIntent().getStringExtra("VehiclePlate");
         vehicleState = getIntent().getStringExtra("VehicleState");
@@ -194,7 +194,7 @@ public class Camera extends AppCompatActivity {
                     @Override
                     public void onSuccess(Uri uri){
                         //If directory successfully created and image file successfully uploaded to directory in Firebase Storage
-                        imageList.put(imageFilename, file);
+                        imageList.put(imageFilename, uri);
                         imageFileNames.add(imageFilename);
                         Log.d("Image List:", "MAP" + imageList);
                         Log.d("FireBase Storage", "onSuccess: Uploaded Image URL to Firebase: " + uri.toString());

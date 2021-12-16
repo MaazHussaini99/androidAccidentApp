@@ -30,6 +30,7 @@ import com.google.firebase.database.FirebaseDatabase;
 
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.Set;
 
 public class finalExchangeActivity extends AppCompatActivity {
 
@@ -94,7 +95,7 @@ public class finalExchangeActivity extends AppCompatActivity {
         imageFileNames = getIntent().getStringArrayListExtra("Image Names");
         Intent intent = getIntent();
         imageList = (HashMap<String, Object>)intent.getSerializableExtra("Images");
-        Log.d("firebase", "Maaz logging data " + String.valueOf(imageList));
+        Log.d("firebase", "Maaz logging data Images" + imageList);
 
 
         fName = findViewById(R.id.firstName);
@@ -165,7 +166,15 @@ public class finalExchangeActivity extends AppCompatActivity {
 
         dbRef.child(currentUser.getUid()).child("Accident Reports").child(reportName).updateChildren(map, completionListener);
 
-        //dbRef.child(currentUser.getUid()).child("Accident Reports").child(reportName).child("images").updateChildren(imageList, completionListener);
+        Set<String> Keys = imageList.keySet();
+        for (String key : Keys){
+            int i = 0;
+            String imageName = ("Image" + i);
+            dbRef.child(currentUser.getUid()).child("Accident Reports").child(reportName).child("images").child(imageName).setValue(String.valueOf(imageList.get(key)), completionListener);
+            i++;
+        }
+
+
 
 
 //        dbRef.child(currentUser.getUid()).child("Accident Reports").child("Maaz 1").get().addOnCompleteListener(new OnCompleteListener<DataSnapshot>() {
