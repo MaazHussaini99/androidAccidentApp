@@ -1,3 +1,5 @@
+//CAMERA.java
+
 package com.example.androidaccidentapp;
 
 import androidx.annotation.NonNull;
@@ -32,6 +34,8 @@ import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
 import com.google.firebase.storage.UploadTask;
@@ -44,6 +48,8 @@ import java.util.Date;
 import java.util.HashMap;
 
 public class Camera extends AppCompatActivity {
+
+    private static FirebaseUser currentUser;
 
     public static final int CAMERA_PERM_CODE = 101;
     public static final int CAMERA_REQUEST_CODE = 102;
@@ -80,6 +86,7 @@ public class Camera extends AppCompatActivity {
         uploadBtn = findViewById(R.id.uploadBtn);
 
         dbStorage = FirebaseStorage.getInstance().getReference();
+        currentUser = FirebaseAuth.getInstance().getCurrentUser();
 
         firstName = getIntent().getStringExtra("FirstName");
         lastName = getIntent().getStringExtra("LastName");
@@ -186,7 +193,7 @@ public class Camera extends AppCompatActivity {
 
     private void uploadImageToFirebase(String imageFilename, Uri contentUri) {
         //Creates a new directory in Firebase Storage
-        StorageReference imageRef = dbStorage.child("images/" + imageFilename);
+        StorageReference imageRef = dbStorage.child(currentUser.getUid() + "/" + "images/" + imageFilename);
         imageRef.putFile(contentUri).addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>(){
             @Override
             public void onSuccess (UploadTask.TaskSnapshot taskSnapshot){
@@ -299,17 +306,17 @@ public class Camera extends AppCompatActivity {
             public void onClick(DialogInterface dialog, int which) {
                 switch (which){
                     case 0:{
-                        Intent intent = new Intent(Camera.this, Home.class);
+                        Intent intent = new Intent(Camera.this, ProfileUser.class);
                         startActivity(intent);
                         break;
                     }
                     case 1:{
-                        Intent intent = new Intent(Camera.this, Home.class);
+                        Intent intent = new Intent(Camera.this, ProfileVehicle.class);
                         startActivity(intent);
                         break;
                     }
                     case 2:{
-                        Intent intent = new Intent(Camera.this, Home.class);
+                        Intent intent = new Intent(Camera.this, ProfileInsurance.class);
                         startActivity(intent);
                         break;
                     }
@@ -324,7 +331,10 @@ public class Camera extends AppCompatActivity {
         });
 
         profileDialog.setNegativeButton("Sign Out", (v, a) -> {
-            Toast.makeText(this, "Clicked Sign Out", Toast.LENGTH_LONG).show();
+            Intent intent = new Intent (Camera.this, Login.class);
+            startActivity(intent);
+            Toast.makeText(this, "Logout Successful", Toast.LENGTH_LONG).show();
+            finish();
         });
 
         profileDialog.create().show();
