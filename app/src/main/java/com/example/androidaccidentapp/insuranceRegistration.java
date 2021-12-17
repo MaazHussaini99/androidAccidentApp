@@ -34,6 +34,7 @@ public class insuranceRegistration extends AppCompatActivity {
     String dateOfBirth;
     String addressDriver;
     String licenceNum;
+    String iceNum;
 
 
 
@@ -54,6 +55,7 @@ public class insuranceRegistration extends AppCompatActivity {
         dateOfBirth = getIntent().getStringExtra("DOB");
         addressDriver = getIntent().getStringExtra("Address");
         licenceNum = getIntent().getStringExtra("DriverLicence");
+        iceNum = getIntent().getStringExtra("ICE Contact");
 
 
         btn1.setOnClickListener(new View.OnClickListener() {
@@ -80,6 +82,7 @@ public class insuranceRegistration extends AppCompatActivity {
         intent.putExtra("DOB", dateOfBirth);
         intent.putExtra("Address", addressDriver);
         intent.putExtra("DriverLicence", licenceNum);
+        intent.putExtra("ICE Contact", iceNum);
 
         intent.putExtra("Provider", provider);
         intent.putExtra("Policy Number", policyNum);

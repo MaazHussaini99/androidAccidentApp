@@ -23,6 +23,7 @@ public class driveRegistration extends AppCompatActivity {
     EditText dob;
     EditText address;
     EditText licence;
+    EditText iceContact;
     Button nxt;
 
 
@@ -31,6 +32,7 @@ public class driveRegistration extends AppCompatActivity {
     String dateOfBirth;
     String addressDriver;
     String licenceNum;
+    String iceNum;
 
 
 
@@ -45,6 +47,7 @@ public class driveRegistration extends AppCompatActivity {
         dob = findViewById(R.id.dob);
         address = findViewById(R.id.address);
         licence = findViewById(R.id.driveLicence);
+        iceContact = findViewById(R.id.icePhone);
         nxt = findViewById(R.id.saveInsuranceInfo);
 
 
@@ -56,6 +59,7 @@ public class driveRegistration extends AppCompatActivity {
                 dateOfBirth = dob.getText().toString();
                 addressDriver = address.getText().toString();
                 licenceNum = licence.getText().toString();
+                iceNum = iceContact.getText().toString();
 
                 changeToNextActivity(view);
             }
@@ -72,6 +76,7 @@ public class driveRegistration extends AppCompatActivity {
         intent.putExtra("DOB", dateOfBirth);
         intent.putExtra("Address", addressDriver);
         intent.putExtra("DriverLicence", licenceNum);
+        intent.putExtra("ICE Contact", iceNum);
         this.startActivity(intent);
     }
 

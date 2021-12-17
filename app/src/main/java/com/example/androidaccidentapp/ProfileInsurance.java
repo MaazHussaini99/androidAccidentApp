@@ -64,7 +64,7 @@ public class ProfileInsurance extends AppCompatActivity {
         dbRef = database.getReference("/data");
 
         HashMap<String, Object> map = new HashMap<>();
-
+        //Pulling Insurance data down from Firebase and populating fields
         dbRef.child(currentUser.getUid()).child("User Info").get().addOnCompleteListener(new OnCompleteListener<DataSnapshot>() {
             @Override
             public void onComplete(@NonNull Task<DataSnapshot> task) {
@@ -96,21 +96,16 @@ public class ProfileInsurance extends AppCompatActivity {
     }
 
     public void updateText(View view) {
-        editable.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-            @Override
-            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-                if(editable.isChecked()){
-                    activate(providerEdit);
-                    activate(policyNumEdit);
-                    activate(accHolderEdit);
-                } else {
-                    deactivate(providerEdit);
-                    deactivate(policyNumEdit);
-                    deactivate(accHolderEdit);
-                }
-            }
-        });
-
+        if(editable.isChecked()){
+            //Open all fields to allow user to update data
+            activate(providerEdit);
+            activate(policyNumEdit);
+            activate(accHolderEdit);
+        } else {
+            deactivate(providerEdit);
+            deactivate(policyNumEdit);
+            deactivate(accHolderEdit);
+        }
     }
 
     public void edit_vehicle(View view) {

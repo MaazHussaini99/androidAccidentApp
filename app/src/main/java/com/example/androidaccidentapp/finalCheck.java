@@ -29,9 +29,9 @@ public class finalCheck extends AppCompatActivity {
 
     String vehicleMake, vehicleYear, vehiclePlate, vehicleState, vehicleType;
     String provider, policyNum, policyHolder;
-    String firstName, lastName, dateOfBirth, addressDriver, licenceNum;
+    String firstName, lastName, dateOfBirth, addressDriver, licenceNum, iceNum;
 
-    TextView fName, lName, DOB, Address, license, insProvider, insPolicyNum, insPolicyHolder, Make,
+    TextView fName, lName, DOB, Address, license, iceContact, insProvider, insPolicyNum, insPolicyHolder, Make,
             Year, Plate, State, Type;
 
     Button submit;
@@ -54,6 +54,7 @@ public class finalCheck extends AppCompatActivity {
         dateOfBirth = getIntent().getStringExtra("DOB");
         addressDriver = getIntent().getStringExtra("Address");
         licenceNum = getIntent().getStringExtra("DriverLicence");
+        iceNum = getIntent().getStringExtra("ICE Contact");
 
         provider = getIntent().getStringExtra("Provider");
         policyNum = getIntent().getStringExtra("Policy Number");
@@ -70,6 +71,7 @@ public class finalCheck extends AppCompatActivity {
         DOB = findViewById(R.id.DOB);
         Address = findViewById(R.id.Address);
         license = findViewById(R.id.license);
+
         insProvider = findViewById(R.id.insProvider);
         insPolicyNum = findViewById(R.id.insPolicyNum);
         insPolicyHolder = findViewById(R.id.insPolicyHolder);
@@ -97,6 +99,7 @@ public class finalCheck extends AppCompatActivity {
         Plate.setText(vehiclePlate);
         State.setText(vehicleState);
         Type.setText(vehicleType);
+        iceContact.setText(iceNum);
 
         currentUser = FirebaseAuth.getInstance().getCurrentUser();
         database = FirebaseDatabase.getInstance();
@@ -118,6 +121,7 @@ public class finalCheck extends AppCompatActivity {
 
         HashMap<String, Object> map = new HashMap<>();
         HashMap<String, Object> map2 = new HashMap<>();
+
         map2.put("Vehicle Type", vehicleType);
         map2.put("Vehicle State", vehicleState);
         map2.put("Vehicle Plate", vehiclePlate);
@@ -127,6 +131,7 @@ public class finalCheck extends AppCompatActivity {
         map.put("Policy Number", policyNum);
         map.put("Insurance Provider", provider);
         map.put("License Number", licenceNum);
+        map.put("Emergency Contact", iceNum);
         map.put("Address", addressDriver);
         map.put("DOB", dateOfBirth);
         map.put("Last Name", lastName);

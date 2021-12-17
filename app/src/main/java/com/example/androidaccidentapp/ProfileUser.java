@@ -39,7 +39,7 @@ public class ProfileUser extends AppCompatActivity {
     private DatabaseReference dbRef;
 
     EditText firstNameEdit, lastNameEdit, dobEdit, addressEdit, licenseEdit, iceEdit;
-    String firstName, lastName, dob, address, licenceNum, iceNum;
+    String firstName, lastName, dob, address, licenseNum, iceNum;
     Switch editable;
     ArrayAdapter<String> adapter;
     DrawerLayout drawerLayout;
@@ -63,7 +63,7 @@ public class ProfileUser extends AppCompatActivity {
         String[] options = {"View User Profile", "View Vehicle Profile", "View Insurance Policy", "View Reports"};
         adapter = new ArrayAdapter<>(this, android.R.layout.select_dialog_item, options);
 
-
+        //Pulling user data down from Firebase and populating fields
         currentUser = FirebaseAuth.getInstance().getCurrentUser();
         database = FirebaseDatabase.getInstance();
         dbRef = database.getReference("/data");
@@ -86,7 +86,7 @@ public class ProfileUser extends AppCompatActivity {
                     dobEdit.setText(String.valueOf(map.get("DOB")));
                     addressEdit.setText(String.valueOf(map.get("Address")));
                     licenseEdit.setText(String.valueOf(map.get("License Number")));
-                    iceEdit.setText(String.valueOf(map.get("ICE Contact Number")));
+                    iceEdit.setText(String.valueOf(map.get("Emergency Contact")));
                 }
             }
         });
@@ -114,47 +114,53 @@ public class ProfileUser extends AppCompatActivity {
     }
 
     public void updateText(View view) {
-        editable.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-            @Override
-            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-                if (editable.isChecked()) {
-                    activate(firstNameEdit);
-                    activate(lastNameEdit);
-                    activate(dobEdit);
-                    activate(addressEdit);
-                    activate(licenseEdit);
-                    activate(iceEdit);
-                } else {
-                    deactivate(firstNameEdit);
-                    deactivate(lastNameEdit);
-                    deactivate(dobEdit);
-                    deactivate(addressEdit);
-                    deactivate(licenseEdit);
-                    deactivate(iceEdit);
-                }
-            }
-        });
+        if (editable.isChecked()) {
+            //Open all fields to allow user to update data
+            activate(firstNameEdit);
+            activate(lastNameEdit);
+            activate(dobEdit);
+            activate(addressEdit);
+            activate(licenseEdit);
+            activate(iceEdit);
+        } else {
+            deactivate(firstNameEdit);
+            deactivate(lastNameEdit);
+            deactivate(dobEdit);
+            deactivate(addressEdit);
+            deactivate(licenseEdit);
+            deactivate(iceEdit);
+        }
     }
 
     public void save(View view) {
-        //push updated data over to firebase
+        //Push updated data over to Firebase
+        //Get info from the edit fields
         firstName = firstNameEdit.getText().toString();
         lastName = lastNameEdit.getText().toString();
         dob = dobEdit.getText().toString();
         address = addressEdit.getText().toString();
-        licenceNum = licenseEdit.getText().toString();
+        licenseNum = licenseEdit.getText().toString();
         iceNum = iceEdit.getText().toString();
 
+        //Format the data inputs
+        String fName = firstName.substring(0,1).toUpperCase() + firstName.substring(1);
+        String lName = lastName.substring(0,1).toUpperCase() + lastName.substring(1);
+        String license = licenseNum.toUpperCase();
+        String number = iceNum.replaceAll("\\D", "");
+        String contactNum = number.replaceFirst("(\\d{3})(\\d{3})(\\d+)", "($1) $2-$3");
+
+        //Add to data map to push to Firebase
         HashMap<String, Object> data = new HashMap<>();
-        data.put("ICE Contact Number", iceNum);
-        data.put("License Number", licenceNum);
+        data.put("Emergency Contact", contactNum);
+        data.put("License Number", license);
         data.put("Address", address);
         data.put("DOB", dob);
-        data.put("Last Name", lastName);
-        data.put("First Name", firstName);
+        data.put("Last Name", lName);
+        data.put("First Name", fName);
 
         dbRef.child(currentUser.getUid()).child("User Info").updateChildren(data, completionListener);
 
+        //Return fields to false edit state
         deactivate(firstNameEdit);
         deactivate(lastNameEdit);
         deactivate(dobEdit);

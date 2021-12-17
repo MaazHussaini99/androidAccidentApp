@@ -27,7 +27,7 @@ public class vehicleRegistration extends AppCompatActivity {
 
     String vehicleMake, vehicleYear, vehiclePlate, vehicleState, vehicleType;
     String provider, policyNum, policyHolder;
-    String firstName, lastName, dateOfBirth, addressDriver, licenceNum;
+    String firstName, lastName, dateOfBirth, addressDriver, licenceNum, iceNum;
 
     ArrayAdapter<String> adapter;
     DrawerLayout drawerLayout;
@@ -55,6 +55,7 @@ public class vehicleRegistration extends AppCompatActivity {
         dateOfBirth = getIntent().getStringExtra("DOB");
         addressDriver = getIntent().getStringExtra("Address");
         licenceNum = getIntent().getStringExtra("DriverLicence");
+        iceNum = getIntent().getStringExtra("ICE Contact");
 
         provider = getIntent().getStringExtra("Provider");
         policyNum = getIntent().getStringExtra("Policy Number");
@@ -85,6 +86,7 @@ public class vehicleRegistration extends AppCompatActivity {
         intent.putExtra("DOB", dateOfBirth);
         intent.putExtra("Address", addressDriver);
         intent.putExtra("DriverLicence", licenceNum);
+        intent.putExtra("ICE Contact", iceNum);
 
         intent.putExtra("Provider", provider);
         intent.putExtra("Policy Number", policyNum);
