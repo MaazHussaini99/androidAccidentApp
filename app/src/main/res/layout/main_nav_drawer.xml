@@ -2,7 +2,7 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/white"
+    android:background="@color/newButtonGray"
     android:orientation="vertical">
 
     <ImageView
@@ -42,7 +42,9 @@
             android:layout_weight="1"
             android:fontFamily="@font/open_sans"
             android:padding="12dp"
-            android:text="Home" />
+            android:text="Home"
+            android:textColor="#000000"
+            android:textStyle="bold" />
 
         <ImageView
             android:layout_width="wrap_content"
@@ -65,7 +67,9 @@
             android:layout_weight="1"
             android:fontFamily="@font/open_sans"
             android:padding="12dp"
-            android:text="Login" />
+            android:text="Login"
+            android:textColor="#000000"
+            android:textStyle="bold" />
 
         <ImageView
             android:layout_width="wrap_content"
@@ -89,7 +93,9 @@
             android:layout_weight="1"
             android:fontFamily="@font/open_sans"
             android:padding="12dp"
-            android:text="Handbook" />
+            android:text="Handbook"
+            android:textColor="#000000"
+            android:textStyle="bold" />
 
         <ImageView
             android:layout_width="wrap_content"
@@ -113,7 +119,9 @@
             android:layout_weight="1"
             android:fontFamily="@font/open_sans"
             android:padding="12dp"
-            android:text="Maps" />
+            android:text="Maps"
+            android:textColor="#000000"
+            android:textStyle="bold" />
 
         <ImageView
             android:layout_width="wrap_content"
@@ -136,7 +144,9 @@
             android:layout_weight="1"
             android:fontFamily="@font/open_sans"
             android:padding="12dp"
-            android:text="Step-by-step Guide" />
+            android:text="Step-by-step Guide"
+            android:textColor="#000000"
+            android:textStyle="bold" />
 
         <ImageView
             android:layout_width="wrap_content"
@@ -159,7 +169,9 @@
             android:layout_weight="1"
             android:fontFamily="@font/open_sans"
             android:padding="12dp"
-            android:text="View Reports" />
+            android:text="View Reports"
+            android:textColor="#000000"
+            android:textStyle="bold" />
 
         <ImageView
             android:layout_width="wrap_content"
@@ -182,7 +194,9 @@
             android:layout_weight="1"
             android:fontFamily="@font/open_sans"
             android:padding="12dp"
-            android:text="View Profile" />
+            android:text="View Profile"
+            android:textColor="#000000"
+            android:textStyle="bold" />
 
         <ImageView
             android:layout_width="wrap_content"

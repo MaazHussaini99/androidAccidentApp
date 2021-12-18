@@ -26,6 +26,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_centerInParent="true"
+        android:fontFamily="@font/open_sans"
         android:onClick="generatePDF"
         android:text="Generate PDF" />
 
@@ -33,11 +34,11 @@
         android:id="@+id/sharePDFButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_centerHorizontal="true"
+        android:layout_below="@+id/idBtnGeneratePDF"
         android:layout_centerInParent="true"
-        android:text="share PDF"
+        android:fontFamily="@font/open_sans"
         android:onClick="sendEmail"
-        android:layout_below="@+id/idBtnGeneratePDF"/>
+        android:text="share PDF" />
 
 </RelativeLayout>
     </LinearLayout>
