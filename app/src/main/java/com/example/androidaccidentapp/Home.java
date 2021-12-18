@@ -13,10 +13,17 @@ import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Toast;
 
+import com.google.android.gms.ads.AdRequest;
+import com.google.android.gms.ads.AdView;
+import com.google.android.gms.ads.MobileAds;
+import com.google.android.gms.ads.initialization.InitializationStatus;
+import com.google.android.gms.ads.initialization.OnInitializationCompleteListener;
+
 public class Home extends AppCompatActivity {
 
     DrawerLayout drawerLayout;
     ArrayAdapter<String> adapter;
+    AdView adView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -26,6 +33,16 @@ public class Home extends AppCompatActivity {
         adapter = new ArrayAdapter<>(this, android.R.layout.select_dialog_item, options);
         drawerLayout = findViewById(R.id.drawer_layout);
 
+        adView = findViewById(R.id.adViewHome);
+        MobileAds.initialize(this, new OnInitializationCompleteListener() {
+            @Override
+            public void onInitializationComplete(InitializationStatus initializationStatus) {
+            }
+        });
+
+
+        AdRequest adRequest = new AdRequest.Builder().build();
+        adView.loadAd(adRequest);
     }
     public void openProfileDialog(View view){
         AlertDialog.Builder profileDialog = new AlertDialog.Builder(Home.this);

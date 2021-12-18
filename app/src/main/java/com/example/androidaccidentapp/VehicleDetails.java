@@ -30,6 +30,10 @@ import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
+import java.text.SimpleDateFormat;
+import java.time.Year;
+import java.util.Calendar;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Set;
@@ -109,9 +113,19 @@ public class VehicleDetails extends AppCompatActivity implements AdapterView.OnI
                 vehicleState = state.getText().toString();
                 vehicleType = type.getText().toString();
 
+                Calendar now = Calendar.getInstance();
+                int year = now.get(Calendar.YEAR);
+                String yearInString = String.valueOf(year);
+
 
                 if (isEmpty(vehicleMake) || isEmpty(vehicleYear) || isEmpty(vehiclePlate) || isEmpty(vehicleState) || isEmpty(vehicleType)) {
                     Toast.makeText(VehicleDetails.this, "Please fill in all fields", Toast.LENGTH_SHORT).show();
+                } else if (vehicleYear.length() != 4){
+                    Toast.makeText(VehicleDetails.this, "Vehicle year must be 4 digits (YYYY)", Toast.LENGTH_SHORT).show();
+                }else if(vehiclePlate.length() < 2 || vehiclePlate.length() > 8 ) {
+                    Toast.makeText(VehicleDetails.this, "Vehicle plate should be between 2 and 8 characters", Toast.LENGTH_SHORT).show();
+                } else if(((Integer.parseInt(vehicleYear)) > (Integer.parseInt(yearInString))) || ((Integer.parseInt(vehicleYear)) < 1900)){
+                    Toast.makeText(VehicleDetails.this, "Invalid Year", Toast.LENGTH_SHORT).show();
                 } else {
                     changeToNextActivity(view);
                 }

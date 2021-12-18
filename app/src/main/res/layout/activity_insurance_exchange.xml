@@ -34,6 +34,7 @@
             android:layout_height="wrap_content">
 
 
+
             <TextView
                 android:id="@+id/title"
                 android:layout_width="match_parent"
@@ -62,8 +63,8 @@
                 android:layout_marginTop="50dp"
                 android:fontFamily="@font/open_sans"
                 android:text="  Insurance Provider"
-                android:textColor="@color/white"
-                android:textSize="25sp" />
+                android:textSize="25sp"
+                android:textColor="@color/white"/>
 
             <EditText
                 android:id="@+id/provider"
@@ -71,12 +72,12 @@
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/providerTv"
                 android:layout_marginLeft="10dp"
-                android:background="@drawable/rounded_corners"
-                android:fontFamily="@font/open_sans"
                 android:hint="  Type Something"
                 android:paddingTop="10dp"
+                android:inputType="text"
                 android:textColor="@color/black"
-                android:textColorHint="@color/gray" />
+                android:textColorHint="@color/gray"
+                android:background="@drawable/rounded_corners"/>
 
             <TextView
                 android:id="@+id/policyNoTv"
@@ -86,21 +87,22 @@
                 android:layout_marginTop="50dp"
                 android:fontFamily="@font/open_sans"
                 android:text="  Policy Number"
-                android:textColor="@color/white"
-                android:textSize="25sp" />
+                android:textSize="25sp"
+                android:textColor="@color/white"/>
 
             <EditText
                 android:id="@+id/policyNo"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/policyNoTv"
-                android:layout_marginLeft="10dp"
-                android:background="@drawable/rounded_corners"
                 android:fontFamily="@font/open_sans"
                 android:hint="  Type Something"
                 android:paddingTop="10dp"
+                android:layout_marginLeft="10dp"
+                android:inputType="number"
                 android:textColor="@color/black"
-                android:textColorHint="@color/gray" />
+                android:textColorHint="@color/gray"
+                android:background="@drawable/rounded_corners"/>
 
 
             <TextView
@@ -111,21 +113,22 @@
                 android:layout_marginTop="50dp"
                 android:fontFamily="@font/open_sans"
                 android:text="  Policy Holder"
-                android:textColor="@color/white"
-                android:textSize="25sp" />
+                android:textSize="25sp"
+                android:textColor="@color/white"/>
 
             <EditText
                 android:id="@+id/policyHolder"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/policyHolderTv"
-                android:layout_marginLeft="10dp"
-                android:background="@drawable/rounded_corners"
                 android:fontFamily="@font/open_sans"
                 android:hint="  Type Something"
                 android:paddingTop="10dp"
+                android:layout_marginLeft="10dp"
+                android:inputType="text"
                 android:textColor="@color/black"
-                android:textColorHint="@color/gray" />
+                android:textColorHint="@color/gray"
+                android:background="@drawable/rounded_corners"/>
 
 
         </RelativeLayout>
@@ -139,7 +142,6 @@
                 android:id="@+id/saveInsuranceInfo"
                 android:layout_width="150dp"
                 android:layout_height="150dp"
-                android:layout_centerHorizontal="true"
                 android:layout_marginTop="50dp"
                 android:fontFamily="@font/open_sans"
                 android:text=" Save Insurance Information" />
