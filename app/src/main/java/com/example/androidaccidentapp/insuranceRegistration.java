@@ -87,6 +87,7 @@ public class insuranceRegistration extends AppCompatActivity {
         intent.putExtra("Provider", provider);
         intent.putExtra("Policy Number", policyNum);
         intent.putExtra("Holder", policyHolder);
+        Log.d("iceNum", ""+ iceNum);
 
         this.startActivity(intent);
     }
