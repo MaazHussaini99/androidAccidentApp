@@ -16,6 +16,7 @@ import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -28,6 +29,7 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
+import java.io.File;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Set;
@@ -51,6 +53,9 @@ public class finalExchangeActivity extends AppCompatActivity {
 
     Button submit;
     EditText ReportName;
+    ImageView image;
+
+    File file;
 
     HashMap<String,String> maps= new HashMap();
 
@@ -97,6 +102,16 @@ public class finalExchangeActivity extends AppCompatActivity {
         imageList = (HashMap<String, Object>)intent.getSerializableExtra("Images");
         Log.d("firebase", "Maaz logging data Images" + imageList);
 
+        String fileName = "storage/emulated/0/Android/data/com.example.androidaccidentapp/files/Pictures/IMG_20211216_214434_2862665050733970153.jpg";
+        file = new File(fileName);
+        image = findViewById(R.id.Image);
+        image.setImageURI(Uri.fromFile(file));
+//        String name;
+//        String path;
+//        Set<String> keys = imageList.keySet();
+//        for(String key : keys){
+//            name = key
+//        }
 
         fName = findViewById(R.id.firstName);
         lName = findViewById(R.id.lastName);
@@ -215,6 +230,8 @@ public class finalExchangeActivity extends AppCompatActivity {
     public void changeToNextActivity(View v){
         Intent intent = new Intent(this, GeneratePDF.class);
         intent.putExtra("Report Name", reportName);
+        intent.putExtra("Images", imageList);
+        intent.putExtra("userVehicle", UsersVehicle);
         this.startActivity(intent);
     }
 

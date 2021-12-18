@@ -32,6 +32,8 @@ import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
 import com.google.firebase.storage.UploadTask;
@@ -52,7 +54,7 @@ public class Camera extends AppCompatActivity {
     Button cameraBtn, galleryBtn, uploadBtn;
     String currentPhotoPath;
     StorageReference dbStorage;
-
+    private static FirebaseUser currentUser;
     DrawerLayout drawerLayout;
     ArrayAdapter<String> adapter;
 
@@ -80,7 +82,7 @@ public class Camera extends AppCompatActivity {
         uploadBtn = findViewById(R.id.uploadBtn);
 
         dbStorage = FirebaseStorage.getInstance().getReference();
-
+        currentUser = FirebaseAuth.getInstance().getCurrentUser();
         firstName = getIntent().getStringExtra("FirstName");
         lastName = getIntent().getStringExtra("LastName");
         dateOfBirth = getIntent().getStringExtra("DOB");
@@ -186,7 +188,7 @@ public class Camera extends AppCompatActivity {
 
     private void uploadImageToFirebase(String imageFilename, Uri contentUri) {
         //Creates a new directory in Firebase Storage
-        StorageReference imageRef = dbStorage.child("images/" + imageFilename);
+        StorageReference imageRef = dbStorage.child(currentUser.getUid() + "/" + "images/" + imageFilename);
         imageRef.putFile(contentUri).addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>(){
             @Override
             public void onSuccess (UploadTask.TaskSnapshot taskSnapshot){
@@ -194,7 +196,7 @@ public class Camera extends AppCompatActivity {
                     @Override
                     public void onSuccess(Uri uri){
                         //If directory successfully created and image file successfully uploaded to directory in Firebase Storage
-                        imageList.put(imageFilename, uri);
+                        imageList.put(imageFilename, file);
                         imageFileNames.add(imageFilename);
                         Log.d("Image List:", "MAP" + imageList);
                         Log.d("FireBase Storage", "onSuccess: Uploaded Image URL to Firebase: " + uri.toString());

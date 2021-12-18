@@ -62,8 +62,8 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="50dp"
                 android:text="  1"
-                android:textSize="25sp"
-                android:textColor="@color/white"/>
+                android:textColor="@color/white"
+                android:textSize="25sp" />
 
             <TextView
                 android:id="@+id/lastName"
@@ -72,8 +72,8 @@
                 android:layout_below="@+id/firstName"
                 android:layout_marginTop="50dp"
                 android:text="  2"
-                android:textSize="25sp"
-                android:textColor="@color/white"/>
+                android:textColor="@color/white"
+                android:textSize="25sp" />
 
             <TextView
                 android:id="@+id/DOB"
@@ -82,8 +82,8 @@
                 android:layout_below="@+id/lastName"
                 android:layout_marginTop="50dp"
                 android:text="  3"
-                android:textSize="25sp"
-                android:textColor="@color/white"/>
+                android:textColor="@color/white"
+                android:textSize="25sp" />
 
             <TextView
                 android:id="@+id/Address"
@@ -102,8 +102,8 @@
                 android:layout_below="@+id/Address"
                 android:layout_marginTop="50dp"
                 android:text="  5"
-                android:textSize="25sp"
-                android:textColor="@color/white"/>
+                android:textColor="@color/white"
+                android:textSize="25sp" />
 
             <TextView
                 android:id="@+id/insProvider"
@@ -112,8 +112,8 @@
                 android:layout_below="@+id/license"
                 android:layout_marginTop="50dp"
                 android:text="  6"
-                android:textSize="25sp"
-                android:textColor="@color/white"/>
+                android:textColor="@color/white"
+                android:textSize="25sp" />
 
 
             <TextView
@@ -123,8 +123,8 @@
                 android:layout_below="@+id/insProvider"
                 android:layout_marginTop="50dp"
                 android:text="  7"
-                android:textSize="25sp"
-                android:textColor="@color/white"/>
+                android:textColor="@color/white"
+                android:textSize="25sp" />
 
             <TextView
                 android:id="@+id/insPolicyHolder"
@@ -133,8 +133,8 @@
                 android:layout_below="@+id/insPolicyNum"
                 android:layout_marginTop="50dp"
                 android:text="  8"
-                android:textSize="25sp"
-                android:textColor="@color/white"/>
+                android:textColor="@color/white"
+                android:textSize="25sp" />
 
             <TextView
                 android:id="@+id/Make"
@@ -143,8 +143,8 @@
                 android:layout_below="@+id/insPolicyHolder"
                 android:layout_marginTop="50dp"
                 android:text="  9"
-                android:textSize="25sp"
-                android:textColor="@color/white"/>
+                android:textColor="@color/white"
+                android:textSize="25sp" />
 
             <TextView
                 android:id="@+id/Year"
@@ -153,8 +153,8 @@
                 android:layout_below="@+id/Make"
                 android:layout_marginTop="50dp"
                 android:text="  10"
-                android:textSize="25sp"
-                android:textColor="@color/white"/>
+                android:textColor="@color/white"
+                android:textSize="25sp" />
 
             <TextView
                 android:id="@+id/Plate"
@@ -163,8 +163,8 @@
                 android:layout_below="@+id/Year"
                 android:layout_marginTop="50dp"
                 android:text="  11"
-                android:textSize="25sp"
-                android:textColor="@color/white"/>
+                android:textColor="@color/white"
+                android:textSize="25sp" />
 
             <TextView
                 android:id="@+id/vehicleState"
@@ -173,8 +173,8 @@
                 android:layout_below="@+id/Plate"
                 android:layout_marginTop="50dp"
                 android:text="  12"
-                android:textSize="25sp"
-                android:textColor="@color/white"/>
+                android:textColor="@color/white"
+                android:textSize="25sp" />
 
             <TextView
                 android:id="@+id/Type"
@@ -183,8 +183,8 @@
                 android:layout_below="@+id/vehicleState"
                 android:layout_marginTop="50dp"
                 android:text="  13"
-                android:textSize="25sp"
-                android:textColor="@color/white"/>
+                android:textColor="@color/white"
+                android:textSize="25sp" />
 
             <TextView
                 android:id="@+id/locationTv"
@@ -193,8 +193,8 @@
                 android:layout_below="@+id/Type"
                 android:layout_marginTop="50dp"
                 android:text="  14"
-                android:textSize="25sp"
-                android:textColor="@color/white"/>
+                android:textColor="@color/white"
+                android:textSize="25sp" />
 
             <TextView
                 android:id="@+id/reportNameTv"
@@ -203,8 +203,8 @@
                 android:layout_below="@+id/locationTv"
                 android:layout_marginTop="50dp"
                 android:text="  Enter Report Name"
-                android:textSize="25sp"
-                android:textColor="@color/white"/>
+                android:textColor="@color/white"
+                android:textSize="25sp" />
 
 
             <EditText
@@ -212,10 +212,16 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/reportNameTv"
-                android:paddingTop="10dp"
                 android:hint="  Type Name"
-                android:textColorHint="@color/white"
-                android:textColor="@color/white"/>
+                android:paddingTop="10dp"
+                android:textColor="@color/white"
+                android:textColorHint="@color/white" />
+
+            <ImageView
+                android:id="@+id/Image"
+                android:layout_width="match_parent"
+                android:layout_height="100dp"
+                android:layout_below="@id/ReportName" />
 
 
         </RelativeLayout>
