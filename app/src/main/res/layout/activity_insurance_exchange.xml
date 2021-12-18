@@ -143,11 +143,12 @@
                 android:layout_width="150dp"
                 android:layout_height="150dp"
                 android:layout_marginTop="50dp"
-                android:fontFamily="@font/open_sans"
-                android:textColor="@color/black"
-                android:textStyle="bold"
+                android:layout_centerHorizontal="true"
                 android:backgroundTint="@color/newButtonGray"
-                android:text=" Save Insurance Information" />
+                android:fontFamily="@font/open_sans"
+                android:text=" Save Insurance Information"
+                android:textColor="@color/black"
+                android:textStyle="bold" />
 
         </RelativeLayout>
     </RelativeLayout>
