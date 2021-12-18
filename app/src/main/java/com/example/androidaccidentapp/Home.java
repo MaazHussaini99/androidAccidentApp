@@ -130,6 +130,10 @@ public class Home extends AppCompatActivity {
         redirectActivity(this, Step1.class);
     }
 
+    public void clickProfile(View view){
+        redirectActivity(this, ProfileUser.class);
+    }
+
     static void redirectActivity(Activity activity, Class aClass) {
         Intent intent = new Intent(activity, aClass);
 

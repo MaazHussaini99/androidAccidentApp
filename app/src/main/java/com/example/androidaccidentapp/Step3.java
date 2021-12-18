@@ -11,11 +11,17 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ArrayAdapter;
+import android.widget.TextView;
 import android.widget.Toast;
 
 public class Step3 extends AppCompatActivity {
     DrawerLayout drawerLayout;
     ArrayAdapter<String> adapter;
+
+    TextView firstTextView;
+    TextView secondTextView;
+    TextView thirdTextView;
+    TextView fourthTextView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -25,6 +31,13 @@ public class Step3 extends AppCompatActivity {
         drawerLayout = findViewById(R.id.drawer_layout);
         String[] options = {"View User Profile", "View Vehicle Profile", "View Insurance Policy", "View Reports"};
         adapter = new ArrayAdapter<>(this, android.R.layout.select_dialog_item, options);
+
+        firstTextView = (TextView) findViewById(R.id.textView1);
+        secondTextView = (TextView) findViewById(R.id.textView2);
+        thirdTextView = (TextView) findViewById(R.id.textView3);
+        fourthTextView = (TextView) findViewById(R.id.textView4);
+
+        firstTextView.setVisibility(View.VISIBLE);
     }
 
     public void next(View view) {
@@ -121,6 +134,10 @@ public class Step3 extends AppCompatActivity {
         redirectActivity(this, Login.class);
     }
 
+    public void clickProfile(View view){
+        redirectActivity(this, ProfileUser.class);
+    }
+
     static void redirectActivity(Activity activity, Class aClass) {
         Intent intent = new Intent(activity, aClass);
 
@@ -133,6 +150,73 @@ public class Step3 extends AppCompatActivity {
     protected void onPause() {
         super.onPause();
         closeDrawer(drawerLayout);
+    }
+
+    public void goBack(View view) {
+        if(firstTextView.getVisibility() == View.VISIBLE){
+            changeToPreviousActivity(view);
+        }
+
+        //to do finish other segments
+        else if(secondTextView.getVisibility() == View.VISIBLE){
+            firstTextView.setVisibility(View.VISIBLE);
+            secondTextView.setVisibility(View.GONE);
+            thirdTextView.setVisibility(View.GONE);
+            fourthTextView.setVisibility(View.GONE);
+        }
+        else if(thirdTextView.getVisibility() == View.VISIBLE){
+            firstTextView.setVisibility(View.GONE);
+            secondTextView.setVisibility(View.VISIBLE);
+            thirdTextView.setVisibility(View.GONE);
+            fourthTextView.setVisibility(View.GONE);
+        }
+        else if(fourthTextView.getVisibility() == View.VISIBLE){
+            firstTextView.setVisibility(View.GONE);
+            secondTextView.setVisibility(View.GONE);
+            thirdTextView.setVisibility(View.VISIBLE);
+            fourthTextView.setVisibility(View.GONE);
+        }
+        else{
+            firstTextView.setVisibility(View.GONE);
+            secondTextView.setVisibility(View.GONE);
+            thirdTextView.setVisibility(View.GONE);
+            fourthTextView.setVisibility(View.VISIBLE);
+        }
+    }
+
+    //right arrow click
+    public void goForward(View view) {
+        if(firstTextView.getVisibility() == View.VISIBLE){
+            firstTextView.setVisibility(View.GONE);
+            secondTextView.setVisibility(View.VISIBLE);
+            thirdTextView.setVisibility(View.GONE);
+            fourthTextView.setVisibility(View.GONE);
+        }
+        else if(secondTextView.getVisibility() == View.VISIBLE){
+            firstTextView.setVisibility(View.GONE);
+            secondTextView.setVisibility(View.GONE);
+            thirdTextView.setVisibility(View.VISIBLE);
+            fourthTextView.setVisibility(View.GONE);
+        }
+        else if(thirdTextView.getVisibility() == View.VISIBLE){
+            firstTextView.setVisibility(View.GONE);
+            secondTextView.setVisibility(View.GONE);
+            thirdTextView.setVisibility(View.GONE);
+            fourthTextView.setVisibility(View.VISIBLE);
+        }
+        else{
+            changeToNextActivity(view);
+        }
+    }
+
+    public void changeToPreviousActivity(View view){
+        Intent intent = new Intent(this, Step2.class);
+        this.startActivity(intent);
+    }
+
+    public void changeToNextActivity(View view){
+        Intent intent = new Intent(this, driverInfo.class);
+        this.startActivity(intent);
     }
 
 }

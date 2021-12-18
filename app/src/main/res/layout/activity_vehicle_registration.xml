@@ -1,11 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
-
-<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".vehicleRegistration"
+    android:orientation="vertical"
+    android:background="@color/background"
+    tools:context=".vehicleRegistration">
+
+    <include
+        layout="@layout/logintoolbar"/>
+
+<ScrollView
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
     android:background="@color/background">
 
     <RelativeLayout
@@ -19,18 +27,6 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
 
-
-            <ImageView
-                android:id="@+id/imageView"
-                android:layout_width="265dp"
-                android:layout_height="66dp"
-                android:layout_marginStart="84dp"
-                android:layout_marginTop="21dp"
-                app:layout_constraintLeft_toLeftOf="parent"
-                app:layout_constraintRight_toRightOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                app:srcCompat="@drawable/logo_01" />
 
         </RelativeLayout>
 
@@ -47,10 +43,11 @@
                 android:layout_width="293dp"
                 android:layout_height="27dp"
                 android:layout_marginStart="56dp"
-                android:layout_marginTop="308dp"
+                android:layout_marginTop="328dp"
                 android:autofillHints="emailAddress"
                 android:background="@drawable/rounded_corners"
                 android:ems="10"
+                android:fontFamily="@font/open_sans"
                 android:hint="Vehicle Type"
                 android:inputType="textEmailAddress"
                 android:paddingLeft="10dp"
@@ -65,10 +62,11 @@
                 android:layout_width="293dp"
                 android:layout_height="27dp"
                 android:layout_marginStart="56dp"
-                android:layout_marginTop="68dp"
+                android:layout_marginTop="88dp"
                 android:autofillHints="emailAddress"
                 android:background="@drawable/rounded_corners"
                 android:ems="10"
+                android:fontFamily="@font/open_sans"
                 android:hint="Vehicle Make"
                 android:inputType="text"
                 android:paddingLeft="10dp"
@@ -83,10 +81,11 @@
                 android:layout_width="293dp"
                 android:layout_height="27dp"
                 android:layout_marginStart="56dp"
-                android:layout_marginTop="248dp"
+                android:layout_marginTop="268dp"
                 android:autofillHints="emailAddress"
                 android:background="@drawable/rounded_corners"
                 android:ems="10"
+                android:fontFamily="@font/open_sans"
                 android:hint="State"
                 android:inputType="textEmailAddress"
                 android:paddingLeft="10dp"
@@ -101,10 +100,11 @@
                 android:layout_width="293dp"
                 android:layout_height="27dp"
                 android:layout_marginStart="56dp"
-                android:layout_marginTop="188dp"
+                android:layout_marginTop="208dp"
                 android:autofillHints="emailAddress"
                 android:background="@drawable/rounded_corners"
                 android:ems="10"
+                android:fontFamily="@font/open_sans"
                 android:hint="Plate Number"
                 android:inputType="textEmailAddress"
                 android:paddingLeft="10dp"
@@ -119,10 +119,11 @@
                 android:layout_width="293dp"
                 android:layout_height="27dp"
                 android:layout_marginStart="56dp"
-                android:layout_marginTop="128dp"
+                android:layout_marginTop="148dp"
                 android:autofillHints="emailAddress"
                 android:background="@drawable/rounded_corners"
                 android:ems="10"
+                android:fontFamily="@font/open_sans"
                 android:hint="Vehicle Year"
                 android:inputType="textEmailAddress"
                 android:paddingLeft="10dp"
@@ -139,7 +140,8 @@
                 android:layout_marginStart="176dp"
                 android:layout_marginTop="18dp"
                 android:layout_marginEnd="177dp"
-                android:layout_marginBottom="604dp"
+                android:layout_marginBottom="610dp"
+                android:fontFamily="@font/open_sans_light"
                 android:text="Enter in your vehicle information below"
                 android:textColor="@color/white"
                 android:textSize="20dp"
@@ -153,14 +155,14 @@
                 android:id="@+id/toMaps"
                 android:layout_width="179dp"
                 android:layout_height="55dp"
-                android:layout_marginTop="376dp"
+                android:layout_marginTop="420dp"
                 android:layout_marginEnd="116dp"
+                android:fontFamily="@font/open_sans"
                 android:text=" NEXT"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.887"
+                app:layout_constraintHorizontal_bias="1.0"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
-
 
 
         </androidx.constraintlayout.widget.ConstraintLayout>
@@ -169,3 +171,4 @@
 
     </RelativeLayout>
 </ScrollView>
+</LinearLayout>

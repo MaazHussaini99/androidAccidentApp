@@ -41,10 +41,11 @@
                 android:layout_below="@+id/logo"
                 android:layout_centerHorizontal="true"
                 android:layout_marginTop="50dp"
+                android:fontFamily="@font/open_sans"
                 android:text=" Enter Other Driver's Information"
                 android:textAlignment="center"
-                android:textSize="40sp"
-                android:textColor="@color/white"/>
+                android:textColor="@color/white"
+                android:textSize="40sp" />
 
         </RelativeLayout>
 
@@ -60,21 +61,23 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="50dp"
+                android:fontFamily="@font/open_sans"
                 android:text="  First Name"
-                android:textSize="25sp"
-                android:textColor="@color/white"/>
+                android:textColor="@color/white"
+                android:textSize="25sp" />
 
             <EditText
                 android:id="@+id/fName"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/fNameTv"
-                android:paddingTop="10dp"
-                android:hint="  Type Something"
                 android:layout_marginLeft="10dp"
+                android:background="@drawable/rounded_corners"
+                android:fontFamily="@font/open_sans"
+                android:hint="  Type Something"
+                android:paddingTop="10dp"
                 android:textColor="@color/black"
-                android:textColorHint="@color/gray"
-                android:background="@drawable/rounded_corners"/>
+                android:textColorHint="@color/gray" />
 
             <TextView
                 android:id="@+id/lNameTv"
@@ -82,21 +85,23 @@
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/fName"
                 android:layout_marginTop="50dp"
+                android:fontFamily="@font/open_sans"
                 android:text="  Last Name"
-                android:textSize="25sp"
-                android:textColor="@color/white"/>
+                android:textColor="@color/white"
+                android:textSize="25sp" />
 
             <EditText
                 android:id="@+id/lName"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/lNameTv"
-                android:paddingTop="10dp"
-                android:hint="  Type Something"
                 android:layout_marginLeft="10dp"
+                android:background="@drawable/rounded_corners"
+                android:fontFamily="@font/open_sans"
+                android:hint="  Type Something"
+                android:paddingTop="10dp"
                 android:textColor="@color/black"
-                android:textColorHint="@color/gray"
-                android:background="@drawable/rounded_corners"/>
+                android:textColorHint="@color/gray" />
 
 
             <TextView
@@ -105,6 +110,7 @@
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/lName"
                 android:layout_marginTop="50dp"
+                android:fontFamily="@font/open_sans"
                 android:text="  DOB"
                 android:textColor="@color/white"
                 android:textSize="25sp" />
@@ -114,12 +120,13 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/dobTv"
+                android:layout_marginLeft="10dp"
+                android:background="@drawable/rounded_corners"
+                android:fontFamily="@font/open_sans"
                 android:hint="  Type Something"
                 android:paddingTop="10dp"
-                android:layout_marginLeft="10dp"
                 android:textColor="@color/black"
-                android:textColorHint="@color/gray"
-                android:background="@drawable/rounded_corners"/>
+                android:textColorHint="@color/gray" />
 
             <TextView
                 android:id="@+id/addressTv"
@@ -127,6 +134,7 @@
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/dob"
                 android:layout_marginTop="50dp"
+                android:fontFamily="@font/open_sans"
                 android:text="  Address"
                 android:textColor="@color/white"
                 android:textSize="25sp" />
@@ -136,12 +144,13 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/addressTv"
+                android:layout_marginLeft="10dp"
+                android:background="@drawable/rounded_corners"
+                android:fontFamily="@font/open_sans"
                 android:hint="  Type Something"
                 android:paddingTop="10dp"
-                android:layout_marginLeft="10dp"
                 android:textColor="@color/black"
-                android:textColorHint="@color/gray"
-                android:background="@drawable/rounded_corners"/>
+                android:textColorHint="@color/gray" />
 
             <TextView
                 android:id="@+id/driverLicenceTv"

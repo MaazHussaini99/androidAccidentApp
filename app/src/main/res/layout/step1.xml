@@ -19,55 +19,60 @@
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent">
-        <TextView
-            android:id="@+id/instr1"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="65dp"
-            android:text="Make sure everyone in your\nvehicle is okay"
-            android:textColor="@color/white"
-            android:textStyle="bold"
-            android:textSize="26dp"
-            android:textAlignment="center"
-            app:layout_constraintTop_toBottomOf="@+id/imageView2"
-            app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintRight_toRightOf="parent"/>
 
-        <TextView
-            android:id="@+id/instr2"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="65dp"
-            android:text="@string/step1Instruction"
-            android:textColor="@color/white"
-            android:textStyle="bold"
-            android:textSize="26dp"
-            android:textAlignment="center"
-            app:layout_constraintTop_toBottomOf="@id/instr1"
-            app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintRight_toRightOf="parent"/>
+            <TextView
+                android:id="@+id/instr1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="65dp"
+                android:fontFamily="@font/open_sans"
+                android:text="Make sure everyone in your\nvehicle is okay"
+                android:textAlignment="center"
+                android:textColor="@color/white"
+                android:textSize="26dp"
+                android:textStyle="bold"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/imageView2" />
 
-        <Button
-            android:id="@+id/dial911_btn"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="55dp"
-            android:text="Call 911"
-            android:backgroundTint="@color/logo"
-            app:layout_constraintTop_toBottomOf="@id/instr2"
-            app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintRight_toRightOf="parent"/>
+            <TextView
+                android:id="@+id/instr2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="65dp"
+                android:fontFamily="@font/open_sans"
+                android:text="@string/step1Instruction"
+                android:textAlignment="center"
+                android:textColor="@color/white"
+                android:textSize="26dp"
+                android:textStyle="bold"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/instr1" />
 
-        <Button
-            android:id="@+id/emergencyContact_btn"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="55dp"
-            android:text="Emergency\nContact"
-            android:backgroundTint="@color/logo"
-            app:layout_constraintTop_toBottomOf="@id/dial911_btn"
-            app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintRight_toRightOf="parent"/>
+            <Button
+                android:id="@+id/dial911_btn"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="55dp"
+                android:backgroundTint="@color/logo"
+                android:fontFamily="@font/open_sans"
+                android:text="Call 911"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/instr2" />
+
+            <Button
+                android:id="@+id/emergencyContact_btn"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="55dp"
+                android:backgroundTint="@color/logo"
+                android:fontFamily="@font/open_sans"
+                android:text="Emergency\nContact"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/dial911_btn" />
 
         <ImageView
             android:id="@+id/backArrow"

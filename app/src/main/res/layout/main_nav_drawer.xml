@@ -2,7 +2,7 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/white"
+    android:background="@color/newButtonGray"
     android:orientation="vertical">
 
     <ImageView
@@ -14,11 +14,12 @@
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:fontFamily="@font/open_sans"
         android:text="Menu"
-        android:textSize="20sp"
-        android:textStyle="bold"
         android:textAlignment="center"
-        android:textColor="@color/black"/>
+        android:textColor="@color/black"
+        android:textSize="20sp"
+        android:textStyle="bold" />
 
     <View
         android:layout_width="match_parent"
@@ -37,10 +38,13 @@
         <TextView
             android:layout_width="0dp"
             android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
             android:layout_weight="1"
-            android:text="Home"
+            android:fontFamily="@font/open_sans"
             android:padding="12dp"
-            android:layout_marginStart="16dp"/>
+            android:text="Home"
+            android:textColor="#000000"
+            android:textStyle="bold" />
 
         <ImageView
             android:layout_width="wrap_content"
@@ -59,10 +63,13 @@
         <TextView
             android:layout_width="0dp"
             android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
             android:layout_weight="1"
-            android:text="Login"
+            android:fontFamily="@font/open_sans"
             android:padding="12dp"
-            android:layout_marginStart="16dp"/>
+            android:text="Login"
+            android:textColor="#000000"
+            android:textStyle="bold" />
 
         <ImageView
             android:layout_width="wrap_content"
@@ -82,10 +89,13 @@
         <TextView
             android:layout_width="0dp"
             android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
             android:layout_weight="1"
-            android:text="Handbook"
+            android:fontFamily="@font/open_sans"
             android:padding="12dp"
-            android:layout_marginStart="16dp"/>
+            android:text="Handbook"
+            android:textColor="#000000"
+            android:textStyle="bold" />
 
         <ImageView
             android:layout_width="wrap_content"
@@ -105,10 +115,13 @@
         <TextView
             android:layout_width="0dp"
             android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
             android:layout_weight="1"
-            android:text="Maps"
+            android:fontFamily="@font/open_sans"
             android:padding="12dp"
-            android:layout_marginStart="16dp"/>
+            android:text="Maps"
+            android:textColor="#000000"
+            android:textStyle="bold" />
 
         <ImageView
             android:layout_width="wrap_content"
@@ -127,10 +140,13 @@
         <TextView
             android:layout_width="0dp"
             android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
             android:layout_weight="1"
-            android:text="Step-by-step Guide"
+            android:fontFamily="@font/open_sans"
             android:padding="12dp"
-            android:layout_marginStart="16dp"/>
+            android:text="Step-by-step Guide"
+            android:textColor="#000000"
+            android:textStyle="bold" />
 
         <ImageView
             android:layout_width="wrap_content"
@@ -149,10 +165,13 @@
         <TextView
             android:layout_width="0dp"
             android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
             android:layout_weight="1"
-            android:text="View Reports"
+            android:fontFamily="@font/open_sans"
             android:padding="12dp"
-            android:layout_marginStart="16dp"/>
+            android:text="View Reports"
+            android:textColor="#000000"
+            android:textStyle="bold" />
 
         <ImageView
             android:layout_width="wrap_content"
@@ -171,10 +190,13 @@
         <TextView
             android:layout_width="0dp"
             android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
             android:layout_weight="1"
-            android:text="View Profile"
+            android:fontFamily="@font/open_sans"
             android:padding="12dp"
-            android:layout_marginStart="16dp"/>
+            android:text="View Profile"
+            android:textColor="#000000"
+            android:textStyle="bold" />
 
         <ImageView
             android:layout_width="wrap_content"

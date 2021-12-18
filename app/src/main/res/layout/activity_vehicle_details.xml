@@ -39,10 +39,11 @@
                 android:layout_height="wrap_content"
                 android:layout_centerHorizontal="true"
                 android:layout_marginTop="50dp"
+                android:fontFamily="@font/open_sans"
                 android:text=" Enter other Vehicle Details"
-                android:textSize="40sp"
+                android:textAlignment="center"
                 android:textColor="@color/white"
-                android:textAlignment="center"/>
+                android:textSize="40sp" />
 
         </RelativeLayout>
 
@@ -57,6 +58,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="50dp"
+                android:fontFamily="@font/open_sans"
                 android:text="  Vehicle Make"
                 android:textColor="@color/white"
                 android:textSize="25sp" />
@@ -67,12 +69,13 @@
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/vehicleMakeTv"
 
+                android:layout_marginLeft="10dp"
+                android:background="@drawable/rounded_corners"
+                android:fontFamily="@font/open_sans"
                 android:hint="  Type Something"
                 android:paddingTop="10dp"
-                android:layout_marginLeft="10dp"
                 android:textColor="@color/black"
-                android:textColorHint="@color/gray"
-                android:background="@drawable/rounded_corners"/>
+                android:textColorHint="@color/gray" />
 
             <TextView
                 android:id="@+id/VehicleYearTv"
@@ -80,6 +83,7 @@
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/vehicleMake"
                 android:layout_marginTop="50dp"
+                android:fontFamily="@font/open_sans"
                 android:text="  Vehicle Year"
                 android:textColor="@color/white"
                 android:textSize="25sp" />
@@ -89,12 +93,13 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/VehicleYearTv"
+                android:layout_marginLeft="10dp"
+                android:background="@drawable/rounded_corners"
+                android:fontFamily="@font/open_sans"
                 android:hint="  Type Something"
                 android:paddingTop="10dp"
-                android:layout_marginLeft="10dp"
                 android:textColor="@color/black"
-                android:textColorHint="@color/gray"
-                android:background="@drawable/rounded_corners"/>
+                android:textColorHint="@color/gray" />
 
 
             <TextView
@@ -103,6 +108,7 @@
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/VehicleYear"
                 android:layout_marginTop="50dp"
+                android:fontFamily="@font/open_sans"
                 android:text="  Plate Number"
                 android:textColor="@color/white"
                 android:textSize="25sp" />
@@ -112,12 +118,13 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/plateNoTv"
+                android:layout_marginLeft="10dp"
+                android:background="@drawable/rounded_corners"
+                android:fontFamily="@font/open_sans"
                 android:hint="  Type Something"
                 android:paddingTop="10dp"
-                android:layout_marginLeft="10dp"
                 android:textColor="@color/black"
-                android:textColorHint="@color/gray"
-                android:background="@drawable/rounded_corners"/>
+                android:textColorHint="@color/gray" />
 
 
             <TextView
@@ -126,6 +133,7 @@
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/plateNo"
                 android:layout_marginTop="50dp"
+                android:fontFamily="@font/open_sans"
                 android:text="  State"
                 android:textColor="@color/white"
                 android:textSize="25sp" />
@@ -135,12 +143,13 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/stateTv"
+                android:layout_marginLeft="10dp"
+                android:background="@drawable/rounded_corners"
+                android:fontFamily="@font/open_sans"
                 android:hint="  Type Something"
                 android:paddingTop="10dp"
-                android:layout_marginLeft="10dp"
                 android:textColor="@color/black"
-                android:textColorHint="@color/gray"
-                android:background="@drawable/rounded_corners"/>
+                android:textColorHint="@color/gray" />
 
 
             <TextView
@@ -149,6 +158,7 @@
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/state"
                 android:layout_marginTop="50dp"
+                android:fontFamily="@font/open_sans"
                 android:text="  Vehicle Type"
                 android:textColor="@color/white"
                 android:textSize="25sp" />
@@ -158,12 +168,13 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/vehicleTypeTv"
+                android:layout_marginLeft="10dp"
+                android:background="@drawable/rounded_corners"
+                android:fontFamily="@font/open_sans"
                 android:hint="  Type Something"
                 android:paddingTop="10dp"
-                android:layout_marginLeft="10dp"
                 android:textColor="@color/black"
-                android:textColorHint="@color/gray"
-                android:background="@drawable/rounded_corners"/>
+                android:textColorHint="@color/gray" />
 
             <TextView
                 android:id="@+id/spinnerText"
@@ -171,6 +182,7 @@
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/vehicleType"
                 android:layout_marginTop="50dp"
+                android:fontFamily="@font/open_sans"
                 android:text="  Select Your Vehicle"
                 android:textColor="@color/white"
                 android:textSize="25sp" />
@@ -201,6 +213,7 @@
                 android:layout_centerHorizontal="true"
                 android:layout_marginLeft="50dp"
                 android:layout_marginTop="50dp"
+                android:fontFamily="@font/open_sans"
                 android:text=" NEXT" />
 
 

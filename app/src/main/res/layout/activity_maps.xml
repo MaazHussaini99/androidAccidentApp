@@ -21,24 +21,23 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent">
 
-        <RelativeLayout
-            android:id="@+id/mapsFragmentActivity"
-            android:layout_height="match_parent"
-            android:layout_width="match_parent"
-            android:orientation="vertical">
-
-            <TextView
-                android:id="@+id/addressView"
+            <RelativeLayout
+                android:id="@+id/mapsFragmentActivity"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_alignParentBottom="true"
-                android:layout_centerHorizontal="true"
-                android:text="Address"/>
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/addressView"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentBottom="true"
+                    android:layout_centerHorizontal="true"
+                    android:text="Address" />
 
 
-
-        </RelativeLayout>
-</fragment>
+            </RelativeLayout>
+        </fragment>
 
     </LinearLayout>
     <RelativeLayout

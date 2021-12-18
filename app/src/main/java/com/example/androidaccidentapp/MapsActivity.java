@@ -20,6 +20,7 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.view.Window;
+import android.view.WindowManager;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
@@ -250,7 +251,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         dialog.setContentView(R.layout.custom_dialog);
 
         viewAddress = dialog.findViewById(R.id.addressTextView);
-        enterAddress = dialog.findViewById(R.id.enterAddressEditText);
+        //enterAddress = dialog.findViewById(R.id.enterAddressEditText);
 
         viewAddress.setText("" + address.getAddressLine(0));
         dialog.show();
@@ -371,6 +372,10 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         redirectActivity(this, Login.class);
     }
 
+    public void clickProfile(View view){
+        redirectActivity(this, ProfileUser.class);
+    }
+
     static void redirectActivity(Activity activity, Class aClass) {
         Intent intent = new Intent(activity, aClass);
 
@@ -385,20 +390,58 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         closeDrawer(drawerLayout);
     }
 
+    //method to save address from manual user input
     public void enterManually(View view) {
         dialog.dismiss();
         dialog2 = new Dialog(MapsActivity.this);
         dialog2.requestWindowFeature(Window.FEATURE_NO_TITLE);
         dialog2.setCancelable(true);
-        dialog2.setContentView(R.layout.custom_dialog);
+        dialog2.setContentView(R.layout.custom_dialog2);
 
 
-        enterAddress = dialog2.findViewById(R.id.enterAddressEditText);
-        viewAddress.setVisibility(View.GONE);
-        enterAddress.setVisibility(View.VISIBLE);
 
+        enterAddress = dialog2.findViewById(R.id.etNewAddressEntry);
 
-        //viewAddress.setText("" + address.getAddressLine(0));
         dialog2.show();
+    }
+
+    public void saveAddressFromManualEntry(View view) {
+
+        accidentLocation = enterAddress.getText().toString();
+        Log.d("Manual Entry:", ""+accidentLocation);
+
+        Intent intent = new Intent(this, Camera.class);
+
+        intent.putExtra("FirstName", firstName);
+        intent.putExtra("LastName", lastName);
+        intent.putExtra("DOB", dateOfBirth);
+        intent.putExtra("Address", addressDriver);
+        intent.putExtra("DriverLicence", licenceNum);
+
+        intent.putExtra("Provider", provider);
+        intent.putExtra("Policy Number", policyNum);
+        intent.putExtra("Holder", policyHolder);
+
+        intent.putExtra("VehicleMake", vehicleMake);
+        intent.putExtra("VehicleYear", vehicleYear);
+        intent.putExtra("VehiclePlate", vehiclePlate);
+        intent.putExtra("VehicleState", vehicleState);
+        intent.putExtra("VehicleType", vehicleType);
+        intent.putExtra("usersVehicle", usersVehicle);
+
+        intent.putExtra("accidentLocation", accidentLocation);
+
+        this.startActivity(intent);
+
+
+
+
+
+    }
+
+    //go back if user does not want to address manually
+    public void goBack(View view) {
+        dialog2.dismiss();
+        confirmAddress();
     }
 }
