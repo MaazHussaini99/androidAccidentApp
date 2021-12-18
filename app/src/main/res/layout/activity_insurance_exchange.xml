@@ -144,6 +144,9 @@
                 android:layout_height="150dp"
                 android:layout_marginTop="50dp"
                 android:fontFamily="@font/open_sans"
+                android:textColor="@color/black"
+                android:textStyle="bold"
+                android:backgroundTint="@color/newButtonGray"
                 android:text=" Save Insurance Information" />
 
         </RelativeLayout>
