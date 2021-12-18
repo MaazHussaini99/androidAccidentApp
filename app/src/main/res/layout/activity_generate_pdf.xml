@@ -37,6 +37,9 @@
         android:layout_centerInParent="true"
         android:fontFamily="@font/open_sans"
         android:onClick="sendEmail"
+        android:textColor="@color/black"
+        android:textStyle="bold"
+        android:backgroundTint="@color/newButtonGray"
         android:text="share PDF" />
 
 </RelativeLayout>

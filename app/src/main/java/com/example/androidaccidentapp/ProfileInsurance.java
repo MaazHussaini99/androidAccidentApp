@@ -1,5 +1,7 @@
 package com.example.androidaccidentapp;
 
+import static android.text.TextUtils.isEmpty;
+
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
@@ -53,7 +55,7 @@ public class ProfileInsurance extends AppCompatActivity {
         policyNumEdit = findViewById(R.id.policyNoEdit);
         accHolderEdit = findViewById(R.id.accHolderEdit);
 
-        String[] options = {"View User Profile", "View Vehicle Profile", "View Insurance Policy", "View Reports"};
+        String[] options = {"View User Profile", "View Vehicle Profile", "View Insurance Policy"};
         adapter = new ArrayAdapter<>(this, android.R.layout.select_dialog_item, options);
         drawerLayout = findViewById(R.id.drawer_layout);
 
@@ -120,24 +122,31 @@ public class ProfileInsurance extends AppCompatActivity {
 
     public void save(View view) {
         //Push updated data over to Firebase
-
         provider = providerEdit.getText().toString();
         policyNum = policyNumEdit.getText().toString();
         policyHolder = accHolderEdit.getText().toString();
 
-        HashMap<String, Object> data = new HashMap<>();
-        data.put("Insurance Provider", provider);
-        data.put("Policy Number", policyNum);
-        data.put("Insurance Holder", policyHolder);
+        //Validation
+        if (isEmpty(provider) || isEmpty(policyHolder) || isEmpty(policyHolder)) {
+            Toast.makeText(ProfileInsurance.this, "Please fill in all fields", Toast.LENGTH_SHORT).show();
+        } else if (policyNum.length() < 7){
+            Toast.makeText(ProfileInsurance.this, "Policy Number must be greater than 6 characters", Toast.LENGTH_SHORT).show();
+        } else {
 
-        dbRef.child(currentUser.getUid()).child("User Info").updateChildren(data, completionListener);
+            HashMap<String, Object> data = new HashMap<>();
+            data.put("Insurance Provider", provider);
+            data.put("Policy Number", policyNum);
+            data.put("Insurance Holder", policyHolder);
 
-        deactivate(providerEdit);
-        deactivate(policyNumEdit);
-        deactivate(accHolderEdit);
-        editable.setChecked(false);
+            dbRef.child(currentUser.getUid()).child("User Info").updateChildren(data, completionListener);
 
-        Toast.makeText(ProfileInsurance.this, "Insurance Data Updated", Toast.LENGTH_SHORT).show();
+            deactivate(providerEdit);
+            deactivate(policyNumEdit);
+            deactivate(accHolderEdit);
+            editable.setChecked(false);
+
+            Toast.makeText(ProfileInsurance.this, "Insurance Data Updated", Toast.LENGTH_SHORT).show();
+        }
     }
 
     DatabaseReference.CompletionListener completionListener =
@@ -151,6 +160,7 @@ public class ProfileInsurance extends AppCompatActivity {
                     }
                 }
             };
+
     private void notifyUser(String message) {
         Toast.makeText(ProfileInsurance.this, message, Toast.LENGTH_SHORT).show();
     }
@@ -192,12 +202,6 @@ public class ProfileInsurance extends AppCompatActivity {
                     case 2:{
                         Intent intent = new Intent(ProfileInsurance.this, ProfileInsurance.class);
                         startActivity(intent);
-                        break;
-                    }
-                    case 3:{
-                        Toast.makeText(ProfileInsurance.this, "Access User Reports", Toast.LENGTH_LONG).show();
-//                            Intent intent = new Intent(Home.this, InsuranceProfile.class);
-//                            startActivity(intent);
                         break;
                     }
                 }
