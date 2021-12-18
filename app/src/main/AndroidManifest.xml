@@ -139,14 +139,14 @@
 
         </activity>
 
-        <activity
-            android:name=".SplashActivity"
-            android:exported="true"
-            android:noHistory="true"
-            android:screenOrientation="portrait"
-            android:theme="@style/SplashStyle" >
+<!--        <activity-->
+<!--            android:name=".SplashActivity"-->
+<!--            android:exported="true"-->
+<!--            android:noHistory="true"-->
+<!--            android:screenOrientation="portrait"-->
+<!--            android:theme="@style/SplashStyle" >-->
 
-        </activity>
+<!--        </activity>-->
         <activity
             android:name=".ProfileInsurance"
             android:exported="false" />

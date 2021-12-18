@@ -13,8 +13,8 @@ import android.graphics.Color;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
-import android.widget.CompoundButton;
 import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.Switch;
@@ -48,9 +48,8 @@ public class ProfileVehicle extends AppCompatActivity {
     DrawerLayout drawerLayout;
     ArrayAdapter<String> adapter;
 
-    HashMap<String, Map<String, String>> map =
-            new HashMap<String, Map<String, String>>();
-    HashMap<String, String> vehicleData = new HashMap<>();
+    HashMap<String, Map<String, Object>> map =
+            new HashMap<String, Map<String, Object>>();
 
     Spinner spinner;
     ArrayList<String> cars;
@@ -79,46 +78,6 @@ public class ProfileVehicle extends AppCompatActivity {
         dbRef = database.getReference("/data");
 
         pullData();
-//        ArrayAdapter<String> adapter = new ArrayAdapter<String>(ProfileVehicle.this,
-//                android.R.layout.simple_spinner_item, cars);
-//
-//        adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-//        spinner.setAdapter(adapter);
-//        spinner.setSelection(-1, true);
-//        spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
-//            @Override
-//            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-//                switch (position){
-//                    case 0:
-//                        String car = spinner.getSelectedItem().toString();
-//                        Set<String> keys = map.get(car).keySet();
-//                        for (String key : keys) {
-//                            vehicleData.put(key, map.get(car).get(key));
-//                            Log.d("Vehicle Data Select", "Vehicle" + vehicleData);
-//                        }
-//
-//                        carMakeEdit.setText(String.valueOf(map.get("VehicleMake")));
-//                        yearEdit.setText(String.valueOf(map.get("VehicleYear")));
-//                        plateNumEdit.setText(String.valueOf(map.get("VehiclePlate")));
-//                        stateEdit.setText(String.valueOf(map.get("VehicleState")));
-//                        carTypeEdit.setText(String.valueOf(map.get("usersVehicle")));
-//                        break;
-//                }
-//
-//            }
-//
-//            @Override
-//            public void onNothingSelected(AdapterView<?> parent) {
-//                String car = spinner.getSelectedItem().toString();
-//                Set<String> keys = map.get(car).keySet();
-//                for (String key : keys) {
-//                    vehicleData.put(key, map.get(car).get(key));
-//                    Log.d("Vehicle Data Nothing", "Vehicle" + vehicleData);
-//                }
-//            }
-//        });
-
-        Log.d("Vehicle Data Map", "Vehicle" + vehicleData);
 
     }
 
@@ -132,35 +91,46 @@ public class ProfileVehicle extends AppCompatActivity {
                 } else {
                     Log.d("firebase", "Logging data " + String.valueOf(task.getResult().getValue()));
 
+                    //Getting the Vehicle Keys (AKA Car Names)
                     for (DataSnapshot childSnapshot : task.getResult().getChildren()) {
-                        map.put(String.valueOf(childSnapshot.getKey()), (Map) childSnapshot.getValue());
+                        Log.d("Check Map", "Log" + childSnapshot.getValue());
+                        map.put(childSnapshot.getKey(), (Map) childSnapshot.getValue());
                     }
 
-                    String car = null;
+                    //Adding Vehicle Key names to array of Cars
                     if (map != null) {
                         Set<String> keys = map.keySet();
                         for (String key : keys) {
                             cars.add(key);
-                            car = key;
                             Log.d("Cars List", "" + cars);
                         }
                     }
 
-                    Set<String> keys = map.get(car).keySet();
-                    for (String key : keys) {
-                        vehicleData.put(key, map.get(car).get(key));
-                        Log.d("Vehicle Data Select", "" + vehicleData);
-                    }
+                    //Implementing Spinner and populating items with Car Names
+                    ArrayAdapter<String> adapter = new ArrayAdapter<String>(ProfileVehicle.this,
+                            android.R.layout.simple_spinner_item, cars);
+                    adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+                    spinner.setAdapter(adapter);
 
-                    carMakeEdit.setText(String.valueOf(vehicleData.get("Vehicle Make")));
-                    yearEdit.setText(String.valueOf(vehicleData.get("Vehicle Year")));
-                    plateNumEdit.setText(String.valueOf(vehicleData.get("Vehicle Plate")));
-                    stateEdit.setText(String.valueOf(vehicleData.get("Vehicle State")));
-                    carTypeEdit.setText(String.valueOf(vehicleData.get("Vehicle Type")));
+                    spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+                    @Override
+                    public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                        //Based on Car Name selected, populate fields with corresponding car values
+                        String car = spinner.getSelectedItem().toString();
+                        carMakeEdit.setText(String.valueOf((map.get(car).get("Vehicle Make"))));
+                        yearEdit.setText(String.valueOf((map.get(car).get("Vehicle Year"))));
+                        plateNumEdit.setText(String.valueOf((map.get(car).get("Vehicle Plate"))));
+                        stateEdit.setText(String.valueOf((map.get(car).get("Vehicle State"))));
+                        carTypeEdit.setText(String.valueOf((map.get(car).get("Vehicle Type"))));
+                    }
+                    @Override
+                    public void onNothingSelected(AdapterView<?> parent) { }
+                });
+
                 }
             }
         });
-}
+    }
 
     public void activate (EditText et){
         et.setEnabled(true);
@@ -173,25 +143,20 @@ public class ProfileVehicle extends AppCompatActivity {
     }
 
     public void updateText(View view) {
-        editable.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-            @Override
-            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-                if(editable.isChecked()){
-                    activate(carMakeEdit);
-                    activate(yearEdit);
-                    activate(plateNumEdit);
-                    activate(stateEdit);
-                    activate(carTypeEdit);
-                } else {
-                    deactivate(carMakeEdit);
-                    deactivate(yearEdit);
-                    deactivate(plateNumEdit);
-                    deactivate(stateEdit);
-                    deactivate(carTypeEdit);
-                }
-            }
-        });
-
+        if(editable.isChecked()){
+            //Open all fields to allow user to update data
+            activate(carMakeEdit);
+            activate(yearEdit);
+            activate(plateNumEdit);
+            activate(stateEdit);
+            activate(carTypeEdit);
+        } else {
+            deactivate(carMakeEdit);
+            deactivate(yearEdit);
+            deactivate(plateNumEdit);
+            deactivate(stateEdit);
+            deactivate(carTypeEdit);
+        }
     }
 
     public void edit_profile(View view) {
@@ -206,13 +171,14 @@ public class ProfileVehicle extends AppCompatActivity {
 
     public void save(View view) {
         //Push updated data over to Firebase
-
+        //Setting string values with input text
         vehicleMake = carMakeEdit.getText().toString();
         vehicleYear= yearEdit.getText().toString();
         vehiclePlateNum= plateNumEdit.getText().toString();
         vehicleState= stateEdit.getText().toString();
         vehicleType= carTypeEdit.getText().toString();
 
+        //Adding values to hashmap
         HashMap<String, Object> data = new HashMap<>();
         data.put("Vehicle Make", vehicleMake);
         data.put("Vehicle Year", vehicleYear);
@@ -220,8 +186,10 @@ public class ProfileVehicle extends AppCompatActivity {
         data.put("Vehicle State", vehicleState);
         data.put("Vehicle Type", vehicleType);
 
-        dbRef.child(currentUser.getUid()).child("Vehicles").updateChildren(data, completionListener);
+        //Updating database with data hashmap
+        dbRef.child(currentUser.getUid()).child("Vehicles").child(spinner.getSelectedItem().toString()).updateChildren(data, completionListener);
 
+        //Disable "Edit" mode
         deactivate(carMakeEdit);
         deactivate(yearEdit);
         deactivate(plateNumEdit);

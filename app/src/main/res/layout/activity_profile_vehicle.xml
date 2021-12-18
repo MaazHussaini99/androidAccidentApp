@@ -16,6 +16,7 @@
 
         <include
             layout="@layout/main_toolbar"/>
+
 <androidx.constraintlayout.widget.ConstraintLayout
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -30,16 +31,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical" >
 
-            <androidx.constraintlayout.widget.ConstraintLayout
-                android:layout_width="match_parent"
-                android:layout_height="1050dp"
-                tools:layout_editor_absoluteX="-8dp"
-                tools:layout_editor_absoluteY="0dp">
 
 
 
@@ -258,11 +250,10 @@
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@id/accessProfile" />
 
-            </androidx.constraintlayout.widget.ConstraintLayout>
-        </LinearLayout>
     </ScrollView>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
+
 
     </LinearLayout>
 

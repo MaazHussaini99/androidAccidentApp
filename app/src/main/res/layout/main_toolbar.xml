@@ -6,7 +6,7 @@
     android:orientation="horizontal"
     android:padding="12dp"
     android:id="@+id/main_toolbar"
-    android:background="@color/background"
+    android:background="@color/accentBlue"
     android:gravity="center_vertical">
 
 

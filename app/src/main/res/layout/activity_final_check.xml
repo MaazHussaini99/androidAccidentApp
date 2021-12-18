@@ -180,6 +180,16 @@
                         android:textSize="25sp" />
 
                     <TextView
+                        android:id="@+id/iceContact"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/Type"
+                        android:layout_marginTop="50dp"
+                        android:text="  14"
+                        android:textColor="@color/white"
+                        android:textSize="25sp" />
+
+                    <TextView
                         android:id="@+id/reportNameTv2"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
@@ -319,6 +329,18 @@
                         android:layout_marginEnd="-2dp"
                         android:fontFamily="@font/open_sans_light"
                         android:text="Vehicle Type"
+                        android:textColor="#FFD700"
+                        android:textSize="25sp" />
+
+                    <TextView
+                        android:id="@+id/reportNameTv15"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@+id/Type"
+                        android:layout_alignParentEnd="true"
+                        android:layout_marginTop="10dp"
+                        android:layout_marginEnd="-2dp"
+                        android:text="Emergency Contact Phone Number"
                         android:textColor="#FFD700"
                         android:textSize="25sp" />
 
