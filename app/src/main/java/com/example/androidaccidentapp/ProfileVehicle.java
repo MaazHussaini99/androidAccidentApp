@@ -1,5 +1,7 @@
 package com.example.androidaccidentapp;
 
+import static android.text.TextUtils.isEmpty;
+
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
@@ -65,7 +67,7 @@ public class ProfileVehicle extends AppCompatActivity {
         stateEdit = findViewById(R.id.stateEdit);
         carTypeEdit = findViewById(R.id.typeEdit);
 
-        String[] options = {"View User Profile", "View Vehicle Profile", "View Insurance Policy", "View Reports"};
+        String[] options = {"View User Profile", "View Vehicle Profile", "View Insurance Policy"};
         adapter = new ArrayAdapter<>(this, android.R.layout.select_dialog_item, options);
         drawerLayout = findViewById(R.id.drawer_layout);
 
@@ -173,31 +175,44 @@ public class ProfileVehicle extends AppCompatActivity {
         //Push updated data over to Firebase
         //Setting string values with input text
         vehicleMake = carMakeEdit.getText().toString();
-        vehicleYear= yearEdit.getText().toString();
-        vehiclePlateNum= plateNumEdit.getText().toString();
-        vehicleState= stateEdit.getText().toString();
-        vehicleType= carTypeEdit.getText().toString();
+        vehicleYear = yearEdit.getText().toString();
+        vehiclePlateNum = plateNumEdit.getText().toString();
+        vehicleState = stateEdit.getText().toString();
+        vehicleType = carTypeEdit.getText().toString();
 
-        //Adding values to hashmap
-        HashMap<String, Object> data = new HashMap<>();
-        data.put("Vehicle Make", vehicleMake);
-        data.put("Vehicle Year", vehicleYear);
-        data.put("Vehicle Plate", vehiclePlateNum);
-        data.put("Vehicle State", vehicleState);
-        data.put("Vehicle Type", vehicleType);
+        Integer year = Integer.parseInt(vehicleYear);
+        Log.d("Year", "" + year);
 
-        //Updating database with data hashmap
-        dbRef.child(currentUser.getUid()).child("Vehicles").child(spinner.getSelectedItem().toString()).updateChildren(data, completionListener);
+        //Validation
+        if (isEmpty(vehicleMake) || isEmpty(vehicleYear) || isEmpty(vehiclePlateNum) || isEmpty(vehicleState) || isEmpty(vehicleType)) {
+            Toast.makeText(ProfileVehicle.this, "Please fill in all fields", Toast.LENGTH_SHORT).show();
+        } else if (vehicleYear.length() < 4 || vehicleYear.length() > 5 || year < 1900 || year > 2021) {
+            Toast.makeText(ProfileVehicle.this, "Invalid Year. Please enter YYYY", Toast.LENGTH_SHORT).show();
+        } else if (vehiclePlateNum.length() < 2) {
+            Toast.makeText(ProfileVehicle.this, "License Plate should contain more than 2 characters", Toast.LENGTH_SHORT).show();
+        } else {
 
-        //Disable "Edit" mode
-        deactivate(carMakeEdit);
-        deactivate(yearEdit);
-        deactivate(plateNumEdit);
-        deactivate(stateEdit);
-        deactivate(carTypeEdit);
-        editable.setChecked(false);
+            //Adding values to hashmap
+            HashMap<String, Object> data = new HashMap<>();
+            data.put("Vehicle Make", vehicleMake);
+            data.put("Vehicle Year", vehicleYear);
+            data.put("Vehicle Plate", vehiclePlateNum);
+            data.put("Vehicle State", vehicleState);
+            data.put("Vehicle Type", vehicleType);
 
-        Toast.makeText(ProfileVehicle.this, "Vehicle Data Updated", Toast.LENGTH_SHORT).show();
+            //Updating database with data hashmap
+            dbRef.child(currentUser.getUid()).child("Vehicles").child(vehicleMake).updateChildren(data, completionListener);
+
+            //Disable "Edit" mode
+            deactivate(carMakeEdit);
+            deactivate(yearEdit);
+            deactivate(plateNumEdit);
+            deactivate(stateEdit);
+            deactivate(carTypeEdit);
+            editable.setChecked(false);
+
+            Toast.makeText(ProfileVehicle.this, "Vehicle Data Updated", Toast.LENGTH_SHORT).show();
+        }
     }
 
     DatabaseReference.CompletionListener completionListener =

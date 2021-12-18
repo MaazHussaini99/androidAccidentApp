@@ -1,5 +1,7 @@
 package com.example.androidaccidentapp;
 
+import static android.text.TextUtils.isEmpty;
+
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
@@ -60,7 +62,7 @@ public class ProfileUser extends AppCompatActivity {
 
         drawerLayout = findViewById(R.id.drawer_layout);
         menuButton = (ImageView) findViewById(R.id.menuButton);
-        String[] options = {"View User Profile", "View Vehicle Profile", "View Insurance Policy", "View Reports"};
+        String[] options = {"View User Profile", "View Vehicle Profile", "View Insurance Policy"};
         adapter = new ArrayAdapter<>(this, android.R.layout.select_dialog_item, options);
 
         //Pulling user data down from Firebase and populating fields
@@ -142,34 +144,49 @@ public class ProfileUser extends AppCompatActivity {
         licenseNum = licenseEdit.getText().toString();
         iceNum = iceEdit.getText().toString();
 
-        //Format the data inputs
-        String fName = firstName.substring(0,1).toUpperCase() + firstName.substring(1);
-        String lName = lastName.substring(0,1).toUpperCase() + lastName.substring(1);
-        String license = licenseNum.toUpperCase();
-        String number = iceNum.replaceAll("\\D", "");
-        String contactNum = number.replaceFirst("(\\d{3})(\\d{3})(\\d+)", "($1) $2-$3");
+        //Validation
+            // Date of Birth RegEx modeled off of Gregorian Date (section 3.7 - https://www.baeldung.com/java-date-regular-expressions)
+        if (isEmpty(firstName) || isEmpty(lastName) || isEmpty(dob) || isEmpty(address) || isEmpty(licenseNum)) {
+            Toast.makeText(ProfileUser.this, "Please fill in all fields", Toast.LENGTH_SHORT).show();
+        } else if (licenseNum.length() < 9) {
+            Toast.makeText(ProfileUser.this, "License Number should be at least 9 characters", Toast.LENGTH_SHORT).show();
+        } else if(firstName.length() < 3 || firstName.length() > 30 || lastName.length() < 3 || lastName.length() > 30){
+            Toast.makeText(ProfileUser.this, "First name and last name must be between 3 and 30 characters", Toast.LENGTH_SHORT).show();
+        } else if(!dob.matches("^(02/29/(2000|2400|2800|(19|2[0-9](0[48]|[2468][048]|[13579][26]))))$"
+                + "|^(02/(0[1-9]|1[0-9]|2[0-8])/((19[0-9]{2})|(20[0][0-9]|(20[1][0-5]))))$"
+                + "|^((0[13578]|10|12)/(0[1-9]|[12][0-9]|3[01])/((19[0-9]{2})|(20[0][0-9]|(20[1][0-5]))))$"
+                + "|^((0[469]|11)/(0[1-9]|[12][0-9]|30)/((19[0-9]{2})|(20[0][0-9]|(20[1][0-5]))))$")){
+            Toast.makeText(ProfileUser.this, "Invalid Date of Birth.\nPlease follow format MM/DD/YYYY", Toast.LENGTH_LONG).show();
+        } else{
+            //Format the data inputs
+            String fName = firstName.substring(0, 1).toUpperCase() + firstName.substring(1);
+            String lName = lastName.substring(0, 1).toUpperCase() + lastName.substring(1);
+            String license = licenseNum.trim().toUpperCase();
+            String number = iceNum.replaceAll("\\D", "");
+            String contactNum = number.replaceFirst("(\\d{3})(\\d{3})(\\d+)", "($1) $2-$3");
 
-        //Add to data map to push to Firebase
-        HashMap<String, Object> data = new HashMap<>();
-        data.put("Emergency Contact", contactNum);
-        data.put("License Number", license);
-        data.put("Address", address);
-        data.put("DOB", dob);
-        data.put("Last Name", lName);
-        data.put("First Name", fName);
+            //Add to data map to push to Firebase
+            HashMap<String, Object> data = new HashMap<>();
+            data.put("Emergency Contact", contactNum);
+            data.put("License Number", license);
+            data.put("Address", address);
+            data.put("DOB", dob);
+            data.put("Last Name", lName);
+            data.put("First Name", fName);
 
-        dbRef.child(currentUser.getUid()).child("User Info").updateChildren(data, completionListener);
+            dbRef.child(currentUser.getUid()).child("User Info").updateChildren(data, completionListener);
 
-        //Return fields to false edit state
-        deactivate(firstNameEdit);
-        deactivate(lastNameEdit);
-        deactivate(dobEdit);
-        deactivate(addressEdit);
-        deactivate(licenseEdit);
-        deactivate(iceEdit);
+            //Return fields to false edit state
+            deactivate(firstNameEdit);
+            deactivate(lastNameEdit);
+            deactivate(dobEdit);
+            deactivate(addressEdit);
+            deactivate(licenseEdit);
+            deactivate(iceEdit);
 
-        editable.setChecked(false);
-        Toast.makeText(ProfileUser.this, "User Profile Updated", Toast.LENGTH_SHORT).show();
+            editable.setChecked(false);
+            Toast.makeText(ProfileUser.this, "User Profile Updated", Toast.LENGTH_SHORT).show();
+        }
     }
 
     DatabaseReference.CompletionListener completionListener =
@@ -210,12 +227,6 @@ public class ProfileUser extends AppCompatActivity {
                     case 2:{
                         Intent intent = new Intent(ProfileUser.this, ProfileInsurance.class);
                         startActivity(intent);
-                        break;
-                    }
-                    case 3:{
-                        Toast.makeText(ProfileUser.this, "Access User Reports", Toast.LENGTH_LONG).show();
-//                            Intent intent = new Intent(Home.this, InsuranceProfile.class);
-//                            startActivity(intent);
                         break;
                     }
                 }
