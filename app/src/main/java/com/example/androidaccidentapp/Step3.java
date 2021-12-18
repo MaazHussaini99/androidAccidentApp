@@ -29,7 +29,7 @@ public class Step3 extends AppCompatActivity {
         setContentView(R.layout.activity_step3);
 
         drawerLayout = findViewById(R.id.drawer_layout);
-        String[] options = {"View User Profile", "View Vehicle Profile", "View Insurance Policy", "View Reports"};
+        String[] options = {"View User Profile", "View Vehicle Profile", "View Insurance Policy"};
         adapter = new ArrayAdapter<>(this, android.R.layout.select_dialog_item, options);
 
         firstTextView = (TextView) findViewById(R.id.textView1);
@@ -91,12 +91,6 @@ public class Step3 extends AppCompatActivity {
                     case 2: {
                         Intent intent = new Intent(Step3.this, ProfileInsurance.class);
                         startActivity(intent);
-                        break;
-                    }
-                    case 3: {
-                        Toast.makeText(Step3.this, "Access User Reports", Toast.LENGTH_LONG).show();
-//                            Intent intent = new Intent(Home.this, reports.class);
-//                            startActivity(intent);
                         break;
                     }
                 }

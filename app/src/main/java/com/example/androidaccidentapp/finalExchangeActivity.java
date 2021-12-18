@@ -77,7 +77,7 @@ public class finalExchangeActivity extends AppCompatActivity {
         addressDriver = getIntent().getStringExtra("Address");
         licenceNum = getIntent().getStringExtra("DriverLicence");
 
-        String[] options = {"View User Profile", "View Vehicle Profile", "View Insurance Policy", "View Reports"};
+        String[] options = {"View User Profile", "View Vehicle Profile", "View Insurance Policy"};
         adapter = new ArrayAdapter<>(this, android.R.layout.select_dialog_item, options);
         drawerLayout = findViewById(R.id.drawer_layout);
 
@@ -98,13 +98,6 @@ public class finalExchangeActivity extends AppCompatActivity {
         Intent intent = getIntent();
         imageList = (HashMap<String, Object>)intent.getSerializableExtra("Images");
         Log.d("firebase", "Maaz logging data Images" + imageList);
-
-//        String name;
-//        String path;
-//        Set<String> keys = imageList.keySet();
-//        for(String key : keys){
-//            name = key
-//        }
 
         fName = findViewById(R.id.firstName);
         lName = findViewById(R.id.lastName);
@@ -182,25 +175,6 @@ public class finalExchangeActivity extends AppCompatActivity {
             i++;
         }
 
-
-
-
-//        dbRef.child(currentUser.getUid()).child("Accident Reports").child("Maaz 1").get().addOnCompleteListener(new OnCompleteListener<DataSnapshot>() {
-//            @Override
-//            public void onComplete(@NonNull Task<DataSnapshot> task) {
-//                if (!task.isSuccessful()) {
-//                    Log.e("firebase", "Error getting data", task.getException());
-//                }
-//                else {
-//                    Log.d("firebase", "Maaz logging data " + String.valueOf(task.getResult().getValue()));
-//
-//                    for (DataSnapshot childSnapshot: task.getResult().getChildren()) {
-//                        maps.put((String)childSnapshot.getKey(), (String)childSnapshot.getValue());
-//                    }
-//                    Address.setText(maps.get("Address"));
-//                }
-//            }
-//        });
     }
 
 
@@ -265,12 +239,6 @@ public class finalExchangeActivity extends AppCompatActivity {
                     case 2:{
                         Intent intent = new Intent(finalExchangeActivity.this, ProfileInsurance.class);
                         startActivity(intent);
-                        break;
-                    }
-                    case 3:{
-                        Toast.makeText(finalExchangeActivity.this, "Access User Reports", Toast.LENGTH_LONG).show();
-//                            Intent intent = new Intent(Home.this, InsuranceProfile.class);
-//                            startActivity(intent);
                         break;
                     }
                 }

@@ -23,7 +23,7 @@ public class HandbookSafety extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_handbook_safety);
 
-        String[] options = {"View User Profile", "View Vehicle Profile", "View Insurance Policy", "View Reports"};
+        String[] options = {"View User Profile", "View Vehicle Profile", "View Insurance Policy"};
         adapter = new ArrayAdapter<>(this, android.R.layout.select_dialog_item, options);
         drawerLayout = findViewById(R.id.drawer_layout);
     }
@@ -65,12 +65,6 @@ public class HandbookSafety extends AppCompatActivity {
                     case 2:{
                         Intent intent = new Intent(HandbookSafety.this, ProfileInsurance.class);
                         startActivity(intent);
-                        break;
-                    }
-                    case 3:{
-                        Toast.makeText(HandbookSafety.this, "Access User Reports", Toast.LENGTH_LONG).show();
-//                            Intent intent = new Intent(Home.this, InsuranceProfile.class);
-//                            startActivity(intent);
                         break;
                     }
                 }

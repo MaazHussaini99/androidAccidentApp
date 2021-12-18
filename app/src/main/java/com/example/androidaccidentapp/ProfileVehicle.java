@@ -269,12 +269,6 @@ public class ProfileVehicle extends AppCompatActivity {
                         startActivity(intent);
                         break;
                     }
-                    case 3:{
-                        Toast.makeText(ProfileVehicle.this, "Access User Reports", Toast.LENGTH_LONG).show();
-//                            Intent intent = new Intent(Home.this, InsuranceProfile.class);
-//                            startActivity(intent);
-                        break;
-                    }
                 }
             }
         });

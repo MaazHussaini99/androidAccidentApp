@@ -23,7 +23,7 @@ public class Step22 extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_step22);
 
-        String[] options = {"View User Profile", "View Vehicle Profile", "View Insurance Policy", "View Reports"};
+        String[] options = {"View User Profile", "View Vehicle Profile", "View Insurance Policy"};
         adapter = new ArrayAdapter<>(this, android.R.layout.select_dialog_item, options);
         drawerLayout = findViewById(R.id.drawer_layout);
     }
@@ -75,12 +75,6 @@ public class Step22 extends AppCompatActivity {
                     case 2:{
                         Intent intent = new Intent(Step22.this, ProfileInsurance.class);
                         startActivity(intent);
-                        break;
-                    }
-                    case 3:{
-                        Toast.makeText(Step22.this, "Access User Reports", Toast.LENGTH_LONG).show();
-//                            Intent intent = new Intent(Home.this, InsuranceProfile.class);
-//                            startActivity(intent);
                         break;
                     }
                 }

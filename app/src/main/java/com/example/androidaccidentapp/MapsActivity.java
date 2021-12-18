@@ -81,7 +81,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
 
         binding = ActivityMapsBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
-        String[] options = {"View User Profile", "View Vehicle Profile", "View Insurance Policy", "View Reports"};
+        String[] options = {"View User Profile", "View Vehicle Profile", "View Insurance Policy"};
         adapter = new ArrayAdapter<>(this, android.R.layout.select_dialog_item, options);
         drawerLayout = findViewById(R.id.drawer_layout);
 
@@ -330,12 +330,6 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                     case 2:{
                         Intent intent = new Intent(MapsActivity.this, ProfileInsurance.class);
                         startActivity(intent);
-                        break;
-                    }
-                    case 3:{
-                        Toast.makeText(MapsActivity.this, "Access User Reports", Toast.LENGTH_LONG).show();
-//                            Intent intent = new Intent(Home.this, InsuranceProfile.class);
-//                            startActivity(intent);
                         break;
                     }
                 }

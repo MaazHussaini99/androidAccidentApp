@@ -50,7 +50,7 @@ public class insuranceExchange extends AppCompatActivity {
 
         drawerLayout = findViewById(R.id.drawer_layout);
         menuButton = (ImageView) findViewById(R.id.menuButton);
-        String[] options = {"View User Profile", "View Vehicle Profile", "View Insurance Policy", "View Reports"};
+        String[] options = {"View User Profile", "View Vehicle Profile", "View Insurance Policy"};
         adapter = new ArrayAdapter<>(this, android.R.layout.select_dialog_item, options);
 
         firstName = getIntent().getStringExtra("FirstName");
@@ -101,12 +101,6 @@ public class insuranceExchange extends AppCompatActivity {
                     case 2: {
                         Intent intent = new Intent(insuranceExchange.this, ProfileInsurance.class);
                         startActivity(intent);
-                        break;
-                    }
-                    case 3: {
-                        Toast.makeText(insuranceExchange.this, "Access User Reports", Toast.LENGTH_LONG).show();
-//                            Intent intent = new Intent(Home.this, reports.class);
-//                            startActivity(intent);
                         break;
                     }
                 }

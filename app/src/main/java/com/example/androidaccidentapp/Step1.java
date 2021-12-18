@@ -31,7 +31,7 @@ public class Step1 extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.step1);
         drawerLayout = findViewById(R.id.drawer_layout);
-        String[] options = {"View User Profile", "View Vehicle Profile", "View Insurance Policy", "View Reports"};
+        String[] options = {"View User Profile", "View Vehicle Profile", "View Insurance Policy"};
         adapter = new ArrayAdapter<>(this, android.R.layout.select_dialog_item, options);
 
         final Button call = findViewById(R.id.dial911_btn); //button for 911 which is call
@@ -161,17 +161,6 @@ public class Step1 extends AppCompatActivity {
                     }
                     case 2: {
                         Intent intent = new Intent(Step1.this, ProfileInsurance.class);
-                        startActivity(intent);
-                        break;
-                    }
-                    case 3: {
-                        Toast.makeText(Step1.this, "Access User Reports", Toast.LENGTH_LONG).show();
-//                            Intent intent = new Intent(Home.this, reports.class);
-//                            startActivity(intent);
-                        break;
-                    }
-                    case 4: {
-                        Intent intent = new Intent(Step1.this, Camera.class);
                         startActivity(intent);
                         break;
                     }
