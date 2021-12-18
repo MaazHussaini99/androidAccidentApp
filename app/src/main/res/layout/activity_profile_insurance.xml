@@ -35,8 +35,9 @@
                 android:layout_marginEnd="8dp"
                 android:onClick="updateText"
                 android:text="@string/editLink"
-                android:textColor="@color/logo"
+                android:textColor="@color/background3"
                 android:textSize="14sp"
+                android:fontFamily="@font/open_sans"
                 android:checked="false"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/account_ic" />
@@ -46,13 +47,13 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="32dp"
-                android:layout_marginTop="48dp"
                 android:text="INSURANCE INFORMATION"
                 android:textColor="@color/white"
                 android:textSize="22dp"
                 android:textStyle="bold"
+                android:fontFamily="@font/open_sans"
                 app:layout_constraintLeft_toLeftOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/logo" />
+                app:layout_constraintTop_toBottomOf="@id/editable" />
 
             <TextView
                 android:id="@+id/providerText"
@@ -63,6 +64,7 @@
                 android:text="Insurance Provider"
                 android:textColor="@color/white"
                 android:textSize="18dp"
+                android:fontFamily="@font/open_sans"
                 app:layout_constraintLeft_toLeftOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/header" />
 
@@ -74,6 +76,7 @@
                 android:enabled="false"
                 android:layout_marginLeft="32dp"
                 android:layout_marginEnd="32dp"
+                android:fontFamily="@font/open_sans"
                 android:background="@drawable/rounded_corners"
                 app:layout_constraintLeft_toLeftOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/providerText" />
@@ -87,6 +90,7 @@
                 android:text="Policy/Account Number"
                 android:textColor="@color/white"
                 android:textSize="18dp"
+                android:fontFamily="@font/open_sans"
                 app:layout_constraintLeft_toLeftOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/providerEdit" />
 
@@ -99,6 +103,7 @@
                 android:layout_marginTop="4dp"
                 android:enabled="false"
                 android:textSize="18dp"
+                android:fontFamily="@font/open_sans"
                 android:background="@drawable/rounded_corners"
                 app:layout_constraintLeft_toLeftOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/policyNoText" />
@@ -112,6 +117,7 @@
                 android:text="Policy/Account Holder"
                 android:textColor="@color/white"
                 android:textSize="18dp"
+                android:fontFamily="@font/open_sans"
                 app:layout_constraintLeft_toLeftOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/policyNoEdit" />
 
@@ -124,6 +130,7 @@
                 android:layout_marginTop="4dp"
                 android:enabled="false"
                 android:textSize="18dp"
+                android:fontFamily="@font/open_sans"
                 android:background="@drawable/rounded_corners"
                 app:layout_constraintLeft_toLeftOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/accHolderText" />
@@ -134,9 +141,9 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="45dp"
                 android:layout_marginTop="44dp"
-                android:backgroundTint="@color/logo"
                 android:onClick="edit_profile"
                 android:text="Edit Profile"
+                android:fontFamily="@font/open_sans"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/accHolderEdit" />
 
@@ -147,11 +154,10 @@
                 android:layout_marginStart="10dp"
                 android:layout_marginTop="44dp"
                 android:layout_marginEnd="45dp"
-                android:backgroundTint="@color/logo"
                 android:onClick="edit_vehicle"
                 android:text="Edit Vehicles"
+                android:fontFamily="@font/open_sans"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.188"
                 app:layout_constraintStart_toEndOf="@id/accessProfile"
                 app:layout_constraintTop_toBottomOf="@id/accHolderEdit" />
 
@@ -161,12 +167,11 @@
                 android:layout_height="150dp"
                 android:onClick="save"
                 android:text="Save"
+                android:fontFamily="@font/open_sans"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.498"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/accessProfile"
-                app:layout_constraintVertical_bias="0.474" />
+                app:layout_constraintTop_toBottomOf="@id/accessProfile" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
     </LinearLayout>

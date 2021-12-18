@@ -39,7 +39,7 @@
                         android:ems="10"
                         android:hint="Emergency Contact Phone Num."
                         android:inputType="phone"
-                        android:maxLength="10"
+                        android:fontFamily="@font/open_sans"
                         android:paddingLeft="10dp"
                         android:textColorHint="@color/gray"
                         app:layout_constraintLeft_toLeftOf="parent"
