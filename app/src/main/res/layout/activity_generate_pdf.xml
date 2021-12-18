@@ -25,6 +25,9 @@
         android:id="@+id/idBtnGeneratePDF"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:textColor="@color/black"
+        android:textStyle="bold"
+        android:backgroundTint="@color/newButtonGray"
         android:layout_centerInParent="true"
         android:fontFamily="@font/open_sans"
         android:text="Generate PDF" />
