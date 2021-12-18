@@ -70,6 +70,8 @@ public class insuranceExchange extends AppCompatActivity {
 
                 if (isEmpty(provider) || isEmpty(policyNum) || isEmpty(policyHolder)) {
                     Toast.makeText(insuranceExchange.this, "Please fill in all fields", Toast.LENGTH_SHORT).show();
+                } else if (policyHolder.length() < 3 || policyHolder.length() > 30){
+                    Toast.makeText(insuranceExchange.this, "Policy holder name should be between 3 and 30 characters", Toast.LENGTH_SHORT).show();
                 } else {
                     changeToNextActivity(view);
                 }

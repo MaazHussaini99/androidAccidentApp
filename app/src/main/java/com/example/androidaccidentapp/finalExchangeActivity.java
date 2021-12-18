@@ -53,9 +53,6 @@ public class finalExchangeActivity extends AppCompatActivity {
 
     Button submit;
     EditText ReportName;
-    ImageView image;
-
-    File file;
 
     HashMap<String,String> maps= new HashMap();
 
@@ -102,10 +99,6 @@ public class finalExchangeActivity extends AppCompatActivity {
         imageList = (HashMap<String, Object>)intent.getSerializableExtra("Images");
         Log.d("firebase", "Maaz logging data Images" + imageList);
 
-        String fileName = "storage/emulated/0/Android/data/com.example.androidaccidentapp/files/Pictures/IMG_20211216_214434_2862665050733970153.jpg";
-        file = new File(fileName);
-        image = findViewById(R.id.Image);
-        image.setImageURI(Uri.fromFile(file));
 //        String name;
 //        String path;
 //        Set<String> keys = imageList.keySet();

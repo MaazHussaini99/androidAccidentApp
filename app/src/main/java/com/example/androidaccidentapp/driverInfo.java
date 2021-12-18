@@ -71,7 +71,9 @@ public class driverInfo extends AppCompatActivity {
                     Toast.makeText(driverInfo.this, "Please fill in all fields", Toast.LENGTH_SHORT).show();
                 } else if (licenceNum.length() < 9) {
                     Toast.makeText(driverInfo.this, "License Number should be at least 9 characters", Toast.LENGTH_SHORT).show();
-                } else {
+                } else if(firstName.length() < 3 || firstName.length() > 30 || lastName.length() < 3 || lastName.length() > 30){
+                    Toast.makeText(driverInfo.this, "First name and last name must be between 3 and 30 characters", Toast.LENGTH_SHORT).show();
+                } else{
                     changeToNextActivity(view);
                 }
 
