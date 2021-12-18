@@ -73,6 +73,11 @@ public class driverInfo extends AppCompatActivity {
                     Toast.makeText(driverInfo.this, "License Number should be at least 9 characters", Toast.LENGTH_SHORT).show();
                 } else if(firstName.length() < 3 || firstName.length() > 30 || lastName.length() < 3 || lastName.length() > 30){
                     Toast.makeText(driverInfo.this, "First name and last name must be between 3 and 30 characters", Toast.LENGTH_SHORT).show();
+                } else if(!dateOfBirth.matches("^(02/29/(2000|2400|2800|(19|2[0-9](0[48]|[2468][048]|[13579][26]))))$"
+                        + "|^(02/(0[1-9]|1[0-9]|2[0-8])/((19[0-9]{2})|(20[0][0-9]|(20[1][0-5]))))$"
+                        + "|^((0[13578]|10|12)/(0[1-9]|[12][0-9]|3[01])/((19[0-9]{2})|(20[0][0-9]|(20[1][0-5]))))$"
+                        + "|^((0[469]|11)/(0[1-9]|[12][0-9]|30)/((19[0-9]{2})|(20[0][0-9]|(20[1][0-5]))))$")){
+                    Toast.makeText(driverInfo.this, "Invalid Date or Year or format mm/dd/yyyy", Toast.LENGTH_SHORT).show();
                 } else{
                     changeToNextActivity(view);
                 }
