@@ -112,7 +112,7 @@ public class GeneratePDF extends AppCompatActivity {
 
         Intent intent = getIntent();
         imageList1 = (HashMap<String, Object>)intent.getSerializableExtra("Images");
-
+        UsersVehicle = getIntent().getStringExtra("userVehicle");
 
         // initializing our variables.
         generatePDFbtn = findViewById(R.id.idBtnGeneratePDF);
@@ -253,6 +253,7 @@ public class GeneratePDF extends AppCompatActivity {
                                 String dob = String.valueOf(maps.get("DOB"));
                                 String vehYear = String.valueOf(maps.get("Vehicle Year"));
                                 String lName = String.valueOf(maps.get("Last Name"));
+
 
 
                                 canvas.drawText("Accident Location: " + location.toUpperCase(), 50, 250, title);
