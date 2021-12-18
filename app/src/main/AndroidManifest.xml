@@ -57,9 +57,7 @@
         <activity
             android:name=".Home"
             android:exported="true" />
-        <activity
-            android:name=".Step22"
-            android:exported="true" />
+
         <activity
             android:name=".Step3"
             android:exported="true" />
@@ -86,9 +84,6 @@
             android:exported="true" />
         <activity
             android:name=".driverInfo"
-            android:exported="false" />
-        <activity
-            android:name=".SavedVehicles"
             android:exported="false" />
         <activity
             android:name=".HandbookPrevention"

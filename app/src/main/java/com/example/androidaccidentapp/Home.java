@@ -100,12 +100,6 @@ public class Home extends AppCompatActivity {
                 Home.this.startActivity(myIntent);
                 break;
             }
-            case R.id.reports:{
-                Toast.makeText(Home.this, "Reports", Toast.LENGTH_SHORT).show();
-//                Intent myIntent = new Intent(Home.this, Reports.class);
-//                Home.this.startActivity(myIntent);
-                break;
-            }
         }
     }
 

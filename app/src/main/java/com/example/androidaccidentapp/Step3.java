@@ -46,7 +46,7 @@ public class Step3 extends AppCompatActivity {
     }
 
     public void previous(View view) {
-        Intent intent = new Intent(this, Step22.class);
+        Intent intent = new Intent(this, Step2.class);
         this.startActivity(intent);
     }
 
