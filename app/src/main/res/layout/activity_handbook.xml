@@ -16,173 +16,189 @@
 
         <include
             layout="@layout/main_toolbar"/>
-    <ScrollView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical" >
-
-        <androidx.constraintlayout.widget.ConstraintLayout
-            android:layout_width="match_parent"
-            android:layout_height="900dp"
-            tools:layout_editor_absoluteX="-8dp"
-            tools:layout_editor_absoluteY="0dp">
-
-    <androidx.cardview.widget.CardView
-        android:id="@+id/card_view7"
-        android:layout_width="match_parent"
-        android:layout_height="150dp"
-        android:layout_gravity="center"
-        android:layout_marginTop="260dp"
-        android:layout_marginEnd="4dp"
-        android:onClick="Go"
-        app:cardCornerRadius="20dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
-
-        <LinearLayout
+        <ScrollView
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:background="@drawable/practices">
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
 
-            <TextView
-                android:id="@+id/textView25"
+            <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:fontFamily="@font/open_sans"
-                android:paddingStart="170sp"
-                android:text="Safety Tips"
-                android:textSize="15sp" />
-        </LinearLayout>
-    </androidx.cardview.widget.CardView>
+                android:orientation="vertical" >
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="900dp"
+                    tools:layout_editor_absoluteX="-8dp"
+                    tools:layout_editor_absoluteY="0dp">
 
 
-    <androidx.cardview.widget.CardView
-        android:id="@+id/card_view5"
-        android:layout_width="match_parent"
-        android:layout_height="150dp"
-        android:layout_gravity="center"
-        android:layout_marginTop="112dp"
-        android:layout_marginEnd="4dp"
-        android:onClick="Go"
-        app:cardCornerRadius="20dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+                    <com.google.android.material.card.MaterialCardView
+                        android:id="@+id/card_view5"
+                        android:layout_width="170dp"
+                        android:layout_height="130dp"
+                        android:layout_gravity="center"
+                        android:layout_marginTop="192dp"
+                        android:layout_marginEnd="20dp"
+                        app:cardCornerRadius="20dp"
+                        android:onClick="GoPrevention"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:strokeColor="@color/teal_700"
+                        app:strokeWidth="3dp">
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:background="@drawable/carprevention">
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:background="@drawable/carprevention">
 
-            <TextView
-                android:id="@+id/textView23"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:fontFamily="@font/open_sans"
-                android:paddingStart="150sp"
-                android:text="Accident Prevention"
-                android:textSize="15sp" />
-        </LinearLayout>
-    </androidx.cardview.widget.CardView>
+                            <TextView
+                                android:id="@+id/textView32"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="23dp"
+                                android:layout_weight="1"
+                                android:text="Accident Prevention" />
+                        </LinearLayout>
+                    </com.google.android.material.card.MaterialCardView>
 
-    <androidx.cardview.widget.CardView
-        android:id="@+id/card_view9"
-        android:layout_width="match_parent"
-        android:layout_height="150dp"
-        android:layout_gravity="center"
-        android:layout_marginTop="556dp"
-        android:layout_marginEnd="4dp"
-        android:onClick="Go"
-        app:cardCornerRadius="20dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+                    <TextView
+                        android:id="@+id/textView7"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="24dp"
+                        android:layout_marginEnd="136dp"
+                        android:text="Handbook"
+                        android:textColor="@color/white"
+                        android:textSize="30dp"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintHorizontal_bias="0.992"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:background="@drawable/insurance">
+                    <TextView
+                        android:id="@+id/textView20"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="76dp"
+                        android:layout_marginEnd="88dp"
+                        android:text="Choose a topic below to learn more"
+                        android:textColor="@color/white"
+                        android:textSize="15dp"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintHorizontal_bias="0.988"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
 
-            <TextView
-                android:id="@+id/textView22"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:fontFamily="@font/open_sans"
-                android:paddingStart="170sp"
-                android:text="Insurance"
-                android:textSize="15sp" />
-        </LinearLayout>
-    </androidx.cardview.widget.CardView>
+                    <com.google.android.material.card.MaterialCardView
+                        android:id="@+id/card_view9"
+                        android:layout_width="170dp"
+                        android:layout_height="130dp"
+                        android:layout_gravity="center"
+                        android:layout_marginTop="336dp"
+                        android:layout_marginEnd="208dp"
+                        app:cardCornerRadius="20dp"
+                        android:onClick="GoInsurance"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:strokeColor="@color/teal_700"
+                        app:strokeWidth="3dp">
 
-    <androidx.cardview.widget.CardView
-        android:id="@+id/card_view8"
-        android:layout_width="match_parent"
-        android:layout_height="150dp"
-        android:layout_gravity="center"
-        android:layout_marginTop="408dp"
-        android:layout_marginEnd="4dp"
-        android:onClick="Go"
-        app:cardCornerRadius="20dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:background="@drawable/insurance">
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:background="@drawable/car">
+                            <TextView
+                                android:id="@+id/textView33"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="38dp"
+                                android:layout_weight="1"
+                                android:text="Insurance Info" />
+                        </LinearLayout>
+                    </com.google.android.material.card.MaterialCardView>
 
-            <TextView
-                android:id="@+id/textView19"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:fontFamily="@font/open_sans"
-                android:paddingStart="170sp"
-                android:text="Best Practices"
-                android:textSize="15sp" />
-        </LinearLayout>
-    </androidx.cardview.widget.CardView>
+                    <com.google.android.material.card.MaterialCardView
+                        android:id="@+id/card_view7"
+                        android:layout_width="170dp"
+                        android:layout_height="130dp"
+                        android:layout_gravity="center"
+                        android:layout_marginTop="192dp"
+                        android:layout_marginEnd="208dp"
+                        android:onClick="GoSafety"
+                        app:cardCornerRadius="20dp"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:strokeColor="@color/teal_700"
+                        app:strokeWidth="3dp">
 
-            <TextView
-                android:id="@+id/textView7"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="24dp"
-                android:layout_marginEnd="136dp"
-                android:fontFamily="@font/open_sans"
-                android:text="Handbook"
-                android:textColor="@color/white"
-                android:textSize="30dp"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.992"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:background="@drawable/practices">
 
-            <TextView
-                android:id="@+id/textView20"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="76dp"
-                android:layout_marginEnd="88dp"
-                android:fontFamily="@font/open_sans"
-                android:text="Choose a topic below to learn more"
-                android:textColor="@color/white"
-                android:textSize="15dp"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.988"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
+                            <TextView
+                                android:id="@+id/textView19"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:layout_marginStart="40dp"
+                                android:text="Best Practices" />
+                        </LinearLayout>
+                    </com.google.android.material.card.MaterialCardView>
+
+                    <com.google.android.material.card.MaterialCardView
+                        android:id="@+id/card_view8"
+                        android:layout_width="170dp"
+                        android:layout_height="130dp"
+                        android:layout_gravity="center"
+                        android:layout_marginTop="336dp"
+                        android:layout_marginEnd="20dp"
+                        android:onClick="GoPractices"
+                        app:cardCornerRadius="20dp"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:strokeColor="@color/teal_700"
+                        app:strokeWidth="3dp">
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:background="@drawable/car">
+
+                            <TextView
+                                android:id="@+id/textView34"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginStart="45dp"
+                                android:layout_weight="1"
+                                android:text="Safety Tips" />
+                        </LinearLayout>
+                    </com.google.android.material.card.MaterialCardView>
+
+                    <Button
+                        android:id="@+id/button5"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="160dp"
+                        android:layout_marginTop="528dp"
+                        android:layout_marginBottom="324dp"
+                        android:onClick="Backtohome"
+                        android:text="Go Back"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintVertical_bias="1.0" />
 
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+                </androidx.constraintlayout.widget.ConstraintLayout>
 
-    </LinearLayout>
-    </ScrollView>
+            </LinearLayout>
+        </ScrollView>
     </LinearLayout>
 
     <RelativeLayout
@@ -191,8 +207,7 @@
         android:layout_gravity="start"
         android:background="@android:color/white">
 
-        <include
-            layout="@layout/main_nav_drawer"/>
+        <include layout="@layout/main_nav_drawer" />
 
 
     </RelativeLayout>

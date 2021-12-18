@@ -28,11 +28,6 @@ public class Handbook extends AppCompatActivity {
         drawerLayout = findViewById(R.id.drawer_layout);
     }
 
-    public void Go(View view) {
-        Intent n = new Intent(this, HandbookPrevention.class);
-        startActivity(n);
-    }
-
     public void clickMenu(View view){
         openDrawer(drawerLayout);
     }
@@ -112,10 +107,6 @@ public class Handbook extends AppCompatActivity {
         redirectActivity(this, Login.class);
     }
 
-    public void clickProfile(View view){
-        redirectActivity(this, ProfileUser.class);
-    }
-
     static void redirectActivity(Activity activity, Class aClass) {
         Intent intent = new Intent(activity, aClass);
 
@@ -128,5 +119,30 @@ public class Handbook extends AppCompatActivity {
     protected void onPause() {
         super.onPause();
         closeDrawer(drawerLayout);
+    }
+
+    public void GoPrevention(View view) {
+        Intent n = new Intent(this, HandbookPrevention.class);
+        startActivity(n);
+    }
+
+    public void GoInsurance(View view) {
+        Intent n = new Intent(this, HandbookInsurance.class);
+        startActivity(n);
+    }
+
+    public void GoPractices(View view) {
+        Intent n = new Intent(this, HandbookPractices.class);
+        startActivity(n);
+    }
+
+    public void GoSafety(View view) {
+        Intent n = new Intent(this, HandbookSafety.class);
+        startActivity(n);
+    }
+
+    public void Backtohome(View view) {
+        Intent n = new Intent(this, Home.class);
+        startActivity(n);
     }
 }

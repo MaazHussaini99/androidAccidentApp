@@ -35,30 +35,16 @@ public class Login extends AppCompatActivity {
         setContentView(R.layout.activity_login);
 
 
-       /* email = findViewById(R.id.email);
-        password = findViewById(R.id.password); */
+
         email2 = findViewById(R.id.email2);
         password2 = findViewById(R.id.password2);
-        //   register = findViewById(R.id.register);
+
         signIn = findViewById(R.id.signIn);
 
         auth = FirebaseAuth.getInstance();
 
-     /*   register.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                String txt_email = email.getText().toString();
-                String txt_password = password.getText().toString();
 
-                if (isEmpty(txt_email) || TextUtils.isEmpty(txt_password)) {
-                    Toast.makeText(Login.this, "Empty credentials", Toast.LENGTH_SHORT).show();
-                } else if (txt_password.length() < 6) {
-                    Toast.makeText(Login.this, "Password must be at least 6 characters", Toast.LENGTH_SHORT).show();
-                } else {
-                    registerUser(txt_email, txt_password);
-                }
-            }
-        }); */
+
 
         signIn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -79,20 +65,7 @@ public class Login extends AppCompatActivity {
     }
 
 
-   /* private void registerUser(String email, String password) {
-        auth.createUserWithEmailAndPassword(email, password).addOnCompleteListener(Login.this, new OnCompleteListener<AuthResult>() {
-            @Override
-            public void onComplete(@NonNull Task<AuthResult> task) {
-                if (task.isSuccessful()) {
-                    FirebaseUser user = auth.getCurrentUser();
-                    Toast.makeText(Login.this, "Success", Toast.LENGTH_SHORT).show();
-                } else {
-                    Toast.makeText(Login.this, "Failed", Toast.LENGTH_SHORT).show();
-                }
 
-            }
-        });
-    } */
 
 
     public void signIn(String email2, String password2) {

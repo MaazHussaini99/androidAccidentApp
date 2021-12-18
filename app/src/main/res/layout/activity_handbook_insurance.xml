@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:id="@+id/drawer_layout"
     android:background="@color/background"
-    tools:context=".HandbookPrevention">
+    tools:context=".HandbookInsurance">
 
 
     <LinearLayout
@@ -39,13 +39,13 @@
                         android:id="@+id/textView21"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginTop="32dp"
+                        android:layout_marginTop="36dp"
                         android:layout_marginEnd="71dp"
-                        android:text="Accident Prevention"
+                        android:text="Insurance"
                         android:textColor="@color/white"
                         android:textSize="30dp"
                         app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintHorizontal_bias="1.0"
+                        app:layout_constraintHorizontal_bias="0.668"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toTopOf="parent" />
 
@@ -54,7 +54,7 @@
                         android:layout_width="360dp"
                         android:layout_height="533dp"
                         android:layout_marginTop="152dp"
-                        android:text="One of the most important things you can do to prevent getting into an accident involves a concept called defensive driving.\nAAA as well as \nother institutions \noffer defensive \ndriving as a \ncourse you can \ntake. Being \na defensive driver \ninvolves that you remain calm and meticulous in your driving. You should never rush to overtake, not change lanes suddenly, and yield to aggressive drivers."
+                        android:text="Car insurance is an important aspect to accidents. Always make sure you are properly insured and have all relevant information on you at all times. Our application will walk you through collecting the relevant information. It is also important to take pictures as it will help the claim."
                         android:textColor="@color/white"
                         android:textSize="20sp"
                         app:layout_constraintEnd_toEndOf="parent"
@@ -64,10 +64,10 @@
 
                     <TextView
                         android:id="@+id/textView26"
-                        android:layout_width="350dp"
-                        android:layout_height="202dp"
+                        android:layout_width="351dp"
+                        android:layout_height="285dp"
                         android:layout_marginTop="548dp"
-                        android:text="Another important aspect to preventing accidents is to be aware of weather conditions. You also have to factor in how tired you are as well as how attentive you are being. Often times when we are tired, we are less attentive."
+                        android:text="Make sure you don't sign any documents unless it's by a police officer or an insurance agent. Do not put fault on anything until everything is settled. \n\nYou can start an insurance claim at any time and continue it later so you can even start it during an accident. It is also important to contact your insurance agent as soon as possible."
                         android:textColor="@color/white"
                         android:textSize="20sp"
                         app:layout_constraintEnd_toEndOf="parent"
@@ -79,23 +79,27 @@
                         android:id="@+id/imageView3"
                         android:layout_width="201dp"
                         android:layout_height="205dp"
-                        android:layout_marginTop="212dp"
-                        android:layout_marginEnd="12dp"
+                        android:layout_marginTop="340dp"
+                        android:layout_marginEnd="168dp"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintTop_toTopOf="parent"
                         app:shapeAppearanceOverlay="@style/ShapeAppearanceOverlay.App.CornerCut"
-                        app:srcCompat="@drawable/defensive" />
+                        app:srcCompat="@drawable/insuranceinfo" />
 
                     <Button
-                        android:id="@+id/button"
+                        android:id="@+id/button2"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginTop="783dp"
+                        android:layout_marginTop="836dp"
+                        android:layout_marginBottom="16dp"
                         android:text="Go Back"
                         android:onClick="goback"
+                        app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintHorizontal_bias="0.498"
                         app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toTopOf="parent" />
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintVertical_bias="0.0" />
                 </androidx.constraintlayout.widget.ConstraintLayout>
 
             </LinearLayout>

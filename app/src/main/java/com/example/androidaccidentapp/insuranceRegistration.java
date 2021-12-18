@@ -1,5 +1,7 @@
 package com.example.androidaccidentapp;
 
+import static android.text.TextUtils.isEmpty;
+
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.view.GravityCompat;
@@ -9,6 +11,7 @@ import android.app.Activity;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
+import android.text.TextUtils;
 import android.util.Log;
 import android.view.View;
 import android.widget.ArrayAdapter;
@@ -65,6 +68,15 @@ public class insuranceRegistration extends AppCompatActivity {
                 provider = prov.getText().toString();
                 policyNum = policyNo.getText().toString();
                 policyHolder = holder.getText().toString();
+                if (isEmpty(provider) || TextUtils.isEmpty(policyNum) || (TextUtils.isEmpty(policyHolder))) {
+                    Toast.makeText(insuranceRegistration.this, "Empty credentials", Toast.LENGTH_SHORT).show();
+                } else if (firstName.length() < 3 || firstName.length() > 30 ) {
+                    Toast.makeText(insuranceRegistration.this, "Policy holder name should be between 3 and 30 characters", Toast.LENGTH_SHORT).show();
+                }
+                else {
+                    changeToNextActivity(view);
+
+                }
 
                 changeToNextActivity(view);
             }

@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:id="@+id/drawer_layout"
     android:background="@color/background"
-    tools:context=".HandbookPrevention">
+    tools:context=".HandbookPractices">
 
 
     <LinearLayout
@@ -35,17 +35,32 @@
                     tools:layout_editor_absoluteX="-8dp"
                     tools:layout_editor_absoluteY="0dp">
 
+                    <Button
+                        android:id="@+id/button4"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="836dp"
+                        android:layout_marginBottom="16dp"
+                        android:text="Go Back"
+                        android:onClick="goback"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintHorizontal_bias="0.498"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintVertical_bias="0.0" />
+
                     <TextView
                         android:id="@+id/textView21"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="32dp"
                         android:layout_marginEnd="71dp"
-                        android:text="Accident Prevention"
+                        android:text="Best Practices"
                         android:textColor="@color/white"
                         android:textSize="30dp"
                         app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintHorizontal_bias="1.0"
+                        app:layout_constraintHorizontal_bias="0.741"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toTopOf="parent" />
 
@@ -54,7 +69,7 @@
                         android:layout_width="360dp"
                         android:layout_height="533dp"
                         android:layout_marginTop="152dp"
-                        android:text="One of the most important things you can do to prevent getting into an accident involves a concept called defensive driving.\nAAA as well as \nother institutions \noffer defensive \ndriving as a \ncourse you can \ntake. Being \na defensive driver \ninvolves that you remain calm and meticulous in your driving. You should never rush to overtake, not change lanes suddenly, and yield to aggressive drivers."
+                        android:text="There are some practices that you can take that will ensure the most safety and make the process of going through the accident easier. You should always make sure you have your seatbelt on whenever entering the car and also you will want to put on your hazard lights after an accident. Keeping your seatbelt on extends to even after the crash until police arrive in case another car collides with you."
                         android:textColor="@color/white"
                         android:textSize="20sp"
                         app:layout_constraintEnd_toEndOf="parent"
@@ -64,14 +79,14 @@
 
                     <TextView
                         android:id="@+id/textView26"
-                        android:layout_width="350dp"
-                        android:layout_height="202dp"
-                        android:layout_marginTop="548dp"
-                        android:text="Another important aspect to preventing accidents is to be aware of weather conditions. You also have to factor in how tired you are as well as how attentive you are being. Often times when we are tired, we are less attentive."
+                        android:layout_width="355dp"
+                        android:layout_height="273dp"
+                        android:layout_marginTop="528dp"
+                        android:text="Another practice you can implement is to always move the car to safety if you are able to easily do so. \n\nYou should also always call the cops after an accident, not only because you need to but also because they will help you handle the transfer of information. Documenting damage is also a very important thing to do if you want to make an insurance claim later."
                         android:textColor="@color/white"
                         android:textSize="20sp"
                         app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintHorizontal_bias="0.639"
+                        app:layout_constraintHorizontal_bias="0.714"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toTopOf="parent" />
 
@@ -79,23 +94,12 @@
                         android:id="@+id/imageView3"
                         android:layout_width="201dp"
                         android:layout_height="205dp"
-                        android:layout_marginTop="212dp"
-                        android:layout_marginEnd="12dp"
+                        android:layout_marginTop="364dp"
+                        android:layout_marginEnd="84dp"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintTop_toTopOf="parent"
                         app:shapeAppearanceOverlay="@style/ShapeAppearanceOverlay.App.CornerCut"
-                        app:srcCompat="@drawable/defensive" />
-
-                    <Button
-                        android:id="@+id/button"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="783dp"
-                        android:text="Go Back"
-                        android:onClick="goback"
-                        app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toTopOf="parent" />
+                        app:srcCompat="@drawable/practice" />
                 </androidx.constraintlayout.widget.ConstraintLayout>
 
             </LinearLayout>
@@ -109,7 +113,8 @@
         android:layout_gravity="start"
         android:background="@android:color/white">
 
-        <include layout="@layout/main_nav_drawer" />
+        <include
+            layout="@layout/main_nav_drawer"/>
 
 
     </RelativeLayout>

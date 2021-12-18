@@ -13,7 +13,7 @@ import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Toast;
 
-public class HandbookPrevention extends AppCompatActivity {
+public class HandbookPractices extends AppCompatActivity {
 
     DrawerLayout drawerLayout;
     ArrayAdapter<String> adapter;
@@ -43,7 +43,7 @@ public class HandbookPrevention extends AppCompatActivity {
     }
 
     public void openProfileDialog(View view){
-        AlertDialog.Builder profileDialog = new AlertDialog.Builder(HandbookPrevention.this);
+        AlertDialog.Builder profileDialog = new AlertDialog.Builder(HandbookPractices.this);
         //Set User Profile Dialog Title
         profileDialog.setTitle("User Account Options:");
         //List Options, when item selected, switch to that activity
@@ -53,22 +53,22 @@ public class HandbookPrevention extends AppCompatActivity {
             public void onClick(DialogInterface dialog, int which) {
                 switch (which){
                     case 0:{
-                        Intent intent = new Intent(HandbookPrevention.this, ProfileUser.class);
+                        Intent intent = new Intent(HandbookPractices.this, ProfileUser.class);
                         startActivity(intent);
                         break;
                     }
                     case 1:{
-                        Intent intent = new Intent(HandbookPrevention.this, ProfileVehicle.class);
+                        Intent intent = new Intent(HandbookPractices.this, ProfileVehicle.class);
                         startActivity(intent);
                         break;
                     }
                     case 2:{
-                        Intent intent = new Intent(HandbookPrevention.this, ProfileInsurance.class);
+                        Intent intent = new Intent(HandbookPractices.this, ProfileInsurance.class);
                         startActivity(intent);
                         break;
                     }
                     case 3:{
-                        Toast.makeText(HandbookPrevention.this, "Access User Reports", Toast.LENGTH_LONG).show();
+                        Toast.makeText(HandbookPractices.this, "Access User Reports", Toast.LENGTH_LONG).show();
 //                            Intent intent = new Intent(Home.this, InsuranceProfile.class);
 //                            startActivity(intent);
                         break;
@@ -78,7 +78,7 @@ public class HandbookPrevention extends AppCompatActivity {
         });
 
         profileDialog.setNegativeButton("Sign Out", (v, a) -> {
-            Intent intent = new Intent (HandbookPrevention.this, Login.class);
+            Intent intent = new Intent (HandbookPractices.this, Login.class);
             startActivity(intent);
             Toast.makeText(this, "Logout Successful", Toast.LENGTH_LONG).show();
             finish();
