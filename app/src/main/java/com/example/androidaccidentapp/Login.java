@@ -122,7 +122,7 @@ public class Login extends AppCompatActivity {
                             Toast.makeText(Login.this, "Authentication success.",
                                     Toast.LENGTH_SHORT).show();
                             updateUI(user);
-                            Intent n = new Intent(Login.this, driveRegistration.class);
+                            Intent n = new Intent(Login.this, Home.class);
                             startActivity(n);
 
                         } else {
