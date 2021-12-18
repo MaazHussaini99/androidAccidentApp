@@ -41,9 +41,9 @@
                 android:layout_marginTop="50dp"
                 android:fontFamily="@font/open_sans"
                 android:text=" Enter other Vehicle Details"
-                android:textAlignment="center"
+                android:textSize="40sp"
                 android:textColor="@color/white"
-                android:textSize="40sp" />
+                android:textAlignment="center"/>
 
         </RelativeLayout>
 
@@ -68,14 +68,14 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/vehicleMakeTv"
-
-                android:layout_marginLeft="10dp"
-                android:background="@drawable/rounded_corners"
                 android:fontFamily="@font/open_sans"
+                android:layout_marginLeft="10dp"
                 android:hint="  Type Something"
                 android:paddingTop="10dp"
+                android:inputType="text"
                 android:textColor="@color/black"
-                android:textColorHint="@color/gray" />
+                android:textColorHint="@color/gray"
+                android:background="@drawable/rounded_corners"/>
 
             <TextView
                 android:id="@+id/VehicleYearTv"
@@ -93,13 +93,14 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/VehicleYearTv"
-                android:layout_marginLeft="10dp"
-                android:background="@drawable/rounded_corners"
                 android:fontFamily="@font/open_sans"
                 android:hint="  Type Something"
                 android:paddingTop="10dp"
+                android:layout_marginLeft="10dp"
+                android:inputType="number"
                 android:textColor="@color/black"
-                android:textColorHint="@color/gray" />
+                android:textColorHint="@color/gray"
+                android:background="@drawable/rounded_corners"/>
 
 
             <TextView
@@ -118,13 +119,14 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/plateNoTv"
-                android:layout_marginLeft="10dp"
-                android:background="@drawable/rounded_corners"
                 android:fontFamily="@font/open_sans"
                 android:hint="  Type Something"
                 android:paddingTop="10dp"
+                android:layout_marginLeft="10dp"
+                android:inputType="text"
                 android:textColor="@color/black"
-                android:textColorHint="@color/gray" />
+                android:textColorHint="@color/gray"
+                android:background="@drawable/rounded_corners"/>
 
 
             <TextView
@@ -143,13 +145,14 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/stateTv"
-                android:layout_marginLeft="10dp"
-                android:background="@drawable/rounded_corners"
                 android:fontFamily="@font/open_sans"
                 android:hint="  Type Something"
                 android:paddingTop="10dp"
+                android:layout_marginLeft="10dp"
+                android:inputType="text"
                 android:textColor="@color/black"
-                android:textColorHint="@color/gray" />
+                android:textColorHint="@color/gray"
+                android:background="@drawable/rounded_corners"/>
 
 
             <TextView
@@ -168,13 +171,14 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/vehicleTypeTv"
-                android:layout_marginLeft="10dp"
-                android:background="@drawable/rounded_corners"
                 android:fontFamily="@font/open_sans"
                 android:hint="  Type Something"
+                android:inputType="text"
                 android:paddingTop="10dp"
+                android:layout_marginLeft="10dp"
                 android:textColor="@color/black"
-                android:textColorHint="@color/gray" />
+                android:textColorHint="@color/gray"
+                android:background="@drawable/rounded_corners"/>
 
             <TextView
                 android:id="@+id/spinnerText"

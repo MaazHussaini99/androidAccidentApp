@@ -1,5 +1,7 @@
 package com.example.androidaccidentapp;
 
+import static android.text.TextUtils.isEmpty;
+
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.view.GravityCompat;
@@ -9,6 +11,8 @@ import android.app.Activity;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
+import android.text.TextUtils;
+import android.util.Log;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
@@ -51,6 +55,7 @@ public class driveRegistration extends AppCompatActivity {
         nxt = findViewById(R.id.saveInsuranceInfo);
 
 
+
         nxt.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -61,7 +66,19 @@ public class driveRegistration extends AppCompatActivity {
                 licenceNum = licence.getText().toString();
                 iceNum = iceContact.getText().toString();
 
-                changeToNextActivity(view);
+                if (isEmpty(firstName) || TextUtils.isEmpty(lastName) || (TextUtils.isEmpty(dateOfBirth)
+                        || (TextUtils.isEmpty(addressDriver) || TextUtils.isEmpty(licenceNum)))) {
+                    Toast.makeText(driveRegistration.this, "Empty credentials", Toast.LENGTH_SHORT).show();
+                } else if (firstName.length() < 3 || firstName.length() > 30 || //makes sure first name and last name are within 3 to 30 chars
+                        lastName.length() < 3 || lastName.length() > 30){
+                    Toast.makeText(driveRegistration.this, "First name and last name must be between 3 and 30 characters", Toast.LENGTH_SHORT).show();
+                }
+                else if (licenceNum.length() < 8) {
+                    Toast.makeText(driveRegistration.this, "License should be at least 8 characters", Toast.LENGTH_SHORT).show();
+                }
+                else{
+                    changeToNextActivity(view);
+                }
             }
         });
 
@@ -77,6 +94,7 @@ public class driveRegistration extends AppCompatActivity {
         intent.putExtra("Address", addressDriver);
         intent.putExtra("DriverLicence", licenceNum);
         intent.putExtra("ICE Contact", iceNum);
+        Log.d("iceNum", ""+ iceNum);
         this.startActivity(intent);
     }
 

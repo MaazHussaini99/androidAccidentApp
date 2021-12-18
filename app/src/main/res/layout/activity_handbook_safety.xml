@@ -6,7 +6,7 @@
     android:layout_height="match_parent"
     android:id="@+id/drawer_layout"
     android:background="@color/background"
-    tools:context=".HandbookPrevention">
+    tools:context=".HandbookSafety">
 
 
     <LinearLayout
@@ -35,17 +35,34 @@
                     tools:layout_editor_absoluteX="-8dp"
                     tools:layout_editor_absoluteY="0dp">
 
+                    <Button
+                        android:id="@+id/button3"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="836dp"
+                        android:onClick="goback"
+                        android:layout_marginBottom="16dp"
+                        android:text="Go Back"
+                        android:textColor="@color/black"
+                        android:textStyle="bold"
+                        android:backgroundTint="@color/newButtonGray"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintHorizontal_bias="0.498"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
                     <TextView
                         android:id="@+id/textView21"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginTop="32dp"
+                        android:layout_marginTop="16dp"
                         android:layout_marginEnd="71dp"
-                        android:text="Accident Prevention"
+                        android:text="Accident Safety"
                         android:textColor="@color/white"
                         android:textSize="30dp"
                         app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintHorizontal_bias="1.0"
+                        app:layout_constraintHorizontal_bias="0.769"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toTopOf="parent" />
 
@@ -53,12 +70,12 @@
                         android:id="@+id/textView24"
                         android:layout_width="360dp"
                         android:layout_height="533dp"
-                        android:layout_marginTop="152dp"
-                        android:text="One of the most important things you can do to prevent getting into an accident involves a concept called defensive driving.\nAAA as well as \nother institutions \noffer defensive \ndriving as a \ncourse you can \ntake. Being \na defensive driver \ninvolves that you remain calm and meticulous in your driving. You should never rush to overtake, not change lanes suddenly, and yield to aggressive drivers."
+                        android:layout_marginTop="64dp"
+                        android:text="There are a few important safety tips for keeping you and others secure. Make sure you always have your seatbelts on. Another one is leaving your hazard lights on after you get into an accident. This is not just for your own security but also for other motorists since they might not expect a stopped car."
                         android:textColor="@color/white"
                         android:textSize="20sp"
                         app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintHorizontal_bias="0.764"
+                        app:layout_constraintHorizontal_bias="0.745"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toTopOf="parent" />
 
@@ -66,39 +83,38 @@
                         android:id="@+id/textView26"
                         android:layout_width="350dp"
                         android:layout_height="202dp"
-                        android:layout_marginTop="548dp"
-                        android:text="Another important aspect to preventing accidents is to be aware of weather conditions. You also have to factor in how tired you are as well as how attentive you are being. Often times when we are tired, we are less attentive."
+                        android:layout_marginTop="400dp"
+                        android:text="The third tip is for personal safety. You should not engage with angry drivers. Be cautious when interacting with the other person in the vehicle as they may be hostile. If they are, wait for police to arrive to help the situation so you can get their information properly."
                         android:textColor="@color/white"
                         android:textSize="20sp"
                         app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintHorizontal_bias="0.639"
+                        app:layout_constraintHorizontal_bias="0.622"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <TextView
+                        android:id="@+id/textView31"
+                        android:layout_width="352dp"
+                        android:layout_height="259dp"
+                        android:layout_marginTop="572dp"
+                        android:text="The last tip is for personal safety. You should not engage with angry drivers. Be cautious when interacting with the other person in the vehicle as they may be hostile. Wait for police to arrive to help the situation so you can get their information. While most accidents don't involve fire, gasoline or smells of a fire should prompt you to immediately leave your vehicle and get to safety."
+                        android:textColor="@color/white"
+                        android:textSize="20sp"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        app:layout_constraintHorizontal_bias="0.644"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toTopOf="parent" />
 
                     <com.google.android.material.imageview.ShapeableImageView
                         android:id="@+id/imageView3"
-                        android:layout_width="201dp"
-                        android:layout_height="205dp"
-                        android:layout_marginTop="212dp"
-                        android:layout_marginEnd="12dp"
+                        android:layout_width="170dp"
+                        android:layout_height="136dp"
+                        android:layout_marginTop="264dp"
+                        android:layout_marginEnd="108dp"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintTop_toTopOf="parent"
                         app:shapeAppearanceOverlay="@style/ShapeAppearanceOverlay.App.CornerCut"
-                        app:srcCompat="@drawable/defensive" />
-
-                    <Button
-                        android:id="@+id/button"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="783dp"
-                        android:text="Go Back"
-                        android:onClick="goback"
-                        android:textColor="@color/black"
-                        android:textStyle="bold"
-                        android:backgroundTint="@color/newButtonGray"
-                        app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toTopOf="parent" />
+                        app:srcCompat="@drawable/safety" />
                 </androidx.constraintlayout.widget.ConstraintLayout>
 
             </LinearLayout>

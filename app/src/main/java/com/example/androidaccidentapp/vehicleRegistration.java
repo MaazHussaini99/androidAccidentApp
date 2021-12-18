@@ -1,5 +1,7 @@
 package com.example.androidaccidentapp;
 
+import static android.text.TextUtils.isEmpty;
+
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.view.GravityCompat;
@@ -9,6 +11,8 @@ import android.app.Activity;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
+import android.text.TextUtils;
+import android.util.Log;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
@@ -73,7 +77,19 @@ public class vehicleRegistration extends AppCompatActivity {
                 vehicleState = state.getText().toString();
                 vehicleType = type.getText().toString();
 
-                changeToNextActivity(view);
+                if (isEmpty(vehicleMake) || TextUtils.isEmpty(vehicleYear) || (TextUtils.isEmpty(vehiclePlate)
+                        || (TextUtils.isEmpty(vehicleState) || TextUtils.isEmpty(vehicleType)))) {
+                    Toast.makeText(vehicleRegistration.this, "Empty credentials", Toast.LENGTH_SHORT).show();
+                } else if (vehicleYear.length() != 4){
+                    Toast.makeText(vehicleRegistration.this, "Vehicle year must be 4 digits (YYYY)", Toast.LENGTH_SHORT).show();
+                }
+                else if (vehiclePlate.length() < 2 || vehiclePlate.length() > 8 ) {
+                    Toast.makeText(vehicleRegistration.this, "Vehicle plate should be between 2 and 8 characters", Toast.LENGTH_SHORT).show();
+                }
+                else {
+                    changeToNextActivity(view);
+
+                }
             }
         });
     }
@@ -97,6 +113,7 @@ public class vehicleRegistration extends AppCompatActivity {
         intent.putExtra("VehiclePlate", vehiclePlate);
         intent.putExtra("VehicleState", vehicleState);
         intent.putExtra("VehicleType", vehicleType);
+        Log.d("iceNum", ""+ iceNum);
         this.startActivity(intent);
     }
 

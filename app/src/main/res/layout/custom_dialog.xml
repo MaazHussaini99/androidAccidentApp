@@ -50,6 +50,9 @@
             android:layout_centerHorizontal="true"
             android:fontFamily="@font/open_sans"
             android:onClick="saveAddress"
+            android:textColor="@color/black"
+            android:textStyle="bold"
+            android:backgroundTint="@color/newButtonGray"
             android:text="@string/saveAddressButtonText" />
 
         <Button
@@ -59,6 +62,9 @@
             android:layout_below="@+id/submit_login_button"
             android:layout_centerHorizontal="true"
             android:fontFamily="@font/open_sans"
+            android:textColor="@color/black"
+            android:textStyle="bold"
+            android:backgroundTint="@color/newButtonGray"
             android:onClick="enterManually"
             android:text="@string/enterManuallyButtonText" />
     </RelativeLayout>

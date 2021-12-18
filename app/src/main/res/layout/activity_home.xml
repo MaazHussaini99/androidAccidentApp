@@ -31,17 +31,20 @@
                 android:textSize="28sp"
                 app:layout_constraintLeft_toLeftOf="parent"
                 app:layout_constraintRight_toRightOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
+                app:layout_constraintTop_toBottomOf="@+id/main_toolbar" />
 
 
             <Button
                 android:id="@+id/step_by_step"
                 android:layout_width="250dp"
                 android:layout_height="60dp"
+
                 android:fontFamily="@font/open_sans"
-                android:layout_marginTop="80dp"
-                android:onClick="onClick"
+                android:backgroundTint="@color/white"
                 android:text="Report Accident(Step-By-Step)"
+                android:layout_marginTop="80dp"
+
+                android:onClick="onClick"
                 app:layout_constraintLeft_toLeftOf="parent"
                 app:layout_constraintRight_toRightOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/greeting" />
@@ -50,13 +53,14 @@
                 android:id="@+id/info_exchange"
                 android:layout_width="250dp"
                 android:layout_height="60dp"
-                android:layout_marginTop="25dp"
                 android:fontFamily="@font/open_sans"
+                android:backgroundTint="@color/white"
+                android:layout_marginTop="25dp"
                 android:text="Information Exchange"
                 android:onClick="onClick"
-                app:layout_constraintTop_toBottomOf="@id/step_by_step"
                 app:layout_constraintLeft_toLeftOf="parent"
-                app:layout_constraintRight_toRightOf="parent" />
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/step_by_step" />
 
             <Button
                 android:id="@+id/handbook"
@@ -64,6 +68,7 @@
                 android:layout_height="60dp"
                 android:layout_marginTop="25dp"
                 android:fontFamily="@font/open_sans"
+                android:backgroundTint="@color/white"
                 android:onClick="onClick"
                 android:text="Handbook"
                 app:layout_constraintLeft_toLeftOf="parent"
@@ -76,12 +81,26 @@
                 android:layout_height="60dp"
                 android:layout_marginTop="25dp"
                 android:fontFamily="@font/open_sans"
+                android:backgroundTint="@color/white"
                 android:onClick="onClick"
+
                 android:text="View Reports"
+
                 app:layout_constraintLeft_toLeftOf="parent"
                 app:layout_constraintRight_toRightOf="parent"
                 app:layout_constraintTop_toBottomOf="@id/handbook" />
 
+            <com.google.android.gms.ads.AdView
+                xmlns:ads="http://schemas.android.com/apk/res-auto"
+                android:id="@+id/adViewHome"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                ads:flow_horizontalAlign="center"
+                android:layout_alignParentBottom="true"
+                ads:adSize="BANNER"
+                ads:adUnitId="ca-app-pub-3940256099942544/6300978111"
+                ads:layout_constraintBottom_toBottomOf="parent"
+                />
         </androidx.constraintlayout.widget.ConstraintLayout>
 
     </LinearLayout>
