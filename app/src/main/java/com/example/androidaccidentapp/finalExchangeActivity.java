@@ -16,6 +16,7 @@ import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -28,8 +29,10 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
+import java.io.File;
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.Set;
 
 public class finalExchangeActivity extends AppCompatActivity {
 
@@ -94,8 +97,14 @@ public class finalExchangeActivity extends AppCompatActivity {
         imageFileNames = getIntent().getStringArrayListExtra("Image Names");
         Intent intent = getIntent();
         imageList = (HashMap<String, Object>)intent.getSerializableExtra("Images");
-        Log.d("firebase", "Maaz logging data " + String.valueOf(imageList));
+        Log.d("firebase", "Maaz logging data Images" + imageList);
 
+//        String name;
+//        String path;
+//        Set<String> keys = imageList.keySet();
+//        for(String key : keys){
+//            name = key
+//        }
 
         fName = findViewById(R.id.firstName);
         lName = findViewById(R.id.lastName);
@@ -165,7 +174,15 @@ public class finalExchangeActivity extends AppCompatActivity {
 
         dbRef.child(currentUser.getUid()).child("Accident Reports").child(reportName).updateChildren(map, completionListener);
 
-        //dbRef.child(currentUser.getUid()).child("Accident Reports").child(reportName).child("images").updateChildren(imageList, completionListener);
+        Set<String> Keys = imageList.keySet();
+        for (String key : Keys){
+            int i = 0;
+            String imageName = ("Image" + i);
+            dbRef.child(currentUser.getUid()).child("Accident Reports").child(reportName).child("images").child(imageName).setValue(String.valueOf(imageList.get(key)), completionListener);
+            i++;
+        }
+
+
 
 
 //        dbRef.child(currentUser.getUid()).child("Accident Reports").child("Maaz 1").get().addOnCompleteListener(new OnCompleteListener<DataSnapshot>() {
@@ -206,6 +223,8 @@ public class finalExchangeActivity extends AppCompatActivity {
     public void changeToNextActivity(View v){
         Intent intent = new Intent(this, GeneratePDF.class);
         intent.putExtra("Report Name", reportName);
+        intent.putExtra("Images", imageList);
+        intent.putExtra("userVehicle", UsersVehicle);
         this.startActivity(intent);
     }
 

@@ -58,7 +58,6 @@ public class Camera extends AppCompatActivity {
     Button cameraBtn, galleryBtn, uploadBtn;
     String currentPhotoPath;
     StorageReference dbStorage;
-
     DrawerLayout drawerLayout;
     ArrayAdapter<String> adapter;
 
@@ -98,7 +97,7 @@ public class Camera extends AppCompatActivity {
         policyNum = getIntent().getStringExtra("Policy Number");
         policyHolder = getIntent().getStringExtra("Holder");
 
-        vehicleMake = getIntent().getStringExtra("Make");
+        vehicleMake = getIntent().getStringExtra("VehicleMake");
         vehicleYear = getIntent().getStringExtra("VehicleYear");
         vehiclePlate = getIntent().getStringExtra("VehiclePlate");
         vehicleState = getIntent().getStringExtra("VehicleState");
