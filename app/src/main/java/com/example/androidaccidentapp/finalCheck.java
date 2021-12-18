@@ -69,6 +69,7 @@ public class finalCheck extends AppCompatActivity {
         DOB = findViewById(R.id.DOB);
         Address = findViewById(R.id.Address);
         license = findViewById(R.id.license);
+        iceContact = findViewById(R.id.iceContact);
 
         insProvider = findViewById(R.id.insProvider);
         insPolicyNum = findViewById(R.id.insPolicyNum);
